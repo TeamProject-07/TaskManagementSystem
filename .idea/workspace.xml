@@ -4,13 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f4d32bab-62d7-485a-a9dd-6cb272e43dff" name="Changes" comment="Added Helpers and Enums">
+    <list default="true" id="f4d32bab-62d7-485a-a9dd-6cb272e43dff" name="Changes" comment="Update Interfaces">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/models/HistoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/models/HistoryImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/models/MemberImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/models/MemberImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/models/contracts/Identifiable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/models/contracts/Identifiable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/models/contracts/Task.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/models/contracts/Task.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/models/contracts/Team.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/models/contracts/Team.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/core/TaskManagementSystemRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/core/TaskManagementSystemRepositoryImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/core/contracts/TaskManagementSystemRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/core/contracts/TaskManagementSystemRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/models/contracts/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/models/contracts/Board.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/models/tasks/TaskBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/models/tasks/TaskBase.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,7 +97,14 @@
       <option name="project" value="LOCAL" />
       <updated>1691408660612</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Update Interfaces">
+      <created>1691411686850</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1691411686850</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -117,6 +123,7 @@
     <MESSAGE value="Added additional libraries" />
     <MESSAGE value="Added additional .gitignore" />
     <MESSAGE value="Added Helpers and Enums" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Helpers and Enums" />
+    <MESSAGE value="Update Interfaces" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update Interfaces" />
   </component>
 </project>
