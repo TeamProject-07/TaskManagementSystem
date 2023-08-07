@@ -1,4 +1,4 @@
 package com.management.oop.project.models.contracts;
 
-public interface Board {
+public interface Board extends Team{
 }

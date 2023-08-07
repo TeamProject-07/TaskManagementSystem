@@ -2,8 +2,8 @@ package com.management.oop.project.models.contracts;
 
 import java.util.List;
 
-public interface Task {
-     int getId();
+public interface Task extends Commentable, Identifiable{
+
 
      String getTitle();
 
