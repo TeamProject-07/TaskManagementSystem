@@ -1,6 +1,7 @@
 package com.management.oop.project.core;
 
 import com.management.oop.project.core.contracts.TaskManagementSystemRepository;
+import com.management.oop.project.models.contracts.Board;
 import com.management.oop.project.models.contracts.Person;
 import com.management.oop.project.models.contracts.Task;
 import com.management.oop.project.models.contracts.Team;
@@ -13,9 +14,11 @@ public class TaskManagementSystemRepositoryImpl implements TaskManagementSystemR
     public static final String TEAM_NOT_FOUND = "Team not found.";
     public static final String PERSON_HAS_TEAM_ERROR = "Person with name %s already have team.";
     private int nextId;
-    private final List<Team> teams = new ArrayList<>();
+    private static final List<Team> teams = new ArrayList<>();
     private final List<Person> people = new ArrayList<>();
     private final List<Task> tasks = new ArrayList<>();
+    private final List<Board> boards = new ArrayList<>();
+
 
     public TaskManagementSystemRepositoryImpl() {
         nextId = 0;
@@ -70,7 +73,17 @@ public class TaskManagementSystemRepositoryImpl implements TaskManagementSystemR
         }
         return false;
     }
-//    @Override
+
+    @Override
+    public boolean boardExist(String boardName) {
+        for (Board board : boards) {
+            if (board.getName().equalsIgnoreCase(boardName)){
+                return true;
+            }
+        }
+        return false;
+    }
+    //    @Override
 //    public void addPersonToTeam(Person person, Team team) {
 //        Person person= findPersonByName(personName);
 //    }

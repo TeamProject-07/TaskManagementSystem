@@ -32,6 +32,8 @@ public interface TaskManagementSystemRepository {
     Team findTeamByName(String teamName);
 
     boolean ifPersonIsInTeam(Person person, Team team);
+    boolean boardExist(String boardName);
+    Board createBoard(String boardName);
 
     Bug createBug(String title, String description, List<String> steps,
                   PriorityEnum priorityEnum, SeverityEnum severityEnum,
