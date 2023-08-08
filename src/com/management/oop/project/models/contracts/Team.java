@@ -1,8 +1,8 @@
 package com.management.oop.project.models.contracts;
 
-import com.management.oop.project.models.PersonImpl;
-
-public interface Team extends Task, History{
+public interface Team extends History{
 
     Person getPerson();
+    String getName();
+    int getId();
 }

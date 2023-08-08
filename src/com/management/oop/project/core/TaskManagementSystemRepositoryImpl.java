@@ -10,6 +10,8 @@ import java.util.List;
 
 public class TaskManagementSystemRepositoryImpl implements TaskManagementSystemRepository {
     public static final String PERSON_NOT_FOUND = "Person not found";
+    public static final String TEAM_NOT_FOUND = "Team not found.";
+    public static final String PERSON_HAS_TEAM_ERROR = "Person with name %s already have team.";
     private int nextId;
     private final List<Team> teams = new ArrayList<>();
     private final List<Person> people = new ArrayList<>();
@@ -54,9 +56,22 @@ public class TaskManagementSystemRepositoryImpl implements TaskManagementSystemR
     }
 
     @Override
-    public void addPersonToTeam(String personName, String teamName) {
-
+    public Team findTeamByName(String teamName) {
+        for (Team team : teams) {
+            if (team.getName().equalsIgnoreCase(teamName)){
+                return team;
+            }
+        }
+        throw new IllegalArgumentException(TEAM_NOT_FOUND);
     }
-
-
+    public boolean ifPersonIsInTeam(Person person, Team team) {
+            if (team.getPerson().getName().contains(person.getName())){
+                throw new IllegalArgumentException(String.format(PERSON_HAS_TEAM_ERROR, person.getName()));
+        }
+        return false;
+    }
+//    @Override
+//    public void addPersonToTeam(Person person, Team team) {
+//        Person person= findPersonByName(personName);
+//    }
 }
