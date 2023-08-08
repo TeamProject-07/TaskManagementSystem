@@ -21,7 +21,14 @@ public interface TaskManagementSystemRepository {
     Task findTaskById(int id);
 
     Person createPerson(String name);
-    public boolean personExist(String name);
+   boolean personExist(String name);
+
+    boolean personHasTeam(String personName);
+
+    Person findPersonByName(String personName);
+
+    void addPersonToTeam(String personName, String teamName);
+    }
 
 
-}
+

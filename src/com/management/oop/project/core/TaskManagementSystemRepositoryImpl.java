@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TaskManagementSystemRepositoryImpl implements TaskManagementSystemRepository {
+    public static final String PERSON_NOT_FOUND = "Person not found";
     private int nextId;
     private final List<Team> teams = new ArrayList<>();
     private final List<Person> people = new ArrayList<>();
@@ -29,4 +30,33 @@ public class TaskManagementSystemRepositoryImpl implements TaskManagementSystemR
         }
         return exists;
     }
+
+    @Override
+    public boolean personHasTeam(String personName) {
+        boolean exists = false;
+        for (Team team: teams){
+            if (team.getPerson().getName().equalsIgnoreCase(personName)){
+                exists = true;
+                break;
+            }
+        }
+        return exists;
+    }
+
+    @Override
+    public Person findPersonByName(String personName) {
+        for (Person person : people){
+            if (person.getName().equalsIgnoreCase(personName)){
+                return person;
+            }
+        }
+        throw new IllegalArgumentException(PERSON_NOT_FOUND);
+    }
+
+    @Override
+    public void addPersonToTeam(String personName, String teamName) {
+
+    }
+
+
 }
