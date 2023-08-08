@@ -1,6 +1,6 @@
 package com.management.oop.project.core.contracts;
 
-import com.management.oop.project.models.contracts.Member;
+import com.management.oop.project.models.contracts.Person;
 import com.management.oop.project.models.contracts.Task;
 import com.management.oop.project.models.contracts.Team;
 
@@ -10,16 +10,18 @@ public interface TaskManagementSystemRepository {
 
     List<Team> getTeams();
 
-    List<Member> getMembers();
+    List<Person> getPeople();
 
     List<Task> getTasks();
 
     Team findTeamById(int id);
 
-    Member findMemberById(int id);
+    Person findMemberById(int id);
 
     Task findTaskById(int id);
 
-    Member createMember();
+    Person createPerson(String name);
+    public boolean personExist(String name);
+
 
 }
