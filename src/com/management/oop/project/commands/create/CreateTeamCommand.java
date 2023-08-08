@@ -1,4 +1,34 @@
 package com.management.oop.project.commands.create;
 
-public class CreateTeamCommand {
+import com.management.oop.project.commands.contracts.Command;
+import com.management.oop.project.core.contracts.TaskManagementSystemRepository;
+import com.management.oop.project.utils.ValidationHelpers;
+
+import java.util.List;
+
+public class CreateTeamCommand implements Command {
+
+    public static final int EXPECTED_NUMBER_OF_ARGUMENTS = 1;
+    public static final String TEAM_CREATED = "Team with name %s was created.";
+    public static final String TEAM_EXISTS_ERROR = "Team with name %s already exists";
+    private final TaskManagementSystemRepository taskManagementSystemRepository;
+
+    public CreateTeamCommand(TaskManagementSystemRepository taskManagementSystemRepository) {
+        this.taskManagementSystemRepository = taskManagementSystemRepository;
+    }
+
+    @Override
+    public String execute(List<String> parameters) {
+        ValidationHelpers.validateArgumentsCount(parameters, EXPECTED_NUMBER_OF_ARGUMENTS);
+        String teamName = parameters.get(0);
+        return createTeam(teamName);
+    }
+
+    private String createTeam(String teamName) {
+        if (taskManagementSystemRepository.teamExist(teamName)) {
+            throw new IllegalArgumentException(String.format(TEAM_EXISTS_ERROR, teamName));
+        }
+        taskManagementSystemRepository.createTeam(teamName);
+        return String.format(TEAM_CREATED, teamName);
+    }
 }

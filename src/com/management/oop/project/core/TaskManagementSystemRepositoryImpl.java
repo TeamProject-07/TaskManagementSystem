@@ -70,6 +70,23 @@ public class TaskManagementSystemRepositoryImpl implements TaskManagementSystemR
         }
         return false;
     }
+
+    @Override
+    public boolean teamExist(String teamName) {
+        boolean exists = false;
+
+        for (Team team: teams){
+            if (team.getName().equalsIgnoreCase(teamName)){
+                exists = true;
+                break;
+            }
+        }
+        return exists;
+    }
+
+
+
+
 //    @Override
 //    public void addPersonToTeam(Person person, Team team) {
 //        Person person= findPersonByName(personName);

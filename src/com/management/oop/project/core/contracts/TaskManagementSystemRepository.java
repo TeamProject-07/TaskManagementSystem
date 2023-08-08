@@ -44,6 +44,11 @@ public interface TaskManagementSystemRepository {
 
     Feedback createFeedback(String title, String description, int rating,
                             FeedbackStatusEnum feedbackStatusEnum, List<Comment> comments);
+
+    boolean teamExist(String teamName);
+
+    void createTeam(String teamName);
+
 }
 
 
