@@ -20,7 +20,6 @@ public abstract class TaskBase implements Task {
             DESCRIPTION_MIN_LENGTH, DESCRIPTION_MAX_LENGTH);
     private String title;
     private String description;
-    private int id;
     private List<Comment> comments;
     private List<History> histories;
 
@@ -54,7 +53,7 @@ public abstract class TaskBase implements Task {
 
     @Override
     public int getId() {
-        return id;
+        return 0;
     }
 
 

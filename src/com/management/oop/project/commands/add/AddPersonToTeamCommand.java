@@ -4,12 +4,12 @@ import com.management.oop.project.commands.contracts.Command;
 import com.management.oop.project.core.contracts.TaskManagementSystemRepository;
 import com.management.oop.project.models.contracts.Person;
 import com.management.oop.project.models.contracts.Team;
+import com.management.oop.project.utils.ValidationHelpers;
 
 import java.util.List;
 
 public class AddPersonToTeamCommand implements Command {
-    public static final int EXPECTED_NUMBER_OF_ARGUMENTS = 1;
-    public static final String PERSON_ADDED_TO_TEAM = "Person % was added to team";
+    public static final int EXPECTED_NUMBER_OF_ARGUMENTS = 2;
     public static final String PERSON_ALREADY_ADDED_ERROR = "Person already is in this team.";
     public static final String PERSON_ADDED = "Person added to team.";
     private final TaskManagementSystemRepository taskManagementSystemRepository;
@@ -21,7 +21,10 @@ public class AddPersonToTeamCommand implements Command {
 
     @Override
     public String execute(List<String> parameters) {
-        return null;
+        ValidationHelpers.validateArgumentsCount(parameters, EXPECTED_NUMBER_OF_ARGUMENTS);
+        String personName = parameters.get(0);
+        String teamName = parameters.get(1);
+        return addPersonToTeam(personName, teamName);
     }
 
 

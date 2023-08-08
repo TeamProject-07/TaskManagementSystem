@@ -1,8 +1,7 @@
 package com.management.oop.project.core.contracts;
 
-import com.management.oop.project.models.contracts.Person;
-import com.management.oop.project.models.contracts.Task;
-import com.management.oop.project.models.contracts.Team;
+import com.management.oop.project.models.contracts.*;
+import com.management.oop.project.models.enums.*;
 
 import java.util.List;
 
@@ -31,7 +30,20 @@ public interface TaskManagementSystemRepository {
     void addPersonToTeam(Person person, Team team);
 
     Team findTeamByName(String teamName);
+
     boolean ifPersonIsInTeam(Person person, Team team);
+
+    Bug createBug(String title, String description, List<String> steps,
+                  PriorityEnum priorityEnum, SeverityEnum severityEnum,
+                  BugStatusEnum bugStatusEnum, String assignee,
+                  List<Comment> comments);
+
+    Story createStory(String title, String description, PriorityEnum priorityEnum,
+                      StorySizeEnum storySizeEnum, StoryStatusEnum storyStatusEnum,
+                      String assignee, List<Comment> comments);
+
+    Feedback createFeedback(String title, String description, int rating,
+                            FeedbackStatusEnum feedbackStatusEnum, List<Comment> comments);
 }
 
 
