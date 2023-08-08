@@ -1,0 +1,11 @@
+Index: src/com/management/oop/project/models/contracts/Member.java
+===================================================================
+diff --git a/src/com/management/oop/project/models/contracts/Member.java b/src/com/management/oop/project/models/contracts/Member.java
+--- a/src/com/management/oop/project/models/contracts/Member.java	
++++ b/src/com/management/oop/project/models/contracts/Member.java	
+@@ -1,4 +1,4 @@
+ package com.management.oop.project.models.contracts;
+ 
+-public interface Member extends Team{
++public interface Member {
+ }
