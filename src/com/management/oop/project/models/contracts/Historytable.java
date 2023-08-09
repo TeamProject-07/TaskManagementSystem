@@ -4,5 +4,5 @@ import java.util.List;
 
 public interface Historytable {
 
-    List<History> getHistory();
+    List<EventLog> getHistory();
 }

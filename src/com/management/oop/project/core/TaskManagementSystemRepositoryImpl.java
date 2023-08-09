@@ -1,10 +1,8 @@
 package com.management.oop.project.core;
 
 import com.management.oop.project.core.contracts.TaskManagementSystemRepository;
-import com.management.oop.project.models.contracts.Board;
-import com.management.oop.project.models.contracts.Person;
-import com.management.oop.project.models.contracts.Task;
-import com.management.oop.project.models.contracts.Team;
+import com.management.oop.project.models.contracts.*;
+import com.management.oop.project.models.enums.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,10 +24,10 @@ public class TaskManagementSystemRepositoryImpl implements TaskManagementSystemR
 
     @Override
     public boolean personExist(String personName) {
-        boolean exists= false;
+        boolean exists = false;
         for (Person person : people) {
-            if (person.getName().equalsIgnoreCase(personName)){
-                exists=true;
+            if (person.getName().equalsIgnoreCase(personName)) {
+                exists = true;
                 break;
             }
         }
@@ -39,10 +37,12 @@ public class TaskManagementSystemRepositoryImpl implements TaskManagementSystemR
     @Override
     public boolean personHasTeam(String personName) {
         boolean exists = false;
-        for (Team team: teams){
-            if (team.getPerson().getName().equalsIgnoreCase(personName)){
-                exists = true;
-                break;
+        for (Team team : teams) {
+            for (Person person : team.getPeople()) {
+                if (person.getName().equalsIgnoreCase(personName)) {
+                    exists = true;
+                    break;
+                }
             }
         }
         return exists;
@@ -50,8 +50,8 @@ public class TaskManagementSystemRepositoryImpl implements TaskManagementSystemR
 
     @Override
     public Person findPersonByName(String personName) {
-        for (Person person : people){
-            if (person.getName().equalsIgnoreCase(personName)){
+        for (Person person : people) {
+            if (person.getName().equalsIgnoreCase(personName)) {
                 return person;
             }
         }
@@ -61,27 +61,54 @@ public class TaskManagementSystemRepositoryImpl implements TaskManagementSystemR
     @Override
     public Team findTeamByName(String teamName) {
         for (Team team : teams) {
-            if (team.getName().equalsIgnoreCase(teamName)){
+            if (team.getName().equalsIgnoreCase(teamName)) {
                 return team;
             }
         }
         throw new IllegalArgumentException(TEAM_NOT_FOUND);
     }
-    public boolean ifPersonIsInTeam(Person person, Team team) {
-            if (team.getPerson().getName().contains(person.getName())){
-                throw new IllegalArgumentException(String.format(PERSON_HAS_TEAM_ERROR, person.getName()));
+
+    @Override
+    public boolean boardExist(String boardName) {
+        for (Board board : boards) {
+            if (board.getName().equalsIgnoreCase(boardName)) {
+                return true;
+            }
         }
         return false;
     }
 
     @Override
-    public boolean boardExist(String boardName) {
-        for (Board board : boards) {
-            if (board.getName().equalsIgnoreCase(boardName)){
-                return true;
-            }
-        }
-        return false;
+    public Person createPerson(String name) {
+        return null;
+    }
+
+    @Override
+    public void addPersonToTeam(Person person, Team team) {
+
+    }
+
+    @Override
+    public Board createBoard(String boardName) {
+        return null;
+    }
+
+    @Override
+    public Bug createBug(String title, String description, List<String> steps, PriorityEnum priorityEnum,
+                         BugSeverityEnum bugSeverityEnum, BugStatusEnum bugStatusEnum, Person assignee, List<Comment> comments) {
+        return null;
+    }
+
+    @Override
+    public Story createStory(String title, String description, PriorityEnum priorityEnum, StorySizeEnum storySizeEnum,
+                             StoryStatusEnum storyStatusEnum, Person assignee, List<Comment> comments) {
+        return null;
+    }
+
+    @Override
+    public Feedback createFeedback(String title, String description, int rating, FeedbackStatusEnum feedbackStatusEnum,
+                                   List<Comment> comments) {
+        return null;
     }
     //    @Override
 //    public void addPersonToTeam(Person person, Team team) {

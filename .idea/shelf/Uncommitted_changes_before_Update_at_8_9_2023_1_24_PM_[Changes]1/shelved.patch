@@ -1,0 +1,90 @@
+Index: src/com/management/oop/project/commands/show/ShowAllTeamsCommand.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/com/management/oop/project/commands/show/ShowAllTeamsCommand.java b/src/com/management/oop/project/commands/show/ShowAllTeamsCommand.java
+--- a/src/com/management/oop/project/commands/show/ShowAllTeamsCommand.java	
++++ b/src/com/management/oop/project/commands/show/ShowAllTeamsCommand.java	
+@@ -1,4 +1,35 @@
+ package com.management.oop.project.commands.show;
+ 
+-public class ShowAllTeamsCommand {
++import com.management.oop.project.commands.contracts.Command;
++import com.management.oop.project.core.contracts.TaskManagementSystemRepository;
++import com.management.oop.project.models.contracts.Person;
++import com.management.oop.project.models.contracts.Team;
++import com.management.oop.project.utils.ValidationHelpers;
++
++import java.util.List;
++
++public class ShowAllTeamsCommand implements Command {
++
++    private final TaskManagementSystemRepository taskManagementSystemRepository;
++
++    public ShowAllTeamsCommand(TaskManagementSystemRepository taskManagementSystemRepository) {
++        this.taskManagementSystemRepository = taskManagementSystemRepository;
++    }
++
++    @Override
++    public String execute(List<String> parameters) {
++        List<Team> teams = taskManagementSystemRepository.getTeams();
++        StringBuilder result = new StringBuilder();
++        if (teams.size() == 0) {
++            throw new IllegalArgumentException("No teams have been created");
++        }
++        for (int i = 0; i < teams.size(); i++) {
++            result.append(String.format("%s, ", teams.get(i).toString()));
++        }
++
++        return result.toString();
++    }
++
++
++
+ }
+Index: src/com/management/oop/project/commands/show/ShowAllTeamBoardsCommand.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/com/management/oop/project/commands/show/ShowAllTeamBoardsCommand.java b/src/com/management/oop/project/commands/show/ShowAllTeamBoardsCommand.java
+--- a/src/com/management/oop/project/commands/show/ShowAllTeamBoardsCommand.java	
++++ b/src/com/management/oop/project/commands/show/ShowAllTeamBoardsCommand.java	
+@@ -1,4 +1,35 @@
+ package com.management.oop.project.commands.show;
+ 
+-public class ShowAllTeamBoardsCommand {
++import com.management.oop.project.commands.contracts.Command;
++import com.management.oop.project.core.contracts.TaskManagementSystemRepository;
++import com.management.oop.project.models.contracts.Person;
++import com.management.oop.project.utils.ValidationHelpers;
++
++import java.util.List;
++
++public class ShowAllTeamBoardsCommand implements Command {
++
++    public static final int EXPECTED_NUMBER_OF_ARGUMENTS = 1;
++
++    private final TaskManagementSystemRepository taskManagementSystemRepository;
++
++    public ShowAllPeopleCommand(TaskManagementSystemRepository taskManagementSystemRepository) {
++        this.taskManagementSystemRepository = taskManagementSystemRepository;
++    }
++
++    @Override
++    public String execute(List<String> parameters) {
++        ValidationHelpers.validateArgumentsCount(parameters, EXPECTED_NUMBER_OF_ARGUMENTS);
++        List<Person> people = taskManagementSystemRepository.getPeople();
++        StringBuilder result = new StringBuilder();
++        if (people.size() == 0) {
++            throw new IllegalArgumentException("Don't have people.");
++        }
++        for (int i = 0; i < people.size(); i++) {
++            //TODO add method split()
++            result.append(String.format("%s, ", people.get(i).toString()));
++        }
++
++        return result.toString();
++    }
+ }

@@ -1,23 +1,50 @@
 package com.management.oop.project.models.tasks;
-
+import com.management.oop.project.models.EventLogImpl;
 import com.management.oop.project.models.contracts.Bug;
+import com.management.oop.project.models.contracts.Person;
+import com.management.oop.project.models.enums.PriorityEnum;
+import com.management.oop.project.models.enums.BugSeverityEnum;
+import com.management.oop.project.models.enums.BugStatusEnum;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class BugImpl extends TaskBase implements Bug {
-    private List<String>steps;
+    private final List<String>steps;
+    private final PriorityEnum priorityEnum;
+    private final BugSeverityEnum bugSeverityEnum;
+    private final BugStatusEnum bugStatusEnum;
+    private Person assignee;
 
-    public BugImpl(String title, String description) {
+    public BugImpl(String title, String description,
+                   List<String> steps, PriorityEnum priorityEnum,
+                   BugSeverityEnum bugSeverityEnum, BugStatusEnum bugStatusEnum,
+                   Person assignee) {
         super(title, description);
+        this.steps = steps;
+        this.priorityEnum = priorityEnum;
+        this.bugSeverityEnum = bugSeverityEnum;
+        this.bugStatusEnum = bugStatusEnum;
+        this.assignee = assignee;
     }
 
-    @Override
-    public void addComment() {
-
+    public PriorityEnum getBugPriorityEnum() {
+        return priorityEnum;
     }
 
-    @Override
-    public void removeComment() {
+    public BugSeverityEnum getBugSeverityEnum() {
+        return bugSeverityEnum;
+    }
 
+    public BugStatusEnum getBugStatusEnum() {
+        return bugStatusEnum;
+    }
+
+    public List<String> getSteps() {
+        return new ArrayList<>(steps);
+    }
+
+    public Person getAssignee() {
+        return assignee;
     }
 }

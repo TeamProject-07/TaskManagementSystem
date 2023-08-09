@@ -1,8 +1,7 @@
 package com.management.oop.project.models;
 
-import com.management.oop.project.core.TaskManagementSystemRepositoryImpl;
-import com.management.oop.project.core.contracts.TaskManagementSystemRepository;
 import com.management.oop.project.models.contracts.Board;
+import com.management.oop.project.models.contracts.EventLog;
 import com.management.oop.project.models.contracts.Person;
 import com.management.oop.project.models.contracts.Team;
 import com.management.oop.project.utils.ValidationHelpers;
@@ -15,13 +14,16 @@ public class TeamImpl implements Team {
     public static final int NAME_MAX_LENGTH = 15;
     public static final String NAME_LENGTH_ERROR = "Name should be between 5 and 15 symbols.";
     private String name;
-    private List<Person> people;
-    private List<Board> boards;
+    private final List<Person> people;
+    private final List<Board> boards;
+    private final List<EventLog>histories;
 
-    public TeamImpl(String name, List<Person> people, List<Board> boards) {
+    public TeamImpl(String name) {
         setName(name);
-        this.people = people;
-        this.boards = boards;
+        this.people = new ArrayList<>();
+        this.boards = new ArrayList<>();
+        this.histories=new ArrayList<>();
+        this.histories.add(new EventLogImpl("Team was created."));
     }
 
     private void setName(String name) {
@@ -42,17 +44,8 @@ public class TeamImpl implements Team {
     }
 
     @Override
-    public Person getPerson() {
-        return null;
-    }
-
-    @Override
     public String getName() {
-        return null;
+        return name;
     }
 
-    @Override
-    public int getId() {
-        return 0;
-    }
 }
