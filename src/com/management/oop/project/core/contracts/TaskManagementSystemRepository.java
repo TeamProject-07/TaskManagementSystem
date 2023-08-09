@@ -13,7 +13,14 @@ public interface TaskManagementSystemRepository {
 
     List<Task> getTasks();
 
+    List<History> getHistory();
+
+
+    Team findTeamByName(String teamName);
+
     Team findTeamById(int id);
+
+    Person findPersonByName(String personName);
 
     Person findMemberById(int id);
 
@@ -25,14 +32,14 @@ public interface TaskManagementSystemRepository {
 
     boolean personHasTeam(String personName);
 
-    Person findPersonByName(String personName);
 
     void addPersonToTeam(Person person, Team team);
 
-    Team findTeamByName(String teamName);
 
     boolean ifPersonIsInTeam(Person person, Team team);
+
     boolean boardExist(String boardName);
+
     Board createBoard(String boardName);
 
     Bug createBug(String title, String description, List<String> steps,
@@ -50,6 +57,7 @@ public interface TaskManagementSystemRepository {
     boolean teamExist(String teamName);
 
     void createTeam(String teamName);
+
 
 }
 

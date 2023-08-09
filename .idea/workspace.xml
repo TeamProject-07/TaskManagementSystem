@@ -4,14 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f4d32bab-62d7-485a-a9dd-6cb272e43dff" name="Changes" comment="Add and implement Engine and CommandFactory">
+    <list default="true" id="f4d32bab-62d7-485a-a9dd-6cb272e43dff" name="Changes" comment="Added ShowAllPeopleCommand">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/commands/add/AddPersonToTeamCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/commands/add/AddPersonToTeamCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/commands/assign/AssignTaskToPersonCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/commands/assign/AssignTaskToPersonCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/commands/show/ShowAllPeopleCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/commands/show/ShowAllPeopleCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/commands/change/ChangePriorityOfBugCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/commands/change/ChangePriorityOfBugCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/commands/create/CreateTaskInBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/commands/create/CreateTaskInBoard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/commands/show/ShowAllTeamsMembersCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/commands/show/ShowAllTeamsMembersCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/commands/show/ShowPersonActivityCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/commands/show/ShowPersonActivityCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/core/contracts/TaskManagementSystemRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/core/contracts/TaskManagementSystemRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/models/PersonImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/models/PersonImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/models/tasks/TaskBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/models/tasks/TaskBase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/models/TeamImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/models/TeamImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/models/contracts/Team.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/models/contracts/Team.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,7 +93,14 @@
       <option name="project" value="LOCAL" />
       <updated>1691160944488</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Added ShowAllPeopleCommand">
+      <created>1691501253801</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1691501253801</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -110,6 +118,7 @@
     <MESSAGE value="Initial Commit" />
     <MESSAGE value="Added additional libraries" />
     <MESSAGE value="Added additional .gitignore" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added additional .gitignore" />
+    <MESSAGE value="Added ShowAllPeopleCommand" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added ShowAllPeopleCommand" />
   </component>
 </project>
