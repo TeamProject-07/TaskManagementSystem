@@ -13,7 +13,7 @@ public class ShowAllTeamBoardsCommand implements Command {
 
     private final TaskManagementSystemRepository taskManagementSystemRepository;
 
-    public ShowAllPeopleCommand(TaskManagementSystemRepository taskManagementSystemRepository) {
+    public ShowAllTeamBoardsCommand(TaskManagementSystemRepository taskManagementSystemRepository) {
         this.taskManagementSystemRepository = taskManagementSystemRepository;
     }
 

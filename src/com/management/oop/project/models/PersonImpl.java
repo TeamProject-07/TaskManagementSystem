@@ -29,6 +29,11 @@ public class PersonImpl implements Person {
     }
 
     @Override
+    public List<Person> getPeople() {
+        return null;
+    }
+
+    @Override
     public Person getPerson() {
         return null;
     }

@@ -25,7 +25,8 @@ public abstract class TaskBase implements Task {
     private List<Comment> comments;
     private List<EventLog> histories;
 
-    public TaskBase(String title, String description) {
+    public TaskBase(int id, String title, String description) {
+        setId(id);
         setTitle(title);
         setDescription(description);
         this.comments = new ArrayList<>();
@@ -33,6 +34,13 @@ public abstract class TaskBase implements Task {
         histories.add(new EventLogImpl("Task was created."));
     }
 
+    private void setId(int id) {
+        this.id=id;
+    }
+    @Override
+    public int getId() {
+        return id;
+    }
     @Override
     public String getTitle() {
         return title;
@@ -52,11 +60,6 @@ public abstract class TaskBase implements Task {
     private void setDescription(String description) {
         ValidationHelpers.validateStringLength(description, DESCRIPTION_MIN_LENGTH, DESCRIPTION_MAX_LENGTH, DESCRIPTION_ERROR_MESSAGE);
         this.description = description;
-    }
-
-    @Override
-    public int getId() {
-        return 0;
     }
 
     @Override

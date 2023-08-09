@@ -2,7 +2,6 @@ package com.management.oop.project.models;
 
 import com.management.oop.project.models.contracts.Board;
 import com.management.oop.project.models.contracts.EventLog;
-import com.management.oop.project.models.contracts.Person;
 import com.management.oop.project.models.contracts.Task;
 import com.management.oop.project.utils.ValidationHelpers;
 

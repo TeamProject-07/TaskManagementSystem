@@ -1,10 +1,10 @@
 package com.management.oop.project.models.tasks;
-import com.management.oop.project.models.EventLogImpl;
+
 import com.management.oop.project.models.contracts.Bug;
 import com.management.oop.project.models.contracts.Person;
-import com.management.oop.project.models.enums.PriorityEnum;
 import com.management.oop.project.models.enums.BugSeverityEnum;
 import com.management.oop.project.models.enums.BugStatusEnum;
+import com.management.oop.project.models.enums.PriorityEnum;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,11 +16,11 @@ public class BugImpl extends TaskBase implements Bug {
     private final BugStatusEnum bugStatusEnum;
     private Person assignee;
 
-    public BugImpl(String title, String description,
+    public BugImpl(int id, String title, String description,
                    List<String> steps, PriorityEnum priorityEnum,
                    BugSeverityEnum bugSeverityEnum, BugStatusEnum bugStatusEnum,
                    Person assignee) {
-        super(title, description);
+        super(id, title, description);
         this.steps = steps;
         this.priorityEnum = priorityEnum;
         this.bugSeverityEnum = bugSeverityEnum;

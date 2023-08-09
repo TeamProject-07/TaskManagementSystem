@@ -35,28 +35,24 @@ public interface TaskManagementSystemRepository {
 
     void addPersonToTeam(Person person, Team team);
 
-
-    boolean ifPersonIsInTeam(Person person, Team team);
-
     boolean boardExist(String boardName);
 
     Board createBoard(String boardName);
 
     Bug createBug(String title, String description, List<String> steps,
                   PriorityEnum priorityEnum, BugSeverityEnum bugSeverityEnum,
-                  BugStatusEnum bugStatusEnum, Person assignee,
-                  List<Comment> comments);
+                  BugStatusEnum bugStatusEnum, Person assignee);
 
     Story createStory(String title, String description, PriorityEnum priorityEnum,
                       StorySizeEnum storySizeEnum, StoryStatusEnum storyStatusEnum,
-                      Person assignee, List<Comment> comments);
+                      Person assignee);
 
     Feedback createFeedback(String title, String description, int rating,
-                            FeedbackStatusEnum feedbackStatusEnum, List<Comment> comments);
+                            FeedbackStatusEnum feedbackStatusEnum);
 
     boolean teamExist(String teamName);
 
-    void createTeam(String teamName);
+    Team createTeam(String teamName);
 
 
 }

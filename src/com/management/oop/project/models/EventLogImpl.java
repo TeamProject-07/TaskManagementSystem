@@ -2,7 +2,6 @@ package com.management.oop.project.models;
 
 import com.management.oop.project.models.contracts.EventLog;
 
-import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -12,7 +11,19 @@ public class EventLogImpl implements EventLog {
     private LocalDateTime timestamp;
 
     public EventLogImpl(String description) {
+        if (description.isEmpty()) {
+            throw new IllegalArgumentException("Description cannot be empty");
+        }
         this.description = description;
         this.timestamp = LocalDateTime.now();
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("[%s] %s", timestamp.format(formatter), description);
     }
 }

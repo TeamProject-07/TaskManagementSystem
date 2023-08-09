@@ -12,10 +12,10 @@ public class StoryImpl extends TaskBase implements Story {
     private final StoryStatusEnum storyStatusEnum;
     private Person assignee;
 
-    public StoryImpl(String title, String description, PriorityEnum priorityEnum,
+    public StoryImpl(int id, String title, String description, PriorityEnum priorityEnum,
                      StorySizeEnum storySizeEnum, StoryStatusEnum storyStatusEnum,
                      Person assignee) {
-        super(title, description);
+        super(id, title, description);
         this.priorityEnum = priorityEnum;
         this.storySizeEnum = storySizeEnum;
         this.storyStatusEnum = storyStatusEnum;
