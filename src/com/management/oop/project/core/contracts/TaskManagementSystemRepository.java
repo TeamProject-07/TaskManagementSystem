@@ -13,16 +13,10 @@ public interface TaskManagementSystemRepository {
 
     List<Task> getTasks();
 
-    List<EventLog> getHistory();
-
-
     Team findTeamByName(String teamName);
 
-    Team findTeamById(int id);
 
     Person findPersonByName(String personName);
-
-    Person findMemberById(int id);
 
     Task findTaskById(int id);
 

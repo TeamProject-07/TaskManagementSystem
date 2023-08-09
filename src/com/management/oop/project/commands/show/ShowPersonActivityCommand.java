@@ -25,9 +25,10 @@ public class ShowPersonActivityCommand implements Command {
 
     private String getPersonActivity(String personName) {
         Person person = taskManagementSystemRepository.findPersonByName(personName);
-        List<EventLog> histories = taskManagementSystemRepository.getHistory();
+        List<EventLog> histories = person.getHistory();
         StringBuilder result = new StringBuilder();
-        if (histories.size() <= 0) {
+        result.append(personName).append(System.lineSeparator());
+        if (histories.size() == 0) {
             throw new IllegalArgumentException("Don't have activity.");
         }
         for (int i = 0; i < histories.size(); i++) {

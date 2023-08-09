@@ -18,6 +18,14 @@ public class PersonImpl implements Person {
         this.histories=new ArrayList<>();
     }
 
+    public List<Task> getTasks() {
+        return new ArrayList<>(tasks);
+    }
+
+    public List<EventLog> getHistories() {
+        return new ArrayList<>(histories);
+    }
+
     @Override
     public String toString() {
         return super.toString();

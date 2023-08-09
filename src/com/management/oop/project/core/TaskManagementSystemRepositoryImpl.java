@@ -16,7 +16,6 @@ import java.util.List;
 public class TaskManagementSystemRepositoryImpl implements TaskManagementSystemRepository {
     public static final String PERSON_NOT_FOUND = "Person not found";
     public static final String TEAM_NOT_FOUND = "Team not found.";
-    public static final String PERSON_HAS_TEAM_ERROR = "Person with name %s already have team.";
     private int nextId;
     private final List<Team> teams;
     private final List<Person> people;
@@ -69,33 +68,28 @@ public class TaskManagementSystemRepositoryImpl implements TaskManagementSystemR
     }
 
     @Override
-    public Person findMemberById(int id) {
-        return null;
-    }
-
-    @Override
     public Task findTaskById(int id) {
-        return null;
+        for (Task task : tasks) {
+            if (task.getId()==id){
+                return task;
+            }
+        }
+        throw new IllegalArgumentException("There is no task with this ID.");
     }
 
     @Override
     public List<Team> getTeams() {
-        return null;
+        return new ArrayList<>(teams);
     }
 
     @Override
     public List<Person> getPeople() {
-        return null;
+        return new ArrayList<>(people);
     }
 
     @Override
     public List<Task> getTasks() {
-        return null;
-    }
-
-    @Override
-    public List<EventLog> getHistory() {
-        return null;
+        return new ArrayList<>(tasks);
     }
 
     @Override
@@ -109,11 +103,6 @@ public class TaskManagementSystemRepositoryImpl implements TaskManagementSystemR
     }
 
     @Override
-    public Team findTeamById(int id) {
-        return null;
-    }
-
-    @Override
     public boolean boardExist(String boardName) {
         for (Board board : boards) {
             if (board.getName().equalsIgnoreCase(boardName)) {
@@ -124,6 +113,17 @@ public class TaskManagementSystemRepositoryImpl implements TaskManagementSystemR
     }
 
     @Override
+    public boolean teamExist(String teamName) {
+        for (Team team : teams) {
+            if (team.getName().equalsIgnoreCase(teamName)){
+                return true;
+            }
+        }
+        return false;
+    }
+
+
+    @Override
     public Person createPerson(String name) {
         Person person=new PersonImpl(name);
         this.people.add(person);
@@ -132,7 +132,7 @@ public class TaskManagementSystemRepositoryImpl implements TaskManagementSystemR
 
     @Override
     public void addPersonToTeam(Person person, Team team) {
-
+        team.getPeople().add(person);
     }
     @Override
     public Board createBoard(String boardName) {
@@ -162,16 +162,6 @@ public class TaskManagementSystemRepositoryImpl implements TaskManagementSystemR
         Feedback feedback=new FeedbackImpl(++nextId, title, description, rating, feedbackStatusEnum);
         this.tasks.add(feedback);
         return feedback;
-    }
-
-    @Override
-    public boolean teamExist(String teamName) {
-        for (Team team : teams) {
-            if (team.getName().equalsIgnoreCase(teamName)){
-                return true;
-            }
-        }
-        return false;
     }
 
     @Override
