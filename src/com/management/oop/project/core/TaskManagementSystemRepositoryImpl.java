@@ -24,10 +24,10 @@ public class TaskManagementSystemRepositoryImpl implements TaskManagementSystemR
 
 
     public TaskManagementSystemRepositoryImpl() {
-        this.teams=new ArrayList<>();
-        this.people=new ArrayList<>();
-        this.tasks=new ArrayList<>();
-        this.boards=new ArrayList<>();
+        this.teams = new ArrayList<>();
+        this.people = new ArrayList<>();
+        this.tasks = new ArrayList<>();
+        this.boards = new ArrayList<>();
         nextId = 0;
     }
 
@@ -70,7 +70,7 @@ public class TaskManagementSystemRepositoryImpl implements TaskManagementSystemR
     @Override
     public Task findTaskById(int id) {
         for (Task task : tasks) {
-            if (task.getId()==id){
+            if (task.getId() == id) {
                 return task;
             }
         }
@@ -115,17 +115,26 @@ public class TaskManagementSystemRepositoryImpl implements TaskManagementSystemR
     @Override
     public boolean teamExist(String teamName) {
         for (Team team : teams) {
-            if (team.getName().equalsIgnoreCase(teamName)){
+            if (team.getName().equalsIgnoreCase(teamName)) {
                 return true;
             }
         }
         return false;
     }
 
+    @Override
+    public boolean taskExist(int id) {
+        for (Task task : tasks) {
+            if (task.getId() == id) {
+                return true;
+            }
+        }
+        return false;
+    }
 
     @Override
     public Person createPerson(String name) {
-        Person person=new PersonImpl(name);
+        Person person = new PersonImpl(name);
         this.people.add(person);
         return person;
     }
@@ -134,9 +143,10 @@ public class TaskManagementSystemRepositoryImpl implements TaskManagementSystemR
     public void addPersonToTeam(Person person, Team team) {
         team.getPeople().add(person);
     }
+
     @Override
     public Board createBoard(String boardName) {
-        Board board=new BoardImpl(boardName);
+        Board board = new BoardImpl(boardName);
         this.boards.add(board);
         return board;
     }
@@ -144,7 +154,7 @@ public class TaskManagementSystemRepositoryImpl implements TaskManagementSystemR
     @Override
     public Bug createBug(String title, String description, List<String> steps, PriorityEnum priorityEnum,
                          BugSeverityEnum bugSeverityEnum, BugStatusEnum bugStatusEnum, Person assignee) {
-        Bug bug=new BugImpl(++nextId, title, description, steps, priorityEnum, bugSeverityEnum, bugStatusEnum, assignee);
+        Bug bug = new BugImpl(++nextId, title, description, steps, priorityEnum, bugSeverityEnum, bugStatusEnum, assignee);
         this.tasks.add(bug);
         return bug;
     }
@@ -152,21 +162,21 @@ public class TaskManagementSystemRepositoryImpl implements TaskManagementSystemR
     @Override
     public Story createStory(String title, String description, PriorityEnum priorityEnum, StorySizeEnum storySizeEnum,
                              StoryStatusEnum storyStatusEnum, Person assignee) {
-        Story story=new StoryImpl(++nextId, title, description, priorityEnum, storySizeEnum, storyStatusEnum, assignee);
+        Story story = new StoryImpl(++nextId, title, description, priorityEnum, storySizeEnum, storyStatusEnum, assignee);
         this.tasks.add(story);
         return story;
     }
 
     @Override
     public Feedback createFeedback(String title, String description, int rating, FeedbackStatusEnum feedbackStatusEnum) {
-        Feedback feedback=new FeedbackImpl(++nextId, title, description, rating, feedbackStatusEnum);
+        Feedback feedback = new FeedbackImpl(++nextId, title, description, rating, feedbackStatusEnum);
         this.tasks.add(feedback);
         return feedback;
     }
 
     @Override
     public Team createTeam(String teamName) {
-        Team team=new TeamImpl(teamName);
+        Team team = new TeamImpl(teamName);
         this.teams.add(team);
         return team;
 

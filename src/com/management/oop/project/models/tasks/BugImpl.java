@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BugImpl extends TaskBase implements Bug {
-    private final List<String>steps;
+    private final List<String> steps;
     private final PriorityEnum priorityEnum;
     private final BugSeverityEnum bugSeverityEnum;
     private final BugStatusEnum bugStatusEnum;
@@ -27,6 +27,7 @@ public class BugImpl extends TaskBase implements Bug {
         this.bugStatusEnum = bugStatusEnum;
         this.assignee = assignee;
     }
+
 
     public PriorityEnum getBugPriorityEnum() {
         return priorityEnum;

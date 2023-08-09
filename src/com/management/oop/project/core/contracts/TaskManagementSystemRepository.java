@@ -23,6 +23,7 @@ public interface TaskManagementSystemRepository {
     Person createPerson(String name);
 
     boolean personExist(String name);
+    boolean taskExist(int id);
 
     boolean personHasTeam(String personName);
 
