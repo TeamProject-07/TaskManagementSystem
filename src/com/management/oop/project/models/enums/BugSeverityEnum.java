@@ -1,6 +1,6 @@
 package com.management.oop.project.models.enums;
 
-public enum SeverityEnum {
+public enum BugSeverityEnum {
     CRITICAL,
     MAJOR,
     MINOR

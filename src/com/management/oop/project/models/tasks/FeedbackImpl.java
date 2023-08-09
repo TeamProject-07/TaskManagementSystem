@@ -3,6 +3,8 @@ package com.management.oop.project.models.tasks;
 import com.management.oop.project.models.contracts.Feedback;
 import com.management.oop.project.models.enums.FeedbackStatusEnum;
 
+import java.net.FileNameMap;
+
 public class FeedbackImpl extends TaskBase implements Feedback {
 
     public static final int MIN_RATING = 0;
@@ -13,38 +15,24 @@ public class FeedbackImpl extends TaskBase implements Feedback {
 
     private int rating;
 
-    private FeedbackStatusEnum status;
+    private final FeedbackStatusEnum status;
 
-    public FeedbackImpl(String title, String description, int rating){
+    public FeedbackImpl(String title, String description, int rating, FeedbackStatusEnum status) {
         super(title, description);
+        setRating(rating);
+        this.status = status;
     }
 
+    public int getRating() {
+        return rating;
+    }
 
+    private void setRating(int rating) {
+        this.rating = rating;
+    }
 
+    public FeedbackStatusEnum getStatus() {
+        return status;
+    }
 
-    //@Override
-   // public int getId() {
-   //     return id;
-   // }
-
-    // da napishem tozi metod v klassa, shtoto nqma smysmul da go over ride ame?
-  // @Override
-  // public String getTitle() {
-  //     return tit;
-  // }
-
- // @Override
- // public String getDescription() {
- //     return null;
- // }
-
- // @Override
- // public void addComment() {
-
- // }
-
- // @Override
- // public void removeComment() {
-
- // }
 }

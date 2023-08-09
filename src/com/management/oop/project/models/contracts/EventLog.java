@@ -1,5 +1,5 @@
 package com.management.oop.project.models.contracts;
 
-public interface History {
+public interface EventLog {
 
 }

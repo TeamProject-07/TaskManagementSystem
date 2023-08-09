@@ -36,13 +36,13 @@ public interface TaskManagementSystemRepository {
     Board createBoard(String boardName);
 
     Bug createBug(String title, String description, List<String> steps,
-                  PriorityEnum priorityEnum, SeverityEnum severityEnum,
-                  BugStatusEnum bugStatusEnum, String assignee,
+                  PriorityEnum priorityEnum, BugSeverityEnum bugSeverityEnum,
+                  BugStatusEnum bugStatusEnum, Person assignee,
                   List<Comment> comments);
 
     Story createStory(String title, String description, PriorityEnum priorityEnum,
                       StorySizeEnum storySizeEnum, StoryStatusEnum storyStatusEnum,
-                      String assignee, List<Comment> comments);
+                      Person assignee, List<Comment> comments);
 
     Feedback createFeedback(String title, String description, int rating,
                             FeedbackStatusEnum feedbackStatusEnum, List<Comment> comments);

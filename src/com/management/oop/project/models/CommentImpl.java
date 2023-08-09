@@ -2,14 +2,15 @@ package com.management.oop.project.models;
 
 import com.management.oop.project.models.contracts.Comment;
 import com.management.oop.project.models.contracts.Commentable;
+import com.management.oop.project.models.contracts.Person;
 
 public class CommentImpl implements Comment {
 
     private String message;
 
-    private String author;
+    private Person author;
 
-    public CommentImpl (String message, String author){
+    public CommentImpl (String message, Person author){
         setMessage(message);
         setAuthor(author);
     }
@@ -23,11 +24,11 @@ public class CommentImpl implements Comment {
     }
 
     @Override
-    public String getAuthor() {
+    public Person getAuthor() {
         return author;
     }
 
-    private void setAuthor(String author){
+    private void setAuthor(Person author){
         this.author = author;
     }
 

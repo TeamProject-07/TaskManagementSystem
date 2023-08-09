@@ -1,7 +1,8 @@
 package com.management.oop.project.models.tasks;
 
+import com.management.oop.project.models.EventLogImpl;
 import com.management.oop.project.models.contracts.Comment;
-import com.management.oop.project.models.contracts.History;
+import com.management.oop.project.models.contracts.EventLog;
 import com.management.oop.project.models.contracts.Task;
 import com.management.oop.project.utils.ValidationHelpers;
 
@@ -18,16 +19,18 @@ public abstract class TaskBase implements Task {
     public static final int DESCRIPTION_MAX_LENGTH = 500;
     public static final String DESCRIPTION_ERROR_MESSAGE = String.format("Description length cannot be less than %d or more than %d symbols long.",
             DESCRIPTION_MIN_LENGTH, DESCRIPTION_MAX_LENGTH);
+    private int id;
     private String title;
     private String description;
     private List<Comment> comments;
-    private List<History> histories;
+    private List<EventLog> histories;
 
     public TaskBase(String title, String description) {
         setTitle(title);
         setDescription(description);
         this.comments = new ArrayList<>();
         this.histories = new ArrayList<>();
+        histories.add(new EventLogImpl("Task was created."));
     }
 
     @Override
@@ -56,6 +59,10 @@ public abstract class TaskBase implements Task {
         return 0;
     }
 
+    @Override
+    public void addComment(Comment comment) {
+        comments.add(comment);
+    }
 
     @Override
     public List<Comment> getComments() {
@@ -66,11 +73,11 @@ public abstract class TaskBase implements Task {
         this.comments = comments;
     }
 
-    public List<History> getHistories() {
+    public List<EventLog> getHistories() {
         return new ArrayList<>(histories);
     }
 
-    private void setHistories(List<History> histories) {
+    private void setHistories(List<EventLog> histories) {
         this.histories = histories;
     }
 }

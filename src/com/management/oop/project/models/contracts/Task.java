@@ -15,9 +15,7 @@ public interface Task extends Commentable, Identifiable{
 
     //getAssignee();
 
-    void addComment();
-
-    void removeComment();
+    void addComment(Comment comment);
 
     //List<String> getHistory();
 

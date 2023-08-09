@@ -1,8 +1,10 @@
 package com.management.oop.project.models.contracts;
 
-public interface Team extends History{
+import java.util.List;
 
-    Person getPerson();
+public interface Team {
+
     String getName();
-    int getId();
+    List<Person>getPeople();
+
 }
