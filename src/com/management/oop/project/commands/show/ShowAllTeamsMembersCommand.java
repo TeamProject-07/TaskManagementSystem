@@ -31,7 +31,7 @@ public class ShowAllTeamsMembersCommand implements Command {
         if (team == null) {
             throw new IllegalArgumentException(String.format(TEAM_EMPTY, teamName));
         }
-        return team.getPerson().getName();
+        return String.valueOf(team.getPeople());
     }
 
 }

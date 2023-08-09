@@ -13,7 +13,7 @@ public interface TaskManagementSystemRepository {
 
     List<Task> getTasks();
 
-    List<History> getHistory();
+    List<EventLog> getHistory();
 
 
     Team findTeamByName(String teamName);

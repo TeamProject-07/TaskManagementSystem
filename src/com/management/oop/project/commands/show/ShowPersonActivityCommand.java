@@ -2,7 +2,7 @@ package com.management.oop.project.commands.show;
 
 import com.management.oop.project.commands.contracts.Command;
 import com.management.oop.project.core.contracts.TaskManagementSystemRepository;
-import com.management.oop.project.models.contracts.History;
+import com.management.oop.project.models.contracts.EventLog;
 import com.management.oop.project.models.contracts.Person;
 import com.management.oop.project.utils.ValidationHelpers;
 
@@ -23,11 +23,11 @@ public class ShowPersonActivityCommand implements Command {
         return getPersonActivity(personName);
     }
 
-    private String getPersonActivity(String personName){
+    private String getPersonActivity(String personName) {
         Person person = taskManagementSystemRepository.findPersonByName(personName);
-        List<History> histories = taskManagementSystemRepository.getHistory();
+        List<EventLog> histories = taskManagementSystemRepository.getHistory();
         StringBuilder result = new StringBuilder();
-        if (histories.size() <= 0){
+        if (histories.size() <= 0) {
             throw new IllegalArgumentException("Don't have activity.");
         }
         for (int i = 0; i < histories.size(); i++) {
