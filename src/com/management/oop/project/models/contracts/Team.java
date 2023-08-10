@@ -7,4 +7,6 @@ public interface Team {
     String getName();
     List<Person>getPeople();
     List<EventLog> getHistory();
+
+    List<Board> getBoards();
 }
