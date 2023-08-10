@@ -20,7 +20,7 @@ public class CreateNewStory implements Command {
     private StoryStatusEnum status;
     private Person assignee;
 
-    public static final int EXPECTED_NUMBER_OF_ARGUMENTS = 6;
+    public static final int EXPECTED_NUMBER_OF_ARGUMENTS = 5;
     private TaskManagementSystemRepository taskManagementSystemRepository;
 
     public CreateNewStory(TaskManagementSystemRepository taskManagementSystemRepository) {
