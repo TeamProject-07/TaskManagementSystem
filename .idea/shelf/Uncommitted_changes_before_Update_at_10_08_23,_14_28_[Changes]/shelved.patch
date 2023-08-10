@@ -1,0 +1,14 @@
+Index: src/com/management/oop/project/commands/create/CreateTaskInBoard.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.management.oop.project.commands.create;\n\nimport com.management.oop.project.commands.contracts.Command;\nimport com.management.oop.project.core.contracts.TaskManagementSystemRepository;\n\nimport java.util.List;\n\npublic class CreateTaskInBoard implements Command {\n    public static final int EXPECTED_NUMBER_OF_ARGUMENTS = 2;\n\n    private final TaskManagementSystemRepository taskManagementSystemRepository;\n\n    public CreateTaskInBoard(TaskManagementSystemRepository taskManagementSystemRepository) {\n        this.taskManagementSystemRepository = taskManagementSystemRepository;\n    }\n\n    @Override\n    public String execute(List<String> parameters) {\n        return null;\n    }\n}\n
+===================================================================
+diff --git a/src/com/management/oop/project/commands/create/CreateTaskInBoard.java b/src/com/management/oop/project/commands/create/CreateTaskInBoard.java
+--- a/src/com/management/oop/project/commands/create/CreateTaskInBoard.java	
++++ b/src/com/management/oop/project/commands/create/CreateTaskInBoard.java	
+@@ -18,4 +18,5 @@
+     public String execute(List<String> parameters) {
+         return null;
+     }
++
+ }
