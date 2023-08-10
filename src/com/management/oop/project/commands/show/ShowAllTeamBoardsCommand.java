@@ -20,16 +20,18 @@ public class ShowAllTeamBoardsCommand implements Command {
         this.taskManagementSystemRepository = taskManagementSystemRepository;
     }
 
-    //TODO
     @Override
     public String execute(List<String> parameters) {
         ValidationHelpers.validateArgumentsCount(parameters, EXPECTED_NUMBER_OF_ARGUMENTS);
         String teamName = parameters.get(0);
         Team team = taskManagementSystemRepository.findTeamByName(teamName);
         List<Board> boards = team.getBoards();
-        return String.valueOf(boards);
+        return getBoardAsString(teamName);
     }
 
 
-    //TODO
+    private String getBoardAsString(String teamName) {
+        Team team = taskManagementSystemRepository.findTeamByName(teamName);
+        return String.valueOf(team.getPeople());
+    }
 }

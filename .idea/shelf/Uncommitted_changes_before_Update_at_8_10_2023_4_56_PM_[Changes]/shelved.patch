@@ -1,0 +1,40 @@
+Index: src/com/management/oop/project/commands/create/CreateTaskInBoard.java
+===================================================================
+diff --git a/src/com/management/oop/project/commands/create/CreateTaskInBoard.java b/src/com/management/oop/project/commands/create/CreateTaskInBoard.java
+--- a/src/com/management/oop/project/commands/create/CreateTaskInBoard.java	
++++ b/src/com/management/oop/project/commands/create/CreateTaskInBoard.java	
+@@ -2,6 +2,10 @@
+ 
+ import com.management.oop.project.commands.contracts.Command;
+ import com.management.oop.project.core.contracts.TaskManagementSystemRepository;
++import com.management.oop.project.models.contracts.Bug;
++import com.management.oop.project.models.contracts.Task;
++import com.management.oop.project.models.tasks.BugImpl;
++import com.management.oop.project.utils.ParsingHelpers;
+ 
+ import java.util.List;
+ 
+@@ -16,6 +20,23 @@
+ 
+     @Override
+     public String execute(List<String> parameters) {
++
++
++
+         return null;
+     }
++
++
++    public Task checkTaskType(List<String> parameters){
++        if (parameters.size() == 8){
++            int id = ParsingHelpers.tryParseInteger(parameters.get(0), "id");
++            String title = parameters.get(1);
++            String description = parameters.get(2);
++            List<String> steps = ParsingHelpers.parameters.get(3);
++            Bug bug = new BugImpl(id,title,)
++
++
++        }
++
++    }
+ }
