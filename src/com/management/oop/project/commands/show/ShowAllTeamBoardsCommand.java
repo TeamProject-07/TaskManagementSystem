@@ -25,12 +25,6 @@ public class ShowAllTeamBoardsCommand implements Command {
         String teamName = parameters.get(0);
         Team team = taskManagementSystemRepository.findTeamByName(teamName);
         List<Board> boards = team.getBoards();
-        return getBoardAsString(teamName);
-    }
-
-
-    private String getBoardAsString(String teamName) {
-        Team team = taskManagementSystemRepository.findTeamByName(teamName);
-        return String.valueOf(team.getPeople());
+        return String.valueOf(boards);
     }
 }
