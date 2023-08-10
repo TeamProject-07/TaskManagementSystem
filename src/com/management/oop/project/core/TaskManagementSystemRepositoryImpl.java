@@ -19,16 +19,26 @@ public class TaskManagementSystemRepositoryImpl implements TaskManagementSystemR
     private int nextId;
     private final List<Team> teams;
     private final List<Person> people;
-    private final List<Task> tasks;
-    private final List<Board> boards;
 
 
     public TaskManagementSystemRepositoryImpl() {
         this.teams = new ArrayList<>();
         this.people = new ArrayList<>();
-        this.tasks = new ArrayList<>();
-        this.boards = new ArrayList<>();
         nextId = 0;
+    }
+
+    @Override
+    public Team createTeam(String teamName) {
+        Team team = new TeamImpl(teamName);
+        this.teams.add(team);
+        return team;
+    }
+
+    @Override
+    public Board createBoard(String boardName, String teamName) {
+        Board board = new BoardImpl(boardName);
+        findTeamByName(teamName).addBoard(board);
+        return board;
     }
 
     @Override
@@ -68,18 +78,54 @@ public class TaskManagementSystemRepositoryImpl implements TaskManagementSystemR
     }
 
     @Override
-    public Task findTaskById(int id) {
-        for (Task task : tasks) {
-            if (task.getId() == id) {
-                return task;
+    public Bug findBugById(int id) {
+        for (Team team : teams) {
+            for (Board board : team.getBoards()) {
+                for (Bug bug : board.getBugs()) {
+                    if (bug.getId() == id) {
+                        return bug;
+                    }
+                }
             }
         }
-        throw new IllegalArgumentException("There is no task with this ID.");
+        throw new IllegalArgumentException("There is no bug with this Id.");
     }
-    public Board findBoardByName(String boardName){
-        for (Board board : boards) {
-            if (board.getName().equalsIgnoreCase(boardName)){
-                return board;
+
+    @Override
+    public Story findStoryById(int id) {
+        for (Team team : teams) {
+            for (Board board : team.getBoards()) {
+                for (Story story : board.getStories()) {
+                    if (story.getId() == id) {
+                        return story;
+                    }
+                }
+            }
+        }
+        throw new IllegalArgumentException("There is no story with this Id.");
+    }
+
+    @Override
+    public Feedback findFeedbackById(int id) {
+        for (Team team : teams) {
+            for (Board board : team.getBoards()) {
+                for (Feedback feedback : board.getFeedbacks()) {
+                    if (feedback.getId() == id) {
+                        return feedback;
+                    }
+                }
+            }
+        }
+        throw new IllegalArgumentException("There is no bug with this Id.");
+    }
+
+    @Override
+    public Board findBoardByName(String boardName) {
+        for (Team team : teams) {
+            for (Board board : team.getBoards()) {
+                if (board.getName().equalsIgnoreCase(boardName)) {
+                    return board;
+                }
             }
         }
         throw new IllegalArgumentException("There is no board with this name.");
@@ -96,11 +142,6 @@ public class TaskManagementSystemRepositoryImpl implements TaskManagementSystemR
     }
 
     @Override
-    public List<Task> getTasks() {
-        return new ArrayList<>(tasks);
-    }
-
-    @Override
     public Team findTeamByName(String teamName) {
         for (Team team : teams) {
             if (team.getName().equalsIgnoreCase(teamName)) {
@@ -112,9 +153,11 @@ public class TaskManagementSystemRepositoryImpl implements TaskManagementSystemR
 
     @Override
     public boolean boardExist(String boardName) {
-        for (Board board : boards) {
-            if (board.getName().equalsIgnoreCase(boardName)) {
-                return true;
+        for (Team team : teams) {
+            for (Board board : team.getBoards()) {
+                if (board.getName().equalsIgnoreCase(boardName)) {
+                    return true;
+                }
             }
         }
         return false;
@@ -124,16 +167,6 @@ public class TaskManagementSystemRepositoryImpl implements TaskManagementSystemR
     public boolean teamExist(String teamName) {
         for (Team team : teams) {
             if (team.getName().equalsIgnoreCase(teamName)) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    @Override
-    public boolean taskExist(int id) {
-        for (Task task : tasks) {
-            if (task.getId() == id) {
                 return true;
             }
         }
@@ -152,41 +185,34 @@ public class TaskManagementSystemRepositoryImpl implements TaskManagementSystemR
         team.getPeople().add(person);
     }
 
-    @Override
-    public Board createBoard(String boardName) {
-        Board board = new BoardImpl(boardName);
-        this.boards.add(board);
-        return board;
-    }
 
     @Override
-    public Bug createBug(String title, String description, List<String> steps, PriorityEnum priorityEnum,
+    public Bug createBug(String boardName, String title, String description, List<String> steps, PriorityEnum priorityEnum,
                          BugSeverityEnum bugSeverityEnum, BugStatusEnum bugStatusEnum) {
         Bug bug = new BugImpl(++nextId, title, description, steps, priorityEnum, bugSeverityEnum, bugStatusEnum);
-        this.tasks.add(bug);
+        findBoardByName(boardName).addBug(bug);
         return bug;
     }
 
     @Override
-    public Story createStory(String title, String description, PriorityEnum priorityEnum, StorySizeEnum storySizeEnum,
+    public Story createStory(String boardName, String title, String description, PriorityEnum priorityEnum, StorySizeEnum storySizeEnum,
                              StoryStatusEnum storyStatusEnum) {
         Story story = new StoryImpl(++nextId, title, description, priorityEnum, storySizeEnum, storyStatusEnum);
-        this.tasks.add(story);
+        findBoardByName(boardName).addStory(story);
         return story;
     }
 
 
     @Override
-    public Feedback createFeedback(String title, String description, int rating, FeedbackStatusEnum feedbackStatusEnum) {
+    public Feedback createFeedback(String boardName, String title, String description, int rating, FeedbackStatusEnum feedbackStatusEnum) {
         Feedback feedback = new FeedbackImpl(++nextId, title, description, rating, feedbackStatusEnum);
-        this.tasks.add(feedback);
+        findBoardByName(boardName).addFeedback(feedback);
         return feedback;
     }
 
     @Override
-    public Team createTeam(String teamName) {
-        Team team = new TeamImpl(teamName);
-        this.teams.add(team);
-        return team;
+    public void addComment(String message, Person author) {
+
     }
-}
+    }
+

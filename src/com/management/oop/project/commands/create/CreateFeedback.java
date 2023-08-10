@@ -8,9 +8,10 @@ import com.management.oop.project.utils.ParsingHelpers;
 import com.management.oop.project.utils.ValidationHelpers;
 
 import java.util.List;
+import java.util.SplittableRandom;
 
 public class CreateFeedback implements Command {
-
+    private String boardName;
     private String title;
 
     private String description;
@@ -19,7 +20,7 @@ public class CreateFeedback implements Command {
 
     private FeedbackStatusEnum feedbackStatusEnum;
 
-    public static final int EXPECTED_NUMBER_OF_PARAMETERS = 4;
+    public static final int EXPECTED_NUMBER_OF_PARAMETERS = 5;
     private final TaskManagementSystemRepository taskManagementSystemRepository;
 
     public CreateFeedback(TaskManagementSystemRepository taskManagementSystemRepository) {
@@ -31,14 +32,15 @@ public class CreateFeedback implements Command {
     public String execute(List<String> parameters) {
         ValidationHelpers.validateArgumentsCount(parameters, EXPECTED_NUMBER_OF_PARAMETERS);
         parseParameters(parameters);
-        Feedback createdFeedback = taskManagementSystemRepository.createFeedback(title, description, rating, feedbackStatusEnum);
+        Feedback createdFeedback = taskManagementSystemRepository.createFeedback(boardName, title, description, rating, feedbackStatusEnum);
         return String.format("Feedback with ID %d was created.", createdFeedback.getId());
     }
 
-    private void parseParameters(List<String> parameters){
-        title = parameters.get(0);
-        description = parameters.get(1);
-        rating = ParsingHelpers.tryParseInteger(parameters.get(2),"rating");
-        feedbackStatusEnum = ParsingHelpers.tryParseEnum(parameters.get(3), FeedbackStatusEnum.class);
+    private void parseParameters(List<String> parameters) {
+        boardName = parameters.get(0);
+        title = parameters.get(1);
+        description = parameters.get(2);
+        rating = ParsingHelpers.tryParseInteger(parameters.get(3), "rating");
+        feedbackStatusEnum = ParsingHelpers.tryParseEnum(parameters.get(4), FeedbackStatusEnum.class);
     }
 }

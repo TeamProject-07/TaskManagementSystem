@@ -9,4 +9,5 @@ public interface Team {
     List<EventLog> getHistory();
 
     List<Board> getBoards();
+    void addBoard(Board board);
 }

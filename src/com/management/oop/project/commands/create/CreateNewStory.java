@@ -13,6 +13,7 @@ import com.management.oop.project.utils.ValidationHelpers;
 import java.util.List;
 
 public class CreateNewStory implements Command {
+    private String boardName;
     private String title;
     private String description;
     private PriorityEnum priority;
@@ -20,7 +21,7 @@ public class CreateNewStory implements Command {
     private StoryStatusEnum status;
     private Person assignee;
 
-    public static final int EXPECTED_NUMBER_OF_ARGUMENTS = 5;
+    public static final int EXPECTED_NUMBER_OF_ARGUMENTS = 6;
     private TaskManagementSystemRepository taskManagementSystemRepository;
 
     public CreateNewStory(TaskManagementSystemRepository taskManagementSystemRepository) {
@@ -31,14 +32,16 @@ public class CreateNewStory implements Command {
     public String execute(List<String> parameters) {
         ValidationHelpers.validateArgumentsCount(parameters, EXPECTED_NUMBER_OF_ARGUMENTS);
         parseParameters(parameters);
-        Story createdStory = taskManagementSystemRepository.createStory(title, description, priority, size, status);
+        Story createdStory = taskManagementSystemRepository.createStory(boardName, title, description, priority, size, status);
         return String.format("Task with ID %d was created.", createdStory.getId());
     }
-    private void parseParameters(List<String> parameters){
-        title = parameters.get(0);
-        description = parameters.get(1);
-        priority = ParsingHelpers.tryParseEnum(parameters.get(2), PriorityEnum.class);
-        size = ParsingHelpers.tryParseEnum(parameters.get(3), StorySizeEnum.class);
-        status = ParsingHelpers.tryParseEnum(parameters.get(4), StoryStatusEnum.class);
+
+    private void parseParameters(List<String> parameters) {
+        boardName = parameters.get(0);
+        title = parameters.get(1);
+        description = parameters.get(2);
+        priority = ParsingHelpers.tryParseEnum(parameters.get(3), PriorityEnum.class);
+        size = ParsingHelpers.tryParseEnum(parameters.get(4), StorySizeEnum.class);
+        status = ParsingHelpers.tryParseEnum(parameters.get(5), StoryStatusEnum.class);
     }
 }

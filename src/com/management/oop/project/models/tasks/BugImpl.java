@@ -14,30 +14,42 @@ public class BugImpl extends TaskBase implements Bug {
     private final List<String> steps;
     private PriorityEnum priorityEnum;
     private BugSeverityEnum bugSeverityEnum;
-    private  BugStatusEnum bugStatusEnum;
+    private  BugStatusEnum status;
     private Person assignee;
 
     public BugImpl(int id, String title, String description,
                    List<String> steps, PriorityEnum priorityEnum,
-                   BugSeverityEnum bugSeverityEnum, BugStatusEnum bugStatusEnum) {
+                   BugSeverityEnum bugSeverityEnum, BugStatusEnum status) {
         super(id, title, description);
         this.steps = steps;
         this.priorityEnum = priorityEnum;
         this.bugSeverityEnum = bugSeverityEnum;
-        this.bugStatusEnum = bugStatusEnum;
+        this.status = BugStatusEnum.ACTIVE;
         this.assignee = assignee;
         addHistory(new EventLogImpl("Bug was created."));
     }
 
-    private void setPriorityEnum(PriorityEnum priorityEnum) {
+    public void setStatus(BugStatusEnum status) {
+        this.status = status;
+    }
+    @Override
+    public void changePriorityEnum(PriorityEnum priorityEnum) {
         this.priorityEnum = priorityEnum;
     }
-
-    public void changePriority(PriorityEnum priorityEnum) {
-        switch (priorityEnum){
-            case LOW -> setPriorityEnum(PriorityEnum.LOW);
-            case MEDIUM -> setPriorityEnum(PriorityEnum.MEDIUM);
-            case HIGH -> setPriorityEnum(PriorityEnum.HIGH);
+    @Override
+    public void changeSeverityEnum(BugSeverityEnum bugSeverityEnum){
+        this.bugSeverityEnum=bugSeverityEnum;
+    }
+    @Override
+    public void advanceStatus(){
+        switch (getStatus()){
+            case ACTIVE -> setStatus(BugStatusEnum.FIXED);
+        }
+    }
+    @Override
+    public void revertStatus(){
+        switch (getStatus()){
+            case FIXED -> setStatus(BugStatusEnum.ACTIVE);
         }
     }
 
@@ -49,8 +61,8 @@ public class BugImpl extends TaskBase implements Bug {
         return bugSeverityEnum;
     }
 
-    public BugStatusEnum getBugStatusEnum() {
-        return bugStatusEnum;
+    public BugStatusEnum getStatus() {
+        return status;
     }
 
     public List<String> getSteps() {

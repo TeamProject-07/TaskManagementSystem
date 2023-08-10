@@ -10,7 +10,7 @@ public class CommentImpl implements Comment {
 
     private Person author;
 
-    public CommentImpl (String message, Person author){
+    public CommentImpl (String message, String author){
         setMessage(message);
         setAuthor(author);
     }

@@ -1,8 +1,6 @@
 package com.management.oop.project.models;
 
-import com.management.oop.project.models.contracts.Board;
-import com.management.oop.project.models.contracts.EventLog;
-import com.management.oop.project.models.contracts.Task;
+import com.management.oop.project.models.contracts.*;
 import com.management.oop.project.utils.ValidationHelpers;
 
 import java.util.ArrayList;
@@ -10,14 +8,48 @@ import java.util.List;
 
 public class BoardImpl implements Board {
     private String name;
-    private List<Task>tasks;
+    private final List<Bug>bugs;
+    private final List<Story>stories;
+    private final List<Feedback>feedbacks;
     private List<EventLog>histories;
 
     public BoardImpl(String name) {
         setName(name);
-        this.tasks = new ArrayList<>();
+        this.bugs = new ArrayList<>();
+        this.stories = new ArrayList<>();
+        this.feedbacks = new ArrayList<>();
         this.histories = new ArrayList<>();
         histories.add(new EventLogImpl("Board was created"));
+    }
+
+    @Override
+    public void addBug(Bug bug) {
+        this.bugs.add(bug);
+        histories.add(new EventLogImpl("Bug was created"));
+    }
+
+    @Override
+    public void addStory(Story story) {
+        this.stories.add(story);
+        histories.add(new EventLogImpl("Story was created"));
+    }
+
+    @Override
+    public void addFeedback(Feedback feedback) {
+        this.feedbacks.add(feedback);
+        histories.add(new EventLogImpl("Feedback was created"));
+    }
+
+    public List<Bug> getBugs() {
+        return new ArrayList<>(bugs);
+    }
+
+    public List<Story> getStories() {
+        return new ArrayList<>(stories);
+    }
+
+    public List<Feedback> getFeedbacks() {
+        return new ArrayList<>(feedbacks);
     }
 
     @Override

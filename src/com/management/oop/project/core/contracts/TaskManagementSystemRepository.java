@@ -6,12 +6,12 @@ import com.management.oop.project.models.enums.*;
 import java.util.List;
 
 public interface TaskManagementSystemRepository {
+    Board createBoard(String boardName, String teamName);
 
     List<Team> getTeams();
 
     List<Person> getPeople();
 
-    List<Task> getTasks();
 
     Team findTeamByName(String teamName);
 
@@ -19,12 +19,13 @@ public interface TaskManagementSystemRepository {
     Person findPersonByName(String personName);
 
     Board findBoardByName(String boardName);
-    Task findTaskById(int id);
+    Bug findBugById(int id);
+    Story findStoryById(int id);
+    Feedback findFeedbackById(int id);
 
     Person createPerson(String name);
 
     boolean personExist(String name);
-    boolean taskExist(int id);
 
     boolean personHasTeam(String personName);
 
@@ -33,21 +34,25 @@ public interface TaskManagementSystemRepository {
 
     boolean boardExist(String boardName);
 
-    Board createBoard(String boardName);
-
-    Bug createBug(String title, String description, List<String> steps,
+    Bug createBug(String boardName, String title, String description, List<String> steps,
                   PriorityEnum priorityEnum, BugSeverityEnum bugSeverityEnum,
                   BugStatusEnum bugStatusEnum);
 
-    Story createStory(String title, String description, PriorityEnum priorityEnum,
+    Story createStory(String boardName, String title, String description, PriorityEnum priorityEnum,
                       StorySizeEnum storySizeEnum, StoryStatusEnum storyStatusEnum);
 
-    Feedback createFeedback(String title, String description, int rating,
+    Feedback createFeedback(String boardName, String title, String description, int rating,
                             FeedbackStatusEnum feedbackStatusEnum);
 
     boolean teamExist(String teamName);
 
     Team createTeam(String teamName);
+    void addComment(String message, Person author);
+
+//    Bug changePriorityEnum(PriorityEnum priorityEnum);
+//    Bug changeSeverityEnum(BugSeverityEnum bugSeverityEnum);
+//    Bug advanceStatus();
+//    Bug revertStatus();
 }
 
 

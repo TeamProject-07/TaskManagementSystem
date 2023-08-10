@@ -30,7 +30,10 @@ public class TeamImpl implements Team {
         ValidationHelpers.validateStringLength(name, NAME_MIN_LENGTH, NAME_MAX_LENGTH, NAME_LENGTH_ERROR);
         this.name = name;
     }
-
+    @Override
+    public void addBoard(Board board){
+        boards.add(board);
+    }
     @Override
     public List<EventLog> getHistory() {
         return new ArrayList<>(histories);
