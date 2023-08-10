@@ -22,7 +22,7 @@ public static final int EXPECTED_NUMBER_OF_ARGUMENTS = 3;
     public String execute(List<String> parameters) {
         ValidationHelpers.validateArgumentsCount(parameters, EXPECTED_NUMBER_OF_ARGUMENTS);
         int bugId = ParsingHelpers.tryParseInteger(parameters.get(0), INVALID_VALUE_INTEGER);
-        PriorityEnum priorityEnum = ParsingHelpers.tryParseEnum(parameters.get(1).toUpperCase(), PriorityEnum.class, NOT_PRIORITY);
+        PriorityEnum priorityEnum = ParsingHelpers.tryParseEnum(parameters.get(1).toUpperCase(), PriorityEnum.class);
         if (taskManagementSystemRepository.taskExist(bugId)){
         }
         return null;

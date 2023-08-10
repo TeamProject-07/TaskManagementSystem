@@ -28,8 +28,16 @@ public class BugImpl extends TaskBase implements Bug {
         this.assignee = assignee;
     }
 
-    public void changePriorityEnum(PriorityEnum priorityEnum) {
+    private void setPriorityEnum(PriorityEnum priorityEnum) {
         this.priorityEnum = priorityEnum;
+    }
+
+    public void changePriority(PriorityEnum priorityEnum) {
+        switch (priorityEnum){
+            case LOW -> setPriorityEnum(PriorityEnum.LOW);
+            case MEDIUM -> setPriorityEnum(PriorityEnum.MEDIUM);
+            case HIGH -> setPriorityEnum(PriorityEnum.HIGH);
+        }
     }
 
     public PriorityEnum getBugPriorityEnum() {
