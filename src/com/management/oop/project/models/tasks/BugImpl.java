@@ -1,5 +1,6 @@
 package com.management.oop.project.models.tasks;
 
+import com.management.oop.project.models.EventLogImpl;
 import com.management.oop.project.models.contracts.Bug;
 import com.management.oop.project.models.contracts.Person;
 import com.management.oop.project.models.enums.BugSeverityEnum;
@@ -18,14 +19,14 @@ public class BugImpl extends TaskBase implements Bug {
 
     public BugImpl(int id, String title, String description,
                    List<String> steps, PriorityEnum priorityEnum,
-                   BugSeverityEnum bugSeverityEnum, BugStatusEnum bugStatusEnum,
-                   Person assignee) {
+                   BugSeverityEnum bugSeverityEnum, BugStatusEnum bugStatusEnum) {
         super(id, title, description);
         this.steps = steps;
         this.priorityEnum = priorityEnum;
         this.bugSeverityEnum = bugSeverityEnum;
         this.bugStatusEnum = bugStatusEnum;
         this.assignee = assignee;
+        addHistory(new EventLogImpl("Bug was created."));
     }
 
     private void setPriorityEnum(PriorityEnum priorityEnum) {

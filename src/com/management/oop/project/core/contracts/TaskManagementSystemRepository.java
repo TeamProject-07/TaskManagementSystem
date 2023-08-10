@@ -37,7 +37,7 @@ public interface TaskManagementSystemRepository {
 
     Bug createBug(String title, String description, List<String> steps,
                   PriorityEnum priorityEnum, BugSeverityEnum bugSeverityEnum,
-                  BugStatusEnum bugStatusEnum, Person assignee);
+                  BugStatusEnum bugStatusEnum);
 
     Story createStory(String title, String description, PriorityEnum priorityEnum,
                       StorySizeEnum storySizeEnum, StoryStatusEnum storyStatusEnum,

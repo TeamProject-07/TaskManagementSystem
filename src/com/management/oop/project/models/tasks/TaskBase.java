@@ -67,7 +67,9 @@ public abstract class TaskBase implements Task {
     public void addComment(Comment comment) {
         comments.add(comment);
     }
-
+    protected void addHistory(EventLog eventLog){
+        histories.add(eventLog);
+    }
     @Override
     public List<Comment> getComments() {
         return new ArrayList<>(comments);

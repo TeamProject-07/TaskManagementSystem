@@ -37,13 +37,4 @@ public class PersonImpl implements Person {
         return null;
     }
 
-    @Override
-    public List<Person> getPeople() {
-        return null;
-    }
-
-    @Override
-    public Person getPerson() {
-        return null;
-    }
 }

@@ -161,8 +161,8 @@ public class TaskManagementSystemRepositoryImpl implements TaskManagementSystemR
 
     @Override
     public Bug createBug(String title, String description, List<String> steps, PriorityEnum priorityEnum,
-                         BugSeverityEnum bugSeverityEnum, BugStatusEnum bugStatusEnum, Person assignee) {
-        Bug bug = new BugImpl(++nextId, title, description, steps, priorityEnum, bugSeverityEnum, bugStatusEnum, assignee);
+                         BugSeverityEnum bugSeverityEnum, BugStatusEnum bugStatusEnum) {
+        Bug bug = new BugImpl(++nextId, title, description, steps, priorityEnum, bugSeverityEnum, bugStatusEnum);
         this.tasks.add(bug);
         return bug;
     }
@@ -187,6 +187,5 @@ public class TaskManagementSystemRepositoryImpl implements TaskManagementSystemR
         Team team = new TeamImpl(teamName);
         this.teams.add(team);
         return team;
-
     }
 }
