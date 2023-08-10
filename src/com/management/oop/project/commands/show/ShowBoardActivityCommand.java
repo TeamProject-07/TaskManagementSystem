@@ -20,8 +20,8 @@ public class ShowBoardActivityCommand implements Command {
     @Override
     public String execute(List<String> parameters) {
         ValidationHelpers.validateArgumentsCount(parameters, EXPECTED_NUMBER_OF_ARGUMENTS);
-        String personName = parameters.get(0);
-        return getBoardActivity(personName);
+        String boardName = parameters.get(0);
+        return getBoardActivity(boardName);
     }
 
     private String getBoardActivity(String boardName) {
