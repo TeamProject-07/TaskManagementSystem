@@ -76,6 +76,14 @@ public class TaskManagementSystemRepositoryImpl implements TaskManagementSystemR
         }
         throw new IllegalArgumentException("There is no task with this ID.");
     }
+    public Board findBoardByName(String boardName){
+        for (Board board : boards) {
+            if (board.getName().equalsIgnoreCase(boardName)){
+                return board;
+            }
+        }
+        throw new IllegalArgumentException("There is no board with this name.");
+    }
 
     @Override
     public List<Team> getTeams() {

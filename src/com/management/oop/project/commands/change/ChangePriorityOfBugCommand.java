@@ -11,6 +11,7 @@ import java.util.List;
 public class ChangePriorityOfBugCommand implements Command {
 public static final int EXPECTED_NUMBER_OF_ARGUMENTS = 3;
     public static final String NOT_PRIORITY = "This is not priority.";
+    public static final String INVALID_VALUE_INTEGER = "Invalid value for BugID. Should be a number.";
     private final TaskManagementSystemRepository taskManagementSystemRepository;
 
     public ChangePriorityOfBugCommand(TaskManagementSystemRepository taskManagementSystemRepository) {
@@ -20,8 +21,10 @@ public static final int EXPECTED_NUMBER_OF_ARGUMENTS = 3;
     @Override
     public String execute(List<String> parameters) {
         ValidationHelpers.validateArgumentsCount(parameters, EXPECTED_NUMBER_OF_ARGUMENTS);
-        String bugId = parameters.get(0);
+        int bugId = ParsingHelpers.tryParseInteger(parameters.get(0), INVALID_VALUE_INTEGER);
         PriorityEnum priorityEnum = ParsingHelpers.tryParseEnum(parameters.get(1).toUpperCase(), PriorityEnum.class, NOT_PRIORITY);
+        if (taskManagementSystemRepository.taskExist(bugId)){
+        }
         return null;
     }
 }

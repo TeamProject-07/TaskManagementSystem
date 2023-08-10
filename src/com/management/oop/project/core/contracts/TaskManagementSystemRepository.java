@@ -18,6 +18,7 @@ public interface TaskManagementSystemRepository {
 
     Person findPersonByName(String personName);
 
+    Board findBoardByName(String boardName);
     Task findTaskById(int id);
 
     Person createPerson(String name);
@@ -48,8 +49,6 @@ public interface TaskManagementSystemRepository {
     boolean teamExist(String teamName);
 
     Team createTeam(String teamName);
-
-
 }
 
 
