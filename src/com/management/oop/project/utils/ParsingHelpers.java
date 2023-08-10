@@ -1,8 +1,12 @@
 package com.management.oop.project.utils;
 
+import com.management.oop.project.models.enums.PriorityEnum;
+import com.management.oop.project.models.enums.StoryStatusEnum;
+
 public class ParsingHelpers {
     private static final String INVALID_NUMBER_FIELD_MESSAGE = "Invalid value for %s. Should be a number.";
     private static final String INVALID_BOOLEAN_FIELD_MESSAGE = "Invalid value for %s. Should be one of 'true' or 'false'.";
+    public static final String NO_SUCH_ENUM = "There is no %s in %ss.";
 
     public static double tryParseDouble(String valueToParse, String parameterName) {
         try {
@@ -28,11 +32,14 @@ public class ParsingHelpers {
 
         return Boolean.parseBoolean(valueToParse);
     }
-    public static <E extends Enum<E>> E tryParseEnum(String valueToParse, Class<E> type, String errorMessage) {
+    public static <E extends Enum<E>> E tryParseEnum(String valueToParse, Class<E> type) {
         try {
-            return Enum.valueOf(type, valueToParse.toUpperCase());
+            return Enum.valueOf(type, valueToParse.replace(" ", "_").toUpperCase());
         } catch (IllegalArgumentException e) {
-            throw new IllegalArgumentException(String.format(errorMessage, valueToParse));
+            throw new IllegalArgumentException(String.format(NO_SUCH_ENUM, valueToParse, type.getSimpleName()));
         }
     }
+    //TODO In commandFactory-enum and ChangePriorityOfBug enum
+
+
 }
