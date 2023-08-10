@@ -11,9 +11,9 @@ import java.util.List;
 
 public class BugImpl extends TaskBase implements Bug {
     private final List<String> steps;
-    private final PriorityEnum priorityEnum;
-    private final BugSeverityEnum bugSeverityEnum;
-    private final BugStatusEnum bugStatusEnum;
+    private PriorityEnum priorityEnum;
+    private BugSeverityEnum bugSeverityEnum;
+    private  BugStatusEnum bugStatusEnum;
     private Person assignee;
 
     public BugImpl(int id, String title, String description,
@@ -28,6 +28,9 @@ public class BugImpl extends TaskBase implements Bug {
         this.assignee = assignee;
     }
 
+    public void changePriorityEnum(PriorityEnum priorityEnum) {
+        this.priorityEnum = priorityEnum;
+    }
 
     public PriorityEnum getBugPriorityEnum() {
         return priorityEnum;

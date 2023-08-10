@@ -20,6 +20,11 @@ public class BoardImpl implements Board {
         histories.add(new EventLogImpl("Board was created"));
     }
 
+    @Override
+    public List<EventLog> getHistory() {
+        return new ArrayList<>(histories);
+    }
+
     public String getName() {
         return name;
     }

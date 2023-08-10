@@ -4,6 +4,7 @@ import com.management.oop.project.models.EventLogImpl;
 import com.management.oop.project.models.contracts.Comment;
 import com.management.oop.project.models.contracts.EventLog;
 import com.management.oop.project.models.contracts.Task;
+import com.management.oop.project.models.enums.PriorityEnum;
 import com.management.oop.project.utils.ValidationHelpers;
 
 import java.util.ArrayList;

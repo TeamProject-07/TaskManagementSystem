@@ -31,6 +31,11 @@ public class TeamImpl implements Team {
         this.name = name;
     }
 
+    @Override
+    public List<EventLog> getHistory() {
+        return new ArrayList<>(histories);
+    }
+
     public List<Board> getBoards() {
         return new ArrayList<>(boards);
     }
