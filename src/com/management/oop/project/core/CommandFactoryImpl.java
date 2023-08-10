@@ -12,7 +12,7 @@ public class CommandFactoryImpl implements CommandFactory {
 
     @Override
     public Command createCommandFromCommandName(String commandName, TaskManagementSystemRepository taskManagementSystemRepository) {
-        CommandType commandType= ParsingHelpers.tryParseEnum(commandName, CommandType.class, String.format(INVALID_COMMAND, commandName));
+        CommandType commandType= ParsingHelpers.tryParseEnum(commandName, CommandType.class);
     switch (commandType){
         case CREATENEWPERSON:
             return null;

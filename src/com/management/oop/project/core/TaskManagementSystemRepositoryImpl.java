@@ -169,8 +169,8 @@ public class TaskManagementSystemRepositoryImpl implements TaskManagementSystemR
 
     @Override
     public Story createStory(String title, String description, PriorityEnum priorityEnum, StorySizeEnum storySizeEnum,
-                             StoryStatusEnum storyStatusEnum, Person assignee) {
-        Story story = new StoryImpl(++nextId, title, description, priorityEnum, storySizeEnum, storyStatusEnum, assignee);
+                             StoryStatusEnum storyStatusEnum) {
+        Story story = new StoryImpl(++nextId, title, description, priorityEnum, storySizeEnum, storyStatusEnum);
         this.tasks.add(story);
         return story;
     }

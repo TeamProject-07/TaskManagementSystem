@@ -13,8 +13,7 @@ public class StoryImpl extends TaskBase implements Story {
     private Person assignee;
 
     public StoryImpl(int id, String title, String description, PriorityEnum priorityEnum,
-                     StorySizeEnum storySizeEnum, StoryStatusEnum storyStatusEnum,
-                     Person assignee) {
+                     StorySizeEnum storySizeEnum, StoryStatusEnum storyStatusEnum) {
         super(id, title, description);
         this.priorityEnum = priorityEnum;
         this.storySizeEnum = storySizeEnum;

@@ -40,8 +40,7 @@ public interface TaskManagementSystemRepository {
                   BugStatusEnum bugStatusEnum);
 
     Story createStory(String title, String description, PriorityEnum priorityEnum,
-                      StorySizeEnum storySizeEnum, StoryStatusEnum storyStatusEnum,
-                      Person assignee);
+                      StorySizeEnum storySizeEnum, StoryStatusEnum storyStatusEnum);
 
     Feedback createFeedback(String title, String description, int rating,
                             FeedbackStatusEnum feedbackStatusEnum);
