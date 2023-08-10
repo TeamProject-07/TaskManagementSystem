@@ -28,9 +28,9 @@ public class CreateNewBug implements Command {
         String title=parameters.get(0);
         String description= parameters.get(1);
         List<String> steps= List.of(parameters.get(2).split(", "));
-        PriorityEnum priorityEnum= ParsingHelpers.tryParseEnum(parameters.get(3), PriorityEnum.class, "Inavalid value.");
-        BugSeverityEnum severityEnum= ParsingHelpers.tryParseEnum(parameters.get(4), BugSeverityEnum.class, "Inavalid value.");
-        BugStatusEnum bugStatusEnum= ParsingHelpers.tryParseEnum(parameters.get(5), BugStatusEnum.class, "Inavalid value.");
+        PriorityEnum priorityEnum= ParsingHelpers.tryParseEnum(parameters.get(3), PriorityEnum.class);
+        BugSeverityEnum severityEnum= ParsingHelpers.tryParseEnum(parameters.get(4), BugSeverityEnum.class);
+        BugStatusEnum bugStatusEnum= ParsingHelpers.tryParseEnum(parameters.get(5), BugStatusEnum.class);
         return createBug(title, description, steps, priorityEnum, severityEnum, bugStatusEnum);
     }
     private String createBug(String title, String description, List<String> steps, PriorityEnum priorityEnum,
