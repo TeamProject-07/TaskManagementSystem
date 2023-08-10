@@ -39,6 +39,6 @@ public class CreateFeedback implements Command {
         title = parameters.get(0);
         description = parameters.get(1);
         rating = ParsingHelpers.tryParseInteger(parameters.get(2),"rating");
-        feedbackStatusEnum = ParsingHelpers.tryParseEnum(parameters.get(3), FeedbackStatusEnum.class, "Error" );
+        feedbackStatusEnum = ParsingHelpers.tryParseEnum(parameters.get(3), FeedbackStatusEnum.class);
     }
 }
