@@ -23,14 +23,9 @@ public class ShowAllTeamsMembersCommand implements Command {
         return getMemberAsString(teamName);
     }
 
-    //TODO im not sure this validation is correct
 
     private String getMemberAsString(String teamName) {
-
         Team team = taskManagementSystemRepository.findTeamByName(teamName);
-        if (team == null) {
-            throw new IllegalArgumentException(String.format(TEAM_EMPTY, teamName));
-        }
         return String.valueOf(team.getPeople());
     }
 

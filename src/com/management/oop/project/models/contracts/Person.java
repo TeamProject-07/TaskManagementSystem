@@ -2,7 +2,7 @@ package com.management.oop.project.models.contracts;
 
 import java.util.List;
 
-public interface Person extends Team{
+public interface Person extends Team, Identifiable{
     String getName();
 
     Person getPerson();

@@ -5,14 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f4d32bab-62d7-485a-a9dd-6cb272e43dff" name="Changes" comment="Implement TaskBase and subclasses">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_08_08_2023_16_49__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_08_08_2023_16_49__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/commands/change/ChangePriorityOfBugCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/commands/change/ChangePriorityOfBugCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/core/TaskManagementSystemRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/core/TaskManagementSystemRepositoryImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/core/contracts/TaskManagementSystemRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/core/contracts/TaskManagementSystemRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/commands/create/CreateTeamCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/commands/create/CreateTeamCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/commands/show/ShowAllTeamBoardsCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/commands/show/ShowAllTeamBoardsCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/commands/show/ShowAllTeamsMembersCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/commands/show/ShowAllTeamsMembersCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/models/PersonImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/models/PersonImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/models/contracts/Bug.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/models/contracts/Bug.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/models/contracts/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/models/contracts/Person.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/models/tasks/BugImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/models/tasks/BugImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/models/contracts/Team.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/models/contracts/Team.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
