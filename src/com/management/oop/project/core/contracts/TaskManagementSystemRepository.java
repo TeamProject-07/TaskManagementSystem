@@ -34,6 +34,7 @@ public interface TaskManagementSystemRepository {
     void addPersonToTeam(Person person, Team team);
 
     boolean boardExist(String boardName);
+    boolean taskExist(int id);
 
     Bug createBug(String boardName, String title, String description, List<String> steps,
                   PriorityEnum priorityEnum, BugSeverityEnum bugSeverityEnum);

@@ -31,14 +31,18 @@ public class BugImpl extends TaskBase implements Bug {
     @Override
     public void changeStatus(BugStatusEnum status) {
         this.status = status;
+        addHistory(new EventLogImpl("Status was changed."));
     }
     @Override
     public void changePriorityEnum(PriorityEnum priorityEnum) {
         this.priorityEnum = priorityEnum;
+        addHistory(new EventLogImpl("Priority was changed."));
+
     }
     @Override
     public void changeSeverityEnum(BugSeverityEnum bugSeverityEnum){
         this.bugSeverityEnum=bugSeverityEnum;
+        addHistory(new EventLogImpl("Severity was changed."));
     }
 
 
