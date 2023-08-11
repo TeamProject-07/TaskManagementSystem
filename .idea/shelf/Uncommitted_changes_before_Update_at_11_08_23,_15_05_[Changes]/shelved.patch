@@ -1,0 +1,111 @@
+Index: src/com/management/oop/project/commands/show/ShowAllTeamsCommand.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.management.oop.project.commands.show;\n\nimport com.management.oop.project.commands.contracts.Command;\nimport com.management.oop.project.core.contracts.TaskManagementSystemRepository;\nimport com.management.oop.project.models.contracts.Person;\nimport com.management.oop.project.models.contracts.Team;\nimport com.management.oop.project.utils.ValidationHelpers;\n\nimport java.util.List;\n\npublic class ShowAllTeamsCommand implements Command {\n\n    private final TaskManagementSystemRepository taskManagementSystemRepository;\n\n    public ShowAllTeamsCommand(TaskManagementSystemRepository taskManagementSystemRepository) {\n        this.taskManagementSystemRepository = taskManagementSystemRepository;\n    }\n\n    @Override\n    public String execute(List<String> parameters) {\n        List<Team> teams = taskManagementSystemRepository.getTeams();\n        StringBuilder result = new StringBuilder();\n        if (teams.size() == 0) {\n            throw new IllegalArgumentException(\"No teams have been created\");\n        }\n        for (int i = 0; i < teams.size(); i++) {\n            result.append(String.format(\"%s, \", teams.get(i).toString()));\n        }\n\n        return result.toString();\n    }\n\n\n\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/com/management/oop/project/commands/show/ShowAllTeamsCommand.java b/src/com/management/oop/project/commands/show/ShowAllTeamsCommand.java
+--- a/src/com/management/oop/project/commands/show/ShowAllTeamsCommand.java	(revision 7be7a0e0f6fe89dcbeee53d6f1c6093012f92814)
++++ b/src/com/management/oop/project/commands/show/ShowAllTeamsCommand.java	(date 1691758368829)
+@@ -2,6 +2,8 @@
+ 
+ import com.management.oop.project.commands.contracts.Command;
+ import com.management.oop.project.core.contracts.TaskManagementSystemRepository;
++import com.management.oop.project.models.BoardImpl;
++import com.management.oop.project.models.contracts.Board;
+ import com.management.oop.project.models.contracts.Person;
+ import com.management.oop.project.models.contracts.Team;
+ import com.management.oop.project.utils.ValidationHelpers;
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"AutoImportSettings\">\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\n  </component>\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"f4d32bab-62d7-485a-a9dd-6cb272e43dff\" name=\"Changes\" comment=\"Commit CreateFeedback update\">\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/com/management/oop/project/commands/create/CreateBoardCommand.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/com/management/oop/project/commands/create/CreateBoardCommand.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/com/management/oop/project/commands/create/CreateFeedback.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/com/management/oop/project/commands/create/CreateFeedback.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/com/management/oop/project/commands/create/CreateNewBug.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/com/management/oop/project/commands/create/CreateNewBug.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/com/management/oop/project/commands/create/CreateNewStory.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/com/management/oop/project/commands/create/CreateNewStory.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/com/management/oop/project/core/TaskManagementSystemRepositoryImpl.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/com/management/oop/project/core/TaskManagementSystemRepositoryImpl.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/com/management/oop/project/core/contracts/TaskManagementSystemRepository.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/com/management/oop/project/core/contracts/TaskManagementSystemRepository.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/com/management/oop/project/models/BoardImpl.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/com/management/oop/project/models/BoardImpl.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/com/management/oop/project/models/CommentImpl.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/com/management/oop/project/models/CommentImpl.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/com/management/oop/project/models/TeamImpl.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/com/management/oop/project/models/TeamImpl.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/com/management/oop/project/models/contracts/Board.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/com/management/oop/project/models/contracts/Board.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/com/management/oop/project/models/contracts/Bug.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/com/management/oop/project/models/contracts/Bug.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/com/management/oop/project/models/contracts/Team.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/com/management/oop/project/models/contracts/Team.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/com/management/oop/project/models/tasks/BugImpl.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/com/management/oop/project/models/tasks/BugImpl.java\" afterDir=\"false\" />\n    </list>\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"FileTemplateManagerImpl\">\n    <option name=\"RECENT_TEMPLATES\">\n      <list>\n        <option value=\"Enum\" />\n        <option value=\"Interface\" />\n        <option value=\"Class\" />\n      </list>\n    </option>\n  </component>\n  <component name=\"Git.Settings\">\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\n  </component>\n  <component name=\"MarkdownSettingsMigration\">\n    <option name=\"stateVersion\" value=\"1\" />\n  </component>\n  <component name=\"ProjectId\" id=\"2TWYpfP1bhVE3fi67gUH8HWDEr9\" />\n  <component name=\"ProjectLevelVcsManager\">\n    <ConfirmationsSetting value=\"1\" id=\"Add\" />\n  </component>\n  <component name=\"ProjectViewState\">\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\n    <option name=\"showLibraryContents\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\">{\n  &quot;keyToString&quot;: {\n    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\n    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/mitko/Desktop/TaskManagementSystem/src/Main.java&quot;\n  }\n}</component>\n  <component name=\"RunManager\" selected=\"Application.Startup\">\n    <configuration name=\"Main\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\n      <option name=\"MAIN_CLASS_NAME\" value=\"Main\" />\n      <module name=\"TaskManagementSystem\" />\n      <method v=\"2\">\n        <option name=\"Make\" enabled=\"true\" />\n      </method>\n    </configuration>\n    <configuration name=\"Startup\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\n      <option name=\"MAIN_CLASS_NAME\" value=\"Startup\" />\n      <module name=\"TaskManagementSystem\" />\n      <method v=\"2\">\n        <option name=\"Make\" enabled=\"true\" />\n      </method>\n    </configuration>\n    <recent_temporary>\n      <list>\n        <item itemvalue=\"Application.Startup\" />\n        <item itemvalue=\"Application.Main\" />\n      </list>\n    </recent_temporary>\n  </component>\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\n      <changelist id=\"f4d32bab-62d7-485a-a9dd-6cb272e43dff\" name=\"Changes\" comment=\"\" />\n      <created>1691160491848</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1691160491848</updated>\n    </task>\n    <task id=\"LOCAL-00001\" summary=\"Initial Commit\">\n      <created>1691160687240</created>\n      <option name=\"number\" value=\"00001\" />\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1691160687240</updated>\n    </task>\n    <task id=\"LOCAL-00002\" summary=\"Added additional libraries\">\n      <created>1691160875884</created>\n      <option name=\"number\" value=\"00002\" />\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1691160875884</updated>\n    </task>\n    <task id=\"LOCAL-00003\" summary=\"Added additional .gitignore\">\n      <created>1691160944488</created>\n      <option name=\"number\" value=\"00003\" />\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1691160944488</updated>\n    </task>\n    <task id=\"LOCAL-00004\" summary=\"Add and implement Engine and CommandFactory\">\n      <created>1691505761519</created>\n      <option name=\"number\" value=\"00004\" />\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1691505761519</updated>\n    </task>\n    <task id=\"LOCAL-00005\" summary=\"Implement TaskBase and subclasses\">\n      <created>1691576602875</created>\n      <option name=\"number\" value=\"00005\" />\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1691576602875</updated>\n    </task>\n    <task id=\"LOCAL-00006\" summary=\"Commit ShowBoardActivityCommand\">\n      <created>1691654141757</created>\n      <option name=\"number\" value=\"00006\" />\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1691654141757</updated>\n    </task>\n    <task id=\"LOCAL-00007\" summary=\"Commit CreateBugCommand\">\n      <created>1691676107519</created>\n      <option name=\"number\" value=\"00007\" />\n      <option name=\"presentableId\" value=\"LOCAL-00007\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1691676107519</updated>\n    </task>\n    <task id=\"LOCAL-00008\" summary=\"Commit CreateBugCommand\">\n      <created>1691676235053</created>\n      <option name=\"number\" value=\"00008\" />\n      <option name=\"presentableId\" value=\"LOCAL-00008\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1691676235053</updated>\n    </task>\n    <task id=\"LOCAL-00009\" summary=\"Commit CreateBugCommand\">\n      <created>1691676294292</created>\n      <option name=\"number\" value=\"00009\" />\n      <option name=\"presentableId\" value=\"LOCAL-00009\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1691676294292</updated>\n    </task>\n    <task id=\"LOCAL-00010\" summary=\"Commit CreateFeedback update\">\n      <created>1691676374307</created>\n      <option name=\"number\" value=\"00010\" />\n      <option name=\"presentableId\" value=\"LOCAL-00010\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1691676374307</updated>\n    </task>\n    <option name=\"localTasksCounter\" value=\"11\" />\n    <servers />\n  </component>\n  <component name=\"Vcs.Log.Tabs.Properties\">\n    <option name=\"TAB_STATES\">\n      <map>\n        <entry key=\"MAIN\">\n          <value>\n            <State />\n          </value>\n        </entry>\n      </map>\n    </option>\n  </component>\n  <component name=\"VcsManagerConfiguration\">\n    <option name=\"CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT\" value=\"false\" />\n    <option name=\"CHECK_NEW_TODO\" value=\"false\" />\n    <MESSAGE value=\"Initial Commit\" />\n    <MESSAGE value=\"Added additional libraries\" />\n    <MESSAGE value=\"Added additional .gitignore\" />\n    <MESSAGE value=\"Add and implement Engine and CommandFactory\" />\n    <MESSAGE value=\"Implement TaskBase and subclasses\" />\n    <MESSAGE value=\"Commit ShowBoardActivityCommand\" />\n    <MESSAGE value=\"Commit CreateBugCommand\" />\n    <MESSAGE value=\"Commit CreateFeedback update\" />\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Commit CreateFeedback update\" />\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 7be7a0e0f6fe89dcbeee53d6f1c6093012f92814)
++++ b/.idea/workspace.xml	(date 1691758324912)
+@@ -4,21 +4,9 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="f4d32bab-62d7-485a-a9dd-6cb272e43dff" name="Changes" comment="Commit CreateFeedback update">
++    <list default="true" id="f4d32bab-62d7-485a-a9dd-6cb272e43dff" name="Changes" comment="Update FeedbackImpl.java">
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/commands/create/CreateBoardCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/commands/create/CreateBoardCommand.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/commands/create/CreateFeedback.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/commands/create/CreateFeedback.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/commands/create/CreateNewBug.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/commands/create/CreateNewBug.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/commands/create/CreateNewStory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/commands/create/CreateNewStory.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/core/TaskManagementSystemRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/core/TaskManagementSystemRepositoryImpl.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/core/contracts/TaskManagementSystemRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/core/contracts/TaskManagementSystemRepository.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/models/BoardImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/models/BoardImpl.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/models/CommentImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/models/CommentImpl.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/models/TeamImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/models/TeamImpl.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/models/contracts/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/models/contracts/Board.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/models/contracts/Bug.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/models/contracts/Bug.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/models/contracts/Team.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/models/contracts/Team.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/models/tasks/BugImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/models/tasks/BugImpl.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/commands/show/ShowAllTeamsCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/commands/show/ShowAllTeamsCommand.java" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -29,8 +17,8 @@
+     <option name="RECENT_TEMPLATES">
+       <list>
+         <option value="Enum" />
+-        <option value="Interface" />
+         <option value="Class" />
++        <option value="Interface" />
+       </list>
+     </option>
+   </component>
+@@ -128,35 +116,7 @@
+       <option name="project" value="LOCAL" />
+       <updated>1691654141757</updated>
+     </task>
+-    <task id="LOCAL-00007" summary="Commit CreateBugCommand">
+-      <created>1691676107519</created>
+-      <option name="number" value="00007" />
+-      <option name="presentableId" value="LOCAL-00007" />
+-      <option name="project" value="LOCAL" />
+-      <updated>1691676107519</updated>
+-    </task>
+-    <task id="LOCAL-00008" summary="Commit CreateBugCommand">
+-      <created>1691676235053</created>
+-      <option name="number" value="00008" />
+-      <option name="presentableId" value="LOCAL-00008" />
+-      <option name="project" value="LOCAL" />
+-      <updated>1691676235053</updated>
+-    </task>
+-    <task id="LOCAL-00009" summary="Commit CreateBugCommand">
+-      <created>1691676294292</created>
+-      <option name="number" value="00009" />
+-      <option name="presentableId" value="LOCAL-00009" />
+-      <option name="project" value="LOCAL" />
+-      <updated>1691676294292</updated>
+-    </task>
+-    <task id="LOCAL-00010" summary="Commit CreateFeedback update">
+-      <created>1691676374307</created>
+-      <option name="number" value="00010" />
+-      <option name="presentableId" value="LOCAL-00010" />
+-      <option name="project" value="LOCAL" />
+-      <updated>1691676374307</updated>
+-    </task>
+-    <option name="localTasksCounter" value="11" />
++    <option name="localTasksCounter" value="7" />
+     <servers />
+   </component>
+   <component name="Vcs.Log.Tabs.Properties">
+@@ -179,8 +139,6 @@
+     <MESSAGE value="Add and implement Engine and CommandFactory" />
+     <MESSAGE value="Implement TaskBase and subclasses" />
+     <MESSAGE value="Commit ShowBoardActivityCommand" />
+-    <MESSAGE value="Commit CreateBugCommand" />
+-    <MESSAGE value="Commit CreateFeedback update" />
+-    <option name="LAST_COMMIT_MESSAGE" value="Commit CreateFeedback update" />
++    <option name="LAST_COMMIT_MESSAGE" value="Commit ShowBoardActivityCommand" />
+   </component>
+ </project>
+\ No newline at end of file

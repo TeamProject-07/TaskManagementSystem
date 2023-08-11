@@ -1,0 +1,49 @@
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"AutoImportSettings\">\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\n  </component>\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"f4d32bab-62d7-485a-a9dd-6cb272e43dff\" name=\"Changes\" comment=\"Update FeedbackImpl.java\">\n      <change beforePath=\"$PROJECT_DIR$/src/com/management/oop/project/commands/assign/AssignTaskToPersonCommand.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/com/management/oop/project/commands/assign/AssignTaskToPersonCommand.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/com/management/oop/project/models/PersonImpl.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/com/management/oop/project/models/PersonImpl.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/com/management/oop/project/models/contracts/Person.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/com/management/oop/project/models/contracts/Person.java\" afterDir=\"false\" />\n    </list>\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"FileTemplateManagerImpl\">\n    <option name=\"RECENT_TEMPLATES\">\n      <list>\n        <option value=\"Enum\" />\n        <option value=\"Class\" />\n        <option value=\"Interface\" />\n      </list>\n    </option>\n  </component>\n  <component name=\"Git.Settings\">\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\n  </component>\n  <component name=\"MarkdownSettingsMigration\">\n    <option name=\"stateVersion\" value=\"1\" />\n  </component>\n  <component name=\"ProjectId\" id=\"2TWYpfP1bhVE3fi67gUH8HWDEr9\" />\n  <component name=\"ProjectLevelVcsManager\">\n    <ConfirmationsSetting value=\"1\" id=\"Add\" />\n  </component>\n  <component name=\"ProjectViewState\">\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\n    <option name=\"showLibraryContents\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\">{\n  &quot;keyToString&quot;: {\n    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\n    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/mitko/Desktop/TaskManagementSystem/src/Main.java&quot;\n  }\n}</component>\n  <component name=\"RunManager\" selected=\"Application.Startup\">\n    <configuration name=\"Main\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\n      <option name=\"MAIN_CLASS_NAME\" value=\"Main\" />\n      <module name=\"TaskManagementSystem\" />\n      <method v=\"2\">\n        <option name=\"Make\" enabled=\"true\" />\n      </method>\n    </configuration>\n    <configuration name=\"Startup\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\n      <option name=\"MAIN_CLASS_NAME\" value=\"Startup\" />\n      <module name=\"TaskManagementSystem\" />\n      <method v=\"2\">\n        <option name=\"Make\" enabled=\"true\" />\n      </method>\n    </configuration>\n    <recent_temporary>\n      <list>\n        <item itemvalue=\"Application.Startup\" />\n        <item itemvalue=\"Application.Main\" />\n      </list>\n    </recent_temporary>\n  </component>\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\n      <changelist id=\"f4d32bab-62d7-485a-a9dd-6cb272e43dff\" name=\"Changes\" comment=\"\" />\n      <created>1691160491848</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1691160491848</updated>\n    </task>\n    <task id=\"LOCAL-00001\" summary=\"Initial Commit\">\n      <created>1691160687240</created>\n      <option name=\"number\" value=\"00001\" />\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1691160687240</updated>\n    </task>\n    <task id=\"LOCAL-00002\" summary=\"Added additional libraries\">\n      <created>1691160875884</created>\n      <option name=\"number\" value=\"00002\" />\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1691160875884</updated>\n    </task>\n    <task id=\"LOCAL-00003\" summary=\"Added additional .gitignore\">\n      <created>1691160944488</created>\n      <option name=\"number\" value=\"00003\" />\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1691160944488</updated>\n    </task>\n    <task id=\"LOCAL-00004\" summary=\"Add and implement Engine and CommandFactory\">\n      <created>1691505761519</created>\n      <option name=\"number\" value=\"00004\" />\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1691505761519</updated>\n    </task>\n    <task id=\"LOCAL-00005\" summary=\"Implement TaskBase and subclasses\">\n      <created>1691576602875</created>\n      <option name=\"number\" value=\"00005\" />\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1691576602875</updated>\n    </task>\n    <task id=\"LOCAL-00006\" summary=\"Commit ShowBoardActivityCommand\">\n      <created>1691654141757</created>\n      <option name=\"number\" value=\"00006\" />\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1691654141757</updated>\n    </task>\n    <option name=\"localTasksCounter\" value=\"7\" />\n    <servers />\n  </component>\n  <component name=\"Vcs.Log.Tabs.Properties\">\n    <option name=\"TAB_STATES\">\n      <map>\n        <entry key=\"MAIN\">\n          <value>\n            <State />\n          </value>\n        </entry>\n      </map>\n    </option>\n  </component>\n  <component name=\"VcsManagerConfiguration\">\n    <option name=\"CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT\" value=\"false\" />\n    <option name=\"CHECK_NEW_TODO\" value=\"false\" />\n    <MESSAGE value=\"Initial Commit\" />\n    <MESSAGE value=\"Added additional libraries\" />\n    <MESSAGE value=\"Added additional .gitignore\" />\n    <MESSAGE value=\"Add and implement Engine and CommandFactory\" />\n    <MESSAGE value=\"Implement TaskBase and subclasses\" />\n    <MESSAGE value=\"Commit ShowBoardActivityCommand\" />\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Commit ShowBoardActivityCommand\" />\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 210adb39658e1a5290b109a7db2c32d4e0d94cf2)
++++ b/.idea/workspace.xml	(date 1691752126472)
+@@ -4,11 +4,7 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="f4d32bab-62d7-485a-a9dd-6cb272e43dff" name="Changes" comment="Update FeedbackImpl.java">
+-      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/commands/assign/AssignTaskToPersonCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/commands/assign/AssignTaskToPersonCommand.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/models/PersonImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/models/PersonImpl.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/models/contracts/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/models/contracts/Person.java" afterDir="false" />
+-    </list>
++    <list default="true" id="f4d32bab-62d7-485a-a9dd-6cb272e43dff" name="Changes" comment="Added AssignTaskToPersonCommand" />
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+@@ -117,7 +113,14 @@
+       <option name="project" value="LOCAL" />
+       <updated>1691654141757</updated>
+     </task>
+-    <option name="localTasksCounter" value="7" />
++    <task id="LOCAL-00007" summary="Added AssignTaskToPersonCommand">
++      <created>1691751652701</created>
++      <option name="number" value="00007" />
++      <option name="presentableId" value="LOCAL-00007" />
++      <option name="project" value="LOCAL" />
++      <updated>1691751652701</updated>
++    </task>
++    <option name="localTasksCounter" value="8" />
+     <servers />
+   </component>
+   <component name="Vcs.Log.Tabs.Properties">
+@@ -140,6 +143,7 @@
+     <MESSAGE value="Add and implement Engine and CommandFactory" />
+     <MESSAGE value="Implement TaskBase and subclasses" />
+     <MESSAGE value="Commit ShowBoardActivityCommand" />
+-    <option name="LAST_COMMIT_MESSAGE" value="Commit ShowBoardActivityCommand" />
++    <MESSAGE value="Added AssignTaskToPersonCommand" />
++    <option name="LAST_COMMIT_MESSAGE" value="Added AssignTaskToPersonCommand" />
+   </component>
+ </project>
+\ No newline at end of file

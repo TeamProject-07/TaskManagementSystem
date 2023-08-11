@@ -2,6 +2,8 @@ package com.management.oop.project.commands.show;
 
 import com.management.oop.project.commands.contracts.Command;
 import com.management.oop.project.core.contracts.TaskManagementSystemRepository;
+import com.management.oop.project.models.BoardImpl;
+import com.management.oop.project.models.contracts.Board;
 import com.management.oop.project.models.contracts.Person;
 import com.management.oop.project.models.contracts.Team;
 import com.management.oop.project.utils.ValidationHelpers;

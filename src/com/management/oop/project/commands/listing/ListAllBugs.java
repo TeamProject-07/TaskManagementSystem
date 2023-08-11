@@ -60,7 +60,7 @@ public class ListAllBugs implements Command {
 
     private String sort() {
         StringBuilder list=new StringBuilder();
-        bugs.sort(Comparator.comparing(Task::getTitle));
+        bugs.sort(Comparator.comparing(Bug::getTitle));
         for (Bug bug : bugs) {
             list.append(bug.getTitle()).append(System.lineSeparator());
         }
