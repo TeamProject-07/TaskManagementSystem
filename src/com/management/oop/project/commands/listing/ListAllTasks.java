@@ -39,7 +39,7 @@ public class ListAllTasks implements Command {
             list
                     .append(task.getId()).append(" ")
                     .append(task.getTitle()).append(" ")
-                    .append(task.getDescription()).append("")
+                    .append(task.getDescription())
                     .append(System.lineSeparator());
         }
         return list.toString();

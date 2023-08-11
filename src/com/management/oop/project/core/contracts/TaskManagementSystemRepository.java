@@ -13,6 +13,8 @@ public interface TaskManagementSystemRepository {
     List<Person> getPeople();
     List<Task> getAllTasks();
 
+    List<Bug> getAllBugs();
+
     Team findTeamByName(String teamName);
 
 
@@ -49,6 +51,8 @@ public interface TaskManagementSystemRepository {
 
     Team createTeam(String teamName);
     void addComment(String message, Person author);
+
+
 
 //    Bug changePriorityEnum(PriorityEnum priorityEnum);
 //    Bug changeSeverityEnum(BugSeverityEnum bugSeverityEnum);

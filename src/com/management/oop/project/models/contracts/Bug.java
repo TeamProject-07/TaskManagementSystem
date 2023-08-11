@@ -12,4 +12,6 @@ public interface Bug extends Task {
 
     void changeSeverityEnum(BugSeverityEnum bugSeverityEnum);
 
+    BugStatusEnum getStatus();
+
 }

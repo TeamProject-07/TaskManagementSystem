@@ -118,12 +118,13 @@ public class TaskManagementSystemRepositoryImpl implements TaskManagementSystemR
         }
         throw new IllegalArgumentException("There is no bug with this Id.");
     }
+
     @Override
     public Task findTaskById(int id) {
         for (Team team : teams) {
             for (Board board : team.getBoards()) {
                 for (Task task : board.getTasks()) {
-                    if (task.getId()==id){
+                    if (task.getId() == id) {
                         return task;
                     }
                 }
@@ -175,12 +176,13 @@ public class TaskManagementSystemRepositoryImpl implements TaskManagementSystemR
         }
         return false;
     }
+
     @Override
-    public boolean taskExist(int id){
+    public boolean taskExist(int id) {
         for (Team team : teams) {
             for (Board board : team.getBoards()) {
                 for (Task task : board.getTasks()) {
-                    if (task.getId()==id){
+                    if (task.getId() == id) {
                         return true;
                     }
                 }
@@ -239,9 +241,11 @@ public class TaskManagementSystemRepositoryImpl implements TaskManagementSystemR
     @Override
     public void addComment(String message, Person author) {
     }
+
+
     @Override
-    public List<Task> getAllTasks(){
-        List<Task>tasks=new ArrayList<>();
+    public List<Task> getAllTasks() {
+        List<Task> tasks = new ArrayList<>();
         for (Team team : teams) {
             for (Board board : team.getBoards()) {
                 board.getTasks().addAll(tasks);
@@ -249,5 +253,16 @@ public class TaskManagementSystemRepositoryImpl implements TaskManagementSystemR
         }
         return tasks;
     }
+
+    @Override
+    public List<Bug> getAllBugs() {
+        List<Bug> bugs = new ArrayList<>();
+        for (Team team : teams) {
+            for (Board board : team.getBoards()) {
+                board.getBugs().addAll(bugs);
+            }
+        }
+        return bugs;
     }
+}
 
