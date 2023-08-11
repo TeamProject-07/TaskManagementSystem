@@ -90,4 +90,9 @@ public abstract class TaskBase implements Task {
     private void setHistories(List<EventLog> histories) {
         this.histories = histories;
     }
+
+    @Override
+    public String getAsString() {
+        return null;
+    }
 }

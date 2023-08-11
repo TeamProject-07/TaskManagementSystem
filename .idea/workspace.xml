@@ -4,25 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f4d32bab-62d7-485a-a9dd-6cb272e43dff" name="Changes" comment="Commit CreateFeedback update">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_08_23__19_11__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_08_23__19_11__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_08_23__20_03__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_08_23__20_03__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_08_23__13_12__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_08_23__13_12__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_08_23__15_05__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_08_23__15_05__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_11_2023_12_16_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_11_2023_12_16_PM__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_11_2023_1_36_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_11_2023_1_36_PM__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_11_2023_2_01_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_11_2023_2_01_PM__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/commands/create/CreateFeedback.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/commands/create/CreateNewFeedback.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/commands/create/CreateNewFeedback.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/commands/enums/CommandType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/commands/enums/CommandType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/commands/listing/ListAllStories.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/commands/listing/ListAllStories.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/core/CommandFactoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/core/CommandFactoryImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/core/TaskManagementSystemRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/core/TaskManagementSystemRepositoryImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/core/contracts/TaskManagementSystemRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/core/contracts/TaskManagementSystemRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/models/CommentImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/models/CommentImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/models/contracts/Comment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/models/contracts/Comment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/models/contracts/Story.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/models/contracts/Story.java" afterDir="false" />
+    <list default="true" id="f4d32bab-62d7-485a-a9dd-6cb272e43dff" name="Changes" comment="Add ListAllStories">
+      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/commands/show/ShowAllPeopleCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/commands/show/ShowAllPeopleCommand.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,8 +16,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -160,7 +143,14 @@
       <option name="project" value="LOCAL" />
       <updated>1691676374307</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Add ListAllStories">
+      <created>1691764042925</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1691764042925</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -185,6 +175,7 @@
     <MESSAGE value="Commit ShowBoardActivityCommand" />
     <MESSAGE value="Commit CreateBugCommand" />
     <MESSAGE value="Commit CreateFeedback update" />
-    <option name="LAST_COMMIT_MESSAGE" value="Commit CreateFeedback update" />
+    <MESSAGE value="Add ListAllStories" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add ListAllStories" />
   </component>
 </project>

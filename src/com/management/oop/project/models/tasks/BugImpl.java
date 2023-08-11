@@ -66,5 +66,8 @@ public class BugImpl extends TaskBase implements Bug {
         return assignee;
     }
 
-
+    @Override
+    public String getAsString() {
+        return null;
+    }
 }

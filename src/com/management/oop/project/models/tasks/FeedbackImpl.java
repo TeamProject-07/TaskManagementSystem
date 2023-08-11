@@ -51,4 +51,8 @@ public class FeedbackImpl extends TaskBase implements Feedback {
         addHistory(new EventLogImpl("Status was changed"));
     }
 
+    @Override
+    public String getAsString() {
+        return null;
+    }
 }

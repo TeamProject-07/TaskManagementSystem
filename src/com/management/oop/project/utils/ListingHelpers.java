@@ -13,6 +13,6 @@ public class ListingHelpers {
         for (T element : elements) {
             result.add(element.getAsString());
         }
-        return String.join(JOIN_DELIMITER + System.lineSeparator(), result).trim();
+        return String.join(System.lineSeparator(), result).trim();
     }
 }
