@@ -66,6 +66,7 @@ public abstract class TaskBase implements Task {
     @Override
     public void addComment(Comment comment) {
         comments.add(comment);
+        addHistory(new EventLogImpl("Comment was added."));
     }
     protected void addHistory(EventLog eventLog){
         histories.add(eventLog);

@@ -175,6 +175,19 @@ public class TaskManagementSystemRepositoryImpl implements TaskManagementSystemR
         }
         return false;
     }
+    @Override
+    public boolean taskExist(int id){
+        for (Team team : teams) {
+            for (Board board : team.getBoards()) {
+                for (Task task : board.getTasks()) {
+                    if (task.getId()==id){
+                        return true;
+                    }
+                }
+            }
+        }
+        throw new IllegalArgumentException("There is no task with this id.");
+    }
 
     @Override
     public boolean teamExist(String teamName) {
