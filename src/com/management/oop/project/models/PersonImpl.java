@@ -16,7 +16,7 @@ public class PersonImpl implements Person {
         this.name = name;
         this.tasks = new ArrayList<>();
         this.histories = new ArrayList<>();
-        addHistory(new EventLogImpl("Person was crated."));
+        addHistory(new EventLogImpl("Person was created."));
     }
     protected void addHistory(EventLog eventLog){
         histories.add(eventLog);

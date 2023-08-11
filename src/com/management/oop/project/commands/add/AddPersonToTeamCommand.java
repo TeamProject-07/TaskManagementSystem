@@ -11,7 +11,7 @@ import java.util.List;
 public class AddPersonToTeamCommand implements Command {
     public static final int EXPECTED_NUMBER_OF_ARGUMENTS = 2;
     public static final String PERSON_ALREADY_ADDED_ERROR = "Person already is in this team.";
-    public static final String PERSON_ADDED = "Person added to team.";
+    public static final String PERSON_ADDED = "Person with name %s added to team.";
     private final TaskManagementSystemRepository taskManagementSystemRepository;
 
     public AddPersonToTeamCommand(TaskManagementSystemRepository taskManagementSystemRepository) {
@@ -34,8 +34,8 @@ public class AddPersonToTeamCommand implements Command {
             Team team = taskManagementSystemRepository.findTeamByName(teamName);
 
             if (!taskManagementSystemRepository.personHasTeam(personName)) {
-                taskManagementSystemRepository.addPersonToTeam(person, team);
-                return String.format(PERSON_ADDED);
+                taskManagementSystemRepository.findTeamByName(teamName).addPerson(person);
+                return String.format(PERSON_ADDED, person.getName());
 
             }
         }

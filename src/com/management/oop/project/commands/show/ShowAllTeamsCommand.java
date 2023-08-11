@@ -6,32 +6,23 @@ import com.management.oop.project.models.BoardImpl;
 import com.management.oop.project.models.contracts.Board;
 import com.management.oop.project.models.contracts.Person;
 import com.management.oop.project.models.contracts.Team;
+import com.management.oop.project.utils.ListingHelpers;
 import com.management.oop.project.utils.ValidationHelpers;
 
 import java.util.List;
 
 public class ShowAllTeamsCommand implements Command {
 
-    private final TaskManagementSystemRepository taskManagementSystemRepository;
-
+    private final List<Team>teams;
     public ShowAllTeamsCommand(TaskManagementSystemRepository taskManagementSystemRepository) {
-        this.taskManagementSystemRepository = taskManagementSystemRepository;
+    this.teams=taskManagementSystemRepository.getTeams();
     }
 
     @Override
     public String execute(List<String> parameters) {
-        List<Team> teams = taskManagementSystemRepository.getTeams();
-        StringBuilder result = new StringBuilder();
-        if (teams.size() == 0) {
-            throw new IllegalArgumentException("No teams have been created");
+        if (teams.isEmpty()) {
+            return "There are no registered tickets.";
         }
-        for (int i = 0; i < teams.size(); i++) {
-            result.append(String.format("%s, ", teams.get(i).toString()));
-        }
-
-        return result.toString();
+        return ListingHelpers.getAsString(teams);
     }
-
-
-
 }

@@ -23,7 +23,7 @@ public class TeamImpl implements Team {
         this.people = new ArrayList<>();
         this.boards = new ArrayList<>();
         this.histories=new ArrayList<>();
-        this.histories.add(new EventLogImpl("Team was created."));
+        this.histories.add(new EventLogImpl(String.format("Team with name %s was created.", getName())));
     }
 
     private void setName(String name) {
@@ -47,13 +47,21 @@ public class TeamImpl implements Team {
         return new ArrayList<>(people);
     }
 
-    void addPerson(Person person) {
+    public void addPerson(Person person) {
         people.add(person);
+        addHistory(new EventLogImpl(String.format("Person with name %s was added.", person.getName())));
     }
-
+    protected void addHistory(EventLog eventLog) {
+        histories.add(eventLog);
+    }
     @Override
     public String getName() {
         return name;
     }
 
+    @Override
+    public String getAsString() {
+        return String.format("""
+                Team name: %s""", getName());
+    }
 }

@@ -24,6 +24,6 @@ public class EventLogImpl implements EventLog {
 
     @Override
     public String toString() {
-        return String.format("[%s] %s", timestamp.format(formatter), description);
+        return String.format("[%s] %s%n", timestamp.format(formatter), description);
     }
 }

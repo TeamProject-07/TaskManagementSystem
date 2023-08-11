@@ -2,7 +2,7 @@ package com.management.oop.project.models.contracts;
 
 import java.util.List;
 
-public interface Board {
+public interface Board extends Printable{
     String getName();
     List<EventLog>getHistory();
     void addBug(Bug bug);

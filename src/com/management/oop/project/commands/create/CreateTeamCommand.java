@@ -11,7 +11,7 @@ import java.util.List;
 
 public class CreateTeamCommand implements Command {
 
-    public static final int EXPECTED_NUMBER_OF_ARGUMENTS = 3;
+    public static final int EXPECTED_NUMBER_OF_ARGUMENTS = 1;
     public static final String TEAM_CREATED = "Team with name %s was created.";
     public static final String TEAM_EXISTS_ERROR = "Team with name %s already exists";
     private final TaskManagementSystemRepository taskManagementSystemRepository;

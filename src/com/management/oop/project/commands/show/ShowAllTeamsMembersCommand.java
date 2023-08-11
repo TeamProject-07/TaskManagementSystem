@@ -3,6 +3,7 @@ package com.management.oop.project.commands.show;
 import com.management.oop.project.commands.contracts.Command;
 import com.management.oop.project.core.contracts.TaskManagementSystemRepository;
 import com.management.oop.project.models.contracts.Team;
+import com.management.oop.project.utils.ListingHelpers;
 import com.management.oop.project.utils.ValidationHelpers;
 
 import java.util.List;
@@ -20,7 +21,7 @@ public class ShowAllTeamsMembersCommand implements Command {
     public String execute(List<String> parameters) {
         ValidationHelpers.validateArgumentsCount(parameters, EXPECTED_NUMBER_OF_ARGUMENTS);
         String teamName = parameters.get(0);
-        return getMemberAsString(teamName);
+        return ListingHelpers.membersToString(taskManagementSystemRepository.findTeamByName(teamName).getPeople());
     }
 
 

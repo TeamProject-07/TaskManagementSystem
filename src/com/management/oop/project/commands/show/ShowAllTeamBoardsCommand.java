@@ -5,6 +5,7 @@ import com.management.oop.project.core.contracts.TaskManagementSystemRepository;
 import com.management.oop.project.models.contracts.Board;
 import com.management.oop.project.models.contracts.Person;
 import com.management.oop.project.models.contracts.Team;
+import com.management.oop.project.utils.ListingHelpers;
 import com.management.oop.project.utils.ValidationHelpers;
 
 import java.util.ArrayList;
@@ -24,14 +25,10 @@ public class ShowAllTeamBoardsCommand implements Command {
     public String execute(List<String> parameters) {
         ValidationHelpers.validateArgumentsCount(parameters, EXPECTED_NUMBER_OF_ARGUMENTS);
         String teamName = parameters.get(0);
-        Team team = taskManagementSystemRepository.findTeamByName(teamName);
-        List<Board> boards = team.getBoards();
         return getBoardAsString(teamName);
     }
-
-
     private String getBoardAsString(String teamName) {
         Team team = taskManagementSystemRepository.findTeamByName(teamName);
-        return String.valueOf(team.getPeople());
+        return ListingHelpers.boardsToString(team.getBoards());
     }
 }
