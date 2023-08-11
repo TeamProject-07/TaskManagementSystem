@@ -11,6 +11,7 @@ public interface Board {
     List<Bug> getBugs();
     List<Story> getStories();
     List<Feedback> getFeedbacks();
+    List<Task>getTasks();
 
 
 }

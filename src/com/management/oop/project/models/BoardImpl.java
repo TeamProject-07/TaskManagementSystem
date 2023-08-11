@@ -40,6 +40,15 @@ public class BoardImpl implements Board {
         histories.add(new EventLogImpl("Feedback was created"));
     }
 
+    @Override
+    public List<Task> getTasks() {
+        List<Task>tasks=new ArrayList<>();
+        tasks.addAll(bugs);
+        tasks.addAll(feedbacks);
+        tasks.addAll(stories);
+        return tasks;
+    }
+
     public List<Bug> getBugs() {
         return new ArrayList<>(bugs);
     }

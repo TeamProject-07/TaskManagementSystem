@@ -118,6 +118,19 @@ public class TaskManagementSystemRepositoryImpl implements TaskManagementSystemR
         }
         throw new IllegalArgumentException("There is no bug with this Id.");
     }
+    @Override
+    public Task findTaskById(int id) {
+        for (Team team : teams) {
+            for (Board board : team.getBoards()) {
+                for (Task task : board.getTasks()) {
+                    if (task.getId()==id){
+                        return task;
+                    }
+                }
+            }
+        }
+        throw new IllegalArgumentException("There is no task with this id.");
+    }
 
     @Override
     public Board findBoardByName(String boardName) {

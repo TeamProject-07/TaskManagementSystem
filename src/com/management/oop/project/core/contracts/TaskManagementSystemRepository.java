@@ -22,6 +22,7 @@ public interface TaskManagementSystemRepository {
     Bug findBugById(int id);
     Story findStoryById(int id);
     Feedback findFeedbackById(int id);
+    Task findTaskById(int id);
 
     Person createPerson(String name);
 

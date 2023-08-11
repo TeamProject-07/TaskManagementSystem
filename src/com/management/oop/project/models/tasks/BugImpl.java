@@ -28,8 +28,8 @@ public class BugImpl extends TaskBase implements Bug {
         this.assignee = assignee;
         addHistory(new EventLogImpl("Bug was created."));
     }
-
-    public void setStatus(BugStatusEnum status) {
+    @Override
+    public void changeStatus(BugStatusEnum status) {
         this.status = status;
     }
     @Override
@@ -40,18 +40,7 @@ public class BugImpl extends TaskBase implements Bug {
     public void changeSeverityEnum(BugSeverityEnum bugSeverityEnum){
         this.bugSeverityEnum=bugSeverityEnum;
     }
-    @Override
-    public void advanceStatus(){
-        switch (getStatus()){
-            case ACTIVE -> setStatus(BugStatusEnum.FIXED);
-        }
-    }
-    @Override
-    public void revertStatus(){
-        switch (getStatus()){
-            case FIXED -> setStatus(BugStatusEnum.ACTIVE);
-        }
-    }
+
 
     public PriorityEnum getBugPriorityEnum() {
         return priorityEnum;

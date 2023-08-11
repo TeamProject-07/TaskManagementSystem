@@ -4,3 +4,4 @@ public enum BugStatusEnum {
     ACTIVE,
     FIXED
 }
+
