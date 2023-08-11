@@ -36,8 +36,7 @@ public interface TaskManagementSystemRepository {
     boolean boardExist(String boardName);
 
     Bug createBug(String boardName, String title, String description, List<String> steps,
-                  PriorityEnum priorityEnum, BugSeverityEnum bugSeverityEnum,
-                  BugStatusEnum bugStatusEnum);
+                  PriorityEnum priorityEnum, BugSeverityEnum bugSeverityEnum);
 
     Story createStory(String boardName, String title, String description, PriorityEnum priorityEnum,
                       StorySizeEnum storySizeEnum, StoryStatusEnum storyStatusEnum);

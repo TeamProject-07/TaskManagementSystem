@@ -201,8 +201,8 @@ public class TaskManagementSystemRepositoryImpl implements TaskManagementSystemR
 
     @Override
     public Bug createBug(String boardName, String title, String description, List<String> steps, PriorityEnum priorityEnum,
-                         BugSeverityEnum bugSeverityEnum, BugStatusEnum bugStatusEnum) {
-        Bug bug = new BugImpl(++nextId, title, description, steps, priorityEnum, bugSeverityEnum, bugStatusEnum);
+                         BugSeverityEnum bugSeverityEnum) {
+        Bug bug = new BugImpl(++nextId, title, description, steps, priorityEnum, bugSeverityEnum);
         findBoardByName(boardName).addBug(bug);
         return bug;
     }

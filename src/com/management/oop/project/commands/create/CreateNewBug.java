@@ -4,7 +4,6 @@ import com.management.oop.project.commands.contracts.Command;
 import com.management.oop.project.core.contracts.TaskManagementSystemRepository;
 import com.management.oop.project.models.contracts.Bug;
 import com.management.oop.project.models.enums.BugSeverityEnum;
-import com.management.oop.project.models.enums.BugStatusEnum;
 import com.management.oop.project.models.enums.PriorityEnum;
 import com.management.oop.project.utils.ParsingHelpers;
 import com.management.oop.project.utils.ValidationHelpers;
@@ -12,7 +11,7 @@ import com.management.oop.project.utils.ValidationHelpers;
 import java.util.List;
 
 public class CreateNewBug implements Command {
-    public static final int EXPECTED_NUMBER_OF_PARAMETERS = 6;
+    public static final int EXPECTED_NUMBER_OF_PARAMETERS = 5;
     private TaskManagementSystemRepository taskManagementSystemRepository;
 
     public CreateNewBug(TaskManagementSystemRepository taskManagementSystemRepository) {
@@ -28,12 +27,11 @@ public class CreateNewBug implements Command {
         List<String> steps= List.of(parameters.get(3).split(", "));
         PriorityEnum priorityEnum= ParsingHelpers.tryParseEnum(parameters.get(4), PriorityEnum.class);
         BugSeverityEnum severityEnum= ParsingHelpers.tryParseEnum(parameters.get(5), BugSeverityEnum.class);
-        BugStatusEnum bugStatusEnum= ParsingHelpers.tryParseEnum(parameters.get(6), BugStatusEnum.class);
-        return createBug(boardName, title, description, steps, priorityEnum, severityEnum, bugStatusEnum);
+        return createBug(boardName, title, description, steps, priorityEnum, severityEnum);
     }
     private String createBug(String boardName, String title, String description, List<String> steps, PriorityEnum priorityEnum,
-                             BugSeverityEnum bugSeverityEnum, BugStatusEnum bugStatusEnum){
-        Bug createdBug=taskManagementSystemRepository.createBug(boardName, title, description, steps, priorityEnum, bugSeverityEnum, bugStatusEnum);
+                             BugSeverityEnum bugSeverityEnum){
+        Bug createdBug=taskManagementSystemRepository.createBug(boardName, title, description, steps, priorityEnum, bugSeverityEnum);
         return String.format("Bug was created.");
     }
 }

@@ -19,7 +19,7 @@ public class BugImpl extends TaskBase implements Bug {
 
     public BugImpl(int id, String title, String description,
                    List<String> steps, PriorityEnum priorityEnum,
-                   BugSeverityEnum bugSeverityEnum, BugStatusEnum status) {
+                   BugSeverityEnum bugSeverityEnum) {
         super(id, title, description);
         this.steps = steps;
         this.priorityEnum = priorityEnum;
