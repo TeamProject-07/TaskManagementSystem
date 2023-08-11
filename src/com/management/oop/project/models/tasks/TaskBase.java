@@ -36,12 +36,14 @@ public abstract class TaskBase implements Task {
     }
 
     private void setId(int id) {
-        this.id=id;
+        this.id = id;
     }
+
     @Override
     public int getId() {
         return id;
     }
+
     @Override
     public String getTitle() {
         return title;
@@ -51,7 +53,6 @@ public abstract class TaskBase implements Task {
         ValidationHelpers.validateStringLength(title, TITLE_MIN_LENGTH, TITLE_MAX_LENGTH, TITLE_ERROR_MESSAGE);
         this.title = title;
     }
-
 
     @Override
     public String getDescription() {
@@ -68,9 +69,11 @@ public abstract class TaskBase implements Task {
         comments.add(comment);
         addHistory(new EventLogImpl("Comment was added."));
     }
-    protected void addHistory(EventLog eventLog){
+
+    protected void addHistory(EventLog eventLog) {
         histories.add(eventLog);
     }
+
     @Override
     public List<Comment> getComments() {
         return new ArrayList<>(comments);

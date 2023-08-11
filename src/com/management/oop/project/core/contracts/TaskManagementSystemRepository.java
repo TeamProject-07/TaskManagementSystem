@@ -11,7 +11,7 @@ public interface TaskManagementSystemRepository {
     List<Team> getTeams();
 
     List<Person> getPeople();
-
+    List<Task> getAllTasks();
 
     Team findTeamByName(String teamName);
 

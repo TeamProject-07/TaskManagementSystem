@@ -238,7 +238,16 @@ public class TaskManagementSystemRepositoryImpl implements TaskManagementSystemR
 
     @Override
     public void addComment(String message, Person author) {
-
+    }
+    @Override
+    public List<Task> getAllTasks(){
+        List<Task>tasks=new ArrayList<>();
+        for (Team team : teams) {
+            for (Board board : team.getBoards()) {
+                board.getTasks().addAll(tasks);
+            }
+        }
+        return tasks;
     }
     }
 
