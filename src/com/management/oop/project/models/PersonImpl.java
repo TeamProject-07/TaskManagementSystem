@@ -16,8 +16,11 @@ public class PersonImpl implements Person {
         this.name = name;
         this.tasks = new ArrayList<>();
         this.histories = new ArrayList<>();
+        addHistory(new EventLogImpl("Person was crated."));
     }
-
+    protected void addHistory(EventLog eventLog){
+        histories.add(eventLog);
+    }
     public List<Task> getTasks() {
         return new ArrayList<>(tasks);
     }
@@ -41,11 +44,13 @@ public class PersonImpl implements Person {
     @Override
     public void assignTask(Task task) {
         this.tasks.add(task);
+        addHistory(new EventLogImpl("Task was assigned to person."));
     }
 
     @Override
     public void unAssignTask(Task task) {
         this.tasks.remove(task);
+        addHistory(new EventLogImpl("Task was unassigned to person."));
     }
 
 
