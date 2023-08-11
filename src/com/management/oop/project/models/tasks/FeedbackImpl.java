@@ -5,8 +5,6 @@ import com.management.oop.project.models.contracts.Feedback;
 import com.management.oop.project.models.enums.FeedbackStatusEnum;
 import com.management.oop.project.utils.ValidationHelpers;
 
-import java.net.FileNameMap;
-
 public class FeedbackImpl extends TaskBase implements Feedback {
 
     public static final int MIN_RATING = 0;
@@ -23,17 +21,20 @@ public class FeedbackImpl extends TaskBase implements Feedback {
         super(id, title, description);
         setRating(rating);
         this.status = status;
+        addHistory(new EventLogImpl("Feedback was created."));
     }
 
     public int getRating() {
         return rating;
     }
 
+
     private void setRating(int rating) {
         ValidationHelpers.validateValueInRange(rating, MIN_RATING, MAX_RATING, RATING_ERROR_MESSAGE);
         this.rating = rating;
     }
 
+    @Override
     public void changeRating(int rating) {
         ValidationHelpers.validateValueInRange(rating, MIN_RATING, MAX_RATING, RATING_ERROR_MESSAGE);
         this.rating = rating;
@@ -43,7 +44,9 @@ public class FeedbackImpl extends TaskBase implements Feedback {
     public FeedbackStatusEnum getStatus() {
         return status;
     }
-    public void changeStatus(FeedbackStatusEnum feedbackStatusEnum){
+
+    @Override
+    public void changeStatus(FeedbackStatusEnum feedbackStatusEnum) {
         this.status = feedbackStatusEnum;
         addHistory(new EventLogImpl("Status was changed"));
     }
