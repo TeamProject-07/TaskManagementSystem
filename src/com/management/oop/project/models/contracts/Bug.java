@@ -14,4 +14,7 @@ public interface Bug extends Task {
 
     BugStatusEnum getStatus();
 
+    PriorityEnum getBugPriorityEnum();
+    BugSeverityEnum getBugSeverityEnum();
+
 }

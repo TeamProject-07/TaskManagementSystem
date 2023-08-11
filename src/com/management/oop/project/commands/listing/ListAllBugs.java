@@ -60,9 +60,14 @@ public class ListAllBugs implements Command {
 
     private String sort() {
         StringBuilder list=new StringBuilder();
-        bugs.sort(Comparator.comparing(Bug::getTitle));
+        bugs.sort(Comparator.comparing(Bug::getTitle).
+                thenComparing(Bug:: getBugPriorityEnum).
+                thenComparing(Bug::getBugSeverityEnum));
         for (Bug bug : bugs) {
-            list.append(bug.getTitle()).append(System.lineSeparator());
+            list.append(bug.getTitle()).append(" ")
+                    .append(bug.getBugPriorityEnum()).append(" ")
+                    .append(bug.getBugSeverityEnum())
+                    .append(System.lineSeparator());
         }
         return list.toString();
 

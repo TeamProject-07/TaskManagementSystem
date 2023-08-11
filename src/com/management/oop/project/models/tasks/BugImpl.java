@@ -65,4 +65,6 @@ public class BugImpl extends TaskBase implements Bug {
     public Person getAssignee() {
         return assignee;
     }
+
+
 }

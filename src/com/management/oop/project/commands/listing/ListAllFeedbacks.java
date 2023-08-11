@@ -57,11 +57,9 @@ public class ListAllFeedbacks implements Command {
     private String sort(){
         StringBuilder list = new StringBuilder();
         feedbacks.sort(Comparator.comparing(Feedback::getTitle)
-                .thenComparing(Feedback::getStatus)
                 .thenComparing(Feedback::getRating));
         for (Feedback feedback : feedbacks) {
             list.append(feedback.getTitle()).append(" ")
-                    .append(feedback.getStatus()).append(" ")
                     .append(feedback.getRating())
                     .append(System.lineSeparator());
         }
