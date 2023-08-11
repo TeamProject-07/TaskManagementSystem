@@ -10,21 +10,18 @@ import java.util.List;
 public class PersonImpl implements Person {
     private String name;
     private List<Task> tasks;
-    private List<EventLog>histories;
+    private List<EventLog> histories;
 
     public PersonImpl(String name) {
         this.name = name;
-        this.tasks=new ArrayList<>();
-        this.histories=new ArrayList<>();
+        this.tasks = new ArrayList<>();
+        this.histories = new ArrayList<>();
     }
 
     public List<Task> getTasks() {
         return new ArrayList<>(tasks);
     }
 
-    public List<EventLog> getHistories() {
-        return new ArrayList<>(histories);
-    }
 
     @Override
     public String toString() {
@@ -33,7 +30,23 @@ public class PersonImpl implements Person {
 
     @Override
     public String getName() {
-        return null;
+        return this.name;
     }
+
+    @Override
+    public List<EventLog> getHistory() {
+        return new ArrayList<>(histories);
+    }
+
+    @Override
+    public void assignTask(Task task) {
+        this.tasks.add(task);
+    }
+
+    @Override
+    public void unAssignTask(Task task) {
+        this.tasks.remove(task);
+    }
+
 
 }

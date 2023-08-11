@@ -2,9 +2,13 @@ package com.management.oop.project.models.contracts;
 
 import java.util.List;
 
-public interface Person extends Team, Identifiable{
+public interface Person {
     String getName();
 
-    Person getPerson();
-    List<EventLog>getHistory();
+
+    List<EventLog> getHistory();
+
+    void assignTask(Task task);
+
+    void unAssignTask(Task task);
 }
