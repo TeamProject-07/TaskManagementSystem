@@ -276,5 +276,15 @@ public class TaskManagementSystemRepositoryImpl implements TaskManagementSystemR
         return feedbacks;
     }
 
+    @Override
+    public List<Story> getAllStories() {
+        List<Story> stories = new ArrayList<>();
+        for (Team team : teams) {
+            for (Board board: team.getBoards()) {
+                board.getStories().addAll(stories);
+            }
+        }
+        return stories;
+    }
 }
 

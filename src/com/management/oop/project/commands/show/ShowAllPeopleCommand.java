@@ -8,7 +8,7 @@ import com.management.oop.project.utils.ValidationHelpers;
 import java.util.List;
 
 public class ShowAllPeopleCommand implements Command {
-    public static final int EXPECTED_NUMBER_OF_ARGUMENTS = 1;
+    public static final int EXPECTED_NUMBER_OF_ARGUMENTS = 0;
 
     private final TaskManagementSystemRepository taskManagementSystemRepository;
 
@@ -31,6 +31,4 @@ public class ShowAllPeopleCommand implements Command {
 
         return result.toString();
     }
-
-
 }

@@ -52,6 +52,9 @@ public class PersonImpl implements Person {
         this.tasks.remove(task);
         addHistory(new EventLogImpl("Task was unassigned to person."));
     }
-
-
+    @Override
+    public String getAsString() {
+        return String.format("""
+                Person: %s""", getName());
+    }
 }

@@ -8,7 +8,7 @@ public class CommentImpl implements Comment {
 
     private String message;
 
-    private Person author;
+    private String author;
 
     public CommentImpl (String message, String author){
         setMessage(message);
@@ -24,11 +24,11 @@ public class CommentImpl implements Comment {
     }
 
     @Override
-    public Person getAuthor() {
+    public String getAuthor() {
         return author;
     }
 
-    private void setAuthor(Person author){
+    private void setAuthor(String author){
         this.author = author;
     }
 

@@ -2,5 +2,5 @@ package com.management.oop.project.models.contracts;
 
 public interface Comment {
     String getMessage();
-    Person getAuthor();
+    String getAuthor();
 }

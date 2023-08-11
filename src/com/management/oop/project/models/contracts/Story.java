@@ -12,4 +12,7 @@ public interface Story extends Task{
     void changeSize(StorySizeEnum storySizeEnum);
 
     void changeStoryStatusEnum(StoryStatusEnum storyStatusEnum);
+    StoryStatusEnum getStoryStatusEnum();
+    PriorityEnum getPriorityEnum();
+    StorySizeEnum getStorySizeEnum();
 }
