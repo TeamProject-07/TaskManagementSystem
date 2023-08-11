@@ -4,21 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f4d32bab-62d7-485a-a9dd-6cb272e43dff" name="Changes" comment="Commit CreateFeedback update">
+    <list default="true" id="f4d32bab-62d7-485a-a9dd-6cb272e43dff" name="Changes" comment="Commit ShowBoardActivityCommand">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/commands/create/CreateBoardCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/commands/create/CreateBoardCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/commands/create/CreateFeedback.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/commands/create/CreateFeedback.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/commands/create/CreateNewBug.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/commands/create/CreateNewBug.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/commands/create/CreateNewStory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/commands/create/CreateNewStory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/core/TaskManagementSystemRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/core/TaskManagementSystemRepositoryImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/core/contracts/TaskManagementSystemRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/core/contracts/TaskManagementSystemRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/models/BoardImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/models/BoardImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/models/CommentImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/models/CommentImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/models/TeamImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/models/TeamImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/models/contracts/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/models/contracts/Board.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/models/contracts/Bug.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/models/contracts/Bug.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/models/contracts/Team.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/models/contracts/Team.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/models/tasks/BugImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/models/tasks/BugImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/commands/change/ChangeFeedbackCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/commands/change/ChangeFeedbackCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/models/contracts/Feedback.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/models/contracts/Feedback.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/models/tasks/FeedbackImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/models/tasks/FeedbackImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,8 +19,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -128,35 +118,7 @@
       <option name="project" value="LOCAL" />
       <updated>1691654141757</updated>
     </task>
-    <task id="LOCAL-00007" summary="Commit CreateBugCommand">
-      <created>1691676107519</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1691676107519</updated>
-    </task>
-    <task id="LOCAL-00008" summary="Commit CreateBugCommand">
-      <created>1691676235053</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1691676235053</updated>
-    </task>
-    <task id="LOCAL-00009" summary="Commit CreateBugCommand">
-      <created>1691676294292</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1691676294292</updated>
-    </task>
-    <task id="LOCAL-00010" summary="Commit CreateFeedback update">
-      <created>1691676374307</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1691676374307</updated>
-    </task>
-    <option name="localTasksCounter" value="11" />
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -179,8 +141,6 @@
     <MESSAGE value="Add and implement Engine and CommandFactory" />
     <MESSAGE value="Implement TaskBase and subclasses" />
     <MESSAGE value="Commit ShowBoardActivityCommand" />
-    <MESSAGE value="Commit CreateBugCommand" />
-    <MESSAGE value="Commit CreateFeedback update" />
-    <option name="LAST_COMMIT_MESSAGE" value="Commit CreateFeedback update" />
+    <option name="LAST_COMMIT_MESSAGE" value="Commit ShowBoardActivityCommand" />
   </component>
 </project>
