@@ -27,13 +27,12 @@ public class ShowPersonActivityCommand implements Command {
         Person person = taskManagementSystemRepository.findPersonByName(personName);
         List<EventLog> histories = person.getHistory();
         StringBuilder result = new StringBuilder();
-        result.append(personName).append(System.lineSeparator());
+        result.append(String.format("Show %s activity:", personName)).append(System.lineSeparator());
         if (histories.size() == 0) {
             throw new IllegalArgumentException("Don't have activity.");
         }
         for (int i = 0; i < histories.size(); i++) {
-            //TODO ADD METHOD SPLIT()
-            result.append(String.format("%s ", histories.get(i).toString()));
+            result.append(String.format("%s ", histories.get(i)));
         }
         return result.toString();
     }

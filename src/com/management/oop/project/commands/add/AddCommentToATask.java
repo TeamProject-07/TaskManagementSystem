@@ -33,8 +33,8 @@ public class AddCommentToATask implements Command {
             Comment commentToAdd = new CommentImpl(message, author);
             Task task= taskManagementSystemRepository.findTaskById(taskId);
             task.addComment(commentToAdd);
-            return String.format("Comment added to task %s", taskManagementSystemRepository.findTaskById(taskId));
+            return String.format("Comment added to task with ID %d", taskId);
         }
-        throw new IllegalArgumentException(String.format("There is no task with this id %s", taskId));
+        throw new IllegalArgumentException(String.format("There is no task with this id %d", taskId));
     }
 }

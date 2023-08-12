@@ -36,8 +36,7 @@ public class ListAllTasks implements Command {
     private String listAllTasks(){
         StringBuilder list= new StringBuilder();
         for (Task task : tasks) {
-            list
-                    .append(task.getId()).append(" ")
+            list.append(task.getId()).append(" ")
                     .append(task.getTitle()).append(" ")
                     .append(task.getDescription())
                     .append(System.lineSeparator());

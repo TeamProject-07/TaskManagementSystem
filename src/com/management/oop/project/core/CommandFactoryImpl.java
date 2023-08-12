@@ -1,9 +1,11 @@
 package com.management.oop.project.core;
 
+import com.management.oop.project.commands.add.AddCommentToATask;
 import com.management.oop.project.commands.add.AddPersonToTeamCommand;
 import com.management.oop.project.commands.assign.AssignTaskToPersonCommand;
 import com.management.oop.project.commands.assign.UnassignTaskToPersonCommand;
 import com.management.oop.project.commands.change.ChangeBugCommand;
+import com.management.oop.project.commands.change.ChangeFeedbackCommand;
 import com.management.oop.project.commands.change.ChangeStoryCommand;
 import com.management.oop.project.commands.contracts.Command;
 import com.management.oop.project.commands.create.*;
@@ -53,13 +55,16 @@ public class CommandFactoryImpl implements CommandFactory {
                 return new ChangeBugCommand(taskManagementSystemRepository);
             case CHANGESTORY:
                 return new ChangeStoryCommand(taskManagementSystemRepository);
+            case CHANGEFEEDBACK:
+                return new ChangeFeedbackCommand(taskManagementSystemRepository);
             case ASSIGNTASKTOPERSON:
                 return new AssignTaskToPersonCommand(taskManagementSystemRepository);
             case UNASSIGNTASKTOPERSON:
                 return new UnassignTaskToPersonCommand(taskManagementSystemRepository);
+            case ADDCOMMENTTOATASK:
+                return new AddCommentToATask(taskManagementSystemRepository);
             default:
-                throw new IllegalArgumentException(String.format(INVALID_COMMAND));
+                throw new IllegalArgumentException(String.format(INVALID_COMMAND, commandName));
         }
     }
-
 }

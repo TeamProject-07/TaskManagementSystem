@@ -10,7 +10,7 @@ import java.util.List;
 
 public class ChangeFeedbackCommand implements Command {
     //Rating, Status
-    public static final int EXPECTED_NUMBER_OF_ARGUMENTS = 4;
+    public static final int EXPECTED_NUMBER_OF_ARGUMENTS = 3;
     private TaskManagementSystemRepository taskManagementSystemRepository;
 
     public ChangeFeedbackCommand(TaskManagementSystemRepository taskManagementSystemRepository) {
@@ -23,7 +23,6 @@ public class ChangeFeedbackCommand implements Command {
         int id = ParsingHelpers.tryParseInteger(parameters.get(0), "id");
         String fieldType = parameters.get(1);
         String newValue = parameters.get(2);
-//        int newRating = ParsingHelpers.tryParseInteger(parameters.get(3), "newRating");
         switch (fieldType){
             case "status":
                 return changeStatus(id, newValue);
@@ -41,9 +40,8 @@ public class ChangeFeedbackCommand implements Command {
         return String.format("Status was changed to %s", newTypeOfStatus);
     }
     private String changeRating(int id, String newTypeOfRating){
-        //TODO ask for Rating enum class
         int rating = ParsingHelpers.tryParseInteger(newTypeOfRating, "rating");
         taskManagementSystemRepository.findFeedbackById(id).changeRating(rating);
-        return String.format("Rating was changed to %d", newTypeOfRating);
+        return String.format("Rating was changed to %d", rating);
     }
 }
