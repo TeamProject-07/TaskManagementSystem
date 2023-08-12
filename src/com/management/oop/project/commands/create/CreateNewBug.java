@@ -10,7 +10,8 @@ import com.management.oop.project.utils.ValidationHelpers;
 
 import java.util.List;
 
-public class CreateNewBug implements Command {
+public class
+CreateNewBug implements Command {
     public static final int EXPECTED_NUMBER_OF_PARAMETERS = 6;
     private TaskManagementSystemRepository taskManagementSystemRepository;
 

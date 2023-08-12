@@ -10,7 +10,7 @@ import java.util.List;
 
 public class ChangeStoryCommand implements Command {
     //Priority, Size, Status
-    public static final int EXPECTED_NUMBER_OF_ARGUMENTS = 4;
+    public static final int EXPECTED_NUMBER_OF_ARGUMENTS = 3;
     private TaskManagementSystemRepository taskManagementSystemRepository;
 
     public ChangeStoryCommand(TaskManagementSystemRepository taskManagementSystemRepository) {
