@@ -72,11 +72,4 @@ public class ListAllBugs implements Command {
         return list.toString();
 
     }
-
-
-
-
-
-
-
 }

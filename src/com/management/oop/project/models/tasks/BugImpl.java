@@ -25,7 +25,6 @@ public class BugImpl extends TaskBase implements Bug {
         this.priorityEnum = priorityEnum;
         this.bugSeverityEnum = bugSeverityEnum;
         this.status = BugStatusEnum.ACTIVE;
-        this.assignee = assignee;
         addHistory(new EventLogImpl("Bug was created."));
     }
     @Override
@@ -64,10 +63,5 @@ public class BugImpl extends TaskBase implements Bug {
 
     public Person getAssignee() {
         return assignee;
-    }
-
-    @Override
-    public String getAsString() {
-        return null;
     }
 }

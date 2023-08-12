@@ -8,10 +8,10 @@ import java.util.List;
 
 public class BoardImpl implements Board {
     private String name;
-    private final List<Bug>bugs;
-    private final List<Story>stories;
-    private final List<Feedback>feedbacks;
-    private List<EventLog>histories;
+    private final List<Bug> bugs;
+    private final List<Story> stories;
+    private final List<Feedback> feedbacks;
+    private List<EventLog> histories;
 
     public BoardImpl(String name) {
         setName(name);
@@ -42,7 +42,7 @@ public class BoardImpl implements Board {
 
     @Override
     public List<Task> getTasks() {
-        List<Task>tasks=new ArrayList<>();
+        List<Task> tasks = new ArrayList<>();
         tasks.addAll(bugs);
         tasks.addAll(feedbacks);
         tasks.addAll(stories);
@@ -71,7 +71,8 @@ public class BoardImpl implements Board {
     }
 
     private void setName(String name) {
-        ValidationHelpers.validateStringLength(name, 5, 10, "Name should be between 5 and 10 symbols.");
+        ValidationHelpers.validateStringLength(name, 5, 10,
+                "Name should be between 5 and 10 symbols.");
         this.name = name;
     }
 

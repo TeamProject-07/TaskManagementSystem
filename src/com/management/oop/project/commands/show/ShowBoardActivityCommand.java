@@ -28,13 +28,12 @@ public class ShowBoardActivityCommand implements Command {
         Board board = taskManagementSystemRepository.findBoardByName(boardName);
         List<EventLog> histories = board.getHistory();
         StringBuilder result = new StringBuilder();
-        result.append(boardName).append(System.lineSeparator());
+        result.append(String.format("Show %s activity:", boardName)).append(System.lineSeparator());
         if (histories.size() == 0) {
             throw new IllegalArgumentException("Don't have activity.");
         }
         for (int i = 0; i < histories.size(); i++) {
-            //TODO ADD METHOD SPLIT()
-            result.append(String.format("%s ", histories.get(i).toString()));
+            result.append(String.format("%s ", histories.get(i)));
         }
         return result.toString();
     }

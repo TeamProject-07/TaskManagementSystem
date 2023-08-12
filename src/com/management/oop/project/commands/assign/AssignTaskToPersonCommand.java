@@ -29,9 +29,9 @@ public class AssignTaskToPersonCommand implements Command {
         if (taskManagementSystemRepository.taskExist(id)) {
             Task task = taskManagementSystemRepository.findTaskById(id);
             taskManagementSystemRepository.findPersonByName(personName).assignTask(task);
-            return String.format("Task with id %d added.", id);
+            return String.format("Task with ID %d was assigned to person with name %s.", id, personName);
         }
-        throw new IllegalArgumentException("Task doesn't exist.");
+        throw new IllegalArgumentException(String.format("Task with ID %d doesn't exist.", id));
     }
 
 }
