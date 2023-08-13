@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BoardImpl implements Board {
+    public static final int BOARD_NAME_MIN_LENGTH = 5;
+    public static final int BOARD_NAME_MAX_LENGTH = 10;
     private String name;
     private final List<Bug> bugs;
     private final List<Story> stories;
@@ -71,7 +73,7 @@ public class BoardImpl implements Board {
     }
 
     private void setName(String name) {
-        ValidationHelpers.validateStringLength(name, 5, 10,
+        ValidationHelpers.validateStringLength(name, BOARD_NAME_MIN_LENGTH, BOARD_NAME_MAX_LENGTH,
                 "Name should be between 5 and 10 symbols.");
         this.name = name;
     }

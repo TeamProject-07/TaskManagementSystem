@@ -13,7 +13,7 @@ public class PersonImplTests {
     @Test
     public void constructor_Should_CreateNewPerson_When_ParametersAreCorrect() {
         // Arrange, Act
-        PersonImpl person = initializeTestPerson(VALID_USERNAME);
+        PersonImpl person = initializeTestPerson();
 
         // Assert
         Assertions.assertEquals(VALID_USERNAME, person.getName());
@@ -22,7 +22,7 @@ public class PersonImplTests {
     @Test
     public void getHistory_Should_ReturnCopyOfTheHistory() {
        // Arrange
-        PersonImpl person = initializeTestPerson(VALID_USERNAME);
+        PersonImpl person = initializeTestPerson();
         //Act
         person.getHistory();
 
@@ -33,7 +33,7 @@ public class PersonImplTests {
     @Test
     public void personActivity_Should_beAddedToTheHistory() {
         // Arrange
-        PersonImpl person = initializeTestPerson(VALID_USERNAME);
+        PersonImpl person = initializeTestPerson();
         StoryImpl story = StoryImplTests.initializeTestStory();
         person.assignTask(story);
         //Act
@@ -45,7 +45,7 @@ public class PersonImplTests {
     @Test
     public void getTasks_Should_ReturnCopyOfTheTasks() {
         // Arrange
-        PersonImpl person = initializeTestPerson(VALID_USERNAME);
+        PersonImpl person = initializeTestPerson();
         //Act
         person.getTasks();
 
@@ -57,7 +57,7 @@ public class PersonImplTests {
    @Test
    public void assignTask_Should_AddTaskToTheCollection() {
        // Arrange
-       PersonImpl person = initializeTestPerson(VALID_USERNAME);
+       PersonImpl person = initializeTestPerson();
        StoryImpl story = StoryImplTests.initializeTestStory();
        person.assignTask(story);
        // Act
@@ -69,7 +69,7 @@ public class PersonImplTests {
     @Test
     public void unassignTask_Should_RemoveTaskFromTheCollection() {
         // Arrange
-        PersonImpl person = initializeTestPerson(VALID_USERNAME);
+        PersonImpl person = initializeTestPerson();
         StoryImpl story = StoryImplTests.initializeTestStory();
         person.assignTask(story);
         person.unAssignTask(story);
@@ -79,7 +79,7 @@ public class PersonImplTests {
         Assertions.assertEquals(0, person.getTasks().size());
     }
 
-    private static PersonImpl initializeTestPerson(String name) {
+    public static PersonImpl initializeTestPerson() {
         return new PersonImpl(
                 VALID_USERNAME);
     }
