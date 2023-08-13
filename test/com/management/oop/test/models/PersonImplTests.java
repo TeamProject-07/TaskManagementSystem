@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 
 public class PersonImplTests {
     public static final int USERNAME_LEN_MIN = 2;
-    private static final String VALID_USERNAME = "PersonName";
+    public static final String VALID_USERNAME = "PersonName";
 
     @Test
     public void constructor_Should_CreateNewPerson_When_ParametersAreCorrect() {
