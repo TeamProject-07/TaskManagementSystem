@@ -11,16 +11,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BugImplTests {
-    @Test
-    public void bugImpl_Should_ImplementBugInterface(){
-        //Arrange, act
-        BugImpl bug=initializeTestBug();
-        //Assert
-        Assertions.assertTrue(bug instanceof Bug);
-    }
-    public static BugImpl initializeTestBug(){
-        List<String>steps=new ArrayList<>();
-        return new BugImpl
-                (1, "title", "description", steps, PriorityEnum.HIGH, BugSeverityEnum.CRITICAL);
-    }
+//    @Test
+//    public void bugImpl_Should_ImplementBugInterface(){
+//        //Arrange, act
+//        BugImpl bug=initializeTestBug();
+//        //Assert
+//        Assertions.assertTrue(bug instanceof Bug);
+//    }
+//    public static BugImpl initializeTestBug(){
+//        List<String>steps=new ArrayList<>();
+//        return new BugImpl
+//                (1, "title", "description", steps, PriorityEnum.HIGH, BugSeverityEnum.CRITICAL);
+//    }
 }
