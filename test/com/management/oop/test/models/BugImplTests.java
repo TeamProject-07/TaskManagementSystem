@@ -82,6 +82,11 @@ public class BugImplTests {
     public static BugImpl initializeTestBug(){
         List<String>steps=new ArrayList<>();
         return new BugImpl
-                (1, TaskBaseConstants.VALID_TITLE, TaskBaseConstants.VALID_DESCRIPTION, steps, PriorityEnum.HIGH, BugSeverityEnum.CRITICAL);
+                (1,
+                        TaskBaseConstants.VALID_TITLE,
+                        TaskBaseConstants.VALID_DESCRIPTION,
+                        steps,
+                        PriorityEnum.HIGH,
+                        BugSeverityEnum.CRITICAL);
     }
 }

@@ -4,9 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f4d32bab-62d7-485a-a9dd-6cb272e43dff" name="Changes" comment="Story Tests">
+    <list default="true" id="f4d32bab-62d7-485a-a9dd-6cb272e43dff" name="Changes" comment="Implement BugImplTests">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_12_2023_10_10_AM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_12_2023_10_10_AM__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/com/management/oop/test/models/FeedbackImplTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/com/management/oop/test/models/FeedbackImplTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/models/BoardImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/models/BoardImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/com/management/oop/test/models/BoardImplTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/com/management/oop/test/models/BoardImplTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/com/management/oop/test/models/CommentImplTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/com/management/oop/test/models/CommentImplTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/com/management/oop/test/utils/TaskBaseConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/com/management/oop/test/utils/TaskBaseConstants.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,6 +59,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="BoardImplTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="TaskManagementSystem" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.management.oop.test.models.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.management.oop.test.models" />
+      <option name="MAIN_CLASS_NAME" value="com.management.oop.test.models.BoardImplTests" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="BugImplTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="TaskManagementSystem" />
       <extension name="coverage">
@@ -70,7 +89,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BugImplTests.bugImpl_Should_ImplementBugInterface" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CommentImplTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="TaskManagementSystem" />
       <extension name="coverage">
         <pattern>
@@ -79,25 +98,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.management.oop.test.models" />
-      <option name="MAIN_CLASS_NAME" value="com.management.oop.test.models.BugImplTests" />
-      <option name="METHOD_NAME" value="bugImpl_Should_ImplementBugInterface" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="BugImplTests.constructor_Should_Throw_Exception_WhenDescriptionInvalid" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="TaskManagementSystem" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.management.oop.test.models.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.management.oop.test.models" />
-      <option name="MAIN_CLASS_NAME" value="com.management.oop.test.models.BugImplTests" />
-      <option name="METHOD_NAME" value="constructor_Should_Throw_Exception_WhenDescriptionInvalid" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="MAIN_CLASS_NAME" value="com.management.oop.test.models.CommentImplTests" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -120,10 +122,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.All in TaskManagementSystem" />
+        <item itemvalue="JUnit.CommentImplTests" />
+        <item itemvalue="JUnit.BoardImplTests" />
         <item itemvalue="JUnit.FeedbackImplTests" />
         <item itemvalue="JUnit.BugImplTests" />
-        <item itemvalue="JUnit.BugImplTests.constructor_Should_Throw_Exception_WhenDescriptionInvalid" />
-        <item itemvalue="JUnit.BugImplTests.bugImpl_Should_ImplementBugInterface" />
       </list>
     </recent_temporary>
   </component>
@@ -262,8 +264,7 @@
     <MESSAGE value="Add ListAllStories" />
     <MESSAGE value="Change ShowAllPeopleCommand" />
     <MESSAGE value="Added Test package and TaskBaseImplTest" />
-    <MESSAGE value="Story Tests" />
-    <option name="LAST_COMMIT_MESSAGE" value="Story Tests" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Test package and TaskBaseImplTest" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -281,9 +282,15 @@
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/TaskManagementSystem$All_in_TaskManagementSystem.ic" NAME="All in TaskManagementSystem Coverage Results" MODIFIED="1691933800167" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/TaskManagementSystem$FeedbackImplTests.ic" NAME="FeedbackImplTests Coverage Results" MODIFIED="1691931407830" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/TaskManagementSystem$CommentImplTests.ic" NAME="CommentImplTests Coverage Results" MODIFIED="1691928351541" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.management.oop.test.models.*</FILTER>
     </SUITE>
+    <SUITE FILE_PATH="coverage/TaskManagementSystem$BoardImplTests.ic" NAME="BoardImplTests Coverage Results" MODIFIED="1691927001363" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.management.oop.test.models.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/TaskManagementSystem$FeedbackImplTests.ic" NAME="FeedbackImplTests Coverage Results" MODIFIED="1691922663304" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.management.oop.test.models.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/TaskManagementSystem$All_in_TaskManagementSystem.ic" NAME="All in TaskManagementSystem Coverage Results" MODIFIED="1691930083969" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>

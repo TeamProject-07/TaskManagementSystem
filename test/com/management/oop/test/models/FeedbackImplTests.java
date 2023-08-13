@@ -23,9 +23,9 @@ public class FeedbackImplTests {
     @Test
     public void feedbackImpl_Should_ImplementFeedbackInterface() {
         // Arrange, Act
-        FeedbackImpl car = initializeTestFeedback();
+        FeedbackImpl feedback = initializeTestFeedback();
         // Assert
-        Assertions.assertTrue(true);
+        Assertions.assertTrue(feedback instanceof Feedback);
     }
 
     @Test
