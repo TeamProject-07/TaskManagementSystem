@@ -2,6 +2,7 @@ package com.management.oop.project.models.tasks;
 
 import com.management.oop.project.models.EventLogImpl;
 import com.management.oop.project.models.contracts.Bug;
+import com.management.oop.project.models.contracts.Comment;
 import com.management.oop.project.models.contracts.Person;
 import com.management.oop.project.models.enums.BugSeverityEnum;
 import com.management.oop.project.models.enums.BugStatusEnum;
@@ -38,6 +39,7 @@ public class BugImpl extends TaskBase implements Bug {
         addHistory(new EventLogImpl("Priority was changed."));
 
     }
+
     @Override
     public void changeSeverityEnum(BugSeverityEnum bugSeverityEnum){
         this.bugSeverityEnum=bugSeverityEnum;
@@ -55,13 +57,5 @@ public class BugImpl extends TaskBase implements Bug {
 
     public BugStatusEnum getStatus() {
         return status;
-    }
-
-    public List<String> getSteps() {
-        return new ArrayList<>(steps);
-    }
-
-    public Person getAssignee() {
-        return assignee;
     }
 }
