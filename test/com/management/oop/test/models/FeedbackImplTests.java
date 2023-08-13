@@ -2,10 +2,14 @@ package com.management.oop.test.models;
 
 import com.management.oop.project.models.contracts.Feedback;
 import com.management.oop.project.models.enums.FeedbackStatusEnum;
+import com.management.oop.project.models.enums.PriorityEnum;
 import com.management.oop.project.models.tasks.FeedbackImpl;
 import com.management.oop.test.utils.TaskBaseConstants;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -17,7 +21,7 @@ public class FeedbackImplTests {
     public static final int VALID_ID = 1;
 
     @Test
-    public void FeedbackImpl_Should_ImplementFeedbackInterface() {
+    public void feedbackImpl_Should_ImplementFeedbackInterface() {
         // Arrange, Act
         FeedbackImpl car = initializeTestFeedback();
         // Assert
@@ -81,12 +85,30 @@ public class FeedbackImplTests {
         );
     }
 
+    @Test
+    public void changeStatus_Should_ChangeTheStatus_OfFeedback(){
+        //Arrange
+        Feedback feedback=initializeTestFeedback();
+        //Act
+        feedback.changeStatus(FeedbackStatusEnum.DONE);
+        //Assert
+        Assertions.assertEquals(feedback.getStatus(), FeedbackStatusEnum.DONE);
+    }
+    @Test
+    public void changeRating_Should_ChangeTheRating_OfFeedback(){
+        //Arrange
+        Feedback feedback=initializeTestFeedback();
+        //Act
+        feedback.changeRating(21);
+        //Assert
+        Assertions.assertEquals(feedback.getRating(), 21);
+    }
     public static FeedbackImpl initializeTestFeedback() {
         return new FeedbackImpl(
                 VALID_ID,
                 TaskBaseConstants.VALID_TITLE,
                 TaskBaseConstants.VALID_DESCRIPTION,
                 VALID_RATING,
-                FeedbackStatusEnum.DONE);
+                FeedbackStatusEnum.SCHEDULED);
     }
 }
