@@ -23,6 +23,8 @@ public class StoryImplTests {
         Assertions.assertTrue(true);
     }
 
+
+
     @Test
     public void constructor_Should_ThrowException_When_TitleNameLengthOutOfBounds() {
         // Arrange, Act, Assert
@@ -69,6 +71,35 @@ public class StoryImplTests {
                 () -> assertSame(StorySizeEnum.LARGE, story.getStorySizeEnum()),
                 () -> assertSame(StoryStatusEnum.IN_PROGRESS,story.getStoryStatusEnum()));
     }
+
+    @Test
+    public void ChangePriority_Should_ChangeStoryPriority() {
+        StoryImpl story = initializeTestStory();
+        story.changePriorityEnum(PriorityEnum.MEDIUM);
+
+        Assertions.assertEquals(story.getPriorityEnum(), PriorityEnum.MEDIUM);
+    }
+
+    @Test
+    public void ChangeSize_Should_ChangeStorySize() {
+        StoryImpl story = initializeTestStory();
+        story.changeSize(StorySizeEnum.SMALL);
+
+        Assertions.assertEquals(story.getStorySizeEnum(), StorySizeEnum.SMALL);
+    }
+
+    @Test
+    public void ChangeStatus_Should_ChangeStoryStatus() {
+        StoryImpl story = initializeTestStory();
+        story.changeStoryStatusEnum(StoryStatusEnum.DONE);
+
+        Assertions.assertEquals(story.getStoryStatusEnum(), StoryStatusEnum.DONE);
+    }
+
+
+
+
+
 
     public static StoryImpl initializeTestStory() {
         return new StoryImpl(
