@@ -19,7 +19,6 @@ public class StoryImpl extends TaskBase implements Story {
         this.priorityEnum = priorityEnum;
         this.storySizeEnum = storySizeEnum;
         this.storyStatusEnum = storyStatusEnum;
-        setAssignee(assignee);
         addHistory(new EventLogImpl("Story was created"));
     }
 

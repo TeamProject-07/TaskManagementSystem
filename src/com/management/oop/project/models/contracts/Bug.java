@@ -16,5 +16,6 @@ public interface Bug extends Task {
 
     PriorityEnum getBugPriorityEnum();
     BugSeverityEnum getBugSeverityEnum();
+    Person getAssignee();
 
 }

@@ -2,6 +2,7 @@ package com.management.oop.project.models.tasks;
 
 import com.management.oop.project.models.EventLogImpl;
 import com.management.oop.project.models.contracts.Feedback;
+import com.management.oop.project.models.contracts.Person;
 import com.management.oop.project.models.enums.FeedbackStatusEnum;
 import com.management.oop.project.utils.ValidationHelpers;
 
