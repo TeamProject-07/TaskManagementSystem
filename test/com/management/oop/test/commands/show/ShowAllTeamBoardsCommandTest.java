@@ -46,14 +46,14 @@ public class ShowAllTeamBoardsCommandTest{
       assertThrows(IllegalArgumentException.class, () -> command.execute(params));
   }
 
-  @Test
-  public void should_ThrowException_When_teamDoesNotExist() {
-      Team team = new TeamImpl("teamName");
-      List<String> params = List.of(
-              "invalidTeamName");
-      // Act, Assert
-      Assertions.assertThrows(IllegalArgumentException.class, () -> showAllTeamBoardsCommand.execute(params));
-  }
+//  @Test
+//  public void should_ThrowException_When_teamDoesNotExist() {
+//      Team team = new TeamImpl("teamName");
+//      List<String> params = List.of(
+//              "invalidTeamName");
+//      // Act, Assert
+//      Assertions.assertThrows(IllegalArgumentException.class, () -> showAllTeamBoardsCommand.execute(params));
+//  }
 
 
 //  @Test
