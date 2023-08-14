@@ -9,4 +9,5 @@ public interface Person extends Printable {
     void assignTask(Task task);
 
     void unAssignTask(Task task);
+    List<Task> getTasks();
 }

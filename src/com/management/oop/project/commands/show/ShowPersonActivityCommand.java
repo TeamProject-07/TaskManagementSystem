@@ -31,8 +31,9 @@ public class ShowPersonActivityCommand implements Command {
         if (histories.size() == 0) {
             throw new IllegalArgumentException("Don't have activity.");
         }
-        for (int i = 0; i < histories.size(); i++) {
-            result.append(String.format("%s ", histories.get(i)));
+
+        for (EventLog history : histories) {
+            result.append(String.format("%s%n", history));
         }
         return result.toString();
     }

@@ -47,6 +47,7 @@ public class PersonImpl implements Person {
         addHistory(new EventLogImpl("Task was assigned to person."));
     }
 
+
     @Override
     public void unAssignTask(Task task) {
         this.tasks.remove(task);

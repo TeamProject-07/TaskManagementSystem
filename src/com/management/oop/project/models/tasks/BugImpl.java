@@ -46,6 +46,9 @@ public class BugImpl extends TaskBase implements Bug {
         addHistory(new EventLogImpl("Severity was changed."));
     }
 
+    public Person getAssignee() {
+        return assignee;
+    }
 
     public PriorityEnum getBugPriorityEnum() {
         return priorityEnum;

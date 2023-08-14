@@ -1,0 +1,689 @@
+Index: test/com/management/oop/test/commands/add/AddCommentToATaskTest.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.management.oop.test.commands.add;\r\n\r\npublic class AddCommentToATaskTest {\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/test/com/management/oop/test/commands/add/AddCommentToATaskTest.java b/test/com/management/oop/test/commands/add/AddCommentToATaskTest.java
+--- a/test/com/management/oop/test/commands/add/AddCommentToATaskTest.java	(revision e35589cc54028f381f76015fe1a3d80b8c79e78a)
++++ b/test/com/management/oop/test/commands/add/AddCommentToATaskTest.java	(date 1692002547474)
+@@ -1,4 +1,98 @@
+ package com.management.oop.test.commands.add;
+ 
++import com.management.oop.project.commands.add.AddCommentToATask;
++import com.management.oop.project.commands.assign.UnassignTaskToPersonCommand;
++import com.management.oop.project.commands.contracts.Command;
++import com.management.oop.project.core.TaskManagementSystemRepositoryImpl;
++import com.management.oop.project.core.contracts.TaskManagementSystemRepository;
++import com.management.oop.project.models.BoardImpl;
++import com.management.oop.project.models.CommentImpl;
++import com.management.oop.project.models.PersonImpl;
++import com.management.oop.project.models.TeamImpl;
++import com.management.oop.project.models.contracts.*;
++import com.management.oop.project.models.enums.BugSeverityEnum;
++import com.management.oop.project.models.enums.PriorityEnum;
++import com.management.oop.test.commands.assign.UnassignTaskToPersonCommandTest;
++import com.management.oop.test.models.BoardImplTests;
++import com.management.oop.test.models.BugImplTests;
++import com.management.oop.test.utils.TaskBaseConstants;
++import com.management.oop.test.utils.TestUtilities;
++import org.junit.jupiter.api.Assertions;
++import org.junit.jupiter.api.BeforeEach;
++import org.junit.jupiter.api.Test;
++
++import java.util.ArrayList;
++import java.util.List;
++
+ public class AddCommentToATaskTest {
++    public static final int EXPECTED_NUMBER_OF_ARGUMENTS = 3;
++    private TaskManagementSystemRepository taskManagementSystemRepository;
++    private Command addCommentToTaskCommand;
++    private Team team;
++    private Board board;
++    private Person person;
++    private Bug bug;
++    private Comment comment;
++    @BeforeEach
++    public void before(){
++        taskManagementSystemRepository=new TaskManagementSystemRepositoryImpl();
++        addCommentToTaskCommand= new AddCommentToATask(taskManagementSystemRepository);
++        this.person = new PersonImpl("person");
++        taskManagementSystemRepository.createPerson(person.getName());
++        team=new TeamImpl("teamName");
++        this.bug= BugImplTests.initializeTestBug();
++        List<String>steps=new ArrayList<>();
++        board=BoardImplTests.initializeTestBoard();
++        taskManagementSystemRepository.createTeam(team.getName());
++        taskManagementSystemRepository.createBoard(board.getName(), team.getName());
++        taskManagementSystemRepository.createBug(board.getName(), bug.getTitle(),
++                TaskBaseConstants.VALID_DESCRIPTION,
++                steps,
++                PriorityEnum.HIGH,
++                BugSeverityEnum.CRITICAL);
++    }
++    @Test
++    public void should_ThrowException_When_ArgumentCountInvalid() {
++        // Arrange
++        List<String> params =TestUtilities.getList(EXPECTED_NUMBER_OF_ARGUMENTS-1);
++
++        // Act, Assert
++        Assertions.assertThrows(IllegalArgumentException.class, () -> addCommentToTaskCommand.execute(params));
++    }
++    @Test
++    public void should_ThrowException_When_TaskId_IsInvalid() {
++        // Arrange
++        List<String> params = List.of(
++                "message",
++                "person",
++                "INVALID_INDEX");
++
++        // Act, Assert
++        Assertions.assertThrows(IllegalArgumentException.class, () -> addCommentToTaskCommand.execute(params));
++    }
++    @Test
++    public void should_ThrownException_WhenTask_DoesNotExist(){
++        //Arrange
++        List<String> params = List.of(
++                "message",
++                "person",
++                "3");
++        //Act, Assert
++        Assertions.assertThrows(IllegalArgumentException.class, ()->addCommentToTaskCommand.execute(params));
++    }
++    @Test
++    public void should_AddComment_When_ParametersAreValid(){
++        //Arrange
++        List<String> params = List.of(
++                "message",
++                "person",
++                "1");
++        //Act
++        addCommentToTaskCommand.execute(params);
++
++        //Assert
++        Comment comment=taskManagementSystemRepository.findTaskById(bug.getId()).getComments().get(0);
++        Assertions.assertEquals("message", comment.getMessage());
++        Assertions.assertEquals("person", comment.getAuthor());
++    }
+ }
+Index: test/com/management/oop/test/commands/change/ChangeStoryCommandTest.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.management.oop.test.commands.change;\r\n\r\npublic class ChangeStoryCommandTest {\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/test/com/management/oop/test/commands/change/ChangeStoryCommandTest.java b/test/com/management/oop/test/commands/change/ChangeStoryCommandTest.java
+--- a/test/com/management/oop/test/commands/change/ChangeStoryCommandTest.java	(revision e35589cc54028f381f76015fe1a3d80b8c79e78a)
++++ b/test/com/management/oop/test/commands/change/ChangeStoryCommandTest.java	(date 1692003777231)
+@@ -1,4 +1,17 @@
+ package com.management.oop.test.commands.change;
+ 
++import com.management.oop.project.commands.change.ChangeStoryCommand;
++import com.management.oop.project.commands.contracts.Command;
++import com.management.oop.project.core.TaskManagementSystemRepositoryImpl;
++import com.management.oop.project.core.contracts.TaskManagementSystemRepository;
++import org.junit.jupiter.api.BeforeEach;
++
+ public class ChangeStoryCommandTest {
++    private TaskManagementSystemRepository taskManagementSystemRepository;
++    private Command changeStoryCommand;
++    @BeforeEach
++    public void before(){
++        taskManagementSystemRepository= new TaskManagementSystemRepositoryImpl();
++        changeStoryCommand=new ChangeStoryCommand(taskManagementSystemRepository);
++    }
+ }
+Index: src/com/management/oop/project/models/tasks/FeedbackImpl.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.management.oop.project.models.tasks;\r\n\r\nimport com.management.oop.project.models.EventLogImpl;\r\nimport com.management.oop.project.models.contracts.Feedback;\r\nimport com.management.oop.project.models.enums.FeedbackStatusEnum;\r\nimport com.management.oop.project.utils.ValidationHelpers;\r\n\r\npublic class FeedbackImpl extends TaskBase implements Feedback {\r\n\r\n    public static final int MIN_RATING = 0;\r\n\r\n    public static final int MAX_RATING = 100;\r\n\r\n    public static final String RATING_ERROR_MESSAGE = \"Rating needs to be between 0 and 100\";\r\n\r\n    private int rating;\r\n\r\n    private FeedbackStatusEnum status;\r\n\r\n    public FeedbackImpl(int id, String title, String description, int rating, FeedbackStatusEnum status) {\r\n        super(id, title, description);\r\n        setRating(rating);\r\n        this.status = status;\r\n        addHistory(new EventLogImpl(\"Feedback was created.\"));\r\n    }\r\n\r\n    public int getRating() {\r\n        return rating;\r\n    }\r\n\r\n\r\n    private void setRating(int rating) {\r\n        ValidationHelpers.validateValueInRange(rating, MIN_RATING, MAX_RATING, RATING_ERROR_MESSAGE);\r\n        this.rating = rating;\r\n    }\r\n\r\n    @Override\r\n    public void changeRating(int rating) {\r\n        ValidationHelpers.validateValueInRange(rating, MIN_RATING, MAX_RATING, RATING_ERROR_MESSAGE);\r\n        this.rating = rating;\r\n        addHistory(new EventLogImpl(\"Rating was changed.\"));\r\n    }\r\n\r\n    public FeedbackStatusEnum getStatus() {\r\n        return status;\r\n    }\r\n\r\n    @Override\r\n    public void changeStatus(FeedbackStatusEnum feedbackStatusEnum) {\r\n        this.status = feedbackStatusEnum;\r\n        addHistory(new EventLogImpl(\"Status was changed\"));\r\n    }\r\n\r\n    @Override\r\n    public String getAsString() {\r\n        return null;\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/com/management/oop/project/models/tasks/FeedbackImpl.java b/src/com/management/oop/project/models/tasks/FeedbackImpl.java
+--- a/src/com/management/oop/project/models/tasks/FeedbackImpl.java	(revision e35589cc54028f381f76015fe1a3d80b8c79e78a)
++++ b/src/com/management/oop/project/models/tasks/FeedbackImpl.java	(date 1691943159139)
+@@ -2,6 +2,7 @@
+ 
+ import com.management.oop.project.models.EventLogImpl;
+ import com.management.oop.project.models.contracts.Feedback;
++import com.management.oop.project.models.contracts.Person;
+ import com.management.oop.project.models.enums.FeedbackStatusEnum;
+ import com.management.oop.project.utils.ValidationHelpers;
+ 
+Index: src/com/management/oop/project/models/tasks/StoryImpl.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.management.oop.project.models.tasks;\r\n\r\nimport com.management.oop.project.models.EventLogImpl;\r\nimport com.management.oop.project.models.contracts.Person;\r\nimport com.management.oop.project.models.contracts.Story;\r\nimport com.management.oop.project.models.enums.PriorityEnum;\r\nimport com.management.oop.project.models.enums.StorySizeEnum;\r\nimport com.management.oop.project.models.enums.StoryStatusEnum;\r\n\r\npublic class StoryImpl extends TaskBase implements Story {\r\n    private PriorityEnum priorityEnum;\r\n    private StorySizeEnum storySizeEnum;\r\n    private StoryStatusEnum storyStatusEnum;\r\n    private Person assignee;\r\n\r\n    public StoryImpl(int id, String title, String description, PriorityEnum priorityEnum,\r\n                     StorySizeEnum storySizeEnum, StoryStatusEnum storyStatusEnum) {\r\n        super(id, title, description);\r\n        this.priorityEnum = priorityEnum;\r\n        this.storySizeEnum = storySizeEnum;\r\n        this.storyStatusEnum = storyStatusEnum;\r\n        setAssignee(assignee);\r\n        addHistory(new EventLogImpl(\"Story was created\"));\r\n    }\r\n\r\n    public PriorityEnum getPriorityEnum() {\r\n        return priorityEnum;\r\n    }\r\n\r\n    public StorySizeEnum getStorySizeEnum() {\r\n        return storySizeEnum;\r\n    }\r\n\r\n    public StoryStatusEnum getStoryStatusEnum() {\r\n        return storyStatusEnum;\r\n    }\r\n\r\n    public Person getAssignee() {\r\n        return assignee;\r\n    }\r\n\r\n    private void setAssignee(Person assignee) {\r\n        this.assignee = assignee;\r\n    }\r\n\r\n    @Override\r\n    public void changePriorityEnum(PriorityEnum priorityEnum) {\r\n        this.priorityEnum = priorityEnum;\r\n        addHistory(new EventLogImpl(\"Priority was changed\"));\r\n\r\n    }\r\n\r\n    @Override\r\n    public void changeSize(StorySizeEnum storySizeEnum) {\r\n        this.storySizeEnum = storySizeEnum;\r\n        addHistory(new EventLogImpl(\"Size was changed\"));\r\n\r\n    }\r\n\r\n    @Override\r\n    public void changeStoryStatusEnum(StoryStatusEnum storyStatusEnum) {\r\n        this.storyStatusEnum = storyStatusEnum;\r\n        addHistory(new EventLogImpl(\"Status was changed\"));\r\n    }\r\n\r\n    @Override\r\n    public String getAsString() {\r\n        return null;\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/com/management/oop/project/models/tasks/StoryImpl.java b/src/com/management/oop/project/models/tasks/StoryImpl.java
+--- a/src/com/management/oop/project/models/tasks/StoryImpl.java	(revision e35589cc54028f381f76015fe1a3d80b8c79e78a)
++++ b/src/com/management/oop/project/models/tasks/StoryImpl.java	(date 1691943818998)
+@@ -19,7 +19,6 @@
+         this.priorityEnum = priorityEnum;
+         this.storySizeEnum = storySizeEnum;
+         this.storyStatusEnum = storyStatusEnum;
+-        setAssignee(assignee);
+         addHistory(new EventLogImpl("Story was created"));
+     }
+ 
+Index: src/com/management/oop/project/models/tasks/BugImpl.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.management.oop.project.models.tasks;\r\n\r\nimport com.management.oop.project.models.EventLogImpl;\r\nimport com.management.oop.project.models.contracts.Bug;\r\nimport com.management.oop.project.models.contracts.Comment;\r\nimport com.management.oop.project.models.contracts.Person;\r\nimport com.management.oop.project.models.enums.BugSeverityEnum;\r\nimport com.management.oop.project.models.enums.BugStatusEnum;\r\nimport com.management.oop.project.models.enums.PriorityEnum;\r\n\r\nimport java.util.ArrayList;\r\nimport java.util.List;\r\n\r\npublic class BugImpl extends TaskBase implements Bug {\r\n    private final List<String> steps;\r\n    private PriorityEnum priorityEnum;\r\n    private BugSeverityEnum bugSeverityEnum;\r\n    private  BugStatusEnum status;\r\n    private Person assignee;\r\n\r\n    public BugImpl(int id, String title, String description,\r\n                   List<String> steps, PriorityEnum priorityEnum,\r\n                   BugSeverityEnum bugSeverityEnum) {\r\n        super(id, title, description);\r\n        this.steps = steps;\r\n        this.priorityEnum = priorityEnum;\r\n        this.bugSeverityEnum = bugSeverityEnum;\r\n        this.status = BugStatusEnum.ACTIVE;\r\n        addHistory(new EventLogImpl(\"Bug was created.\"));\r\n    }\r\n    @Override\r\n    public void changeStatus(BugStatusEnum status) {\r\n        this.status = status;\r\n        addHistory(new EventLogImpl(\"Status was changed.\"));\r\n    }\r\n    @Override\r\n    public void changePriorityEnum(PriorityEnum priorityEnum) {\r\n        this.priorityEnum = priorityEnum;\r\n        addHistory(new EventLogImpl(\"Priority was changed.\"));\r\n\r\n    }\r\n\r\n    @Override\r\n    public void changeSeverityEnum(BugSeverityEnum bugSeverityEnum){\r\n        this.bugSeverityEnum=bugSeverityEnum;\r\n        addHistory(new EventLogImpl(\"Severity was changed.\"));\r\n    }\r\n\r\n\r\n    public PriorityEnum getBugPriorityEnum() {\r\n        return priorityEnum;\r\n    }\r\n\r\n    public BugSeverityEnum getBugSeverityEnum() {\r\n        return bugSeverityEnum;\r\n    }\r\n\r\n    public BugStatusEnum getStatus() {\r\n        return status;\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/com/management/oop/project/models/tasks/BugImpl.java b/src/com/management/oop/project/models/tasks/BugImpl.java
+--- a/src/com/management/oop/project/models/tasks/BugImpl.java	(revision e35589cc54028f381f76015fe1a3d80b8c79e78a)
++++ b/src/com/management/oop/project/models/tasks/BugImpl.java	(date 1691943819004)
+@@ -46,6 +46,9 @@
+         addHistory(new EventLogImpl("Severity was changed."));
+     }
+ 
++    public Person getAssignee() {
++        return assignee;
++    }
+ 
+     public PriorityEnum getBugPriorityEnum() {
+         return priorityEnum;
+Index: src/com/management/oop/project/commands/create/CreateNewStory.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.management.oop.project.commands.create;\r\n\r\nimport com.management.oop.project.commands.contracts.Command;\r\nimport com.management.oop.project.core.contracts.TaskManagementSystemRepository;\r\nimport com.management.oop.project.models.contracts.Person;\r\nimport com.management.oop.project.models.contracts.Story;\r\nimport com.management.oop.project.models.enums.PriorityEnum;\r\nimport com.management.oop.project.models.enums.StorySizeEnum;\r\nimport com.management.oop.project.models.enums.StoryStatusEnum;\r\nimport com.management.oop.project.utils.ParsingHelpers;\r\nimport com.management.oop.project.utils.ValidationHelpers;\r\n\r\nimport java.util.List;\r\n\r\npublic class CreateNewStory implements Command {\r\n    private String boardName;\r\n    private String title;\r\n    private String description;\r\n    private PriorityEnum priority;\r\n    private StorySizeEnum size;\r\n    private StoryStatusEnum status;\r\n    private Person assignee;\r\n\r\n    public static final int EXPECTED_NUMBER_OF_ARGUMENTS = 6;\r\n    private TaskManagementSystemRepository taskManagementSystemRepository;\r\n\r\n    public CreateNewStory(TaskManagementSystemRepository taskManagementSystemRepository) {\r\n        this.taskManagementSystemRepository = taskManagementSystemRepository;\r\n    }\r\n\r\n    @Override\r\n    public String execute(List<String> parameters) {\r\n        ValidationHelpers.validateArgumentsCount(parameters, EXPECTED_NUMBER_OF_ARGUMENTS);\r\n        parseParameters(parameters);\r\n        Story createdStory = taskManagementSystemRepository.createStory(boardName, title, description, priority, size, status);\r\n        return String.format(\"Task with ID %d was created.\", createdStory.getId());\r\n    }\r\n\r\n    private void parseParameters(List<String> parameters) {\r\n        boardName = parameters.get(0);\r\n        title = parameters.get(1);\r\n        description = parameters.get(2);\r\n        priority = ParsingHelpers.tryParseEnum(parameters.get(3), PriorityEnum.class);\r\n        size = ParsingHelpers.tryParseEnum(parameters.get(4), StorySizeEnum.class);\r\n        status = ParsingHelpers.tryParseEnum(parameters.get(5), StoryStatusEnum.class);\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/com/management/oop/project/commands/create/CreateNewStory.java b/src/com/management/oop/project/commands/create/CreateNewStory.java
+--- a/src/com/management/oop/project/commands/create/CreateNewStory.java	(revision e35589cc54028f381f76015fe1a3d80b8c79e78a)
++++ b/src/com/management/oop/project/commands/create/CreateNewStory.java	(date 1691940827114)
+@@ -33,7 +33,7 @@
+         ValidationHelpers.validateArgumentsCount(parameters, EXPECTED_NUMBER_OF_ARGUMENTS);
+         parseParameters(parameters);
+         Story createdStory = taskManagementSystemRepository.createStory(boardName, title, description, priority, size, status);
+-        return String.format("Task with ID %d was created.", createdStory.getId());
++        return String.format("Story with ID %d was created.", createdStory.getId());
+     }
+ 
+     private void parseParameters(List<String> parameters) {
+Index: src/com/management/oop/project/models/contracts/Bug.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.management.oop.project.models.contracts;\r\n\r\nimport com.management.oop.project.models.enums.BugSeverityEnum;\r\nimport com.management.oop.project.models.enums.BugStatusEnum;\r\nimport com.management.oop.project.models.enums.PriorityEnum;\r\n\r\npublic interface Bug extends Task {\r\n\r\n    void changeStatus(BugStatusEnum status);\r\n\r\n    void changePriorityEnum(PriorityEnum priorityEnum);\r\n\r\n    void changeSeverityEnum(BugSeverityEnum bugSeverityEnum);\r\n\r\n    BugStatusEnum getStatus();\r\n\r\n    PriorityEnum getBugPriorityEnum();\r\n    BugSeverityEnum getBugSeverityEnum();\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/com/management/oop/project/models/contracts/Bug.java b/src/com/management/oop/project/models/contracts/Bug.java
+--- a/src/com/management/oop/project/models/contracts/Bug.java	(revision e35589cc54028f381f76015fe1a3d80b8c79e78a)
++++ b/src/com/management/oop/project/models/contracts/Bug.java	(date 1691943819015)
+@@ -16,5 +16,6 @@
+ 
+     PriorityEnum getBugPriorityEnum();
+     BugSeverityEnum getBugSeverityEnum();
++    Person getAssignee();
+ 
+ }
+Index: src/com/management/oop/project/models/contracts/Person.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.management.oop.project.models.contracts;\r\n\r\nimport java.util.List;\r\n\r\npublic interface Person extends Printable {\r\n    String getName();\r\n    List<EventLog> getHistory();\r\n\r\n    void assignTask(Task task);\r\n\r\n    void unAssignTask(Task task);\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/com/management/oop/project/models/contracts/Person.java b/src/com/management/oop/project/models/contracts/Person.java
+--- a/src/com/management/oop/project/models/contracts/Person.java	(revision e35589cc54028f381f76015fe1a3d80b8c79e78a)
++++ b/src/com/management/oop/project/models/contracts/Person.java	(date 1692002031937)
+@@ -9,4 +9,5 @@
+     void assignTask(Task task);
+ 
+     void unAssignTask(Task task);
++    List<Task> getTasks();
+ }
+Index: test/com/management/oop/test/commands/assign/UnassignTaskToPersonCommandTest.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.management.oop.test.commands.assign;\r\n\r\npublic class UnassignTaskToPersonCommandTest {\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/test/com/management/oop/test/commands/assign/UnassignTaskToPersonCommandTest.java b/test/com/management/oop/test/commands/assign/UnassignTaskToPersonCommandTest.java
+--- a/test/com/management/oop/test/commands/assign/UnassignTaskToPersonCommandTest.java	(revision e35589cc54028f381f76015fe1a3d80b8c79e78a)
++++ b/test/com/management/oop/test/commands/assign/UnassignTaskToPersonCommandTest.java	(date 1692002261819)
+@@ -1,4 +1,102 @@
+ package com.management.oop.test.commands.assign;
+ 
++import com.management.oop.project.commands.add.AddCommentToATask;
++import com.management.oop.project.commands.assign.UnassignTaskToPersonCommand;
++import com.management.oop.project.commands.contracts.Command;
++import com.management.oop.project.core.TaskManagementSystemRepositoryImpl;
++import com.management.oop.project.core.contracts.TaskManagementSystemRepository;
++import com.management.oop.project.models.BoardImpl;
++import com.management.oop.project.models.PersonImpl;
++import com.management.oop.project.models.TeamImpl;
++import com.management.oop.project.models.contracts.Board;
++import com.management.oop.project.models.contracts.Bug;
++import com.management.oop.project.models.contracts.Person;
++import com.management.oop.project.models.contracts.Team;
++import com.management.oop.project.models.enums.BugSeverityEnum;
++import com.management.oop.project.models.enums.PriorityEnum;
++import com.management.oop.test.models.BoardImplTests;
++import com.management.oop.test.models.BugImplTests;
++import com.management.oop.test.utils.TaskBaseConstants;
++import com.management.oop.test.utils.TestUtilities;
++import org.junit.jupiter.api.Assertions;
++import org.junit.jupiter.api.BeforeEach;
++import org.junit.jupiter.api.Test;
++
++import java.util.ArrayList;
++import java.util.List;
++
+ public class UnassignTaskToPersonCommandTest {
++    public static final int EXPECTED_NUMBER_OF_ARGUMENTS = 2;
++    private TaskManagementSystemRepository taskManagementSystemRepository;
++    private Command unassignCommand;
++    private Team team;
++    private Board board;
++    private Person person;
++    private Bug bug;
++    @BeforeEach
++    public void before(){
++        taskManagementSystemRepository=new TaskManagementSystemRepositoryImpl();
++        unassignCommand= new UnassignTaskToPersonCommand(taskManagementSystemRepository);
++
++        this.person = initializePersonObject();
++        taskManagementSystemRepository.createPerson(person.getName());
++        team=new TeamImpl("teamName");
++        this.bug= BugImplTests.initializeTestBug();
++        List<String>steps=new ArrayList<>();
++        board=BoardImplTests.initializeTestBoard();
++        taskManagementSystemRepository.createTeam(team.getName());
++        taskManagementSystemRepository.createBoard(board.getName(), team.getName());
++        taskManagementSystemRepository.createBug(board.getName(), bug.getTitle(),
++                TaskBaseConstants.VALID_DESCRIPTION,
++                steps,
++                PriorityEnum.HIGH,
++                BugSeverityEnum.CRITICAL);
++    }
++    @Test
++    public void should_ThrowException_When_ArgumentCountInvalid() {
++        // Arrange
++        List<String> params = TestUtilities.getList(EXPECTED_NUMBER_OF_ARGUMENTS-1);
++
++        // Act, Assert
++        Assertions.assertThrows(IllegalArgumentException.class, () -> unassignCommand.execute(params));
++    }
++    @Test
++    public void should_ThrowException_When_TaskId_IsInvalid() {
++        // Arrange
++        List<String> params = List.of(
++                "message",
++                "person",
++                "INVALID_INDEX");
++
++        // Act, Assert
++        Assertions.assertThrows(IllegalArgumentException.class, () -> unassignCommand.execute(params));
++    }
++    @Test
++    public void should_ThrownException_WhenTask_DoesNotExist(){
++        //Arrange
++        List<String> params = List.of(
++                "message",
++                "person",
++                "1");
++        //Act, Assert
++        Assertions.assertThrows(IllegalArgumentException.class, ()->unassignCommand.execute(params));
++    }
++    @Test
++    public void should_UnAssignTask_FromPerson(){
++        //Arrange
++        person.assignTask(bug);
++                List<String> params = List.of(
++                "person",
++                "1");
++        person.unAssignTask(bug);
++        //Act
++        unassignCommand.execute(params);
++        //Assert
++        Assertions.assertEquals(0, person.getTasks().size());
++    }
++
++
++    public Person initializePersonObject() {
++        return new PersonImpl("person");
++    }
+ }
+Index: src/com/management/oop/project/commands/show/ShowPersonActivityCommand.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.management.oop.project.commands.show;\r\n\r\nimport com.management.oop.project.commands.contracts.Command;\r\nimport com.management.oop.project.core.contracts.TaskManagementSystemRepository;\r\nimport com.management.oop.project.models.contracts.EventLog;\r\nimport com.management.oop.project.models.contracts.Person;\r\nimport com.management.oop.project.utils.ValidationHelpers;\r\n\r\nimport java.util.List;\r\n\r\npublic class ShowPersonActivityCommand implements Command {\r\n    public static final int EXPECTED_NUMBER_OF_ARGUMENTS = 1;\r\n    private final TaskManagementSystemRepository taskManagementSystemRepository;\r\n\r\n    public ShowPersonActivityCommand(TaskManagementSystemRepository taskManagementSystemRepository) {\r\n        this.taskManagementSystemRepository = taskManagementSystemRepository;\r\n    }\r\n\r\n    @Override\r\n    public String execute(List<String> parameters) {\r\n        ValidationHelpers.validateArgumentsCount(parameters, EXPECTED_NUMBER_OF_ARGUMENTS);\r\n        String personName = parameters.get(0);\r\n        return getPersonActivity(personName);\r\n    }\r\n\r\n    private String getPersonActivity(String personName) {\r\n        Person person = taskManagementSystemRepository.findPersonByName(personName);\r\n        List<EventLog> histories = person.getHistory();\r\n        StringBuilder result = new StringBuilder();\r\n        result.append(String.format(\"Show %s activity:\", personName)).append(System.lineSeparator());\r\n        if (histories.size() == 0) {\r\n            throw new IllegalArgumentException(\"Don't have activity.\");\r\n        }\r\n        for (int i = 0; i < histories.size(); i++) {\r\n            result.append(String.format(\"%s \", histories.get(i)));\r\n        }\r\n        return result.toString();\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/com/management/oop/project/commands/show/ShowPersonActivityCommand.java b/src/com/management/oop/project/commands/show/ShowPersonActivityCommand.java
+--- a/src/com/management/oop/project/commands/show/ShowPersonActivityCommand.java	(revision e35589cc54028f381f76015fe1a3d80b8c79e78a)
++++ b/src/com/management/oop/project/commands/show/ShowPersonActivityCommand.java	(date 1691945131704)
+@@ -31,8 +31,9 @@
+         if (histories.size() == 0) {
+             throw new IllegalArgumentException("Don't have activity.");
+         }
+-        for (int i = 0; i < histories.size(); i++) {
+-            result.append(String.format("%s ", histories.get(i)));
++
++        for (EventLog history : histories) {
++            result.append(String.format("%s%n", history));
+         }
+         return result.toString();
+     }
+Index: src/com/management/oop/project/models/EventLogImpl.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.management.oop.project.models;\r\n\r\nimport com.management.oop.project.models.contracts.EventLog;\r\n\r\nimport java.time.LocalDateTime;\r\nimport java.time.format.DateTimeFormatter;\r\n\r\npublic class EventLogImpl implements EventLog {\r\n    private final DateTimeFormatter formatter = DateTimeFormatter.ofPattern(\"dd-MMMM-yyyy HH:mm:ss\");\r\n    private String description;\r\n    private LocalDateTime timestamp;\r\n\r\n    public EventLogImpl(String description) {\r\n        if (description.isEmpty()) {\r\n            throw new IllegalArgumentException(\"Description cannot be empty\");\r\n        }\r\n        this.description = description;\r\n        this.timestamp = LocalDateTime.now();\r\n    }\r\n\r\n    public String getDescription() {\r\n        return description;\r\n    }\r\n\r\n    @Override\r\n    public String toString() {\r\n        return String.format(\"[%s] %s%n\", timestamp.format(formatter), description);\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/com/management/oop/project/models/EventLogImpl.java b/src/com/management/oop/project/models/EventLogImpl.java
+--- a/src/com/management/oop/project/models/EventLogImpl.java	(revision e35589cc54028f381f76015fe1a3d80b8c79e78a)
++++ b/src/com/management/oop/project/models/EventLogImpl.java	(date 1691945116235)
+@@ -24,6 +24,6 @@
+ 
+     @Override
+     public String toString() {
+-        return String.format("[%s] %s%n", timestamp.format(formatter), description);
++        return String.format("[%s] %s", timestamp.format(formatter), description);
+     }
+ }
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"f4d32bab-62d7-485a-a9dd-6cb272e43dff\" name=\"Changes\" comment=\"Added TeamImplTests\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/com/management/oop/project/models/BoardImpl.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/com/management/oop/project/models/BoardImpl.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/test/com/management/oop/test/models/BoardImplTests.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/test/com/management/oop/test/models/BoardImplTests.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/test/com/management/oop/test/models/CommentImplTests.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/test/com/management/oop/test/models/CommentImplTests.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/test/com/management/oop/test/models/PersonImplTests.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/test/com/management/oop/test/models/PersonImplTests.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/test/com/management/oop/test/models/TeamImplTests.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/test/com/management/oop/test/models/TeamImplTests.java\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Enum\" />\r\n        <option value=\"Interface\" />\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"MarkdownSettingsMigration\">\r\n    <option name=\"stateVersion\" value=\"1\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"2TWYpfP1bhVE3fi67gUH8HWDEr9\" />\r\n  <component name=\"ProjectLevelVcsManager\">\r\n    <ConfirmationsSetting value=\"1\" id=\"Add\" />\r\n  </component>\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">{\r\n  &quot;keyToString&quot;: {\r\n    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\r\n    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/mitko/Desktop/TaskManagementSystem/src/Main.java&quot;,\r\n    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,\r\n    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,\r\n    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;\r\n  }\r\n}</component>\r\n  <component name=\"RunManager\" selected=\"JUnit.All in TaskManagementSystem\">\r\n    <configuration name=\"All in TaskManagementSystem\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"TaskManagementSystem\" />\r\n      <option name=\"PACKAGE_NAME\" value=\"\" />\r\n      <option name=\"TEST_OBJECT\" value=\"package\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"BugImplTests\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"TaskManagementSystem\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"com.management.oop.test.models.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <option name=\"PACKAGE_NAME\" value=\"com.management.oop.test.models\" />\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"com.management.oop.test.models.BugImplTests\" />\r\n      <option name=\"TEST_OBJECT\" value=\"class\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"BugImplTests.constructor_Should_Throw_Exception_WhenDescriptionInvalid\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"TaskManagementSystem\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"com.management.oop.test.models.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <option name=\"PACKAGE_NAME\" value=\"com.management.oop.test.models\" />\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"com.management.oop.test.models.BugImplTests\" />\r\n      <option name=\"METHOD_NAME\" value=\"constructor_Should_Throw_Exception_WhenDescriptionInvalid\" />\r\n      <option name=\"TEST_OBJECT\" value=\"method\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"FeedbackImplTests\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"TaskManagementSystem\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"com.management.oop.test.models.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <option name=\"PACKAGE_NAME\" value=\"com.management.oop.test.models\" />\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"com.management.oop.test.models.FeedbackImplTests\" />\r\n      <option name=\"TEST_OBJECT\" value=\"class\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"TeamImplTests.construct_Should_InitializeNewListOfBoard_When_TeamsIsCreated\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"TaskManagementSystem\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"com.management.oop.test.models.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <option name=\"PACKAGE_NAME\" value=\"com.management.oop.test.models\" />\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"com.management.oop.test.models.TeamImplTests\" />\r\n      <option name=\"METHOD_NAME\" value=\"construct_Should_InitializeNewListOfBoard_When_TeamsIsCreated\" />\r\n      <option name=\"TEST_OBJECT\" value=\"method\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"JUnit.All in TaskManagementSystem\" />\r\n        <item itemvalue=\"JUnit.TeamImplTests.construct_Should_InitializeNewListOfBoard_When_TeamsIsCreated\" />\r\n        <item itemvalue=\"JUnit.FeedbackImplTests\" />\r\n        <item itemvalue=\"JUnit.BugImplTests\" />\r\n        <item itemvalue=\"JUnit.BugImplTests.constructor_Should_Throw_Exception_WhenDescriptionInvalid\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"f4d32bab-62d7-485a-a9dd-6cb272e43dff\" name=\"Changes\" comment=\"\" />\r\n      <created>1691160491848</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1691160491848</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"Initial Commit\">\r\n      <created>1691160687240</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1691160687240</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"Added additional libraries\">\r\n      <created>1691160875884</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1691160875884</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"Added additional .gitignore\">\r\n      <created>1691160944488</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1691160944488</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00004\" summary=\"Add and implement Engine and CommandFactory\">\r\n      <created>1691505761519</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1691505761519</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00005\" summary=\"Implement TaskBase and subclasses\">\r\n      <created>1691576602875</created>\r\n      <option name=\"number\" value=\"00005\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1691576602875</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00006\" summary=\"Commit ShowBoardActivityCommand\">\r\n      <created>1691654141757</created>\r\n      <option name=\"number\" value=\"00006\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1691654141757</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00007\" summary=\"Commit CreateBugCommand\">\r\n      <created>1691676107519</created>\r\n      <option name=\"number\" value=\"00007\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00007\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1691676107519</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00008\" summary=\"Commit CreateBugCommand\">\r\n      <created>1691676235053</created>\r\n      <option name=\"number\" value=\"00008\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00008\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1691676235053</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00009\" summary=\"Commit CreateBugCommand\">\r\n      <created>1691676294292</created>\r\n      <option name=\"number\" value=\"00009\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00009\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1691676294292</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00010\" summary=\"Commit CreateFeedback update\">\r\n      <created>1691676374307</created>\r\n      <option name=\"number\" value=\"00010\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00010\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1691676374307</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00011\" summary=\"Add ListAllStories\">\r\n      <created>1691764042925</created>\r\n      <option name=\"number\" value=\"00011\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00011\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1691764042925</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00012\" summary=\"Change ShowAllPeopleCommand\">\r\n      <created>1691764727183</created>\r\n      <option name=\"number\" value=\"00012\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00012\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1691764727183</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00013\" summary=\"Added Test package and TaskBaseImplTest\">\r\n      <created>1691856462210</created>\r\n      <option name=\"number\" value=\"00013\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00013\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1691856462210</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00014\" summary=\"Added Test package and TaskBaseImplTest\">\r\n      <created>1691856598474</created>\r\n      <option name=\"number\" value=\"00014\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00014\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1691856598474</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"15\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <option name=\"CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT\" value=\"false\" />\r\n    <option name=\"CHECK_NEW_TODO\" value=\"false\" />\r\n    <MESSAGE value=\"Initial Commit\" />\r\n    <MESSAGE value=\"Added additional libraries\" />\r\n    <MESSAGE value=\"Added additional .gitignore\" />\r\n    <MESSAGE value=\"Add and implement Engine and CommandFactory\" />\r\n    <MESSAGE value=\"Implement TaskBase and subclasses\" />\r\n    <MESSAGE value=\"Commit ShowBoardActivityCommand\" />\r\n    <MESSAGE value=\"Commit CreateBugCommand\" />\r\n    <MESSAGE value=\"Commit CreateFeedback update\" />\r\n    <MESSAGE value=\"Add ListAllStories\" />\r\n    <MESSAGE value=\"Change ShowAllPeopleCommand\" />\r\n    <MESSAGE value=\"Added Test package and TaskBaseImplTest\" />\r\n    <MESSAGE value=\"Story Tests\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Story Tests\" />\r\n  </component>\r\n  <component name=\"com.intellij.coverage.CoverageDataManagerImpl\">\r\n    <SUITE FILE_PATH=\"coverage/TaskManagementSystem$CommentImplTests.ic\" NAME=\"CommentImplTests Coverage Results\" MODIFIED=\"1691928351541\" SOURCE_PROVIDER=\"com.intellij.coverage.DefaultCoverageFileProvider\" RUNNER=\"idea\" COVERAGE_BY_TEST_ENABLED=\"false\" COVERAGE_TRACING_ENABLED=\"false\">\r\n      <FILTER>com.management.oop.test.models.*</FILTER>\r\n    </SUITE>\r\n    <SUITE FILE_PATH=\"coverage/TaskManagementSystem$All_in_TaskManagementSystem.ic\" NAME=\"All in TaskManagementSystem Coverage Results\" MODIFIED=\"1691937526480\" SOURCE_PROVIDER=\"com.intellij.coverage.DefaultCoverageFileProvider\" RUNNER=\"idea\" COVERAGE_BY_TEST_ENABLED=\"false\" COVERAGE_TRACING_ENABLED=\"false\" />\r\n    <SUITE FILE_PATH=\"coverage/TaskManagementSystem$FeedbackImplTests.ic\" NAME=\"FeedbackImplTests Coverage Results\" MODIFIED=\"1691931407830\" SOURCE_PROVIDER=\"com.intellij.coverage.DefaultCoverageFileProvider\" RUNNER=\"idea\" COVERAGE_BY_TEST_ENABLED=\"false\" COVERAGE_TRACING_ENABLED=\"false\">\r\n      <FILTER>com.management.oop.test.models.*</FILTER>\r\n    </SUITE>\r\n    <SUITE FILE_PATH=\"coverage/TaskManagementSystem$BoardImplTests.ic\" NAME=\"BoardImplTests Coverage Results\" MODIFIED=\"1691927001363\" SOURCE_PROVIDER=\"com.intellij.coverage.DefaultCoverageFileProvider\" RUNNER=\"idea\" COVERAGE_BY_TEST_ENABLED=\"false\" COVERAGE_TRACING_ENABLED=\"false\">\r\n      <FILTER>com.management.oop.test.models.*</FILTER>\r\n    </SUITE>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision e35589cc54028f381f76015fe1a3d80b8c79e78a)
++++ b/.idea/workspace.xml	(date 1692004059612)
+@@ -5,12 +5,59 @@
+   </component>
+   <component name="ChangeListManager">
+     <list default="true" id="f4d32bab-62d7-485a-a9dd-6cb272e43dff" name="Changes" comment="Added TeamImplTests">
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_07_08_2023_12_02__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_07_08_2023_12_02__Changes_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_07_08_2023_14_11__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_07_08_2023_14_11__Changes_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_07_08_2023_14_45__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_07_08_2023_14_45__Changes_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_07_08_2023_16_29__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_07_08_2023_16_29__Changes_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_08_08_2023_13_12__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_08_08_2023_13_12__Changes_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_08_08_2023_16_49__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_08_08_2023_16_49__Changes_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_08_2023_12_54__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_08_2023_12_54__Changes_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_08_23__14_28__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_08_23__14_28__Changes_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_08_23__14_28__Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_08_23__14_28__Changes_1.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_08_23__19_11__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_08_23__19_11__Changes_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_08_23__20_03__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_08_23__20_03__Changes_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_08_2023_14_09__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_08_2023_14_09__Changes_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_08_2023_16_37__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_08_2023_16_37__Changes_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_08_23__13_12__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_08_23__13_12__Changes_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_08_23__15_05__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_08_23__15_05__Changes_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_08_23__16_27__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_08_23__16_27__Changes_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_08_23__19_11__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_08_23__19_11__Changes_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_12_08_2023_20_34__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_12_08_2023_20_34__Changes_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_12_08_23__18_00__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_12_08_23__18_00__Changes_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_08_23__11_02__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_08_23__11_02__Changes_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_08_23__11_59__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_08_23__11_59__Changes_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_10_2023_10_43_AM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_10_2023_10_43_AM__Changes_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_10_2023_12_54_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_10_2023_12_54_PM__Changes_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_10_2023_4_56_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_10_2023_4_56_PM__Changes_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_10_2023_4_56_PM__Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_10_2023_4_56_PM__Changes_1.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_11_2023_12_16_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_11_2023_12_16_PM__Changes_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_11_2023_1_36_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_11_2023_1_36_PM__Changes_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_11_2023_2_01_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_11_2023_2_01_PM__Changes_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_12_2023_10_10_AM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_12_2023_10_10_AM__Changes_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_13_2023_5_36_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_13_2023_5_36_PM__Changes_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_7_2023_2_44_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_7_2023_2_44_PM__Changes_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_8_2023_12_19_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_8_2023_12_19_PM__Changes_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_8_2023_12_19_PM__Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_8_2023_12_19_PM__Changes_1.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_8_2023_4_29_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_8_2023_4_29_PM__Changes_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_8_2023_5_43_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_8_2023_5_43_PM__Changes_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_8_2023_9_30_AM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_8_2023_9_30_AM__Changes_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_9_2023_1_24_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_9_2023_1_24_PM__Changes_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_9_2023_1_24_PM__Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_9_2023_1_24_PM__Changes_1.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_9_2023_3_44_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_9_2023_3_44_PM__Changes_.xml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/models/BoardImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/models/BoardImpl.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/test/com/management/oop/test/models/BoardImplTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/com/management/oop/test/models/BoardImplTests.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/test/com/management/oop/test/models/CommentImplTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/com/management/oop/test/models/CommentImplTests.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/test/com/management/oop/test/models/PersonImplTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/com/management/oop/test/models/PersonImplTests.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/test/com/management/oop/test/models/TeamImplTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/com/management/oop/test/models/TeamImplTests.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/commands/assign/UnassignTaskToPersonCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/commands/assign/UnassignTaskToPersonCommand.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/commands/create/CreateNewStory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/commands/create/CreateNewStory.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/commands/show/ShowPersonActivityCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/commands/show/ShowPersonActivityCommand.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/models/EventLogImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/models/EventLogImpl.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/models/PersonImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/models/PersonImpl.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/models/contracts/Bug.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/models/contracts/Bug.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/models/contracts/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/models/contracts/Person.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/models/tasks/BugImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/models/tasks/BugImpl.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/models/tasks/FeedbackImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/models/tasks/FeedbackImpl.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/models/tasks/StoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/models/tasks/StoryImpl.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/test/com/management/oop/test/commands/add/AddCommentToATaskTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/com/management/oop/test/commands/add/AddCommentToATaskTest.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/test/com/management/oop/test/commands/assign/UnassignTaskToPersonCommandTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/com/management/oop/test/commands/assign/UnassignTaskToPersonCommandTest.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/test/com/management/oop/test/commands/change/ChangeStoryCommandTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/com/management/oop/test/commands/change/ChangeStoryCommandTest.java" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -33,7 +80,7 @@
+     <option name="stateVersion" value="1" />
+   </component>
+   <component name="ProjectId" id="2TWYpfP1bhVE3fi67gUH8HWDEr9" />
+-  <component name="ProjectLevelVcsManager">
++  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+     <ConfirmationsSetting value="1" id="Add" />
+   </component>
+   <component name="ProjectViewState">
+@@ -51,83 +98,81 @@
+   }
+ }</component>
+   <component name="RunManager" selected="JUnit.All in TaskManagementSystem">
+-    <configuration name="All in TaskManagementSystem" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
++    <configuration name="Startup" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
++      <option name="MAIN_CLASS_NAME" value="Startup" />
+       <module name="TaskManagementSystem" />
+-      <option name="PACKAGE_NAME" value="" />
+-      <option name="TEST_OBJECT" value="package" />
+       <method v="2">
+         <option name="Make" enabled="true" />
+       </method>
+     </configuration>
+-    <configuration name="BugImplTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
++    <configuration name="AddCommentToATaskTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+       <module name="TaskManagementSystem" />
+       <extension name="coverage">
+         <pattern>
+-          <option name="PATTERN" value="com.management.oop.test.models.*" />
++          <option name="PATTERN" value="com.management.oop.test.commands.add.*" />
+           <option name="ENABLED" value="true" />
+         </pattern>
+       </extension>
+-      <option name="PACKAGE_NAME" value="com.management.oop.test.models" />
+-      <option name="MAIN_CLASS_NAME" value="com.management.oop.test.models.BugImplTests" />
++      <option name="PACKAGE_NAME" value="com.management.oop.test.commands.add" />
++      <option name="MAIN_CLASS_NAME" value="com.management.oop.test.commands.add.AddCommentToATaskTest" />
+       <option name="TEST_OBJECT" value="class" />
+       <method v="2">
+         <option name="Make" enabled="true" />
+       </method>
+     </configuration>
+-    <configuration name="BugImplTests.constructor_Should_Throw_Exception_WhenDescriptionInvalid" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
++    <configuration name="AddCommentToATaskTest.should_ThrownException_WhenTask_DoesNotExist" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+       <module name="TaskManagementSystem" />
+       <extension name="coverage">
+         <pattern>
+-          <option name="PATTERN" value="com.management.oop.test.models.*" />
++          <option name="PATTERN" value="com.management.oop.test.commands.add.*" />
+           <option name="ENABLED" value="true" />
+         </pattern>
+       </extension>
+-      <option name="PACKAGE_NAME" value="com.management.oop.test.models" />
+-      <option name="MAIN_CLASS_NAME" value="com.management.oop.test.models.BugImplTests" />
+-      <option name="METHOD_NAME" value="constructor_Should_Throw_Exception_WhenDescriptionInvalid" />
++      <option name="PACKAGE_NAME" value="com.management.oop.test.commands.add" />
++      <option name="MAIN_CLASS_NAME" value="com.management.oop.test.commands.add.AddCommentToATaskTest" />
++      <option name="METHOD_NAME" value="should_ThrownException_WhenTask_DoesNotExist" />
+       <option name="TEST_OBJECT" value="method" />
+       <method v="2">
+         <option name="Make" enabled="true" />
+       </method>
+     </configuration>
+-    <configuration name="FeedbackImplTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
++    <configuration name="All in TaskManagementSystem" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+       <module name="TaskManagementSystem" />
+-      <extension name="coverage">
+-        <pattern>
+-          <option name="PATTERN" value="com.management.oop.test.models.*" />
+-          <option name="ENABLED" value="true" />
+-        </pattern>
+-      </extension>
+-      <option name="PACKAGE_NAME" value="com.management.oop.test.models" />
+-      <option name="MAIN_CLASS_NAME" value="com.management.oop.test.models.FeedbackImplTests" />
+-      <option name="TEST_OBJECT" value="class" />
++      <option name="PACKAGE_NAME" value="" />
++      <option name="TEST_OBJECT" value="package" />
+       <method v="2">
+         <option name="Make" enabled="true" />
+       </method>
+     </configuration>
+-    <configuration name="TeamImplTests.construct_Should_InitializeNewListOfBoard_When_TeamsIsCreated" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
++    <configuration name="UnassignTaskToPersonCommandTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+       <module name="TaskManagementSystem" />
+       <extension name="coverage">
+         <pattern>
+-          <option name="PATTERN" value="com.management.oop.test.models.*" />
++          <option name="PATTERN" value="com.management.oop.test.commands.assign.*" />
+           <option name="ENABLED" value="true" />
+         </pattern>
+       </extension>
+-      <option name="PACKAGE_NAME" value="com.management.oop.test.models" />
+-      <option name="MAIN_CLASS_NAME" value="com.management.oop.test.models.TeamImplTests" />
+-      <option name="METHOD_NAME" value="construct_Should_InitializeNewListOfBoard_When_TeamsIsCreated" />
+-      <option name="TEST_OBJECT" value="method" />
++      <option name="PACKAGE_NAME" value="com.management.oop.test.commands.assign" />
++      <option name="MAIN_CLASS_NAME" value="com.management.oop.test.commands.assign.UnassignTaskToPersonCommandTest" />
++      <option name="TEST_OBJECT" value="class" />
+       <method v="2">
+         <option name="Make" enabled="true" />
+       </method>
+     </configuration>
++    <list>
++      <item itemvalue="Application.Startup" />
++      <item itemvalue="JUnit.AddCommentToATaskTest" />
++      <item itemvalue="JUnit.AddCommentToATaskTest.should_ThrownException_WhenTask_DoesNotExist" />
++      <item itemvalue="JUnit.UnassignTaskToPersonCommandTest" />
++      <item itemvalue="JUnit.All in TaskManagementSystem" />
++    </list>
+     <recent_temporary>
+       <list>
+         <item itemvalue="JUnit.All in TaskManagementSystem" />
+-        <item itemvalue="JUnit.TeamImplTests.construct_Should_InitializeNewListOfBoard_When_TeamsIsCreated" />
+-        <item itemvalue="JUnit.FeedbackImplTests" />
+-        <item itemvalue="JUnit.BugImplTests" />
+-        <item itemvalue="JUnit.BugImplTests.constructor_Should_Throw_Exception_WhenDescriptionInvalid" />
++        <item itemvalue="JUnit.AddCommentToATaskTest" />
++        <item itemvalue="JUnit.AddCommentToATaskTest.should_ThrownException_WhenTask_DoesNotExist" />
++        <item itemvalue="JUnit.UnassignTaskToPersonCommandTest" />
++        <item itemvalue="Application.Startup" />
+       </list>
+     </recent_temporary>
+   </component>
+@@ -269,16 +314,54 @@
+     <MESSAGE value="Story Tests" />
+     <option name="LAST_COMMIT_MESSAGE" value="Story Tests" />
+   </component>
++  <component name="XDebuggerManager">
++    <breakpoint-manager>
++      <breakpoints>
++        <line-breakpoint enabled="true" type="java-line">
++          <url>file://$PROJECT_DIR$/src/com/management/oop/project/core/TaskManagementSystemRepositoryImpl.java</url>
++          <line>190</line>
++          <option name="timeStamp" value="2" />
++        </line-breakpoint>
++        <line-breakpoint enabled="true" type="java-line">
++          <url>file://$PROJECT_DIR$/src/com/management/oop/project/commands/add/AddCommentToATask.java</url>
++          <line>25</line>
++          <option name="timeStamp" value="12" />
++        </line-breakpoint>
++        <line-breakpoint enabled="true" type="java-line">
++          <url>file://$PROJECT_DIR$/src/com/management/oop/project/commands/add/AddCommentToATask.java</url>
++          <line>27</line>
++          <option name="timeStamp" value="13" />
++        </line-breakpoint>
++        <line-breakpoint enabled="true" type="java-line">
++          <url>file://$PROJECT_DIR$/src/com/management/oop/project/core/TaskManagementSystemRepositoryImpl.java</url>
++          <line>71</line>
++          <option name="timeStamp" value="14" />
++        </line-breakpoint>
++      </breakpoints>
++    </breakpoint-manager>
++  </component>
+   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+     <SUITE FILE_PATH="coverage/TaskManagementSystem$CommentImplTests.ic" NAME="CommentImplTests Coverage Results" MODIFIED="1691928351541" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+       <FILTER>com.management.oop.test.models.*</FILTER>
+     </SUITE>
+-    <SUITE FILE_PATH="coverage/TaskManagementSystem$All_in_TaskManagementSystem.ic" NAME="All in TaskManagementSystem Coverage Results" MODIFIED="1691937526480" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+-    <SUITE FILE_PATH="coverage/TaskManagementSystem$FeedbackImplTests.ic" NAME="FeedbackImplTests Coverage Results" MODIFIED="1691931407830" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
++    <SUITE FILE_PATH="coverage/TaskManagementSystem$BoardImplTests.ic" NAME="BoardImplTests Coverage Results" MODIFIED="1691927001363" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
++      <FILTER>com.management.oop.test.models.*</FILTER>
++    </SUITE>
++    <SUITE FILE_PATH="coverage/TaskManagementSystem$AddCommentToATaskTest.ic" NAME="AddCommentToATaskTest Coverage Results" MODIFIED="1692002514733" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
++      <FILTER>com.management.oop.test.commands.add.*</FILTER>
++    </SUITE>
++    <SUITE FILE_PATH="coverage/TaskManagementSystem$FeedbackImplTests.ic" NAME="FeedbackImplTests Coverage Results" MODIFIED="1691922663304" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+       <FILTER>com.management.oop.test.models.*</FILTER>
+     </SUITE>
+-    <SUITE FILE_PATH="coverage/TaskManagementSystem$BoardImplTests.ic" NAME="BoardImplTests Coverage Results" MODIFIED="1691927001363" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
++    <SUITE FILE_PATH="coverage/TaskManagementSystem$com_management_oop_test_models_in_TaskManagementSystem.ic" NAME="com.management.oop.test.models in TaskManagementSystem Coverage Results" MODIFIED="1691938453974" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+       <FILTER>com.management.oop.test.models.*</FILTER>
++    </SUITE>
++    <SUITE FILE_PATH="coverage/TaskManagementSystem$UnassignTaskToPersonCommandTest.ic" NAME="UnassignTaskToPersonCommandTest Coverage Results" MODIFIED="1691943919569" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
++      <FILTER>com.management.oop.test.commands.assign.*</FILTER>
++    </SUITE>
++    <SUITE FILE_PATH="coverage/TaskManagementSystem$All_in_TaskManagementSystem.ic" NAME="All in TaskManagementSystem Coverage Results" MODIFIED="1692002576159" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
++    <SUITE FILE_PATH="coverage/TaskManagementSystem$AddCommentToATaskTest_should_AddComment_When_ParametersAreValid.ic" NAME="AddCommentToATaskTest.should_AddComment_When_ParametersAreValid Coverage Results" MODIFIED="1691941970319" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
++      <FILTER>com.management.oop.test.commands.add.*</FILTER>
+     </SUITE>
+   </component>
+ </project>
+\ No newline at end of file
+Index: src/com/management/oop/project/models/PersonImpl.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.management.oop.project.models;\r\n\r\nimport com.management.oop.project.models.contracts.EventLog;\r\nimport com.management.oop.project.models.contracts.Person;\r\nimport com.management.oop.project.models.contracts.Task;\r\n\r\nimport java.util.ArrayList;\r\nimport java.util.List;\r\n\r\npublic class PersonImpl implements Person {\r\n    private String name;\r\n    private List<Task> tasks;\r\n    private List<EventLog> histories;\r\n\r\n    public PersonImpl(String name) {\r\n        this.name = name;\r\n        this.tasks = new ArrayList<>();\r\n        this.histories = new ArrayList<>();\r\n        addHistory(new EventLogImpl(\"Person was created.\"));\r\n    }\r\n    protected void addHistory(EventLog eventLog){\r\n        histories.add(eventLog);\r\n    }\r\n    public List<Task> getTasks() {\r\n        return new ArrayList<>(tasks);\r\n    }\r\n\r\n\r\n    @Override\r\n    public String toString() {\r\n        return super.toString();\r\n    }\r\n\r\n    @Override\r\n    public String getName() {\r\n        return this.name;\r\n    }\r\n\r\n    @Override\r\n    public List<EventLog> getHistory() {\r\n        return new ArrayList<>(histories);\r\n    }\r\n\r\n    @Override\r\n    public void assignTask(Task task) {\r\n        this.tasks.add(task);\r\n        addHistory(new EventLogImpl(\"Task was assigned to person.\"));\r\n    }\r\n\r\n    @Override\r\n    public void unAssignTask(Task task) {\r\n        this.tasks.remove(task);\r\n        addHistory(new EventLogImpl(\"Task was unassigned to person.\"));\r\n    }\r\n    @Override\r\n    public String getAsString() {\r\n        return String.format(\"\"\"\r\n                Person: %s\"\"\", getName());\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/com/management/oop/project/models/PersonImpl.java b/src/com/management/oop/project/models/PersonImpl.java
+--- a/src/com/management/oop/project/models/PersonImpl.java	(revision e35589cc54028f381f76015fe1a3d80b8c79e78a)
++++ b/src/com/management/oop/project/models/PersonImpl.java	(date 1691943819011)
+@@ -47,6 +47,7 @@
+         addHistory(new EventLogImpl("Task was assigned to person."));
+     }
+ 
++
+     @Override
+     public void unAssignTask(Task task) {
+         this.tasks.remove(task);
+Index: src/com/management/oop/project/commands/assign/UnassignTaskToPersonCommand.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.management.oop.project.commands.assign;\r\n\r\nimport com.management.oop.project.commands.contracts.Command;\r\nimport com.management.oop.project.core.contracts.TaskManagementSystemRepository;\r\nimport com.management.oop.project.models.contracts.Task;\r\nimport com.management.oop.project.utils.ParsingHelpers;\r\nimport com.management.oop.project.utils.ValidationHelpers;\r\n\r\nimport java.util.List;\r\n\r\npublic class UnassignTaskToPersonCommand implements Command {\r\n\r\n    public static final int EXPECTED_NUMBER_OF_ARGUMENTS = 2;\r\n\r\n    private final TaskManagementSystemRepository taskManagementSystemRepository;\r\n\r\n    public UnassignTaskToPersonCommand(TaskManagementSystemRepository taskManagementSystemRepository) {\r\n        this.taskManagementSystemRepository = taskManagementSystemRepository;\r\n    }\r\n\r\n    @Override\r\n    public String execute(List<String> parameters) {\r\n        ValidationHelpers.validateArgumentsCount(parameters, EXPECTED_NUMBER_OF_ARGUMENTS);\r\n        String personName = parameters.get(0);\r\n        int id = ParsingHelpers.tryParseInteger(parameters.get(1), \"id\");\r\n        return unAssignTask(personName, id);\r\n    }\r\n\r\n    private String unAssignTask(String personName, int id) {\r\n        if (taskManagementSystemRepository.taskExist(id)) {\r\n            Task task = taskManagementSystemRepository.findTaskById(id);\r\n            taskManagementSystemRepository.findPersonByName(personName).unAssignTask(task);\r\n            return String.format(\"Task with ID %d was unassigned to person with name %s.\", id, personName);\r\n        }\r\n        throw new IllegalArgumentException(String.format(\"Task with ID %d doesn't exist.\", id));\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/com/management/oop/project/commands/assign/UnassignTaskToPersonCommand.java b/src/com/management/oop/project/commands/assign/UnassignTaskToPersonCommand.java
+--- a/src/com/management/oop/project/commands/assign/UnassignTaskToPersonCommand.java	(revision e35589cc54028f381f76015fe1a3d80b8c79e78a)
++++ b/src/com/management/oop/project/commands/assign/UnassignTaskToPersonCommand.java	(date 1691942715141)
+@@ -34,4 +34,5 @@
+         }
+         throw new IllegalArgumentException(String.format("Task with ID %d doesn't exist.", id));
+     }
++
+ }
