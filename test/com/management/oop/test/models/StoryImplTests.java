@@ -13,6 +13,8 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class StoryImplTests {
+    public static final String VALID_BOARD_NAME = "Product";
+
     public static final int VALID_ID = 1;
 
     @Test

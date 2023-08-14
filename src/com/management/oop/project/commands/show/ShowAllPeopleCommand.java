@@ -18,7 +18,7 @@ public class ShowAllPeopleCommand implements Command {
     @Override
     public String execute(List<String> parameters) {
         if (people.isEmpty()) {
-            return "There are no registered tickets.";
+            return "There are no registered people.";
         }
         return ListingHelpers.getAsString(people);
     }

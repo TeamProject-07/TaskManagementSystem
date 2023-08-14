@@ -27,6 +27,7 @@ public class CreateBoardCommand implements Command {
         if (taskManagementSystemRepository.boardExist(boardName)){
             throw new IllegalArgumentException(String.format(BOARD_EXISTS_ERROR, boardName));
         }
+
         taskManagementSystemRepository.createBoard(boardName, teamName);
         return String.format(BOARD_CREATED, boardName);
     }
