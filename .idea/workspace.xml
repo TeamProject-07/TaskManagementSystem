@@ -4,14 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f4d32bab-62d7-485a-a9dd-6cb272e43dff" name="Changes" comment="Commit UnassignTaskToPersonCommandTest and &#10;CreateNewFeedbackTest">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_08_08_2023_13_12_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_08_08_2023_13_12__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_8_2023_12_19_PM_[Changes]1/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_8_2023_12_19_PM__Changes_1.xml" beforeDir="false" />
+    <list default="true" id="f4d32bab-62d7-485a-a9dd-6cb272e43dff" name="Changes" comment="Commit CreateTeamCommand">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/commands/create/CreateTeamCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/commands/create/CreateTeamCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/com/management/oop/test/commands/create/CreateTeamCommandTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/com/management/oop/test/commands/create/CreateTeamCommandTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/com/management/oop/test/commands/show/ShowAllTeamsCommandTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/com/management/oop/test/commands/show/ShowAllTeamsCommandTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/com/management/oop/test/commands/show/ShowPersonActivityCommandTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/com/management/oop/test/commands/show/ShowPersonActivityCommandTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/com/management/oop/test/core/TaskManagementSystemEngineImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/com/management/oop/test/core/TaskManagementSystemEngineImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,83 +57,83 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ChangeStoryCommandTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ShowPersonActivityCommandTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="TaskManagementSystem" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.management.oop.test.commands.change.*" />
+          <option name="PATTERN" value="com.management.oop.test.commands.show.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.management.oop.test.commands.change" />
-      <option name="MAIN_CLASS_NAME" value="com.management.oop.test.commands.change.ChangeStoryCommandTest" />
+      <option name="PACKAGE_NAME" value="com.management.oop.test.commands.show" />
+      <option name="MAIN_CLASS_NAME" value="com.management.oop.test.commands.show.ShowPersonActivityCommandTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CreateTeamCommandTest.createTeam_Should_ReturnString_WhenParameters_AreValid" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ShowPersonActivityCommandTest.should_OutputMessageWhen_PersonDoesHas_Activity" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="TaskManagementSystem" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.management.oop.test.commands.create.*" />
+          <option name="PATTERN" value="com.management.oop.test.commands.show.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.management.oop.test.commands.create" />
-      <option name="MAIN_CLASS_NAME" value="com.management.oop.test.commands.create.CreateTeamCommandTest" />
-      <option name="METHOD_NAME" value="createTeam_Should_ReturnString_WhenParameters_AreValid" />
+      <option name="PACKAGE_NAME" value="com.management.oop.test.commands.show" />
+      <option name="MAIN_CLASS_NAME" value="com.management.oop.test.commands.show.ShowPersonActivityCommandTest" />
+      <option name="METHOD_NAME" value="should_OutputMessageWhen_PersonDoesHas_Activity" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CreateTeamCommandTest.should_CreateTeam_WhenArguments_AreValid" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ShowPersonActivityCommandTest.should_ThrowException_WhenPerson_DoesNotExist" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="TaskManagementSystem" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.management.oop.test.commands.create.*" />
+          <option name="PATTERN" value="com.management.oop.test.commands.show.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.management.oop.test.commands.create" />
-      <option name="MAIN_CLASS_NAME" value="com.management.oop.test.commands.create.CreateTeamCommandTest" />
-      <option name="METHOD_NAME" value="should_CreateTeam_WhenArguments_AreValid" />
+      <option name="PACKAGE_NAME" value="com.management.oop.test.commands.show" />
+      <option name="MAIN_CLASS_NAME" value="com.management.oop.test.commands.show.ShowPersonActivityCommandTest" />
+      <option name="METHOD_NAME" value="should_ThrowException_WhenPerson_DoesNotExist" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CreateTeamCommandTest.should_ThrowException_WhenTeam_AlreadyExist" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ShowPersonActivityCommandTest.should_ThrowException_When_ArgumentCountInvalid" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="TaskManagementSystem" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.management.oop.test.commands.create.*" />
+          <option name="PATTERN" value="com.management.oop.test.commands.show.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.management.oop.test.commands.create" />
-      <option name="MAIN_CLASS_NAME" value="com.management.oop.test.commands.create.CreateTeamCommandTest" />
-      <option name="METHOD_NAME" value="should_ThrowException_WhenTeam_AlreadyExist" />
+      <option name="PACKAGE_NAME" value="com.management.oop.test.commands.show" />
+      <option name="MAIN_CLASS_NAME" value="com.management.oop.test.commands.show.ShowPersonActivityCommandTest" />
+      <option name="METHOD_NAME" value="should_ThrowException_When_ArgumentCountInvalid" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
-      <item itemvalue="JUnit.CreateTeamCommandTest.createTeam_Should_ReturnString_WhenParameters_AreValid" />
-      <item itemvalue="JUnit.CreateTeamCommandTest.should_CreateTeam_WhenArguments_AreValid" />
-      <item itemvalue="JUnit.CreateTeamCommandTest.should_ThrowException_WhenTeam_AlreadyExist" />
+      <item itemvalue="JUnit.ShowPersonActivityCommandTest" />
+      <item itemvalue="JUnit.ShowPersonActivityCommandTest.should_OutputMessageWhen_PersonDoesHas_Activity" />
+      <item itemvalue="JUnit.ShowPersonActivityCommandTest.should_ThrowException_WhenPerson_DoesNotExist" />
+      <item itemvalue="JUnit.ShowPersonActivityCommandTest.should_ThrowException_When_ArgumentCountInvalid" />
       <item itemvalue="JUnit.All in TaskManagementSystem" />
-      <item itemvalue="JUnit.ChangeStoryCommandTest" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.All in TaskManagementSystem" />
-        <item itemvalue="JUnit.CreateTeamCommandTest.should_ThrowException_WhenTeam_AlreadyExist" />
-        <item itemvalue="JUnit.CreateTeamCommandTest.createTeam_Should_ReturnString_WhenParameters_AreValid" />
-        <item itemvalue="JUnit.CreateTeamCommandTest.should_CreateTeam_WhenArguments_AreValid" />
-        <item itemvalue="JUnit.ChangeStoryCommandTest" />
+        <item itemvalue="JUnit.ShowPersonActivityCommandTest" />
+        <item itemvalue="JUnit.ShowPersonActivityCommandTest.should_OutputMessageWhen_PersonDoesHas_Activity" />
+        <item itemvalue="JUnit.ShowPersonActivityCommandTest.should_ThrowException_WhenPerson_DoesNotExist" />
+        <item itemvalue="JUnit.ShowPersonActivityCommandTest.should_ThrowException_When_ArgumentCountInvalid" />
       </list>
     </recent_temporary>
   </component>
@@ -247,7 +244,14 @@
       <option name="project" value="LOCAL" />
       <updated>1691856598474</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Commit CreateTeamCommand">
+      <created>1692113339248</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1692113339248</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -277,7 +281,8 @@
     <MESSAGE value="Added Test package and TaskBaseImplTest" />
     <MESSAGE value="Story Tests" />
     <MESSAGE value="Commit UnassignTaskToPersonCommandTest and &#10;CreateNewFeedbackTest" />
-    <option name="LAST_COMMIT_MESSAGE" value="Commit UnassignTaskToPersonCommandTest and &#10;CreateNewFeedbackTest" />
+    <MESSAGE value="Commit CreateTeamCommand" />
+    <option name="LAST_COMMIT_MESSAGE" value="Commit CreateTeamCommand" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/TaskManagementSystem$CommentImplTests.ic" NAME="CommentImplTests Coverage Results" MODIFIED="1691928351541" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
@@ -298,7 +303,7 @@
     <SUITE FILE_PATH="coverage/TaskManagementSystem$UnassignTaskToPersonCommandTest.ic" NAME="UnassignTaskToPersonCommandTest Coverage Results" MODIFIED="1691943919569" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.management.oop.test.commands.assign.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/TaskManagementSystem$All_in_TaskManagementSystem.ic" NAME="All in TaskManagementSystem Coverage Results" MODIFIED="1692113199433" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/TaskManagementSystem$All_in_TaskManagementSystem.ic" NAME="All in TaskManagementSystem Coverage Results" MODIFIED="1692120106033" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/TaskManagementSystem$CreateNewFeedbackTest.ic" NAME="CreateNewFeedbackTest Coverage Results" MODIFIED="1692097045107" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.management.oop.test.commands.create.*</FILTER>
     </SUITE>
@@ -307,6 +312,9 @@
     </SUITE>
     <SUITE FILE_PATH="coverage/TaskManagementSystem$ChangeStoryCommandTest.ic" NAME="ChangeStoryCommandTest Coverage Results" MODIFIED="1692013619869" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.management.oop.test.commands.change.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/TaskManagementSystem$ShowPersonActivityCommandTest.ic" NAME="ShowPersonActivityCommandTest Coverage Results" MODIFIED="1692120087035" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.management.oop.test.commands.show.*</FILTER>
     </SUITE>
   </component>
 </project>
