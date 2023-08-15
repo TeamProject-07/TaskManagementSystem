@@ -1,5 +1,4 @@
 package com.management.oop.test.commands.show;
-import com.management.oop.project.commands.contracts.Command;
 import com.management.oop.project.commands.show.ShowAllTeamBoardsCommand;
 import com.management.oop.project.core.TaskManagementSystemRepositoryImpl;
 import com.management.oop.project.core.contracts.TaskManagementSystemRepository;
