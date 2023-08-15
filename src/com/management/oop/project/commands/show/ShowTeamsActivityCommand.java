@@ -22,10 +22,10 @@ public class ShowTeamsActivityCommand implements Command {
     public String execute(List<String> parameters) {
         ValidationHelpers.validateArgumentsCount(parameters, EXPECTED_NUMBER_OF_ARGUMENTS);
         String teamName = parameters.get(0);
-        return getBoardActivity(teamName);
+        return getTeamActivity(teamName);
     }
 
-    private String getBoardActivity(String teamName) {
+    private String getTeamActivity(String teamName) {
         Team team=taskManagementSystemRepository.findTeamByName(teamName);
         List<EventLog> histories = team.getHistory();
         StringBuilder result = new StringBuilder();

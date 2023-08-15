@@ -26,7 +26,6 @@ public class StoryImplTests {
     }
 
 
-
     @Test
     public void constructor_Should_ThrowException_When_TitleNameLengthOutOfBounds() {
         // Arrange, Act, Assert
@@ -97,10 +96,6 @@ public class StoryImplTests {
 
         Assertions.assertEquals(story.getStoryStatusEnum(), StoryStatusEnum.DONE);
     }
-
-
-
-
 
 
     public static StoryImpl initializeTestStory() {
