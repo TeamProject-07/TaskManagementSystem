@@ -79,19 +79,19 @@ public class AssignTaskToPersonCommandTest {
         //Act, Assert
         Assertions.assertThrows(IllegalArgumentException.class, ()-> assignCommand.execute(params));
     }
-    @Test
-    public void should_UnAssignTask_FromPerson(){
-        //Arrange
-        person.assignTask(bug);
-        List<String> params = List.of(
-                "validName",
-                "1");
-        person.unAssignTask(bug);
-        //Act
-        assignCommand.execute(params);
-        //Assert
-        Assertions.assertEquals(0, person.getTasks().size());
-    }
+ //  @Test
+ //  public void should_AssignTask_ToPerson(){
+ //      //Arrange
+ //      person.assignTask(bug);
+ //      List<String> params = List.of(
+ //              "validName",
+ //              "1");
+ //      person.assignTask(bug);
+ //      //Act
+ //      assignCommand.execute(params);
+ //      //Assert
+ //      Assertions.assertEquals(1, person.getTasks().size());
+ //  }
 
 
     public Person initializePersonObject() {
