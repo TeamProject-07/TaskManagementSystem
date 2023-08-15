@@ -40,10 +40,10 @@ public class UnassignTaskToPersonCommandTest {
 
         this.person = initializePersonObject();
         taskManagementSystemRepository.createPerson(person.getName());
-        team=new TeamImpl("teamName");
+        this.team=new TeamImpl("teamName");
         this.bug= BugImplTests.initializeTestBug();
         List<String>steps=new ArrayList<>();
-        board=BoardImplTests.initializeTestBoard();
+        this.board=BoardImplTests.initializeTestBoard();
         taskManagementSystemRepository.createTeam(team.getName());
         taskManagementSystemRepository.createBoard(board.getName(), team.getName());
         taskManagementSystemRepository.createBug(board.getName(), bug.getTitle(),
@@ -64,6 +64,7 @@ public class UnassignTaskToPersonCommandTest {
     public void should_ThrowException_When_TaskId_IsInvalid() {
         // Arrange
         List<String> params = List.of(
+
                 "message",
                 "person",
                 "INVALID_INDEX");
