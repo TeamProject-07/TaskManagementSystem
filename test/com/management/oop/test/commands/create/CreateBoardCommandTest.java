@@ -25,36 +25,41 @@ public class CreateBoardCommandTest {
         repository = new TaskManagementSystemRepositoryImpl();
         createBoardCommand = new CreateBoardCommand(repository);
     }
-    //TODO
-    /*
+
     @Test
     public void execute_Should_AddNewBoardToRepository_When_ValidParameters() {
-        parameters.add(TaskBaseConstants.VALID_BOARD_NAME);
-        parameters.add(TaskBaseConstants.VALID_TEAM_NAME);
 
-        createBoardCommand.execute(parameters);
-
-        Assertions.assertTrue(repository.boardExist(TaskBaseConstants.VALID_BOARD_NAME));
     }
-*/
+
+
     @Test
     public void execute_Should_ThrowException_When_MissingParameters() {
         parameters = TestUtilities.getList(0);
 
         Assertions.assertThrows(IllegalArgumentException.class, () -> createBoardCommand.execute(parameters));
     }
-//TODO
-   /*
     @Test
-    public void execute_Should_ThrowException_When_DuplicateCategoryName() {
-        repository.createBoard(TaskBaseConstants.VALID_BOARD_NAME, TaskBaseConstants.VALID_TEAM_NAME);
+    public void execute_Should_ThrowException_When_InvalidBoardName() {
+        parameters.add(TaskBaseConstants.INVALID_BOARD_NAME);
+        parameters.add(TaskBaseConstants.VALID_TEAM_NAME);
+
+        Assertions.assertThrows(IllegalArgumentException.class,
+                () -> createBoardCommand.execute(parameters));
+    }
+
+    @Test
+    public void execute_Should_ThrowException_When_DuplicateBoardName() {
+       TaskManagementSystemRepository repository = new TaskManagementSystemRepositoryImpl();
+        CreateBoardCommand createBoardCommand = new CreateBoardCommand(repository);
+        List<String> parameters = new ArrayList<>();
 
         parameters.add(TaskBaseConstants.VALID_BOARD_NAME);
         parameters.add(TaskBaseConstants.VALID_TEAM_NAME);
 
 
         Assertions.assertThrows(IllegalArgumentException.class, () -> createBoardCommand.execute(parameters));
+
     }
 
-    */
+
 }

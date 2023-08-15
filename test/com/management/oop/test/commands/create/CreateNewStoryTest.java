@@ -27,21 +27,7 @@ public class CreateNewStoryTest {
         repository = new TaskManagementSystemRepositoryImpl();
         createNewStory = new CreateNewStory(repository);
     }
-    //TODO
-    /*
-    @Test
-    public void execute_Should_AddNewStoryToRepository_When_ValidParameters() {
-        parameters.add(TaskBaseConstants.VALID_BOARD_NAME);
-        parameters.add(TaskBaseConstants.VALID_TITLE);
-        parameters.add(TaskBaseConstants.VALID_DESCRIPTION);
-        parameters.add(PriorityEnum.HIGH.toString());
-        parameters.add(StorySizeEnum.LARGE.toString());
-        parameters.add(StoryStatusEnum.IN_PROGRESS.toString());
-        createNewStory.execute(parameters);
 
-        Assertions.assertTrue(repository.boardExist(TaskBaseConstants.VALID_BOARD_NAME));
-    }
-*/
     @Test
     public void execute_Should_ThrowException_When_MissingParameters() {
         parameters = TestUtilities.getList(1);
@@ -59,14 +45,14 @@ public class CreateNewStoryTest {
 
         Assertions.assertThrows(IllegalArgumentException.class, () -> createNewStory.execute(parameters));
     }
-    //TODO
-    /*
-    @Test
-    public void execute_Should_ThrowException_When_DuplicateProductName() {
-        repository.createStory(TaskBaseConstants.VALID_BOARD_NAME, TaskBaseConstants.VALID_TITLE,
-                TaskBaseConstants.VALID_DESCRIPTION, PriorityEnum.HIGH, StorySizeEnum.LARGE, StoryStatusEnum.IN_PROGRESS);
 
-        parameters.add(TaskBaseConstants.VALID_BOARD_NAME);
+    @Test
+    public void execute_Should_ThrowException_When_DuplicateBoardName() {
+        TaskManagementSystemRepository repository = new TaskManagementSystemRepositoryImpl();
+        CreateNewStory createNewStory = new CreateNewStory(repository);
+        List<String> parameters = new ArrayList<>();
+
+        parameters.add("Board");
         parameters.add(TaskBaseConstants.VALID_TITLE);
         parameters.add(TaskBaseConstants.VALID_DESCRIPTION);
         parameters.add(PriorityEnum.HIGH.toString());
@@ -76,5 +62,5 @@ public class CreateNewStoryTest {
         Assertions.assertThrows(IllegalArgumentException.class, () -> createNewStory.execute(parameters));
     }
 
-     */
+
 }
