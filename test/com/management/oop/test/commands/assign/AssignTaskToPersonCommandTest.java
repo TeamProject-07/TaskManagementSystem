@@ -38,7 +38,7 @@ public class AssignTaskToPersonCommandTest {
         assignCommand = new AssignTaskToPersonCommand(repository);
         person = initializePersonObject();
         team = new TeamImpl("teamName");
-        this.bug= BugImplTests.initializeTestBug();
+        bug= BugImplTests.initializeTestBug();
         List<String> steps = new ArrayList<>();
         board = BoardImplTests.initializeTestBoard();
         repository.createPerson(person.getName());
@@ -79,19 +79,17 @@ public class AssignTaskToPersonCommandTest {
         //Act, Assert
         Assertions.assertThrows(IllegalArgumentException.class, ()-> assignCommand.execute(params));
     }
- //  @Test
- //  public void should_AssignTask_ToPerson(){
- //      //Arrange
- //      person.assignTask(bug);
- //      List<String> params = List.of(
- //              "validName",
- //              "1");
- //      person.assignTask(bug);
- //      //Act
- //      assignCommand.execute(params);
- //      //Assert
- //      Assertions.assertEquals(1, person.getTasks().size());
- //  }
+  @Test
+  public void should_AssignTask_ToPerson(){
+      //Arrange
+      person.assignTask(bug);
+       List<String> params = List.of(
+           "validName", "1");
+      //Act
+      assignCommand.execute(params);
+      //Assert
+      Assertions.assertEquals(1, person.getTasks().size());
+  }
 
 
     public Person initializePersonObject() {
