@@ -120,7 +120,6 @@ public class TaskManagementSystemRepositoryImpl {
             // Act, Assert
              Assertions.assertTrue(repository.taskExist(1));
         }
-
         //TODO
         @Test
         public void taskExists_Should_ReturnFalse_When_TaskDoesNotExist() {
