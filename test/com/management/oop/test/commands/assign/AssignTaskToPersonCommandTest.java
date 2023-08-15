@@ -1,5 +1,4 @@
 package com.management.oop.test.commands.assign;
-
 import com.management.oop.project.commands.assign.AssignTaskToPersonCommand;
 import com.management.oop.project.commands.contracts.Command;
 import com.management.oop.project.core.TaskManagementSystemRepositoryImpl;
