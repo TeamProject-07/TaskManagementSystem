@@ -25,7 +25,8 @@ CreateNewBug implements Command {
         String boardName=parameters.get(0);
         String title=parameters.get(1);
         String description= parameters.get(2);
-        List<String> steps= List.of(parameters.get(3).split("; "));
+        List<String> steps= List.of(parameters.get(3));
+                //.split("; "));
         PriorityEnum priorityEnum= ParsingHelpers.tryParseEnum(parameters.get(4), PriorityEnum.class);
         BugSeverityEnum severityEnum= ParsingHelpers.tryParseEnum(parameters.get(5), BugSeverityEnum.class);
         return createBug(boardName, title, description, steps, priorityEnum, severityEnum);
