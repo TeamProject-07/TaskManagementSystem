@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f4d32bab-62d7-485a-a9dd-6cb272e43dff" name="Changes" comment="Commit CreateTeamCommand">
+    <list default="true" id="f4d32bab-62d7-485a-a9dd-6cb272e43dff" name="Changes" comment="Update tests">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/com/management/oop/test/commands/show/ShowAllTeamsCommandTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/com/management/oop/test/commands/show/ShowAllTeamsCommandTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/com/management/oop/test/commands/show/ShowPersonActivityCommandTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/com/management/oop/test/commands/show/ShowPersonActivityCommandTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/com/management/oop/test/core/TaskManagementSystemEngineImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/com/management/oop/test/core/TaskManagementSystemEngineImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/core/TaskManagementSystemRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/core/TaskManagementSystemRepositoryImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/com/management/oop/test/commands/create/CreateNewStoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/com/management/oop/test/commands/create/CreateNewStoryTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,83 +56,83 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ShowPersonActivityCommandTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CreateNewFeedbackTest.should_CreateFeedback_WhenArguments_AreValid" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="TaskManagementSystem" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.management.oop.test.commands.show.*" />
+          <option name="PATTERN" value="com.management.oop.test.commands.create.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.management.oop.test.commands.show" />
-      <option name="MAIN_CLASS_NAME" value="com.management.oop.test.commands.show.ShowPersonActivityCommandTest" />
+      <option name="PACKAGE_NAME" value="com.management.oop.test.commands.create" />
+      <option name="MAIN_CLASS_NAME" value="com.management.oop.test.commands.create.CreateNewFeedbackTest" />
+      <option name="METHOD_NAME" value="should_CreateFeedback_WhenArguments_AreValid" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CreateNewStoryTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="TaskManagementSystem" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.management.oop.test.commands.create.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.management.oop.test.commands.create" />
+      <option name="MAIN_CLASS_NAME" value="com.management.oop.test.commands.create.CreateNewStoryTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ShowPersonActivityCommandTest.should_OutputMessageWhen_PersonDoesHas_Activity" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CreateNewStoryTest.execute_ShouldNot_ThrowException_When_ArgumentsAreValid" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="TaskManagementSystem" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.management.oop.test.commands.show.*" />
+          <option name="PATTERN" value="com.management.oop.test.commands.create.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.management.oop.test.commands.show" />
-      <option name="MAIN_CLASS_NAME" value="com.management.oop.test.commands.show.ShowPersonActivityCommandTest" />
-      <option name="METHOD_NAME" value="should_OutputMessageWhen_PersonDoesHas_Activity" />
+      <option name="PACKAGE_NAME" value="com.management.oop.test.commands.create" />
+      <option name="MAIN_CLASS_NAME" value="com.management.oop.test.commands.create.CreateNewStoryTest" />
+      <option name="METHOD_NAME" value="execute_ShouldNot_ThrowException_When_ArgumentsAreValid" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ShowPersonActivityCommandTest.should_ThrowException_WhenPerson_DoesNotExist" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CreateNewStoryTest.should_CreateStory_WhenArguments_AreValid" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="TaskManagementSystem" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.management.oop.test.commands.show.*" />
+          <option name="PATTERN" value="com.management.oop.test.commands.create.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.management.oop.test.commands.show" />
-      <option name="MAIN_CLASS_NAME" value="com.management.oop.test.commands.show.ShowPersonActivityCommandTest" />
-      <option name="METHOD_NAME" value="should_ThrowException_WhenPerson_DoesNotExist" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ShowPersonActivityCommandTest.should_ThrowException_When_ArgumentCountInvalid" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="TaskManagementSystem" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.management.oop.test.commands.show.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.management.oop.test.commands.show" />
-      <option name="MAIN_CLASS_NAME" value="com.management.oop.test.commands.show.ShowPersonActivityCommandTest" />
-      <option name="METHOD_NAME" value="should_ThrowException_When_ArgumentCountInvalid" />
+      <option name="PACKAGE_NAME" value="com.management.oop.test.commands.create" />
+      <option name="MAIN_CLASS_NAME" value="com.management.oop.test.commands.create.CreateNewStoryTest" />
+      <option name="METHOD_NAME" value="should_CreateStory_WhenArguments_AreValid" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
-      <item itemvalue="JUnit.ShowPersonActivityCommandTest" />
-      <item itemvalue="JUnit.ShowPersonActivityCommandTest.should_OutputMessageWhen_PersonDoesHas_Activity" />
-      <item itemvalue="JUnit.ShowPersonActivityCommandTest.should_ThrowException_WhenPerson_DoesNotExist" />
-      <item itemvalue="JUnit.ShowPersonActivityCommandTest.should_ThrowException_When_ArgumentCountInvalid" />
+      <item itemvalue="JUnit.CreateNewFeedbackTest.should_CreateFeedback_WhenArguments_AreValid" />
+      <item itemvalue="JUnit.CreateNewStoryTest" />
+      <item itemvalue="JUnit.CreateNewStoryTest.execute_ShouldNot_ThrowException_When_ArgumentsAreValid" />
+      <item itemvalue="JUnit.CreateNewStoryTest.should_CreateStory_WhenArguments_AreValid" />
       <item itemvalue="JUnit.All in TaskManagementSystem" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.All in TaskManagementSystem" />
-        <item itemvalue="JUnit.ShowPersonActivityCommandTest" />
-        <item itemvalue="JUnit.ShowPersonActivityCommandTest.should_OutputMessageWhen_PersonDoesHas_Activity" />
-        <item itemvalue="JUnit.ShowPersonActivityCommandTest.should_ThrowException_WhenPerson_DoesNotExist" />
-        <item itemvalue="JUnit.ShowPersonActivityCommandTest.should_ThrowException_When_ArgumentCountInvalid" />
+        <item itemvalue="JUnit.CreateNewStoryTest.should_CreateStory_WhenArguments_AreValid" />
+        <item itemvalue="JUnit.CreateNewFeedbackTest.should_CreateFeedback_WhenArguments_AreValid" />
+        <item itemvalue="JUnit.CreateNewStoryTest.execute_ShouldNot_ThrowException_When_ArgumentsAreValid" />
+        <item itemvalue="JUnit.CreateNewStoryTest" />
       </list>
     </recent_temporary>
   </component>
@@ -288,27 +287,27 @@
     <SUITE FILE_PATH="coverage/TaskManagementSystem$CommentImplTests.ic" NAME="CommentImplTests Coverage Results" MODIFIED="1691928351541" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.management.oop.test.models.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/TaskManagementSystem$BoardImplTests.ic" NAME="BoardImplTests Coverage Results" MODIFIED="1691927001363" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>com.management.oop.test.models.*</FILTER>
+    <SUITE FILE_PATH="coverage/TaskManagementSystem$AddCommentToATaskTest_should_AddComment_When_ParametersAreValid.ic" NAME="AddCommentToATaskTest.should_AddComment_When_ParametersAreValid Coverage Results" MODIFIED="1691941970319" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.management.oop.test.commands.add.*</FILTER>
     </SUITE>
+    <SUITE FILE_PATH="coverage/TaskManagementSystem$All_in_TaskManagementSystem.ic" NAME="All in TaskManagementSystem Coverage Results" MODIFIED="1692144580489" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/TaskManagementSystem$AddCommentToATaskTest.ic" NAME="AddCommentToATaskTest Coverage Results" MODIFIED="1692002514733" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.management.oop.test.commands.add.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/TaskManagementSystem$FeedbackImplTests.ic" NAME="FeedbackImplTests Coverage Results" MODIFIED="1691922663304" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/TaskManagementSystem$CreateNewFeedbackTest.ic" NAME="CreateNewFeedbackTest Coverage Results" MODIFIED="1692097045107" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.management.oop.test.commands.create.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/TaskManagementSystem$UnassignTaskToPersonCommandTest.ic" NAME="UnassignTaskToPersonCommandTest Coverage Results" MODIFIED="1691943919569" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.management.oop.test.commands.assign.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/TaskManagementSystem$FeedbackImplTests.ic" NAME="FeedbackImplTests Coverage Results" MODIFIED="1691931407830" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.management.oop.test.models.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/TaskManagementSystem$com_management_oop_test_models_in_TaskManagementSystem.ic" NAME="com.management.oop.test.models in TaskManagementSystem Coverage Results" MODIFIED="1691938453974" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.management.oop.test.models.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/TaskManagementSystem$UnassignTaskToPersonCommandTest.ic" NAME="UnassignTaskToPersonCommandTest Coverage Results" MODIFIED="1691943919569" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>com.management.oop.test.commands.assign.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/TaskManagementSystem$All_in_TaskManagementSystem.ic" NAME="All in TaskManagementSystem Coverage Results" MODIFIED="1692120106033" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/TaskManagementSystem$CreateNewFeedbackTest.ic" NAME="CreateNewFeedbackTest Coverage Results" MODIFIED="1692097045107" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>com.management.oop.test.commands.create.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/TaskManagementSystem$AddCommentToATaskTest_should_AddComment_When_ParametersAreValid.ic" NAME="AddCommentToATaskTest.should_AddComment_When_ParametersAreValid Coverage Results" MODIFIED="1691941970319" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>com.management.oop.test.commands.add.*</FILTER>
+    <SUITE FILE_PATH="coverage/TaskManagementSystem$BoardImplTests.ic" NAME="BoardImplTests Coverage Results" MODIFIED="1691927001363" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.management.oop.test.models.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/TaskManagementSystem$ChangeStoryCommandTest.ic" NAME="ChangeStoryCommandTest Coverage Results" MODIFIED="1692013619869" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.management.oop.test.commands.change.*</FILTER>

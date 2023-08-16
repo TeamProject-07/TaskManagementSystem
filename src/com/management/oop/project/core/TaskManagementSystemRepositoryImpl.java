@@ -281,7 +281,7 @@ public class TaskManagementSystemRepositoryImpl implements TaskManagementSystemR
         List<Story> stories = new ArrayList<>();
         for (Team team : teams) {
             for (Board board: team.getBoards()) {
-                board.getStories().addAll(stories);
+                stories.addAll(board.getStories());
             }
         }
         return stories;
