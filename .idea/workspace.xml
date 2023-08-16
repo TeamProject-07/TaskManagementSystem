@@ -4,19 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f4d32bab-62d7-485a-a9dd-6cb272e43dff" name="Changes" comment="Commit tests">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_07_08_2023_16_29_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_07_08_2023_16_29__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_8_2023_9_30_AM_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_8_2023_9_30_AM__Changes_.xml" beforeDir="false" />
+    <list default="true" id="f4d32bab-62d7-485a-a9dd-6cb272e43dff" name="Changes" comment="Update tests">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_08_08_2023_13_12_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_08_08_2023_13_12__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_08_08_2023_16_49_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_08_08_2023_16_49__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_8_2023_12_19_PM_[Changes]1/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_8_2023_12_19_PM__Changes_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_8_2023_4_29_PM_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_8_2023_4_29_PM__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_8_2023_5_43_PM_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_8_2023_5_43_PM__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/commands/show/ShowTeamsActivityCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/commands/show/ShowTeamsActivityCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/com/management/oop/test/commands/create/CreateBoardCommandTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/com/management/oop/test/commands/create/CreateBoardCommandTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/com/management/oop/test/commands/create/CreateNewStoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/com/management/oop/test/commands/create/CreateNewStoryTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/com/management/oop/test/commands/show/ShowAllPeopleCommandTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/com/management/oop/test/commands/show/ShowAllPeopleCommandTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/com/management/oop/test/commands/change/ChangeBugCommandTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/com/management/oop/test/commands/change/ChangeBugCommandTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/com/management/oop/test/commands/show/ShowAllTeamsMembersCommandTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/com/management/oop/test/commands/show/ShowAllTeamsMembersCommandTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/com/management/oop/test/commands/show/ShowBoardActivityCommandTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/com/management/oop/test/commands/show/ShowBoardActivityCommandTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/com/management/oop/test/commands/show/ShowTeamsActivityCommandTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/com/management/oop/test/commands/show/ShowTeamsActivityCommandTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/com/management/oop/test/core/TaskManagementSystemRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/com/management/oop/test/core/TaskManagementSystemRepositoryImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,65 +67,65 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CreateBoardCommandTest.execute_Should_AddNewBoardToRepository_When_ValidParameters" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TaskManagementSystemRepositoryImpl.boardExists_Should_ReturnFalse_When_BoardDoesNotExist" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="TaskManagementSystem" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.management.oop.test.commands.create.*" />
+          <option name="PATTERN" value="com.management.oop.test.core.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.management.oop.test.commands.create" />
-      <option name="MAIN_CLASS_NAME" value="com.management.oop.test.commands.create.CreateBoardCommandTest" />
-      <option name="METHOD_NAME" value="execute_Should_AddNewBoardToRepository_When_ValidParameters" />
+      <option name="PACKAGE_NAME" value="com.management.oop.test.core" />
+      <option name="MAIN_CLASS_NAME" value="com.management.oop.test.core.TaskManagementSystemRepositoryImpl" />
+      <option name="METHOD_NAME" value="boardExists_Should_ReturnFalse_When_BoardDoesNotExist" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CreateBoardCommandTest.execute_Should_ThrowException_When_DuplicateCategoryName" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TaskManagementSystemRepositoryImpl.boardExists_Should_ReturnTrue_When_BoardExists" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="TaskManagementSystem" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.management.oop.test.commands.create.*" />
+          <option name="PATTERN" value="com.management.oop.test.core.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.management.oop.test.commands.create" />
-      <option name="MAIN_CLASS_NAME" value="com.management.oop.test.commands.create.CreateBoardCommandTest" />
-      <option name="METHOD_NAME" value="execute_Should_ThrowException_When_DuplicateCategoryName" />
+      <option name="PACKAGE_NAME" value="com.management.oop.test.core" />
+      <option name="MAIN_CLASS_NAME" value="com.management.oop.test.core.TaskManagementSystemRepositoryImpl" />
+      <option name="METHOD_NAME" value="boardExists_Should_ReturnTrue_When_BoardExists" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CreateBoardCommandTest.execute_Should_ThrowException_When_InvalidPriority" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TaskManagementSystemRepositoryImpl.createBoard_Should_AddToBoard_When_ArgumentsAreValid" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="TaskManagementSystem" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.management.oop.test.commands.create.*" />
+          <option name="PATTERN" value="com.management.oop.test.core.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.management.oop.test.commands.create" />
-      <option name="MAIN_CLASS_NAME" value="com.management.oop.test.commands.create.CreateBoardCommandTest" />
-      <option name="METHOD_NAME" value="execute_Should_ThrowException_When_InvalidPriority" />
+      <option name="PACKAGE_NAME" value="com.management.oop.test.core" />
+      <option name="MAIN_CLASS_NAME" value="com.management.oop.test.core.TaskManagementSystemRepositoryImpl" />
+      <option name="METHOD_NAME" value="createBoard_Should_AddToBoard_When_ArgumentsAreValid" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ShowAllTeamsMembersCommandTest.should_ShowCategory_When_ArgumentsAreValid" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TaskManagementSystemRepositoryImpl.findBoardByName_Should_ThrowException_When_DoesNotExist" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="TaskManagementSystem" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.management.oop.test.commands.show.*" />
+          <option name="PATTERN" value="com.management.oop.test.core.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.management.oop.test.commands.show" />
-      <option name="MAIN_CLASS_NAME" value="com.management.oop.test.commands.show.ShowAllTeamsMembersCommandTest" />
-      <option name="METHOD_NAME" value="should_ShowCategory_When_ArgumentsAreValid" />
+      <option name="PACKAGE_NAME" value="com.management.oop.test.core" />
+      <option name="MAIN_CLASS_NAME" value="com.management.oop.test.core.TaskManagementSystemRepositoryImpl" />
+      <option name="METHOD_NAME" value="findBoardByName_Should_ThrowException_When_DoesNotExist" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -132,10 +134,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.All in TaskManagementSystem" />
-        <item itemvalue="JUnit.CreateBoardCommandTest.execute_Should_AddNewBoardToRepository_When_ValidParameters" />
-        <item itemvalue="JUnit.CreateBoardCommandTest.execute_Should_ThrowException_When_InvalidPriority" />
-        <item itemvalue="JUnit.CreateBoardCommandTest.execute_Should_ThrowException_When_DuplicateCategoryName" />
-        <item itemvalue="JUnit.ShowAllTeamsMembersCommandTest.should_ShowCategory_When_ArgumentsAreValid" />
+        <item itemvalue="JUnit.TaskManagementSystemRepositoryImpl.createBoard_Should_AddToBoard_When_ArgumentsAreValid" />
+        <item itemvalue="JUnit.TaskManagementSystemRepositoryImpl.boardExists_Should_ReturnFalse_When_BoardDoesNotExist" />
+        <item itemvalue="JUnit.TaskManagementSystemRepositoryImpl.boardExists_Should_ReturnTrue_When_BoardExists" />
+        <item itemvalue="JUnit.TaskManagementSystemRepositoryImpl.findBoardByName_Should_ThrowException_When_DoesNotExist" />
       </list>
     </recent_temporary>
   </component>
@@ -260,7 +262,14 @@
       <option name="project" value="LOCAL" />
       <updated>1691957445115</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Update tests">
+      <created>1692094383594</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1692094383594</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -291,13 +300,14 @@
     <MESSAGE value="Story Tests" />
     <MESSAGE value="Test commit" />
     <MESSAGE value="Added AddPersonToTeamCommandTest and EventLogImplTests" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added AddPersonToTeamCommandTest and EventLogImplTests" />
+    <MESSAGE value="Update tests" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update tests" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/TaskManagementSystem$CommentImplTests.ic" NAME="CommentImplTests Coverage Results" MODIFIED="1691928351541" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.management.oop.test.models.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/TaskManagementSystem$All_in_TaskManagementSystem.ic" NAME="All in TaskManagementSystem Coverage Results" MODIFIED="1692090023957" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/TaskManagementSystem$All_in_TaskManagementSystem.ic" NAME="All in TaskManagementSystem Coverage Results" MODIFIED="1692143648718" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/TaskManagementSystem$FeedbackImplTests.ic" NAME="FeedbackImplTests Coverage Results" MODIFIED="1691931407830" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.management.oop.test.models.*</FILTER>
     </SUITE>
