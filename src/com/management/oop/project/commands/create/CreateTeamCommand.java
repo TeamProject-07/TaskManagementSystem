@@ -35,8 +35,4 @@ public class CreateTeamCommand implements Command {
         return String.format(TEAM_CREATED, teamName);
     }
 
-    private String getMemberAsString(String teamName) {
-        Team team = taskManagementSystemRepository.findTeamByName(teamName);
-        return String.valueOf(team.getPeople());
-    }
 }

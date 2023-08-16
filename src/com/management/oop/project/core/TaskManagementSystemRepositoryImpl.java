@@ -270,7 +270,7 @@ public class TaskManagementSystemRepositoryImpl implements TaskManagementSystemR
         List<Feedback> feedbacks = new ArrayList<>();
         for (Team team : teams) {
             for (Board board: team.getBoards()) {
-                board.getFeedbacks().addAll(feedbacks);
+               feedbacks.addAll(board.getFeedbacks());
             }
         }
         return feedbacks;
