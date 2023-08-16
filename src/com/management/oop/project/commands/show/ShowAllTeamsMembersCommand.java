@@ -23,11 +23,4 @@ public class ShowAllTeamsMembersCommand implements Command {
         String teamName = parameters.get(0);
         return ListingHelpers.membersToString(taskManagementSystemRepository.findTeamByName(teamName).getPeople());
     }
-
-
-    private String getMemberAsString(String teamName) {
-        Team team = taskManagementSystemRepository.findTeamByName(teamName);
-        return String.valueOf(team.getPeople());
-    }
-
 }
