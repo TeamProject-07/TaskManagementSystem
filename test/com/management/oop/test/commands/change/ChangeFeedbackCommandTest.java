@@ -7,6 +7,9 @@ import com.management.oop.project.core.TaskManagementSystemRepositoryImpl;
 import com.management.oop.project.core.contracts.TaskManagementSystemRepository;
 import com.management.oop.project.models.contracts.Feedback;
 import com.management.oop.project.models.enums.FeedbackStatusEnum;
+import com.management.oop.project.models.enums.PriorityEnum;
+import com.management.oop.project.models.enums.StorySizeEnum;
+import com.management.oop.project.models.enums.StoryStatusEnum;
 import com.management.oop.project.models.tasks.FeedbackImpl;
 import com.management.oop.project.utils.ParsingHelpers;
 import com.management.oop.test.models.FeedbackImplTests;
@@ -23,16 +26,17 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 public class ChangeFeedbackCommandTest {
 
     public static final int EXPECTED_NUMBER_OF_ARGUMENTS = 3;
-
-    private Command command;
+    private ChangeFeedbackCommand changeFeedbackCommand;
     private TaskManagementSystemRepository repository;
 
-    private ChangeFeedbackCommand changeFeedbackCommand;
 
     @BeforeEach
     public void before() {
-        this.repository = new TaskManagementSystemRepositoryImpl();
-        this.command = new CreatePersonCommand(repository);
+        repository = new TaskManagementSystemRepositoryImpl();
+        changeFeedbackCommand = new ChangeFeedbackCommand (repository);
+        repository.createTeam("teamName");
+        repository.createBoard("boardName", "teamName");
+        repository.createFeedback("boardName","feedbackName","description",10,FeedbackStatusEnum.NEW);
     }
 
     @Test
@@ -41,32 +45,60 @@ public class ChangeFeedbackCommandTest {
         List<String> params = TestUtilities.getList(EXPECTED_NUMBER_OF_ARGUMENTS - 1);
 
         // Act, Assert
-        assertThrows(IllegalArgumentException.class, () -> command.execute(params));
+        assertThrows(IllegalArgumentException.class, () -> changeFeedbackCommand.execute(params));
     }
 
- //  @Test
- //  public void should_ThrowException_When_IsNotNumber() {
- //  Feedback feedback = new FeedbackImpl(
- //          1,
- //          "feedbackName",
- //          "feedbackDescription",
- //          10,
- //          FeedbackStatusEnum.SCHEDULED);
- //  List<String> params = List.of(
- //          "1", "status", "DONE");
- //
- //  changeFeedbackCommand.execute(params);
+    @Test
+    public void should_ThrowException_When_TaskId_IsInvalid() {
+        // Arrange
+        List<String> params = List.of(
+                "invalid Id",
+                "priority",
+                "HIGH");
 
- //  Assertions.assertEquals(FeedbackStatusEnum.DONE,feedback.getStatus());
- //  }
+        // Act, Assert
+        Assertions.assertThrows(IllegalArgumentException.class, () -> changeFeedbackCommand.execute(params));
+    }
+    @Test
+    public void should_ChangeStatus_WhenArguments_AreValid(){
+        // Arrange
+        List<String> params = List.of(
+                "1",
+                "status",
+                "DONE");
+        //Act
+        changeFeedbackCommand.execute(params);
+        //Assert
+        Assertions.assertEquals(repository.findFeedbackById(1).getStatus(),
+                FeedbackStatusEnum.DONE);
+    }
+ //   @Test
+ //   public void should_ChangeSize_WhenArguments_AreValid(){
+ //       // Arrange
+ //       List<String> params = List.of(
+ //               "1",
+ //               "size",
+ //               "Medium");
+ //       //Act
+ //       changeStoryCommand.execute(params);
+ //       //Assert
+ //       Assertions.assertEquals(taskManagementSystemRepository.findStoryById(1).getStorySizeEnum(),
+ //               StorySizeEnum.MEDIUM);
+ //   }
+   @Test
+   public void should_ChangeRating_WhenArguments_AreValid(){
+       // Arrange
+       List<String> params = List.of(
+               "1",
+               "rating",
+               "99");
+       //Act
+       changeFeedbackCommand.execute(params);
+       //Assert
+       Assertions.assertEquals(repository.findFeedbackById(1).getRating(),
+               99);
+   }
 
-
- //      private String changeStatus(int id, String newTypeOfStatus){
- //          FeedbackStatusEnum feedbackStatusEnum = ParsingHelpers.tryParseEnum(newTypeOfStatus, FeedbackStatusEnum.class);
- //          taskManagementSystemRepository.findFeedbackById(id).changeStatus(feedbackStatusEnum);
- //          return String.format("Status was changed to %s", newTypeOfStatus);
- //      }
- //  }
 
 
 
