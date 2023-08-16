@@ -259,7 +259,8 @@ public class TaskManagementSystemRepositoryImpl implements TaskManagementSystemR
         List<Bug> bugs = new ArrayList<>();
         for (Team team : teams) {
             for (Board board : team.getBoards()) {
-                board.getBugs().addAll(bugs);
+                bugs.addAll(board.getBugs());
+               // board.getBugs().addAll(bugs);
             }
         }
         return bugs;
