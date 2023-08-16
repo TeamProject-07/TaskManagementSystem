@@ -3,9 +3,15 @@ package com.management.oop.test.commands.create;
 import com.management.oop.project.commands.create.CreateNewStory;
 import com.management.oop.project.core.TaskManagementSystemRepositoryImpl;
 import com.management.oop.project.core.contracts.TaskManagementSystemRepository;
+import com.management.oop.project.models.BoardImpl;
+import com.management.oop.project.models.contracts.Board;
+import com.management.oop.project.models.contracts.Feedback;
+import com.management.oop.project.models.contracts.Story;
+import com.management.oop.project.models.enums.FeedbackStatusEnum;
 import com.management.oop.project.models.enums.PriorityEnum;
 import com.management.oop.project.models.enums.StorySizeEnum;
 import com.management.oop.project.models.enums.StoryStatusEnum;
+import com.management.oop.project.models.tasks.FeedbackImpl;
 import com.management.oop.project.models.tasks.StoryImpl;
 import com.management.oop.test.models.StoryImplTests;
 import com.management.oop.test.utils.TaskBaseConstants;
@@ -21,11 +27,25 @@ public class CreateNewStoryTest {
     private List<String> parameters;
     private TaskManagementSystemRepository repository;
     private CreateNewStory createNewStory;
+    private Story story;
+
     @BeforeEach
     public void setupTest() {
         parameters = new ArrayList<>();
         repository = new TaskManagementSystemRepositoryImpl();
         createNewStory = new CreateNewStory(repository);
+        repository.createTeam(TaskBaseConstants.VALID_TEAM_NAME);
+
+        repository.createBoard(TaskBaseConstants.VALID_BOARD_NAME,
+                TaskBaseConstants.VALID_TEAM_NAME);
+
+        this.story=new StoryImpl(1,
+                TaskBaseConstants.VALID_TITLE,
+                TaskBaseConstants.VALID_DESCRIPTION,
+                PriorityEnum.HIGH,
+                StorySizeEnum.MEDIUM,
+                StoryStatusEnum.IN_PROGRESS);
+
     }
 
     @Test
@@ -60,6 +80,23 @@ public class CreateNewStoryTest {
         parameters.add(StoryStatusEnum.IN_PROGRESS.toString());
 
         Assertions.assertThrows(IllegalArgumentException.class, () -> createNewStory.execute(parameters));
+    }
+    @Test
+    public void should_CreateStory_WhenArguments_AreValid(){
+        //Arrange
+        List<String> params = List.of(
+                TaskBaseConstants.VALID_BOARD_NAME,
+                TaskBaseConstants.VALID_TITLE,
+                TaskBaseConstants.VALID_DESCRIPTION,
+                PriorityEnum.HIGH.toString(),
+                StorySizeEnum.LARGE.toString(),
+                StoryStatusEnum.IN_PROGRESS.toString());
+        //Act
+        String result  = createNewStory.execute(params);
+        //Assert
+        Assertions.assertEquals("Story with ID 1 was created.", result);
+        Assertions.assertEquals(repository.getAllStories().size(), 1);
+
     }
 
 
