@@ -84,8 +84,6 @@ public class ShowAllTeamsMembersCommandTest {
         List<String> parameters = List.of(team.getName());
 
         Assertions.assertDoesNotThrow(() -> showAllTeamsMembercommand.execute(List.of(team.getName())));
-
-
     }
 
 

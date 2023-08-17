@@ -1,0 +1,183 @@
+Index: .idea/shelf/Uncommitted_changes_before_Update_at_8_9_2023_1_24_PM_[Changes]1/shelved.patch
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Update_at_8_9_2023_1_24_PM_[Changes]1/shelved.patch b/.idea/shelf/Uncommitted_changes_before_Update_at_8_9_2023_1_24_PM_[Changes]1/shelved.patch
+deleted file mode 100644
+--- a/.idea/shelf/Uncommitted_changes_before_Update_at_8_9_2023_1_24_PM_[Changes]1/shelved.patch	(revision d110941933b5b78de5dd66179a0779b4e57be867)
++++ /dev/null	(revision d110941933b5b78de5dd66179a0779b4e57be867)
+@@ -1,90 +0,0 @@
+-Index: src/com/management/oop/project/commands/show/ShowAllTeamsCommand.java
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/src/com/management/oop/project/commands/show/ShowAllTeamsCommand.java b/src/com/management/oop/project/commands/show/ShowAllTeamsCommand.java
+---- a/src/com/management/oop/project/commands/show/ShowAllTeamsCommand.java	
+-+++ b/src/com/management/oop/project/commands/show/ShowAllTeamsCommand.java	
+-@@ -1,4 +1,35 @@
+- package com.management.oop.project.commands.show;
+- 
+--public class ShowAllTeamsCommand {
+-+import com.management.oop.project.commands.contracts.Command;
+-+import com.management.oop.project.core.contracts.TaskManagementSystemRepository;
+-+import com.management.oop.project.models.contracts.Person;
+-+import com.management.oop.project.models.contracts.Team;
+-+import com.management.oop.project.utils.ValidationHelpers;
+-+
+-+import java.util.List;
+-+
+-+public class ShowAllTeamsCommand implements Command {
+-+
+-+    private final TaskManagementSystemRepository taskManagementSystemRepository;
+-+
+-+    public ShowAllTeamsCommand(TaskManagementSystemRepository taskManagementSystemRepository) {
+-+        this.taskManagementSystemRepository = taskManagementSystemRepository;
+-+    }
+-+
+-+    @Override
+-+    public String execute(List<String> parameters) {
+-+        List<Team> teams = taskManagementSystemRepository.getTeams();
+-+        StringBuilder result = new StringBuilder();
+-+        if (teams.size() == 0) {
+-+            throw new IllegalArgumentException("No teams have been created");
+-+        }
+-+        for (int i = 0; i < teams.size(); i++) {
+-+            result.append(String.format("%s, ", teams.get(i).toString()));
+-+        }
+-+
+-+        return result.toString();
+-+    }
+-+
+-+
+-+
+- }
+-Index: src/com/management/oop/project/commands/show/ShowAllTeamBoardsCommand.java
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/src/com/management/oop/project/commands/show/ShowAllTeamBoardsCommand.java b/src/com/management/oop/project/commands/show/ShowAllTeamBoardsCommand.java
+---- a/src/com/management/oop/project/commands/show/ShowAllTeamBoardsCommand.java	
+-+++ b/src/com/management/oop/project/commands/show/ShowAllTeamBoardsCommand.java	
+-@@ -1,4 +1,35 @@
+- package com.management.oop.project.commands.show;
+- 
+--public class ShowAllTeamBoardsCommand {
+-+import com.management.oop.project.commands.contracts.Command;
+-+import com.management.oop.project.core.contracts.TaskManagementSystemRepository;
+-+import com.management.oop.project.models.contracts.Person;
+-+import com.management.oop.project.utils.ValidationHelpers;
+-+
+-+import java.util.List;
+-+
+-+public class ShowAllTeamBoardsCommand implements Command {
+-+
+-+    public static final int EXPECTED_NUMBER_OF_ARGUMENTS = 1;
+-+
+-+    private final TaskManagementSystemRepository taskManagementSystemRepository;
+-+
+-+    public ShowAllPeopleCommand(TaskManagementSystemRepository taskManagementSystemRepository) {
+-+        this.taskManagementSystemRepository = taskManagementSystemRepository;
+-+    }
+-+
+-+    @Override
+-+    public String execute(List<String> parameters) {
+-+        ValidationHelpers.validateArgumentsCount(parameters, EXPECTED_NUMBER_OF_ARGUMENTS);
+-+        List<Person> people = taskManagementSystemRepository.getPeople();
+-+        StringBuilder result = new StringBuilder();
+-+        if (people.size() == 0) {
+-+            throw new IllegalArgumentException("Don't have people.");
+-+        }
+-+        for (int i = 0; i < people.size(); i++) {
+-+            //TODO add method split()
+-+            result.append(String.format("%s, ", people.get(i).toString()));
+-+        }
+-+
+-+        return result.toString();
+-+    }
+- }
+Index: .idea/shelf/Uncommitted_changes_before_Update_at_8_9_2023_1_24_PM__Changes_1.xml
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Update_at_8_9_2023_1_24_PM__Changes_1.xml b/.idea/shelf/Uncommitted_changes_before_Update_at_8_9_2023_1_24_PM__Changes_1.xml
+deleted file mode 100644
+--- a/.idea/shelf/Uncommitted_changes_before_Update_at_8_9_2023_1_24_PM__Changes_1.xml	(revision d110941933b5b78de5dd66179a0779b4e57be867)
++++ /dev/null	(revision d110941933b5b78de5dd66179a0779b4e57be867)
+@@ -1,4 +0,0 @@
+-<changelist name="Uncommitted_changes_before_Update_at_8_9_2023_1_24_PM_[Changes]1" date="1691576683067" recycled="true" deleted="true">
+-  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_9_2023_1_24_PM_[Changes]1/shelved.patch" />
+-  <option name="DESCRIPTION" value="Uncommitted changes before Update at 8/9/2023 1:24 PM [Changes]" />
+-</changelist>
+\ No newline at end of file
+Index: test/com/management/oop/test/commands/show/ShowAllTeamsMembersCommandTest.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.management.oop.test.commands.show;\n\nimport com.management.oop.project.commands.show.ShowAllTeamsMembersCommand;\nimport com.management.oop.project.core.TaskManagementSystemRepositoryImpl;\nimport com.management.oop.project.core.contracts.TaskManagementSystemRepository;\nimport com.management.oop.project.models.TeamImpl;\nimport com.management.oop.project.models.contracts.Team;\nimport com.management.oop.test.models.TeamImplTests;\nimport com.management.oop.test.utils.TaskBaseConstants;\nimport com.management.oop.test.utils.TestUtilities;\nimport org.junit.jupiter.api.Assertions;\nimport org.junit.jupiter.api.BeforeEach;\nimport org.junit.jupiter.api.Test;\n\nimport java.util.ArrayList;\nimport java.util.List;\n\npublic class ShowAllTeamsMembersCommandTest {\n    public static final int EXPECTED_NUMBER_OF_ARGUMENTS = 1;\n\n    private List<String> parameters;\n    private TaskManagementSystemRepository repository;\n    private ShowAllTeamsMembersCommand showAllTeamsMembercommand;\n\n    @BeforeEach\n    public void setupTest() {\n        parameters = new ArrayList<>();\n        repository = new TaskManagementSystemRepositoryImpl();\n        showAllTeamsMembercommand = new ShowAllTeamsMembersCommand(repository);\n        repository.createTeam(TaskBaseConstants.VALID_TEAM_NAME);\n\n    }\n\n    @Test\n    public void execute_Should_ThrowException_When_MissingParameters() {\n        parameters = TestUtilities.getList(0);\n\n        Assertions.assertThrows(IllegalArgumentException.class, () -> showAllTeamsMembercommand.execute(parameters));\n    }\n\n    @Test\n    public void execute_Should_ThrowException_When_TeamNotExist() {\n        parameters.add(\"aaa\");\n\n        Assertions.assertThrows(IllegalArgumentException.class, () -> showAllTeamsMembercommand.execute(parameters));\n    }\n\n    @Test\n    public void should_ThrowException_When_NoTeamMembersInTeam() {\n        // Arrange, Act, Assert\n        Assertions.assertThrows(IllegalArgumentException.class, () -> showAllTeamsMembercommand.execute(List.of()));\n    }\n\n    @Test\n    public void should_ThrowException_When_ArgumentCountDifferentThanExpected() {\n        // Arrange\n        List<String> params = TestUtilities.getList(EXPECTED_NUMBER_OF_ARGUMENTS - 1);\n\n        // Act, Assert\n        Assertions.assertThrows(IllegalArgumentException.class, () -> showAllTeamsMembercommand.execute(params));\n    }\n\n    @Test\n    public void should_ShowTeamsMembersWhen_ArgumentsAreValid() {\n        // Arrange\n        TeamImpl team = new TeamImpl(TeamImplTests.VALID_TEAM_NAME);\n        List<String> parameters = List.of(team.getName());\n        // Act, Assert\n        Assertions.assertAll(() -> Assertions.assertDoesNotThrow(() -> showAllTeamsMembercommand.execute(parameters)));\n    }\n\n    @Test\n    public void should_ThrowException_WhenTeamIsEmpty() {\n        Team team = repository.createTeam(\"EmptyTeam\");\n        String result = showAllTeamsMembercommand.execute(List.of(\"EmptyTeam\"));\n        Assertions.assertEquals(\"\", result);\n\n    }\n\n    @Test\n    public void should_ThrowException_WhenTeamIsNonEmpty() {\n        Team team = repository.createTeam(\"TeamWithMembers\");\n        repository.findTeamByName(team.getName());\n        List<String> parameters = List.of(team.getName());\n\n        Assertions.assertDoesNotThrow(() -> showAllTeamsMembercommand.execute(List.of(team.getName())));\n\n\n    }\n\n\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/test/com/management/oop/test/commands/show/ShowAllTeamsMembersCommandTest.java b/test/com/management/oop/test/commands/show/ShowAllTeamsMembersCommandTest.java
+--- a/test/com/management/oop/test/commands/show/ShowAllTeamsMembersCommandTest.java	(revision d110941933b5b78de5dd66179a0779b4e57be867)
++++ b/test/com/management/oop/test/commands/show/ShowAllTeamsMembersCommandTest.java	(date 1692176160334)
+@@ -84,8 +84,6 @@
+         List<String> parameters = List.of(team.getName());
+ 
+         Assertions.assertDoesNotThrow(() -> showAllTeamsMembercommand.execute(List.of(team.getName())));
+-
+-
+     }
+ 
+ 
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"AutoImportSettings\">\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\n  </component>\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"f4d32bab-62d7-485a-a9dd-6cb272e43dff\" name=\"Changes\" comment=\"Update tests\">\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/com/management/oop/project/core/TaskManagementSystemRepositoryImpl.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/com/management/oop/project/core/TaskManagementSystemRepositoryImpl.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/test/com/management/oop/test/commands/create/CreateNewStoryTest.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/test/com/management/oop/test/commands/create/CreateNewStoryTest.java\" afterDir=\"false\" />\n    </list>\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"FileTemplateManagerImpl\">\n    <option name=\"RECENT_TEMPLATES\">\n      <list>\n        <option value=\"Enum\" />\n        <option value=\"Interface\" />\n        <option value=\"Class\" />\n      </list>\n    </option>\n  </component>\n  <component name=\"Git.Settings\">\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\n  </component>\n  <component name=\"MarkdownSettingsMigration\">\n    <option name=\"stateVersion\" value=\"1\" />\n  </component>\n  <component name=\"ProjectId\" id=\"2TWYpfP1bhVE3fi67gUH8HWDEr9\" />\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\">\n    <ConfirmationsSetting value=\"1\" id=\"Add\" />\n  </component>\n  <component name=\"ProjectViewState\">\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\n    <option name=\"showLibraryContents\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\">{\n  &quot;keyToString&quot;: {\n    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\n    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/mitko/Desktop/TaskManagementSystem/src/Main.java&quot;,\n    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,\n    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,\n    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;\n  }\n}</component>\n  <component name=\"RunManager\" selected=\"JUnit.All in TaskManagementSystem\">\n    <configuration name=\"All in TaskManagementSystem\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\n      <module name=\"TaskManagementSystem\" />\n      <option name=\"PACKAGE_NAME\" value=\"\" />\n      <option name=\"TEST_OBJECT\" value=\"package\" />\n      <method v=\"2\">\n        <option name=\"Make\" enabled=\"true\" />\n      </method>\n    </configuration>\n    <configuration name=\"CreateNewFeedbackTest.should_CreateFeedback_WhenArguments_AreValid\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\n      <module name=\"TaskManagementSystem\" />\n      <extension name=\"coverage\">\n        <pattern>\n          <option name=\"PATTERN\" value=\"com.management.oop.test.commands.create.*\" />\n          <option name=\"ENABLED\" value=\"true\" />\n        </pattern>\n      </extension>\n      <option name=\"PACKAGE_NAME\" value=\"com.management.oop.test.commands.create\" />\n      <option name=\"MAIN_CLASS_NAME\" value=\"com.management.oop.test.commands.create.CreateNewFeedbackTest\" />\n      <option name=\"METHOD_NAME\" value=\"should_CreateFeedback_WhenArguments_AreValid\" />\n      <option name=\"TEST_OBJECT\" value=\"method\" />\n      <method v=\"2\">\n        <option name=\"Make\" enabled=\"true\" />\n      </method>\n    </configuration>\n    <configuration name=\"CreateNewStoryTest\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\n      <module name=\"TaskManagementSystem\" />\n      <extension name=\"coverage\">\n        <pattern>\n          <option name=\"PATTERN\" value=\"com.management.oop.test.commands.create.*\" />\n          <option name=\"ENABLED\" value=\"true\" />\n        </pattern>\n      </extension>\n      <option name=\"PACKAGE_NAME\" value=\"com.management.oop.test.commands.create\" />\n      <option name=\"MAIN_CLASS_NAME\" value=\"com.management.oop.test.commands.create.CreateNewStoryTest\" />\n      <option name=\"TEST_OBJECT\" value=\"class\" />\n      <method v=\"2\">\n        <option name=\"Make\" enabled=\"true\" />\n      </method>\n    </configuration>\n    <configuration name=\"CreateNewStoryTest.execute_ShouldNot_ThrowException_When_ArgumentsAreValid\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\n      <module name=\"TaskManagementSystem\" />\n      <extension name=\"coverage\">\n        <pattern>\n          <option name=\"PATTERN\" value=\"com.management.oop.test.commands.create.*\" />\n          <option name=\"ENABLED\" value=\"true\" />\n        </pattern>\n      </extension>\n      <option name=\"PACKAGE_NAME\" value=\"com.management.oop.test.commands.create\" />\n      <option name=\"MAIN_CLASS_NAME\" value=\"com.management.oop.test.commands.create.CreateNewStoryTest\" />\n      <option name=\"METHOD_NAME\" value=\"execute_ShouldNot_ThrowException_When_ArgumentsAreValid\" />\n      <option name=\"TEST_OBJECT\" value=\"method\" />\n      <method v=\"2\">\n        <option name=\"Make\" enabled=\"true\" />\n      </method>\n    </configuration>\n    <configuration name=\"CreateNewStoryTest.should_CreateStory_WhenArguments_AreValid\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\n      <module name=\"TaskManagementSystem\" />\n      <extension name=\"coverage\">\n        <pattern>\n          <option name=\"PATTERN\" value=\"com.management.oop.test.commands.create.*\" />\n          <option name=\"ENABLED\" value=\"true\" />\n        </pattern>\n      </extension>\n      <option name=\"PACKAGE_NAME\" value=\"com.management.oop.test.commands.create\" />\n      <option name=\"MAIN_CLASS_NAME\" value=\"com.management.oop.test.commands.create.CreateNewStoryTest\" />\n      <option name=\"METHOD_NAME\" value=\"should_CreateStory_WhenArguments_AreValid\" />\n      <option name=\"TEST_OBJECT\" value=\"method\" />\n      <method v=\"2\">\n        <option name=\"Make\" enabled=\"true\" />\n      </method>\n    </configuration>\n    <list>\n      <item itemvalue=\"JUnit.CreateNewFeedbackTest.should_CreateFeedback_WhenArguments_AreValid\" />\n      <item itemvalue=\"JUnit.CreateNewStoryTest\" />\n      <item itemvalue=\"JUnit.CreateNewStoryTest.execute_ShouldNot_ThrowException_When_ArgumentsAreValid\" />\n      <item itemvalue=\"JUnit.CreateNewStoryTest.should_CreateStory_WhenArguments_AreValid\" />\n      <item itemvalue=\"JUnit.All in TaskManagementSystem\" />\n    </list>\n    <recent_temporary>\n      <list>\n        <item itemvalue=\"JUnit.All in TaskManagementSystem\" />\n        <item itemvalue=\"JUnit.CreateNewStoryTest.should_CreateStory_WhenArguments_AreValid\" />\n        <item itemvalue=\"JUnit.CreateNewFeedbackTest.should_CreateFeedback_WhenArguments_AreValid\" />\n        <item itemvalue=\"JUnit.CreateNewStoryTest.execute_ShouldNot_ThrowException_When_ArgumentsAreValid\" />\n        <item itemvalue=\"JUnit.CreateNewStoryTest\" />\n      </list>\n    </recent_temporary>\n  </component>\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\n      <changelist id=\"f4d32bab-62d7-485a-a9dd-6cb272e43dff\" name=\"Changes\" comment=\"\" />\n      <created>1691160491848</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1691160491848</updated>\n    </task>\n    <task id=\"LOCAL-00001\" summary=\"Initial Commit\">\n      <created>1691160687240</created>\n      <option name=\"number\" value=\"00001\" />\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1691160687240</updated>\n    </task>\n    <task id=\"LOCAL-00002\" summary=\"Added additional libraries\">\n      <created>1691160875884</created>\n      <option name=\"number\" value=\"00002\" />\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1691160875884</updated>\n    </task>\n    <task id=\"LOCAL-00003\" summary=\"Added additional .gitignore\">\n      <created>1691160944488</created>\n      <option name=\"number\" value=\"00003\" />\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1691160944488</updated>\n    </task>\n    <task id=\"LOCAL-00004\" summary=\"Add and implement Engine and CommandFactory\">\n      <created>1691505761519</created>\n      <option name=\"number\" value=\"00004\" />\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1691505761519</updated>\n    </task>\n    <task id=\"LOCAL-00005\" summary=\"Implement TaskBase and subclasses\">\n      <created>1691576602875</created>\n      <option name=\"number\" value=\"00005\" />\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1691576602875</updated>\n    </task>\n    <task id=\"LOCAL-00006\" summary=\"Commit ShowBoardActivityCommand\">\n      <created>1691654141757</created>\n      <option name=\"number\" value=\"00006\" />\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1691654141757</updated>\n    </task>\n    <task id=\"LOCAL-00007\" summary=\"Commit CreateBugCommand\">\n      <created>1691676107519</created>\n      <option name=\"number\" value=\"00007\" />\n      <option name=\"presentableId\" value=\"LOCAL-00007\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1691676107519</updated>\n    </task>\n    <task id=\"LOCAL-00008\" summary=\"Commit CreateBugCommand\">\n      <created>1691676235053</created>\n      <option name=\"number\" value=\"00008\" />\n      <option name=\"presentableId\" value=\"LOCAL-00008\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1691676235053</updated>\n    </task>\n    <task id=\"LOCAL-00009\" summary=\"Commit CreateBugCommand\">\n      <created>1691676294292</created>\n      <option name=\"number\" value=\"00009\" />\n      <option name=\"presentableId\" value=\"LOCAL-00009\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1691676294292</updated>\n    </task>\n    <task id=\"LOCAL-00010\" summary=\"Commit CreateFeedback update\">\n      <created>1691676374307</created>\n      <option name=\"number\" value=\"00010\" />\n      <option name=\"presentableId\" value=\"LOCAL-00010\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1691676374307</updated>\n    </task>\n    <task id=\"LOCAL-00011\" summary=\"Add ListAllStories\">\n      <created>1691764042925</created>\n      <option name=\"number\" value=\"00011\" />\n      <option name=\"presentableId\" value=\"LOCAL-00011\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1691764042925</updated>\n    </task>\n    <task id=\"LOCAL-00012\" summary=\"Change ShowAllPeopleCommand\">\n      <created>1691764727183</created>\n      <option name=\"number\" value=\"00012\" />\n      <option name=\"presentableId\" value=\"LOCAL-00012\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1691764727183</updated>\n    </task>\n    <task id=\"LOCAL-00013\" summary=\"Added Test package and TaskBaseImplTest\">\n      <created>1691856462210</created>\n      <option name=\"number\" value=\"00013\" />\n      <option name=\"presentableId\" value=\"LOCAL-00013\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1691856462210</updated>\n    </task>\n    <task id=\"LOCAL-00014\" summary=\"Added Test package and TaskBaseImplTest\">\n      <created>1691856598474</created>\n      <option name=\"number\" value=\"00014\" />\n      <option name=\"presentableId\" value=\"LOCAL-00014\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1691856598474</updated>\n    </task>\n    <task id=\"LOCAL-00015\" summary=\"Commit CreateTeamCommand\">\n      <created>1692113339248</created>\n      <option name=\"number\" value=\"00015\" />\n      <option name=\"presentableId\" value=\"LOCAL-00015\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1692113339248</updated>\n    </task>\n    <option name=\"localTasksCounter\" value=\"16\" />\n    <servers />\n  </component>\n  <component name=\"Vcs.Log.Tabs.Properties\">\n    <option name=\"TAB_STATES\">\n      <map>\n        <entry key=\"MAIN\">\n          <value>\n            <State />\n          </value>\n        </entry>\n      </map>\n    </option>\n  </component>\n  <component name=\"VcsManagerConfiguration\">\n    <option name=\"CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT\" value=\"false\" />\n    <option name=\"CHECK_NEW_TODO\" value=\"false\" />\n    <MESSAGE value=\"Initial Commit\" />\n    <MESSAGE value=\"Added additional libraries\" />\n    <MESSAGE value=\"Added additional .gitignore\" />\n    <MESSAGE value=\"Add and implement Engine and CommandFactory\" />\n    <MESSAGE value=\"Implement TaskBase and subclasses\" />\n    <MESSAGE value=\"Commit ShowBoardActivityCommand\" />\n    <MESSAGE value=\"Commit CreateBugCommand\" />\n    <MESSAGE value=\"Commit CreateFeedback update\" />\n    <MESSAGE value=\"Add ListAllStories\" />\n    <MESSAGE value=\"Change ShowAllPeopleCommand\" />\n    <MESSAGE value=\"Added Test package and TaskBaseImplTest\" />\n    <MESSAGE value=\"Story Tests\" />\n    <MESSAGE value=\"Commit UnassignTaskToPersonCommandTest and &#10;CreateNewFeedbackTest\" />\n    <MESSAGE value=\"Commit CreateTeamCommand\" />\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Commit CreateTeamCommand\" />\n  </component>\n  <component name=\"com.intellij.coverage.CoverageDataManagerImpl\">\n    <SUITE FILE_PATH=\"coverage/TaskManagementSystem$CommentImplTests.ic\" NAME=\"CommentImplTests Coverage Results\" MODIFIED=\"1691928351541\" SOURCE_PROVIDER=\"com.intellij.coverage.DefaultCoverageFileProvider\" RUNNER=\"idea\" COVERAGE_BY_TEST_ENABLED=\"false\" COVERAGE_TRACING_ENABLED=\"false\">\n      <FILTER>com.management.oop.test.models.*</FILTER>\n    </SUITE>\n    <SUITE FILE_PATH=\"coverage/TaskManagementSystem$AddCommentToATaskTest_should_AddComment_When_ParametersAreValid.ic\" NAME=\"AddCommentToATaskTest.should_AddComment_When_ParametersAreValid Coverage Results\" MODIFIED=\"1691941970319\" SOURCE_PROVIDER=\"com.intellij.coverage.DefaultCoverageFileProvider\" RUNNER=\"idea\" COVERAGE_BY_TEST_ENABLED=\"false\" COVERAGE_TRACING_ENABLED=\"false\">\n      <FILTER>com.management.oop.test.commands.add.*</FILTER>\n    </SUITE>\n    <SUITE FILE_PATH=\"coverage/TaskManagementSystem$All_in_TaskManagementSystem.ic\" NAME=\"All in TaskManagementSystem Coverage Results\" MODIFIED=\"1692144580489\" SOURCE_PROVIDER=\"com.intellij.coverage.DefaultCoverageFileProvider\" RUNNER=\"idea\" COVERAGE_BY_TEST_ENABLED=\"false\" COVERAGE_TRACING_ENABLED=\"false\" />\n    <SUITE FILE_PATH=\"coverage/TaskManagementSystem$AddCommentToATaskTest.ic\" NAME=\"AddCommentToATaskTest Coverage Results\" MODIFIED=\"1692002514733\" SOURCE_PROVIDER=\"com.intellij.coverage.DefaultCoverageFileProvider\" RUNNER=\"idea\" COVERAGE_BY_TEST_ENABLED=\"false\" COVERAGE_TRACING_ENABLED=\"false\">\n      <FILTER>com.management.oop.test.commands.add.*</FILTER>\n    </SUITE>\n    <SUITE FILE_PATH=\"coverage/TaskManagementSystem$CreateNewFeedbackTest.ic\" NAME=\"CreateNewFeedbackTest Coverage Results\" MODIFIED=\"1692097045107\" SOURCE_PROVIDER=\"com.intellij.coverage.DefaultCoverageFileProvider\" RUNNER=\"idea\" COVERAGE_BY_TEST_ENABLED=\"false\" COVERAGE_TRACING_ENABLED=\"false\">\n      <FILTER>com.management.oop.test.commands.create.*</FILTER>\n    </SUITE>\n    <SUITE FILE_PATH=\"coverage/TaskManagementSystem$UnassignTaskToPersonCommandTest.ic\" NAME=\"UnassignTaskToPersonCommandTest Coverage Results\" MODIFIED=\"1691943919569\" SOURCE_PROVIDER=\"com.intellij.coverage.DefaultCoverageFileProvider\" RUNNER=\"idea\" COVERAGE_BY_TEST_ENABLED=\"false\" COVERAGE_TRACING_ENABLED=\"false\">\n      <FILTER>com.management.oop.test.commands.assign.*</FILTER>\n    </SUITE>\n    <SUITE FILE_PATH=\"coverage/TaskManagementSystem$FeedbackImplTests.ic\" NAME=\"FeedbackImplTests Coverage Results\" MODIFIED=\"1691931407830\" SOURCE_PROVIDER=\"com.intellij.coverage.DefaultCoverageFileProvider\" RUNNER=\"idea\" COVERAGE_BY_TEST_ENABLED=\"false\" COVERAGE_TRACING_ENABLED=\"false\">\n      <FILTER>com.management.oop.test.models.*</FILTER>\n    </SUITE>\n    <SUITE FILE_PATH=\"coverage/TaskManagementSystem$com_management_oop_test_models_in_TaskManagementSystem.ic\" NAME=\"com.management.oop.test.models in TaskManagementSystem Coverage Results\" MODIFIED=\"1691938453974\" SOURCE_PROVIDER=\"com.intellij.coverage.DefaultCoverageFileProvider\" RUNNER=\"idea\" COVERAGE_BY_TEST_ENABLED=\"false\" COVERAGE_TRACING_ENABLED=\"false\">\n      <FILTER>com.management.oop.test.models.*</FILTER>\n    </SUITE>\n    <SUITE FILE_PATH=\"coverage/TaskManagementSystem$BoardImplTests.ic\" NAME=\"BoardImplTests Coverage Results\" MODIFIED=\"1691927001363\" SOURCE_PROVIDER=\"com.intellij.coverage.DefaultCoverageFileProvider\" RUNNER=\"idea\" COVERAGE_BY_TEST_ENABLED=\"false\" COVERAGE_TRACING_ENABLED=\"false\">\n      <FILTER>com.management.oop.test.models.*</FILTER>\n    </SUITE>\n    <SUITE FILE_PATH=\"coverage/TaskManagementSystem$ChangeStoryCommandTest.ic\" NAME=\"ChangeStoryCommandTest Coverage Results\" MODIFIED=\"1692013619869\" SOURCE_PROVIDER=\"com.intellij.coverage.DefaultCoverageFileProvider\" RUNNER=\"idea\" COVERAGE_BY_TEST_ENABLED=\"false\" COVERAGE_TRACING_ENABLED=\"false\">\n      <FILTER>com.management.oop.test.commands.change.*</FILTER>\n    </SUITE>\n    <SUITE FILE_PATH=\"coverage/TaskManagementSystem$ShowPersonActivityCommandTest.ic\" NAME=\"ShowPersonActivityCommandTest Coverage Results\" MODIFIED=\"1692120087035\" SOURCE_PROVIDER=\"com.intellij.coverage.DefaultCoverageFileProvider\" RUNNER=\"idea\" COVERAGE_BY_TEST_ENABLED=\"false\" COVERAGE_TRACING_ENABLED=\"false\">\n      <FILTER>com.management.oop.test.commands.show.*</FILTER>\n    </SUITE>\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision d110941933b5b78de5dd66179a0779b4e57be867)
++++ b/.idea/workspace.xml	(date 1692176372967)
+@@ -6,8 +6,7 @@
+   <component name="ChangeListManager">
+     <list default="true" id="f4d32bab-62d7-485a-a9dd-6cb272e43dff" name="Changes" comment="Update tests">
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/core/TaskManagementSystemRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/core/TaskManagementSystemRepositoryImpl.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/test/com/management/oop/test/commands/create/CreateNewStoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/com/management/oop/test/commands/create/CreateNewStoryTest.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/test/com/management/oop/test/commands/show/ShowAllTeamsMembersCommandTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/com/management/oop/test/commands/show/ShowAllTeamsMembersCommandTest.java" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -250,7 +249,14 @@
+       <option name="project" value="LOCAL" />
+       <updated>1692113339248</updated>
+     </task>
+-    <option name="localTasksCounter" value="16" />
++    <task id="LOCAL-00016" summary="Update tests">
++      <created>1692175750350</created>
++      <option name="number" value="00016" />
++      <option name="presentableId" value="LOCAL-00016" />
++      <option name="project" value="LOCAL" />
++      <updated>1692175750350</updated>
++    </task>
++    <option name="localTasksCounter" value="17" />
+     <servers />
+   </component>
+   <component name="Vcs.Log.Tabs.Properties">
+@@ -281,7 +287,8 @@
+     <MESSAGE value="Story Tests" />
+     <MESSAGE value="Commit UnassignTaskToPersonCommandTest and &#10;CreateNewFeedbackTest" />
+     <MESSAGE value="Commit CreateTeamCommand" />
+-    <option name="LAST_COMMIT_MESSAGE" value="Commit CreateTeamCommand" />
++    <MESSAGE value="Update tests" />
++    <option name="LAST_COMMIT_MESSAGE" value="Update tests" />
+   </component>
+   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+     <SUITE FILE_PATH="coverage/TaskManagementSystem$CommentImplTests.ic" NAME="CommentImplTests Coverage Results" MODIFIED="1691928351541" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+@@ -290,7 +297,7 @@
+     <SUITE FILE_PATH="coverage/TaskManagementSystem$AddCommentToATaskTest_should_AddComment_When_ParametersAreValid.ic" NAME="AddCommentToATaskTest.should_AddComment_When_ParametersAreValid Coverage Results" MODIFIED="1691941970319" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+       <FILTER>com.management.oop.test.commands.add.*</FILTER>
+     </SUITE>
+-    <SUITE FILE_PATH="coverage/TaskManagementSystem$All_in_TaskManagementSystem.ic" NAME="All in TaskManagementSystem Coverage Results" MODIFIED="1692144580489" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
++    <SUITE FILE_PATH="coverage/TaskManagementSystem$All_in_TaskManagementSystem.ic" NAME="All in TaskManagementSystem Coverage Results" MODIFIED="1692176283867" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+     <SUITE FILE_PATH="coverage/TaskManagementSystem$AddCommentToATaskTest.ic" NAME="AddCommentToATaskTest Coverage Results" MODIFIED="1692002514733" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+       <FILTER>com.management.oop.test.commands.add.*</FILTER>
+     </SUITE>
