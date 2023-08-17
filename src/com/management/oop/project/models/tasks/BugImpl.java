@@ -2,17 +2,15 @@ package com.management.oop.project.models.tasks;
 
 import com.management.oop.project.models.EventLogImpl;
 import com.management.oop.project.models.contracts.Bug;
-import com.management.oop.project.models.contracts.Comment;
 import com.management.oop.project.models.contracts.Person;
 import com.management.oop.project.models.enums.BugSeverityEnum;
 import com.management.oop.project.models.enums.BugStatusEnum;
 import com.management.oop.project.models.enums.PriorityEnum;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class BugImpl extends TaskBase implements Bug {
-    private final List<String> steps;
+    private List<String> steps;
     private PriorityEnum priorityEnum;
     private BugSeverityEnum bugSeverityEnum;
     private  BugStatusEnum status;
@@ -28,6 +26,7 @@ public class BugImpl extends TaskBase implements Bug {
         this.status = BugStatusEnum.ACTIVE;
         addHistory(new EventLogImpl("Bug was created."));
     }
+
     @Override
     public void changeStatus(BugStatusEnum status) {
         this.status = status;
