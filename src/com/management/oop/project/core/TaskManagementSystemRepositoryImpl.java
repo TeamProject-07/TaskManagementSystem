@@ -12,6 +12,7 @@ import com.management.oop.project.models.tasks.StoryImpl;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class TaskManagementSystemRepositoryImpl implements TaskManagementSystemRepository {
     public static final String PERSON_NOT_FOUND = "Person not found";
@@ -300,63 +301,94 @@ public class TaskManagementSystemRepositoryImpl implements TaskManagementSystemR
 
 
     @Override
-    public List<Task> getAllTasks() {
-        List<Task> tasks = new ArrayList<>();
-        for (Team team : teams) {
-            for (Board board : team.getBoards()) {
-                tasks.addAll(board.getTasks());
-            }
-        }
-        return tasks;
+   public List<Task> getAllTasks() {
+        return teams.stream()
+                .flatMap(team -> team.getBoards().stream())
+                .flatMap(board -> board.getTasks().stream())
+                .collect(Collectors.toList());
     }
+   //    List<Task> tasks = new ArrayList<>();
+   //    for (Team team : teams) {
+   //        for (Board board : team.getBoards()) {
+   //            tasks.addAll(board.getTasks());
+   //        }
+   //    }
+   //    return tasks;
+   //    }
+
 
     @Override
     public List<Bug> getAllBugs() {
-        List<Bug> bugs = new ArrayList<>();
-        for (Team team : teams) {
-            for (Board board : team.getBoards()) {
-                bugs.addAll(board.getBugs());
-            }
-        }
-        return bugs;
+        return teams.stream()
+                .flatMap(team -> team.getBoards().stream())
+                .flatMap(board -> board.getBugs().stream())
+                .collect(Collectors.toList());
     }
+     //   List<Bug> bugs = new ArrayList<>();
+     //   for (Team team : teams) {
+     //       for (Board board : team.getBoards()) {
+     //           bugs.addAll(board.getBugs());
+     //       }
+     //   }
+     //   return bugs;
+     //   }
 
     @Override
     public List<Feedback> getAllFeedback() {
-        List<Feedback> feedbacks = new ArrayList<>();
-        for (Team team : teams) {
-            for (Board board: team.getBoards()) {
-               feedbacks.addAll(board.getFeedbacks());
-            }
-        }
-        return feedbacks;
+        return teams.stream()
+                .flatMap(team -> team.getBoards().stream())
+                .flatMap(board -> board.getFeedbacks().stream())
+                .collect(Collectors.toList());
+
     }
+ //      List<Feedback> feedbacks = new ArrayList<>();
+ //      for (Team team : teams) {
+ //          for (Board board: team.getBoards()) {
+ //             feedbacks.addAll(board.getFeedbacks());
+ //          }
+ //      }
+ //      return feedbacks;
+ //      }
 
     @Override
     public List<Story> getAllStories() {
-        List<Story> stories = new ArrayList<>();
-        for (Team team : teams) {
-            for (Board board: team.getBoards()) {
-                stories.addAll(board.getStories());
-            }
-        }
-        return stories;
+        return teams.stream()
+                .flatMap(team -> team.getBoards().stream())
+                .flatMap(board -> board.getStories().stream())
+                .collect(Collectors.toList());
     }
+ //      List<Story> stories = new ArrayList<>();
+ //      for (Team team : teams) {
+ //          for (Board board: team.getBoards()) {
+ //              stories.addAll(board.getStories());
+ //          }
+ //      }
+ //      return stories;
+ //      }
 
     @Override
     public List<Board> getAllBoards() {
-        List<Board>boards=new ArrayList<>();
-        for (Team team : teams) {
-            boards.addAll(team.getBoards());
-//            team.getBoards().addAll(boards);
-        }
-        return boards;
+        return teams.stream()
+                .flatMap(team -> team.getBoards().stream())
+                .collect(Collectors.toList());
     }
+ //       List<Board>boards=new ArrayList<>();
+ //       for (Team team : teams) {
+ //           boards.addAll(team.getBoards());
+ //       }
+ //       return boards;
+ //        }
     public List<Object>getTasksWIthAssignee(){
         List<Object>tasksWIthAssignee=new ArrayList<>();
         tasksWIthAssignee.addAll(getAllBugs());
         tasksWIthAssignee.addAll(getAllStories());
         return tasksWIthAssignee;
     }
+
+    //    return Stream.of(getAllBugs(), getAllStories())
+    //        .flatMap(List::stream)
+    //             .collect(Collectors.toList());
+    // }
 }
+
 
