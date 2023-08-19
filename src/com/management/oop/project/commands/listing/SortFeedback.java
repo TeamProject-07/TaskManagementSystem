@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class SortFeedback implements Command {
-
+    public static final int EXPECTED_NUMBER_OF_ARGUMENTS = 0;
     TaskManagementSystemRepository taskManagementSystemRepository;
     private List<Feedback> feedbacks;
 
@@ -21,6 +21,7 @@ public class SortFeedback implements Command {
 
     @Override
     public String execute(List<String> parameters) {
+        ValidationHelpers.validateArgumentsCount(parameters, EXPECTED_NUMBER_OF_ARGUMENTS);
         return sortFeedback();
     }
 

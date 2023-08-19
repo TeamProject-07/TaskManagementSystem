@@ -1,14 +1,8 @@
 package com.management.oop.test.commands.listing;
 
-import com.management.oop.project.commands.listing.FilterAllTasks;
 import com.management.oop.project.commands.listing.FilterStoryByStatus;
 import com.management.oop.project.core.TaskManagementSystemRepositoryImpl;
 import com.management.oop.project.core.contracts.TaskManagementSystemRepository;
-import com.management.oop.project.models.contracts.Story;
-import com.management.oop.project.models.enums.PriorityEnum;
-import com.management.oop.project.models.enums.StorySizeEnum;
-import com.management.oop.project.models.enums.StoryStatusEnum;
-import com.management.oop.test.utils.TaskBaseConstants;
 import com.management.oop.test.utils.TestUtilities;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
