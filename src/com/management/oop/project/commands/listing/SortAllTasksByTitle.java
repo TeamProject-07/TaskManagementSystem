@@ -23,7 +23,8 @@ public class SortAllTasksByTitle implements Command {
     }
         private String sortByTitle(){
 
-        return tasks.stream().sorted(Comparator.comparing(Task::getTitle))
+        return tasks
+                .stream().sorted(Comparator.comparing(Task::getTitle))
                 .map(Task::getTitle)
                 .toList().toString();
     }

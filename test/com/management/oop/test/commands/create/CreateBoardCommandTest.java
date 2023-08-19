@@ -20,17 +20,11 @@ public class CreateBoardCommandTest {
     private CreateBoardCommand createBoardCommand;
 
     @BeforeEach
-    public void setupTest() {
+    public void before() {
         parameters = new ArrayList<>();
         repository = new TaskManagementSystemRepositoryImpl();
         createBoardCommand = new CreateBoardCommand(repository);
     }
-
-    @Test
-    public void execute_Should_AddNewBoardToRepository_When_ValidParameters() {
-
-    }
-
 
     @Test
     public void execute_Should_ThrowException_When_MissingParameters() {

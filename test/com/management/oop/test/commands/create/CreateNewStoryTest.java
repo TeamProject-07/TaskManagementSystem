@@ -30,7 +30,7 @@ public class CreateNewStoryTest {
     private Story story;
 
     @BeforeEach
-    public void setupTest() {
+    public void before() {
         parameters = new ArrayList<>();
         repository = new TaskManagementSystemRepositoryImpl();
         createNewStory = new CreateNewStory(repository);

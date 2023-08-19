@@ -24,7 +24,7 @@ public class ShowAllPeopleCommandTest {
     private TaskManagementSystemRepositoryImpl repository;
     private ShowAllPeopleCommand showAllPeopleCommand;
     @BeforeEach
-    public void setupTest() {
+    public void before() {
         parameters = new ArrayList<>();
         repository = new TaskManagementSystemRepositoryImpl();
         showAllPeopleCommand = new ShowAllPeopleCommand(repository);

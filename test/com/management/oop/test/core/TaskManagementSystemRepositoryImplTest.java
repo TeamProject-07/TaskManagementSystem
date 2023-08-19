@@ -17,7 +17,7 @@ public class TaskManagementSystemRepositoryImplTest {
     private TaskManagementSystemRepository repository;
 
     @BeforeEach
-    public void setUp() {
+    public void before() {
         repository = new com.management.oop.project.core.TaskManagementSystemRepositoryImpl();
         repository.createTeam(TaskBaseConstants.VALID_TEAM_NAME);
         repository.createBoard(TaskBaseConstants.VALID_BOARD_NAME, TaskBaseConstants.VALID_TEAM_NAME);

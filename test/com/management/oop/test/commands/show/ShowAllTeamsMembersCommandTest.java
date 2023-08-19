@@ -23,7 +23,7 @@ public class ShowAllTeamsMembersCommandTest {
     private ShowAllTeamsMembersCommand showAllTeamsMembercommand;
 
     @BeforeEach
-    public void setupTest() {
+    public void before() {
         parameters = new ArrayList<>();
         repository = new TaskManagementSystemRepositoryImpl();
         showAllTeamsMembercommand = new ShowAllTeamsMembersCommand(repository);

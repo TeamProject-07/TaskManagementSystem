@@ -21,7 +21,7 @@ public class ShowTeamsActivityCommandTest {
     private ShowTeamsActivityCommand showTeamsActivityCommand;
 
     @BeforeEach
-    public void setupTest() {
+    public void before() {
         parameters = new ArrayList<>();
         repository = new TaskManagementSystemRepositoryImpl();
         showTeamsActivityCommand = new ShowTeamsActivityCommand(repository);

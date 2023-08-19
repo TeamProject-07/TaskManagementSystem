@@ -72,19 +72,6 @@ public class ChangeFeedbackCommandTest {
         Assertions.assertEquals(repository.findFeedbackById(1).getStatus(),
                 FeedbackStatusEnum.DONE);
     }
- //   @Test
- //   public void should_ChangeSize_WhenArguments_AreValid(){
- //       // Arrange
- //       List<String> params = List.of(
- //               "1",
- //               "size",
- //               "Medium");
- //       //Act
- //       changeStoryCommand.execute(params);
- //       //Assert
- //       Assertions.assertEquals(taskManagementSystemRepository.findStoryById(1).getStorySizeEnum(),
- //               StorySizeEnum.MEDIUM);
- //   }
    @Test
    public void should_ChangeRating_WhenArguments_AreValid(){
        // Arrange

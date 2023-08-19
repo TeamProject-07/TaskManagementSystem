@@ -27,7 +27,8 @@ public class FilterBugByStatus implements Command {
         return filterBug(statusEnum).toString();
     }
     private List<Bug> filterBug(BugStatusEnum statusEnum){
-        return bugs.stream()
+        return bugs
+                .stream()
                 .filter(bug -> bug.getStatus().equals(statusEnum))
                 .collect(Collectors.toList());
     }

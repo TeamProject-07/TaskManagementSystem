@@ -68,39 +68,12 @@ public class ShowAllTeamBoardsCommandTest{
      Assertions.assertEquals(1,team.getBoards().size());
  }
 
- //  @Test
- //  public void should_ShowTeamBoard_When_ArgumentsAreValid() {
- //      // Arrange
- //      Team team = new TeamImpl("teamName");
- //      Board board = new BoardImpl("boardName");
- //      team.addBoard(board);
-
- //      // Act, Assert
- //      Assertions.assertEquals(getBoardAsString("teamName"),String.valueOf(team.getBoards()));
- //  }
-
-//  @Test
-//  public void should_ShowCategory_When_ArgumentsAreValid() {
-//      // Arrange
-//      Team team = new TeamImpl("teamName");
-//      Board board = new BoardImpl("boardName");
-//      team.addBoard(board);
-//      List<String> params = new ArrayList<>();
-//      params.add(team.getName());
-
-//      // Act, Assert
-
-//      Assertions.assertEquals(1,team.getBoards().size());
-//  }
 
 
 
- //  @Override
- //  public String execute(List<String> parameters) {
- //      ValidationHelpers.validateArgumentsCount(parameters, EXPECTED_NUMBER_OF_ARGUMENTS);
- //      String teamName = parameters.get(0);
- //      return ListingHelpers.boardsToString(repository.findTeamByName(teamName).getPeople());
- //  }
+
+
+
 
 
 }
