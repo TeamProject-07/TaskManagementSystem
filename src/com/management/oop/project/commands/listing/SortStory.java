@@ -28,8 +28,9 @@ public class SortStory implements Command {
     private String sortStory(){
         return stories
                 .stream()
-                .sorted(Comparator.comparing(Story :: getTitle).thenComparing(Story::getPriorityEnum))
-                .map(story -> story.getTitle() + " " + story.getPriorityEnum())
+                .sorted(Comparator.comparing(Story :: getTitle).thenComparing(Story::getPriorityEnum)
+                        .thenComparing(Story::getStorySizeEnum))
+                .map(story -> story.getTitle() + " " + story.getPriorityEnum() + " " + story.getStorySizeEnum())
                 .collect(Collectors.toList()).toString();
     }
 }

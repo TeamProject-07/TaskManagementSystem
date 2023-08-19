@@ -14,9 +14,9 @@ public class SortFeedback implements Command {
     TaskManagementSystemRepository taskManagementSystemRepository;
     private List<Feedback> feedbacks;
 
-    public SortFeedback(TaskManagementSystemRepository taskManagementSystemRepository, List<Feedback> feedbacks) {
+    public SortFeedback(TaskManagementSystemRepository taskManagementSystemRepository) {
         this.taskManagementSystemRepository = taskManagementSystemRepository;
-        this.feedbacks = feedbacks;
+        this.feedbacks = taskManagementSystemRepository.getAllFeedback();
     }
 
     @Override
@@ -25,15 +25,6 @@ public class SortFeedback implements Command {
     }
 
     private String sortFeedback(){
-//        StringBuilder list = new StringBuilder();
-//        feedbacks.sort(Comparator.comparing(Feedback::getTitle)
-//                .thenComparing(Feedback::getRating));
-//        for (Feedback feedback : feedbacks) {
-//            list.append(feedback.getTitle()).append(" ")
-//                    .append(feedback.getRating())
-//                    .append(System.lineSeparator());
-//        }
-//        return list.toString();
         return feedbacks
                 .stream()
                 .sorted(Comparator.comparing(Feedback :: getTitle).thenComparing(Feedback::getRating))
