@@ -62,8 +62,4 @@ public class StoryImpl extends TaskBase implements Story {
         addHistory(new EventLogImpl("Status was changed"));
     }
 
-    @Override
-    public String getAsString() {
-        return null;
-    }
 }

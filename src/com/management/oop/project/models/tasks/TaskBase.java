@@ -91,8 +91,4 @@ public abstract class TaskBase implements Task {
         this.histories = histories;
     }
 
-    @Override
-    public String getAsString() {
-        return null;
-    }
 }

@@ -41,10 +41,6 @@ public class CreateNewFeedbackTest {
                 "validFeedbackTitle",
                 TaskBaseConstants.VALID_DESCRIPTION,
                 20, FeedbackStatusEnum.NEW);
-//        taskManagementSystemRepository.createFeedback("validName",
-//                "validTitleFeedback",
-//                TaskBaseConstants.VALID_DESCRIPTION,
-//                20, FeedbackStatusEnum.NEW);
     }
 
     @Test

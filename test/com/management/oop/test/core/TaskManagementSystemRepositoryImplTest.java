@@ -288,4 +288,5 @@ public class TaskManagementSystemRepositoryImplTest {
                 IllegalArgumentException.class,
                 () -> repository.findTeamByName("aaa"));
     }
+
 }

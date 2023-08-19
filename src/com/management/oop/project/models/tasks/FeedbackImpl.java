@@ -51,9 +51,4 @@ public class FeedbackImpl extends TaskBase implements Feedback {
         this.status = feedbackStatusEnum;
         addHistory(new EventLogImpl("Status was changed"));
     }
-
-    @Override
-    public String getAsString() {
-        return null;
-    }
 }

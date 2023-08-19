@@ -35,11 +35,9 @@ public class CreateNewStoryTest {
         repository = new TaskManagementSystemRepositoryImpl();
         createNewStory = new CreateNewStory(repository);
         repository.createTeam(TaskBaseConstants.VALID_TEAM_NAME);
-
         repository.createBoard(TaskBaseConstants.VALID_BOARD_NAME,
                 TaskBaseConstants.VALID_TEAM_NAME);
-
-        this.story=new StoryImpl(1,
+        this.story = new StoryImpl(1,
                 TaskBaseConstants.VALID_TITLE,
                 TaskBaseConstants.VALID_DESCRIPTION,
                 PriorityEnum.HIGH,
@@ -54,6 +52,7 @@ public class CreateNewStoryTest {
 
         Assertions.assertThrows(IllegalArgumentException.class, () -> createNewStory.execute(parameters));
     }
+
     @Test
     public void execute_Should_ThrowException_When_InvalidPriority() {
         parameters.add(TaskBaseConstants.VALID_BOARD_NAME);
@@ -81,8 +80,9 @@ public class CreateNewStoryTest {
 
         Assertions.assertThrows(IllegalArgumentException.class, () -> createNewStory.execute(parameters));
     }
+
     @Test
-    public void should_CreateStory_WhenArguments_AreValid(){
+    public void should_CreateStory_WhenArguments_AreValid() {
         //Arrange
         List<String> params = List.of(
                 TaskBaseConstants.VALID_BOARD_NAME,
@@ -92,7 +92,7 @@ public class CreateNewStoryTest {
                 StorySizeEnum.LARGE.toString(),
                 StoryStatusEnum.IN_PROGRESS.toString());
         //Act
-        String result  = createNewStory.execute(params);
+        String result = createNewStory.execute(params);
         //Assert
         Assertions.assertEquals("Story with ID 1 was created.", result);
         Assertions.assertEquals(repository.getAllStories().size(), 1);
