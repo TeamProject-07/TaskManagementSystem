@@ -17,6 +17,7 @@ public interface TaskManagementSystemRepository {
     List<Feedback> getAllFeedback();
     List<Story> getAllStories();
     List<Board> getAllBoards();
+    List<Object>getTasksWIthAssignee();
 
     Team findTeamByName(String teamName);
 

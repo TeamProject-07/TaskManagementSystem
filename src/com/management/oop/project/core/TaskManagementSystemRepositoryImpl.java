@@ -248,7 +248,7 @@ public class TaskManagementSystemRepositoryImpl implements TaskManagementSystemR
         List<Task> tasks = new ArrayList<>();
         for (Team team : teams) {
             for (Board board : team.getBoards()) {
-                board.getTasks().addAll(tasks);
+                tasks.addAll(board.getTasks());
             }
         }
         return tasks;
@@ -260,7 +260,6 @@ public class TaskManagementSystemRepositoryImpl implements TaskManagementSystemR
         for (Team team : teams) {
             for (Board board : team.getBoards()) {
                 bugs.addAll(board.getBugs());
-               // board.getBugs().addAll(bugs);
             }
         }
         return bugs;
@@ -295,6 +294,12 @@ public class TaskManagementSystemRepositoryImpl implements TaskManagementSystemR
             team.getBoards().addAll(boards);
         }
         return boards;
+    }
+    public List<Object>getTasksWIthAssignee(){
+        List<Object>tasksWIthAssignee=new ArrayList<>();
+        tasksWIthAssignee.addAll(getAllBugs());
+        tasksWIthAssignee.addAll(getAllStories());
+        return tasksWIthAssignee;
     }
 }
 
