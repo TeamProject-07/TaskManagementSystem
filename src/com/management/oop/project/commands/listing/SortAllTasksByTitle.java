@@ -21,10 +21,12 @@ public class SortAllTasksByTitle implements Command {
     public String execute(List<String> parameters) {
         return sortByTitle();
     }
-        private String sortByTitle(){
+
+    private String sortByTitle() {
 
         return tasks
-                .stream().sorted(Comparator.comparing(Task::getTitle))
+                .stream()
+                .sorted(Comparator.comparing(Task::getTitle))
                 .map(Task::getTitle)
                 .toList().toString();
     }

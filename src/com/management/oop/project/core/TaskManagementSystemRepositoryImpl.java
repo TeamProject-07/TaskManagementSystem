@@ -18,6 +18,9 @@ public class TaskManagementSystemRepositoryImpl implements TaskManagementSystemR
     public static final String TEAM_NOT_FOUND = "Team not found.";
     public static final String NO_BUG_WITH_THIS_ID = "There is no bug with this Id.";
     public static final String NO_STORY_WITH_THIS_ID = "There is no story with this Id.";
+    public static final String NO_FEEDBACK_WITH_THIS_ID = "There is no feedback with this Id.";
+    public static final String NO_TASK_WITH_THIS_ID = "There is no task with this id.";
+    public static final String NO_BOARD_WITH_THIS_NAME = "There is no board with this name.";
     private int nextId;
     private final List<Team> teams;
     private final List<Person> people;
@@ -131,42 +134,57 @@ public class TaskManagementSystemRepositoryImpl implements TaskManagementSystemR
 
     @Override
     public Feedback findFeedbackById(int id) {
-        for (Team team : teams) {
-            for (Board board : team.getBoards()) {
-                for (Feedback feedback : board.getFeedbacks()) {
-                    if (feedback.getId() == id) {
-                        return feedback;
-                    }
-                }
-            }
-        }
-        throw new IllegalArgumentException("There is no bug with this Id.");
+//        for (Team team : teams) {
+//            for (Board board : team.getBoards()) {
+//                for (Feedback feedback : board.getFeedbacks()) {
+//                    if (feedback.getId() == id) {
+//                        return feedback;
+//                    }
+//                }
+//            }
+//        }
+//        throw new IllegalArgumentException(NO_FEEDBACK_WITH_THIS_ID);
+        return getAllFeedback()
+                .stream()
+                .filter(feedback -> feedback.getId()==id)
+                .findFirst()
+                .orElseThrow(()->new IllegalArgumentException(NO_FEEDBACK_WITH_THIS_ID));
     }
 
     @Override
     public Task findTaskById(int id) {
-        for (Team team : teams) {
-            for (Board board : team.getBoards()) {
-                for (Task task : board.getTasks()) {
-                    if (task.getId() == id) {
-                        return task;
-                    }
-                }
-            }
-        }
-        throw new IllegalArgumentException("There is no task with this id.");
+//        for (Team team : teams) {
+//            for (Board board : team.getBoards()) {
+//                for (Task task : board.getTasks()) {
+//                    if (task.getId() == id) {
+//                        return task;
+//                    }
+//                }
+//            }
+//        }
+//        throw new IllegalArgumentException(NO_TASK_WITH_THIS_ID);
+        return  getAllTasks()
+                .stream()
+                .filter(task -> task.getId()==id)
+                .findFirst()
+                .orElseThrow(()-> new IllegalArgumentException(NO_TASK_WITH_THIS_ID));
     }
 
     @Override
     public Board findBoardByName(String boardName) {
-        for (Team team : teams) {
-            for (Board board : team.getBoards()) {
-                if (board.getName().equalsIgnoreCase(boardName)) {
-                    return board;
-                }
-            }
-        }
-        throw new IllegalArgumentException("There is no board with this name.");
+//        for (Team team : teams) {
+//            for (Board board : team.getBoards()) {
+//                if (board.getName().equalsIgnoreCase(boardName)) {
+//                    return board;
+//                }
+//            }
+//        }
+//        throw new IllegalArgumentException(NO_BOARD_WITH_THIS_NAME);
+        return getAllBoards()
+                .stream()
+                .filter(board -> board.getName().equalsIgnoreCase(boardName))
+                .findFirst()
+                .orElseThrow(()-> new IllegalArgumentException(NO_BOARD_WITH_THIS_NAME));
     }
 
     @Override
@@ -181,48 +199,62 @@ public class TaskManagementSystemRepositoryImpl implements TaskManagementSystemR
 
     @Override
     public Team findTeamByName(String teamName) {
-        for (Team team : teams) {
-            if (team.getName().equalsIgnoreCase(teamName)) {
-                return team;
-            }
-        }
-        throw new IllegalArgumentException(TEAM_NOT_FOUND);
+//        for (Team team : teams) {
+//            if (team.getName().equalsIgnoreCase(teamName)) {
+//                return team;
+//            }
+//        }
+//        throw new IllegalArgumentException(TEAM_NOT_FOUND);
+        return teams
+                .stream()
+                .filter(team -> team.getName().equalsIgnoreCase(teamName))
+                .findFirst()
+                .orElseThrow(()-> new IllegalArgumentException(TEAM_NOT_FOUND));
     }
 
     @Override
     public boolean boardExist(String boardName) {
-        for (Team team : teams) {
-            for (Board board : team.getBoards()) {
-                if (board.getName().equalsIgnoreCase(boardName)) {
-                    return true;
-                }
-            }
-        }
-        return false;
+//        for (Team team : teams) {
+//            for (Board board : team.getBoards()) {
+//                if (board.getName().equalsIgnoreCase(boardName)) {
+//                    return true;
+//                }
+//            }
+//        }
+//        return false;
+        return getAllBoards()
+                .stream()
+                .anyMatch(board -> board.getName().equalsIgnoreCase(boardName));
     }
 
     @Override
     public boolean taskExist(int id) {
-        for (Team team : teams) {
-            for (Board board : team.getBoards()) {
-                for (Task task : board.getTasks()) {
-                    if (task.getId() == id) {
-                        return true;
-                    }
-                }
-            }
-        }
-        throw new IllegalArgumentException("There is no task with this id.");
+//        for (Team team : teams) {
+//            for (Board board : team.getBoards()) {
+//                for (Task task : board.getTasks()) {
+//                    if (task.getId() == id) {
+//                        return true;
+//                    }
+//                }
+//            }
+//        }
+//        throw new IllegalArgumentException(NO_TASK_WITH_THIS_ID);
+        return getAllTasks()
+                .stream()
+                .anyMatch(task -> task.getId()==id);
     }
 
     @Override
     public boolean teamExist(String teamName) {
-        for (Team team : teams) {
-            if (team.getName().equalsIgnoreCase(teamName)) {
-                return true;
-            }
-        }
-        return false;
+//        for (Team team : teams) {
+//            if (team.getName().equalsIgnoreCase(teamName)) {
+//                return true;
+//            }
+//        }
+//        return false;
+        return getTeams()
+                .stream()
+                .anyMatch(team -> team.getName().equalsIgnoreCase(teamName));
     }
 
     @Override
@@ -315,7 +347,8 @@ public class TaskManagementSystemRepositoryImpl implements TaskManagementSystemR
     public List<Board> getAllBoards() {
         List<Board>boards=new ArrayList<>();
         for (Team team : teams) {
-            team.getBoards().addAll(boards);
+            boards.addAll(team.getBoards());
+//            team.getBoards().addAll(boards);
         }
         return boards;
     }

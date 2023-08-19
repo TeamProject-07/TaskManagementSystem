@@ -24,7 +24,7 @@ public class FilterAllTasks implements Command {
         return filterByTitle(keyword);
     }
 
-    public String filterByTitle(String keyword){
+    private String filterByTitle(String keyword){
         return tasks
                 .stream()
                 .filter(task -> task.getTitle().contains(keyword)).toList().toString();
