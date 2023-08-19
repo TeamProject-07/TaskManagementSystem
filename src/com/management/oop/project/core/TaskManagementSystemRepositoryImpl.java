@@ -16,6 +16,8 @@ import java.util.List;
 public class TaskManagementSystemRepositoryImpl implements TaskManagementSystemRepository {
     public static final String PERSON_NOT_FOUND = "Person not found";
     public static final String TEAM_NOT_FOUND = "Team not found.";
+    public static final String NO_BUG_WITH_THIS_ID = "There is no bug with this Id.";
+    public static final String NO_STORY_WITH_THIS_ID = "There is no story with this Id.";
     private int nextId;
     private final List<Team> teams;
     private final List<Person> people;
@@ -43,66 +45,88 @@ public class TaskManagementSystemRepositoryImpl implements TaskManagementSystemR
 
     @Override
     public boolean personExist(String personName) {
-        boolean exists = false;
-        for (Person person : people) {
-            if (person.getName().equalsIgnoreCase(personName)) {
-                exists = true;
-                break;
-            }
-        }
-        return exists;
+//        boolean exists = false;
+//        for (Person person : people) {
+//            if (person.getName().equalsIgnoreCase(personName)) {
+//                exists = true;
+//                break;
+//            }
+//        }
+//        return exists;
+        return people
+                .stream()
+                .anyMatch(person -> person.getName().equalsIgnoreCase(personName));
     }
 
     @Override
     public boolean personHasTeam(String personName) {
-        boolean exists = false;
-        for (Team team : teams) {
-            for (Person person : team.getPeople()) {
-                if (person.getName().equalsIgnoreCase(personName)) {
-                    exists = true;
-                    break;
-                }
-            }
-        }
-        return exists;
+//        boolean exists = false;
+//        for (Team team : teams) {
+//            for (Person person : team.getPeople()) {
+//                if (person.getName().equalsIgnoreCase(personName)) {
+//                    exists = true;
+//                    break;
+//                }
+//            }
+//        }
+//        return exists;
+        return teams
+                .stream()
+                .flatMap(team -> team.getPeople().stream())
+                .anyMatch(person -> person.getName().equalsIgnoreCase(personName));
     }
 
     @Override
     public Person findPersonByName(String personName) {
-        for (Person person : people) {
-            if (person.getName().equalsIgnoreCase(personName)) {
-                return person;
-            }
-        }
-        throw new IllegalArgumentException(PERSON_NOT_FOUND);
+//        for (Person person : people) {
+//            if (person.getName().equalsIgnoreCase(personName)) {
+//                return person;
+//            }
+//        }
+//        throw new IllegalArgumentException(PERSON_NOT_FOUND);
+        return people
+                .stream()
+                .filter(person -> person.getName().equalsIgnoreCase(personName))
+                .findFirst()
+                .orElseThrow(() -> new IllegalArgumentException(PERSON_NOT_FOUND));
     }
 
     @Override
     public Bug findBugById(int id) {
-        for (Team team : teams) {
-            for (Board board : team.getBoards()) {
-                for (Bug bug : board.getBugs()) {
-                    if (bug.getId() == id) {
-                        return bug;
-                    }
-                }
-            }
-        }
-        throw new IllegalArgumentException("There is no bug with this Id.");
+//        for (Team team : teams) {
+//            for (Board board : team.getBoards()) {
+//                for (Bug bug : board.getBugs()) {
+//                    if (bug.getId() == id) {
+//                        return bug;
+//                    }
+//                }
+//            }
+//        }
+//        throw new IllegalArgumentException(NO_BUG_WITH_THIS_ID);
+        return getAllBugs()
+                .stream()
+                .filter(bug -> bug.getId() == id)
+                .findFirst()
+                .orElseThrow(() -> new IllegalArgumentException(NO_BUG_WITH_THIS_ID));
     }
 
     @Override
     public Story findStoryById(int id) {
-        for (Team team : teams) {
-            for (Board board : team.getBoards()) {
-                for (Story story : board.getStories()) {
-                    if (story.getId() == id) {
-                        return story;
-                    }
-                }
-            }
-        }
-        throw new IllegalArgumentException("There is no story with this Id.");
+//        for (Team team : teams) {
+//            for (Board board : team.getBoards()) {
+//                for (Story story : board.getStories()) {
+//                    if (story.getId() == id) {
+//                        return story;
+//                    }
+//                }
+//            }
+//        }
+//        throw new IllegalArgumentException(NO_STORY_WITH_THIS_ID);
+        return getAllStories()
+                .stream()
+                .filter(story -> story.getId() == id)
+                .findFirst()
+                .orElseThrow(() -> new IllegalArgumentException(NO_STORY_WITH_THIS_ID));
     }
 
     @Override
