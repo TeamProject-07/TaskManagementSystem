@@ -31,6 +31,6 @@ public class SortStory implements Command {
                 .sorted(Comparator.comparing(Story :: getTitle).thenComparing(Story::getPriorityEnum)
                         .thenComparing(Story::getStorySizeEnum))
                 .map(story -> story.getTitle() + " " + story.getPriorityEnum() + " " + story.getStorySizeEnum())
-                .collect(Collectors.toList()).toString();
+                .toList().toString();
     }
 }

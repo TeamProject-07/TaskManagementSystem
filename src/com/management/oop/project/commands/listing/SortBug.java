@@ -23,7 +23,7 @@ public class SortBug implements Command {
                 .sorted(Comparator.comparing(Bug::getTitle).thenComparing(Bug::getBugPriorityEnum)
                         .thenComparing(Bug::getBugSeverityEnum))
                 .map(bug -> bug.getTitle() + " " + bug.getBugPriorityEnum() + " " + bug.getBugSeverityEnum())
-                .collect(Collectors.toList()).toString();
+                .toList().toString();
     }
 }
 

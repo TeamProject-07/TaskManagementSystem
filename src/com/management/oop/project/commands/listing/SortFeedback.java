@@ -29,6 +29,6 @@ public class SortFeedback implements Command {
                 .stream()
                 .sorted(Comparator.comparing(Feedback :: getTitle).thenComparing(Feedback::getRating))
                 .map(feedback -> feedback.getTitle() + " " + feedback.getRating())
-                .collect(Collectors.toList()).toString();
+                .toList().toString();
     }
 }
