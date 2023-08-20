@@ -8,6 +8,10 @@ import com.management.oop.project.models.enums.StorySizeEnum;
 import com.management.oop.project.models.enums.StoryStatusEnum;
 
 public class StoryImpl extends TaskBase implements Story {
+    public static final String STATUS_WAS_CHANGED = "Status was changed";
+    public static final String SIZE_WAS_CHANGED = "Size was changed";
+    public static final String PRIORITY_WAS_CHANGED = "Priority was changed";
+    public static final String STORY_CREATED = "Story was created";
     private PriorityEnum priorityEnum;
     private StorySizeEnum storySizeEnum;
     private StoryStatusEnum storyStatusEnum;
@@ -19,7 +23,7 @@ public class StoryImpl extends TaskBase implements Story {
         this.priorityEnum = priorityEnum;
         this.storySizeEnum = storySizeEnum;
         this.storyStatusEnum = storyStatusEnum;
-        addHistory(new EventLogImpl("Story was created"));
+        addHistory(new EventLogImpl(STORY_CREATED));
     }
 
     public PriorityEnum getPriorityEnum() {
@@ -45,21 +49,33 @@ public class StoryImpl extends TaskBase implements Story {
     @Override
     public void changePriorityEnum(PriorityEnum priorityEnum) {
         this.priorityEnum = priorityEnum;
-        addHistory(new EventLogImpl("Priority was changed"));
+        addHistory(new EventLogImpl(PRIORITY_WAS_CHANGED));
 
     }
 
     @Override
     public void changeSize(StorySizeEnum storySizeEnum) {
         this.storySizeEnum = storySizeEnum;
-        addHistory(new EventLogImpl("Size was changed"));
+        addHistory(new EventLogImpl(SIZE_WAS_CHANGED));
 
     }
 
     @Override
     public void changeStoryStatusEnum(StoryStatusEnum storyStatusEnum) {
         this.storyStatusEnum = storyStatusEnum;
-        addHistory(new EventLogImpl("Status was changed"));
+        addHistory(new EventLogImpl(STATUS_WAS_CHANGED));
     }
 
+    @Override
+    public String getAsString() {
+        return String.format("""
+                %s
+                Priority: %s
+                Size: %s
+                Status: %s
+                """, super.getAsString(),
+                getPriorityEnum(),
+                getStorySizeEnum(),
+                getStoryStatusEnum());
+    }
 }

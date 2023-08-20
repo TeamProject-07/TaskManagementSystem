@@ -13,6 +13,9 @@ public class FeedbackImpl extends TaskBase implements Feedback {
     public static final int MAX_RATING = 100;
 
     public static final String RATING_ERROR_MESSAGE = "Rating needs to be between 0 and 100";
+    public static final String STATUS_WAS_CHANGED = "Status was changed";
+    public static final String RATING_WAS_CHANGED = "Rating was changed.";
+    public static final String FEEDBACK_CREATED = "Feedback was created.";
 
     private int rating;
 
@@ -22,7 +25,7 @@ public class FeedbackImpl extends TaskBase implements Feedback {
         super(id, title, description);
         setRating(rating);
         this.status = status;
-        addHistory(new EventLogImpl("Feedback was created."));
+        addHistory(new EventLogImpl(FEEDBACK_CREATED));
     }
 
     public int getRating() {
@@ -31,15 +34,20 @@ public class FeedbackImpl extends TaskBase implements Feedback {
 
 
     private void setRating(int rating) {
-        ValidationHelpers.validateValueInRange(rating, MIN_RATING, MAX_RATING, RATING_ERROR_MESSAGE);
+        ValidationHelpers.validateValueInRange(rating,
+                MIN_RATING,
+                MAX_RATING,
+                RATING_ERROR_MESSAGE);
         this.rating = rating;
     }
 
     @Override
     public void changeRating(int rating) {
-        ValidationHelpers.validateValueInRange(rating, MIN_RATING, MAX_RATING, RATING_ERROR_MESSAGE);
+        ValidationHelpers.validateValueInRange(rating,
+                MIN_RATING, MAX_RATING,
+                RATING_ERROR_MESSAGE);
         this.rating = rating;
-        addHistory(new EventLogImpl("Rating was changed."));
+        addHistory(new EventLogImpl(RATING_WAS_CHANGED));
     }
 
     public FeedbackStatusEnum getStatus() {
@@ -49,6 +57,17 @@ public class FeedbackImpl extends TaskBase implements Feedback {
     @Override
     public void changeStatus(FeedbackStatusEnum feedbackStatusEnum) {
         this.status = feedbackStatusEnum;
-        addHistory(new EventLogImpl("Status was changed"));
+        addHistory(new EventLogImpl(STATUS_WAS_CHANGED));
+    }
+
+    @Override
+    public String getAsString() {
+        return String.format("""
+                %s
+                Rating: %d
+                Status: %s""",
+                super.getAsString(),
+                getRating(),
+                getStatus());
     }
 }

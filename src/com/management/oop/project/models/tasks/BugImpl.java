@@ -10,6 +10,10 @@ import com.management.oop.project.models.enums.PriorityEnum;
 import java.util.List;
 
 public class BugImpl extends TaskBase implements Bug {
+    public static final String BUG_CREATED = "Bug was created.";
+    public static final String STATUS_WAS_CHANGED = "Status was changed.";
+    public static final String PRIORITY_WAS_CHANGED = "Priority was changed.";
+    public static final String SEVERITY_WAS_CHANGED = "Severity was changed.";
     private List<String> steps;
     private PriorityEnum priorityEnum;
     private BugSeverityEnum bugSeverityEnum;
@@ -24,25 +28,25 @@ public class BugImpl extends TaskBase implements Bug {
         this.priorityEnum = priorityEnum;
         this.bugSeverityEnum = bugSeverityEnum;
         this.status = BugStatusEnum.ACTIVE;
-        addHistory(new EventLogImpl("Bug was created."));
+        addHistory(new EventLogImpl(BUG_CREATED));
     }
 
     @Override
     public void changeStatus(BugStatusEnum status) {
         this.status = status;
-        addHistory(new EventLogImpl("Status was changed."));
+        addHistory(new EventLogImpl(STATUS_WAS_CHANGED));
     }
     @Override
     public void changePriorityEnum(PriorityEnum priorityEnum) {
         this.priorityEnum = priorityEnum;
-        addHistory(new EventLogImpl("Priority was changed."));
+        addHistory(new EventLogImpl(PRIORITY_WAS_CHANGED));
 
     }
 
     @Override
     public void changeSeverityEnum(BugSeverityEnum bugSeverityEnum){
         this.bugSeverityEnum=bugSeverityEnum;
-        addHistory(new EventLogImpl("Severity was changed."));
+        addHistory(new EventLogImpl(SEVERITY_WAS_CHANGED));
     }
 
     public Person getAssignee() {
@@ -59,5 +63,18 @@ public class BugImpl extends TaskBase implements Bug {
 
     public BugStatusEnum getStatus() {
         return status;
+    }
+
+    @Override
+    public String getAsString() {
+        return String.format("""
+                %s
+                Priority: %s
+                Severity: %s
+                Status: %s""",
+                super.getAsString(),
+                getBugPriorityEnum(),
+                getBugSeverityEnum(),
+                getStatus());
     }
 }
