@@ -23,9 +23,14 @@ public class ChangeBugCommandTest {
         repository= new TaskManagementSystemRepositoryImpl();
         changeBugCommand=new ChangeBugCommand(repository);
         repository.createTeam(TaskBaseConstants.VALID_TEAM_NAME);
-        repository.createBoard(TaskBaseConstants.VALID_BOARD_NAME, TaskBaseConstants.VALID_TEAM_NAME);
-        repository.createBug(TaskBaseConstants.VALID_BOARD_NAME, TaskBaseConstants.VALID_TITLE,
-                TaskBaseConstants.VALID_DESCRIPTION,null, PriorityEnum.MEDIUM, BugSeverityEnum.CRITICAL);
+        repository.createBoard(TaskBaseConstants.VALID_BOARD_NAME,
+                TaskBaseConstants.VALID_TEAM_NAME);
+        repository.createBug(TaskBaseConstants.VALID_BOARD_NAME,
+                TaskBaseConstants.VALID_TITLE,
+                TaskBaseConstants.VALID_DESCRIPTION,
+                TaskBaseConstants.STEPS,
+                PriorityEnum.MEDIUM,
+                BugSeverityEnum.CRITICAL);
     }
     @Test
     public void should_ThrowException_When_ArgumentCountInvalid() {
@@ -33,7 +38,8 @@ public class ChangeBugCommandTest {
         List<String> params = TestUtilities.getList(EXPECTED_NUMBER_OF_ARGUMENTS-1);
 
         // Act, Assert
-        Assertions.assertThrows(IllegalArgumentException.class, () -> changeBugCommand.execute(params));
+        Assertions.assertThrows(IllegalArgumentException.class,
+                () -> changeBugCommand.execute(params));
     }
     @Test
     public void should_ThrowException_When_TaskId_IsInvalid() {
@@ -44,7 +50,8 @@ public class ChangeBugCommandTest {
                 "HIGH");
 
         // Act, Assert
-        Assertions.assertThrows(IllegalArgumentException.class, () -> changeBugCommand.execute(params));
+        Assertions.assertThrows(IllegalArgumentException.class,
+                () -> changeBugCommand.execute(params));
     }
     @Test
     public void should_ChangePriority_WhenArguments_AreValid(){
@@ -53,9 +60,11 @@ public class ChangeBugCommandTest {
                 "1",
                 "priority",
                 "HIGH");
-        //Act
+
+        // Act
         changeBugCommand.execute(params);
-        //Assert
+
+        // Assert
         Assertions.assertEquals(repository.findBugById(1).getBugPriorityEnum(),
                 PriorityEnum.HIGH);
     }
@@ -66,9 +75,11 @@ public class ChangeBugCommandTest {
                 "1",
                 "status",
                 "FIXED");
-        //Act
+
+        // Act
         changeBugCommand.execute(params);
-        //Assert
+
+        // Assert
         Assertions.assertEquals(repository.findBugById(1).getStatus(),
                 BugStatusEnum.FIXED);
     }
@@ -79,9 +90,11 @@ public class ChangeBugCommandTest {
                 "1",
                 "severity",
                 "MAJOR");
-        //Act
+
+        // Act
         changeBugCommand.execute(params);
-        //Assert
+
+        // Assert
         Assertions.assertEquals(repository.findBugById(1).getBugSeverityEnum(),
                 BugSeverityEnum.MAJOR);
     }

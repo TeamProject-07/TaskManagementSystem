@@ -11,16 +11,16 @@ import java.util.List;
 
 public class ShowAllPeopleCommandTest {
     private List<String> parameters;
-    private TaskManagementSystemRepositoryImpl repository;
+    private TaskManagementSystemRepositoryImpl taskManagementSystemRepository;
     private ShowAllPeopleCommand showAllPeopleCommand;
     @BeforeEach
     public void before() {
         parameters = new ArrayList<>();
-        repository = new TaskManagementSystemRepositoryImpl();
-        showAllPeopleCommand = new ShowAllPeopleCommand(repository);
+        taskManagementSystemRepository = new TaskManagementSystemRepositoryImpl();
+        showAllPeopleCommand = new ShowAllPeopleCommand(taskManagementSystemRepository);
     }
 
-@Test
+    @Test
     public void execute_Should_ReturnRegisteredPeople_When_PeopleExist(){
     // Arrange
     List<String> parameters = new ArrayList<>();

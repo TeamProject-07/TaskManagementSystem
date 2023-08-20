@@ -35,13 +35,6 @@ public class SortBugTest {
                 TaskBaseConstants.STEPS,
                 PriorityEnum.HIGH,
                 BugSeverityEnum.CRITICAL);
-        taskManagementSystemRepository.createBug(TaskBaseConstants.VALID_BOARD_NAME,
-                TaskBaseConstants.VALID_TITLE,
-                TaskBaseConstants.VALID_DESCRIPTION,
-                TaskBaseConstants.STEPS,
-                PriorityEnum.HIGH,
-                BugSeverityEnum.CRITICAL);
-
     }
     @Test
     public void should_ThrowException_When_ArgumentCountInvalid(){

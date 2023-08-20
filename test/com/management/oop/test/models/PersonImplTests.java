@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class PersonImplTests {
-    public static final int USERNAME_LEN_MIN = 2;
+    public static final String INVALID_USERNAME ="aaa";
     public static final String VALID_USERNAME = "PersonName";
 
     @Test

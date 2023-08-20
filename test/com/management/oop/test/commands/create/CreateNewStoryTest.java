@@ -42,13 +42,18 @@ public class CreateNewStoryTest {
 
     @Test
     public void execute_Should_ThrowException_When_MissingParameters() {
+        // Arrange
         parameters = TestUtilities.getList(1);
 
-        Assertions.assertThrows(IllegalArgumentException.class, () -> createNewStory.execute(parameters));
+        // Act and Assert
+        Assertions.assertThrows(IllegalArgumentException.class,
+                () -> createNewStory.execute(parameters));
     }
 
     @Test
     public void execute_Should_ThrowException_When_InvalidPriority() {
+
+        // Arrange
         parameters.add(TaskBaseConstants.VALID_BOARD_NAME);
         parameters.add(TaskBaseConstants.VALID_TITLE);
         parameters.add(TaskBaseConstants.VALID_DESCRIPTION);
@@ -56,28 +61,34 @@ public class CreateNewStoryTest {
         parameters.add(StorySizeEnum.LARGE.toString());
         parameters.add(StoryStatusEnum.IN_PROGRESS.toString());
 
-        Assertions.assertThrows(IllegalArgumentException.class, () -> createNewStory.execute(parameters));
+        // Act and Assert
+        Assertions.assertThrows(IllegalArgumentException.class,
+                () -> createNewStory.execute(parameters));
     }
 
     @Test
     public void execute_Should_ThrowException_When_DuplicateBoardName() {
+        // Arrange
         TaskManagementSystemRepository repository = new TaskManagementSystemRepositoryImpl();
         CreateNewStory createNewStory = new CreateNewStory(repository);
         List<String> parameters = new ArrayList<>();
 
-        parameters.add("Board");
+        // Act
+        parameters.add(TaskBaseConstants.INVALID_BOARD_NAME);
         parameters.add(TaskBaseConstants.VALID_TITLE);
         parameters.add(TaskBaseConstants.VALID_DESCRIPTION);
         parameters.add(PriorityEnum.HIGH.toString());
         parameters.add(StorySizeEnum.LARGE.toString());
         parameters.add(StoryStatusEnum.IN_PROGRESS.toString());
 
-        Assertions.assertThrows(IllegalArgumentException.class, () -> createNewStory.execute(parameters));
+        // Assert
+        Assertions.assertThrows(IllegalArgumentException.class,
+                () -> createNewStory.execute(parameters));
     }
 
     @Test
     public void should_CreateStory_WhenArguments_AreValid() {
-        //Arrange
+        // Arrange
         List<String> params = List.of(
                 TaskBaseConstants.VALID_BOARD_NAME,
                 TaskBaseConstants.VALID_TITLE,
@@ -85,9 +96,11 @@ public class CreateNewStoryTest {
                 PriorityEnum.HIGH.toString(),
                 StorySizeEnum.LARGE.toString(),
                 StoryStatusEnum.IN_PROGRESS.toString());
-        //Act
+
+        // Act
         String result = createNewStory.execute(params);
-        //Assert
+
+        // Assert
         Assertions.assertEquals("Story with ID 1 was created.", result);
         Assertions.assertEquals(repository.getAllStories().size(), 1);
 

@@ -7,162 +7,145 @@ import com.management.oop.project.models.tasks.BugImpl;
 import com.management.oop.project.models.tasks.FeedbackImpl;
 import com.management.oop.project.models.tasks.StoryImpl;
 import com.management.oop.test.models.PersonImplTests;
-import com.management.oop.test.models.TeamImplTests;
 import com.management.oop.test.utils.TaskBaseConstants;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class TaskManagementSystemRepositoryImplTest {
-    private TaskManagementSystemRepository repository;
+    private TaskManagementSystemRepository taskManagementSystemRepository;
 
     @BeforeEach
     public void before() {
-        repository = new com.management.oop.project.core.TaskManagementSystemRepositoryImpl();
-        repository.createTeam(TaskBaseConstants.VALID_TEAM_NAME);
-        repository.createBoard(TaskBaseConstants.VALID_BOARD_NAME, TaskBaseConstants.VALID_TEAM_NAME);
-        repository.createBug(TaskBaseConstants.VALID_BOARD_NAME, TaskBaseConstants.VALID_TITLE,
-                TaskBaseConstants.VALID_DESCRIPTION,null, PriorityEnum.MEDIUM, BugSeverityEnum.CRITICAL);
+        taskManagementSystemRepository = new com.management.oop.project.core.TaskManagementSystemRepositoryImpl();
+        taskManagementSystemRepository.createTeam(TaskBaseConstants.VALID_TEAM_NAME);
+        taskManagementSystemRepository.createBoard(
+                TaskBaseConstants.VALID_BOARD_NAME,
+                TaskBaseConstants.VALID_TEAM_NAME);
+        taskManagementSystemRepository.createBug(
+                TaskBaseConstants.VALID_BOARD_NAME,
+                TaskBaseConstants.VALID_TITLE,
+                TaskBaseConstants.VALID_DESCRIPTION,
+                TaskBaseConstants.STEPS,
+                PriorityEnum.MEDIUM,
+                BugSeverityEnum.CRITICAL);
 
     }
 
     @Test
     public void constructor_Should_InitializeTeams() {
         // Arrange, Act, Assert
-        Assertions.assertNotNull(repository.getTeams());
+        Assertions.assertNotNull(taskManagementSystemRepository.getTeams());
     }
 
     @Test
     public void constructor_Should_InitializePeople() {
         // Arrange, Act, Assert
-        Assertions.assertNotNull(repository.getPeople());
+        Assertions.assertNotNull(taskManagementSystemRepository.getPeople());
     }
 
     @Test
     public void getPeople_Should_ReturnCopyOfCollection() {
         // Arrange
-        repository.createPerson(PersonImplTests.VALID_USERNAME);
-        repository.getPeople().clear();
+        taskManagementSystemRepository.createPerson(PersonImplTests.VALID_USERNAME);
+        taskManagementSystemRepository.getPeople().clear();
 
         // Act, Assert
-        Assertions.assertEquals(1, repository.getPeople().size());
+        Assertions.assertEquals(1, taskManagementSystemRepository.getPeople().size());
     }
 
     @Test
     public void getTeams_Should_ReturnCopyOfCollection() {
         // Arrange
-        repository.createTeam(
-                TeamImplTests.VALID_TEAM_NAME);
+        taskManagementSystemRepository.createTeam(TaskBaseConstants.VALID_TEAM_NAME);
 
-        repository.getTeams().clear();
+        taskManagementSystemRepository.getTeams().clear();
 
         // Act, Assert
-        Assertions.assertEquals(2, repository.getTeams().size());
+        Assertions.assertEquals(2, taskManagementSystemRepository.getTeams().size());
     }
 
     @Test
     public void personExists_Should_ReturnTrue_When_PersonExists() {
         // Arrange
-        repository.createPerson(PersonImplTests.VALID_USERNAME);
+        taskManagementSystemRepository.createPerson(PersonImplTests.VALID_USERNAME);
 
         // Act, Assert
-        Assertions.assertTrue(repository.personExist(PersonImplTests.VALID_USERNAME));
+        Assertions.assertTrue(taskManagementSystemRepository.personExist(PersonImplTests.VALID_USERNAME));
     }
 
     @Test
     public void personExists_Should_ReturnFalse_When_PersonDoesNotExist() {
         // Arrange
-        repository.createPerson(PersonImplTests.VALID_USERNAME);
+        taskManagementSystemRepository.createPerson(PersonImplTests.VALID_USERNAME);
 
         // Act, Assert
-        Assertions.assertFalse(repository.personExist("aaa"));
+        Assertions.assertFalse(taskManagementSystemRepository.personExist("aaa"));
     }
 
     @Test
     public void teamExists_Should_ReturnTrue_When_TeamExists() {
         // Arrange
-        repository.createTeam(
-                TeamImplTests.VALID_TEAM_NAME);
+        taskManagementSystemRepository.createTeam(TaskBaseConstants.VALID_TEAM_NAME);
 
         // Act, Assert
-        Assertions.assertTrue(repository.teamExist(TeamImplTests.VALID_TEAM_NAME));
+        Assertions.assertTrue(taskManagementSystemRepository.teamExist(TaskBaseConstants.VALID_TEAM_NAME));
     }
 
     @Test
     public void teamExists_Should_ReturnFalse_When_TeamDoesNotExist() {
         // Arrange
-        repository.createTeam(
-                TeamImplTests.VALID_TEAM_NAME);
+        taskManagementSystemRepository.createTeam(TaskBaseConstants.VALID_TEAM_NAME);
 
         // Act, Assert
-        Assertions.assertFalse(repository.teamExist("aaa"));
+        Assertions.assertFalse(taskManagementSystemRepository.teamExist(TaskBaseConstants.INVALID_TEAM_NAME));
     }
     @Test
     public void boardExists_Should_ReturnTrue_When_BoardExists() {
         // Arrange
-        repository.createBoard(
+        taskManagementSystemRepository.createBoard(
                 TaskBaseConstants.VALID_BOARD_NAME,
                 TaskBaseConstants.VALID_TEAM_NAME);
 
         // Act, Assert
-        Assertions.assertTrue(repository.boardExist(TaskBaseConstants.VALID_BOARD_NAME));
+        Assertions.assertTrue(taskManagementSystemRepository.boardExist(TaskBaseConstants.VALID_BOARD_NAME));
     }
     @Test
     public void boardExists_Should_ReturnFalse_When_BoardDoesNotExist() {
         // Arrange
-        repository.createBoard(
+        taskManagementSystemRepository.createBoard(
                 TaskBaseConstants.VALID_BOARD_NAME,
                 TaskBaseConstants.VALID_TEAM_NAME);
 
         // Act, Assert
-        Assertions.assertFalse(repository.boardExist("aaa"));
+        Assertions.assertFalse(taskManagementSystemRepository.boardExist(TaskBaseConstants.INVALID_BOARD_NAME));
     }
     @Test
     public void createTeam_Should_AddToTeam_When_ArgumentsAreValid() {
         // Arrange
-        repository.createTeam(
-                TeamImplTests.VALID_TEAM_NAME);
+        taskManagementSystemRepository.createTeam(TaskBaseConstants.VALID_TEAM_NAME);
 
         // Act, Assert
-        Assertions.assertEquals(2, repository.getTeams().size());
+        Assertions.assertEquals(2, taskManagementSystemRepository.getTeams().size());
     }
 
     @Test
     public void createPerson_Should_AddToPeople_When_ArgumentsAreValid() {
         // Arrange
-        repository.createPerson(PersonImplTests.VALID_USERNAME);
+        taskManagementSystemRepository.createPerson(PersonImplTests.VALID_USERNAME);
 
         // Act, Assert
-        Assertions.assertEquals(1, repository.getPeople().size());
+        Assertions.assertEquals(1, taskManagementSystemRepository.getPeople().size());
     }
 
-    /*
-    //TODO createStory, createFeedback
-
-    @Test
-    public void createBug_Should_AddToBug_When_ArgumentsAreValid() {
-        List<String> steps = new ArrayList<>();
-        // Arrange
-        repository.createBug(TaskBaseConstants.VALID_BOARD_NAME,
-                TaskBaseConstants.VALID_TITLE,
-                TaskBaseConstants.VALID_DESCRIPTION,
-                steps,
-                PriorityEnum.HIGH,
-                BugSeverityEnum.CRITICAL);
-
-        // Act, Assert
-        Assertions.assertEquals(1, repository.getAllBugs().size());
-    }
-    */
     @Test
     public void findPersonByName_Should_ReturnPerson_When_Exists() {
         // Arrange
         String personName = PersonImplTests.VALID_USERNAME;
-        repository.createPerson(
-                PersonImplTests.VALID_USERNAME);
+        taskManagementSystemRepository.createPerson(PersonImplTests.VALID_USERNAME);
 
         // Act
-        Person found = repository.findPersonByName(personName);
+        Person found = taskManagementSystemRepository.findPersonByName(personName);
 
         // Assert
         Assertions.assertEquals(found.getName(), personName);
@@ -173,20 +156,26 @@ public class TaskManagementSystemRepositoryImplTest {
         // Arrange, Act, Assert
         Assertions.assertThrows(
                 IllegalArgumentException.class,
-                () -> repository.findPersonByName("aaa"));
+                () -> taskManagementSystemRepository.findPersonByName("aaa"));
     }
     @Test
     public void findBugById_Should_ReturnId_When_Exists() {
         // Arrange
-        BugImpl bug = new BugImpl(1, TaskBaseConstants.VALID_TITLE,
+        BugImpl bug = new BugImpl(
+                1,
+                TaskBaseConstants.VALID_TITLE,
                 TaskBaseConstants.VALID_DESCRIPTION, null,
                 PriorityEnum.HIGH, BugSeverityEnum.CRITICAL);
-        repository.createBug(TaskBaseConstants.VALID_BOARD_NAME, TaskBaseConstants.VALID_TITLE,
-                TaskBaseConstants.VALID_DESCRIPTION, null, PriorityEnum.HIGH,
+        taskManagementSystemRepository.createBug(
+                TaskBaseConstants.VALID_BOARD_NAME,
+                TaskBaseConstants.VALID_TITLE,
+                TaskBaseConstants.VALID_DESCRIPTION,
+                TaskBaseConstants.STEPS,
+                PriorityEnum.HIGH,
                 BugSeverityEnum.CRITICAL);
 
         // Act
-        Bug found = repository.findBugById(bug.getId());
+        Bug found = taskManagementSystemRepository.findBugById(bug.getId());
 
         // Assert
         Assertions.assertEquals(found.getId(), bug.getId());
@@ -197,20 +186,27 @@ public class TaskManagementSystemRepositoryImplTest {
         // Arrange, Act, Assert
         Assertions.assertThrows(
                 IllegalArgumentException.class,
-                () -> repository.findBugById(Integer.parseInt("Id")));
+                () -> taskManagementSystemRepository.findBugById(Integer.parseInt("Id")));
     }
     @Test
     public void findStoryById_Should_ReturnId_When_Exists() {
         // Arrange
-        StoryImpl story = new StoryImpl(2, TaskBaseConstants.VALID_TITLE,
-                TaskBaseConstants.VALID_DESCRIPTION, PriorityEnum.HIGH, StorySizeEnum.MEDIUM,
+        StoryImpl story = new StoryImpl(
+                2,
+                TaskBaseConstants.VALID_TITLE,
+                TaskBaseConstants.VALID_DESCRIPTION,
+                PriorityEnum.HIGH, StorySizeEnum.MEDIUM,
                 StoryStatusEnum.IN_PROGRESS);
-        repository.createStory(TaskBaseConstants.VALID_BOARD_NAME, TaskBaseConstants.VALID_TITLE,
-                TaskBaseConstants.VALID_DESCRIPTION,  PriorityEnum.HIGH,
-                StorySizeEnum.MEDIUM, StoryStatusEnum.IN_PROGRESS);
+        taskManagementSystemRepository.createStory(
+                TaskBaseConstants.VALID_BOARD_NAME,
+                TaskBaseConstants.VALID_TITLE,
+                TaskBaseConstants.VALID_DESCRIPTION,
+                PriorityEnum.HIGH,
+                StorySizeEnum.MEDIUM,
+                StoryStatusEnum.IN_PROGRESS);
 
         // Act
-        Story found = repository.findStoryById(story.getId());
+        Story found = taskManagementSystemRepository.findStoryById(story.getId());
 
         // Assert
         Assertions.assertEquals(found.getId(), story.getId());
@@ -220,19 +216,26 @@ public class TaskManagementSystemRepositoryImplTest {
         // Arrange, Act, Assert
         Assertions.assertThrows(
                 IllegalArgumentException.class,
-                () -> repository.findStoryById(Integer.parseInt("Id")));
+                () -> taskManagementSystemRepository.findStoryById(Integer.parseInt("Id")));
     }
     @Test
     public void findFeedbackById_Should_ReturnId_When_Exists() {
         // Arrange
-        FeedbackImpl feedback = new FeedbackImpl(2, TaskBaseConstants.VALID_TITLE, TaskBaseConstants.VALID_DESCRIPTION,
-                2, FeedbackStatusEnum.SCHEDULED);
-        repository.createFeedback(TaskBaseConstants.VALID_BOARD_NAME, TaskBaseConstants.VALID_TITLE,
-                TaskBaseConstants.VALID_DESCRIPTION,  2,
+        FeedbackImpl feedback = new FeedbackImpl(
+                2,
+                TaskBaseConstants.VALID_TITLE,
+                TaskBaseConstants.VALID_DESCRIPTION,
+                TaskBaseConstants.VALID_RATING,
+                FeedbackStatusEnum.SCHEDULED);
+        taskManagementSystemRepository.createFeedback(
+                TaskBaseConstants.VALID_BOARD_NAME,
+                TaskBaseConstants.VALID_TITLE,
+                TaskBaseConstants.VALID_DESCRIPTION,
+                TaskBaseConstants.VALID_RATING,
                 FeedbackStatusEnum.SCHEDULED);
 
         // Act
-        Feedback found = repository.findFeedbackById(feedback.getId());
+        Feedback found = taskManagementSystemRepository.findFeedbackById(feedback.getId());
 
         // Assert
         Assertions.assertEquals(found.getId(), feedback.getId());
@@ -242,19 +245,18 @@ public class TaskManagementSystemRepositoryImplTest {
         // Arrange, Act, Assert
         Assertions.assertThrows(
                 IllegalArgumentException.class,
-                () -> repository.findFeedbackById(Integer.parseInt("Id")));
+                () -> taskManagementSystemRepository.findFeedbackById(Integer.parseInt("Id")));
     }
 
     @Test
     public void findBoardByName_Should_ReturnBoard_When_Exists() {
         // Arrange
         String boardName = TaskBaseConstants.VALID_BOARD_NAME;
-        repository.createBoard(
-                TaskBaseConstants.VALID_BOARD_NAME,
+        taskManagementSystemRepository.createBoard(TaskBaseConstants.VALID_BOARD_NAME,
                 TaskBaseConstants.VALID_TEAM_NAME);
 
         // Act
-        Board found = repository.findBoardByName(boardName);
+        Board found = taskManagementSystemRepository.findBoardByName(boardName);
 
         // Assert
         Assertions.assertEquals(found.getName(), boardName);
@@ -264,18 +266,17 @@ public class TaskManagementSystemRepositoryImplTest {
         // Arrange, Act, Assert
         Assertions.assertThrows(
                 IllegalArgumentException.class,
-                () -> repository.findBoardByName("aaa"));
+                () -> taskManagementSystemRepository.findBoardByName("aaa"));
     }
 
     @Test
     public void findTeamByName_Should_ReturnTeam_When_Exists() {
         // Arrange
-        String teamName = TeamImplTests.VALID_TEAM_NAME;
-        repository.createTeam(
-                TeamImplTests.VALID_TEAM_NAME);
+        String teamName = TaskBaseConstants.VALID_TEAM_NAME;
+        taskManagementSystemRepository.createTeam(TaskBaseConstants.VALID_TEAM_NAME);
 
         // Act
-        Team found = repository.findTeamByName(teamName);
+        Team found = taskManagementSystemRepository.findTeamByName(teamName);
 
         // Assert
         Assertions.assertEquals(found.getName(), teamName);
@@ -286,7 +287,7 @@ public class TaskManagementSystemRepositoryImplTest {
         // Arrange, Act, Assert
         Assertions.assertThrows(
                 IllegalArgumentException.class,
-                () -> repository.findTeamByName("aaa"));
+                () -> taskManagementSystemRepository.findTeamByName("aaa"));
     }
 
 }

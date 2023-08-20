@@ -13,8 +13,6 @@ import com.management.oop.test.utils.TaskBaseConstants;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
-import java.util.List;
 
 public class BoardImplTests {
     @Test
@@ -28,7 +26,8 @@ public class BoardImplTests {
     @Test
     public void constructor_Should_Throw_Exception_WhenNameInvalid() {
         //Arrange, Act, Assert
-        Assertions.assertThrows(IllegalArgumentException.class, () -> new BoardImpl(TaskBaseConstants.INVALID_BOARD_NAME));
+        Assertions.assertThrows(IllegalArgumentException.class,
+                () -> new BoardImpl(TaskBaseConstants.INVALID_BOARD_NAME));
     }
 
     @Test
@@ -117,9 +116,14 @@ public class BoardImplTests {
     }
 
     public static BugImpl initializeTestBug() {
-        List<String> steps = new ArrayList<>();
-        return new BugImpl
-                (1, TaskBaseConstants.VALID_TITLE, TaskBaseConstants.VALID_DESCRIPTION, steps, PriorityEnum.HIGH, BugSeverityEnum.CRITICAL);
+        //List<String> steps = new ArrayList<>();
+        return new BugImpl(
+                    1,
+                        TaskBaseConstants.VALID_TITLE,
+                        TaskBaseConstants.VALID_DESCRIPTION,
+                        TaskBaseConstants.STEPS,
+                        PriorityEnum.HIGH,
+                        BugSeverityEnum.CRITICAL);
     }
 
     public static StoryImpl initializeTestStory() {
@@ -137,7 +141,7 @@ public class BoardImplTests {
                 1,
                 TaskBaseConstants.VALID_TITLE,
                 TaskBaseConstants.VALID_DESCRIPTION,
-                20,
+                TaskBaseConstants.VALID_RATING,
                 FeedbackStatusEnum.DONE);
     }
 }

@@ -6,7 +6,7 @@ import com.management.oop.project.core.contracts.TaskManagementSystemRepository;
 import com.management.oop.project.models.EventLogImpl;
 import com.management.oop.project.models.TeamImpl;
 import com.management.oop.project.models.contracts.Team;
-import com.management.oop.test.models.TeamImplTests;
+import com.management.oop.test.utils.TaskBaseConstants;
 import com.management.oop.test.utils.TestUtilities;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -17,40 +17,47 @@ import java.util.List;
 
 public class ShowTeamsActivityCommandTest {
     private List<String> parameters;
-    private TaskManagementSystemRepository repository;
+    private TaskManagementSystemRepository taskManagementSystemRepository;
     private ShowTeamsActivityCommand showTeamsActivityCommand;
 
     @BeforeEach
     public void before() {
         parameters = new ArrayList<>();
-        repository = new TaskManagementSystemRepositoryImpl();
-        showTeamsActivityCommand = new ShowTeamsActivityCommand(repository);
+        taskManagementSystemRepository = new TaskManagementSystemRepositoryImpl();
+        showTeamsActivityCommand = new ShowTeamsActivityCommand(taskManagementSystemRepository);
     }
 
     @Test
     public void execute_Should_ReturnOutput_When_ValidParameters() {
-        Team team = new TeamImpl(TeamImplTests.VALID_TEAM_NAME);
-        repository.createTeam(TeamImplTests.VALID_TEAM_NAME);
+        // Arrange
+        Team team = new TeamImpl(TaskBaseConstants.VALID_TEAM_NAME);
+        taskManagementSystemRepository.createTeam(TaskBaseConstants.VALID_TEAM_NAME);
 
-        parameters.add(TeamImplTests.VALID_TEAM_NAME);
+        // Act
+        parameters.add(TaskBaseConstants.VALID_TEAM_NAME);
 
-        String expectedOutput = String.format("Show %s activity:", TeamImplTests.VALID_TEAM_NAME);
+        String expectedOutput = String.format("Show %s activity:",
+                TaskBaseConstants.VALID_TEAM_NAME);
         String actualOutput = showTeamsActivityCommand.execute(parameters);
-
+        // Assert
         Assertions.assertTrue(actualOutput.contains(expectedOutput));
     }
 
     @Test
     public void execute_Should_ThrowException_When_MissingParameters() {
+        // Arrange
         parameters = TestUtilities.getList(0);
 
+        // Act and Assert
         Assertions.assertThrows(IllegalArgumentException.class, () -> showTeamsActivityCommand.execute(parameters));
     }
 
     @Test
     public void execute_Should_ThrowException_When_TeamNotExist() {
+        // Arrange
         parameters.add("aaa");
 
+        // Act and Assert
         Assertions.assertThrows(IllegalArgumentException.class, () -> showTeamsActivityCommand.execute(parameters));
     }
 
@@ -73,11 +80,11 @@ public class ShowTeamsActivityCommandTest {
     public void should_ShowHistory_When_ArgumentsAreValid() {
 
         // Arrange
-        Team team = new TeamImpl(TeamImplTests.VALID_TEAM_NAME);
-        repository.createTeam(TeamImplTests.VALID_TEAM_NAME);
+        Team team = new TeamImpl(TaskBaseConstants.VALID_TEAM_NAME);
+        taskManagementSystemRepository.createTeam(TaskBaseConstants.VALID_TEAM_NAME);
 
         team.getHistory().add(new EventLogImpl("Some activity"));
-        List<String> params = List.of(TeamImplTests.VALID_TEAM_NAME);
+        List<String> params = List.of(TaskBaseConstants.VALID_TEAM_NAME);
 
 
         // Act, Assert

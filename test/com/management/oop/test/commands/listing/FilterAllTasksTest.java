@@ -29,7 +29,8 @@ public class FilterAllTasksTest {
         parameters = TestUtilities.getList(EXPECTED_NUMBER_OF_ARGUMENTS - 1);
 
         // Act, Assert
-        Assertions.assertThrows(IllegalArgumentException.class, () -> filterAllTasks.execute(parameters));
+        Assertions.assertThrows(IllegalArgumentException.class,
+                () -> filterAllTasks.execute(parameters));
     }
 
     @Test

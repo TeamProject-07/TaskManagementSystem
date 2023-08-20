@@ -28,7 +28,8 @@ public class CreateBoardCommandTest {
     public void execute_Should_ThrowException_When_MissingParameters() {
         parameters = TestUtilities.getList(0);
 
-        Assertions.assertThrows(IllegalArgumentException.class, () -> createBoardCommand.execute(parameters));
+        Assertions.assertThrows(IllegalArgumentException.class,
+                () -> createBoardCommand.execute(parameters));
     }
     @Test
     public void execute_Should_ThrowException_When_InvalidBoardName() {
@@ -49,7 +50,8 @@ public class CreateBoardCommandTest {
         parameters.add(TaskBaseConstants.VALID_TEAM_NAME);
 
 
-        Assertions.assertThrows(IllegalArgumentException.class, () -> createBoardCommand.execute(parameters));
+        Assertions.assertThrows(IllegalArgumentException.class,
+                () -> createBoardCommand.execute(parameters));
 
     }
 
