@@ -25,6 +25,7 @@ public class TaskManagementSystemRepositoryImpl implements TaskManagementSystemR
     private int nextId;
     private final List<Team> teams;
     private final List<Person> people;
+    private Person loggedIn;
 
 
     public TaskManagementSystemRepositoryImpl() {
@@ -42,9 +43,16 @@ public class TaskManagementSystemRepositoryImpl implements TaskManagementSystemR
 
     @Override
     public Board createBoard(String boardName, String teamName) {
+        requireLogin();
         Board board = new BoardImpl(boardName);
         findTeamByName(teamName).addBoard(board);
         return board;
+    }
+
+    void requireLogin(){
+        if(loggedIn == null) {
+            throw new IllegalArgumentException("Not logged user");
+        }
     }
 
     @Override

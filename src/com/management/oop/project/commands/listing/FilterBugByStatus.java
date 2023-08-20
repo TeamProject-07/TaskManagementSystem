@@ -4,6 +4,7 @@ import com.management.oop.project.commands.contracts.Command;
 import com.management.oop.project.core.contracts.TaskManagementSystemRepository;
 import com.management.oop.project.models.contracts.Bug;
 import com.management.oop.project.models.enums.BugStatusEnum;
+import com.management.oop.project.utils.ListingHelpers;
 import com.management.oop.project.utils.ParsingHelpers;
 import com.management.oop.project.utils.ValidationHelpers;
 
@@ -12,22 +13,20 @@ import java.util.stream.Collectors;
 
 public class FilterBugByStatus implements Command {
     public static final int EXPECTED_NUMBER_OF_ARGUMENTS = 1;
-    TaskManagementSystemRepository taskManagementSystemRepository;
-    private List<Bug> bugs;
+    private TaskManagementSystemRepository taskManagementSystemRepository;
 
     public FilterBugByStatus(TaskManagementSystemRepository taskManagementSystemRepository) {
         this.taskManagementSystemRepository = taskManagementSystemRepository;
-        this.bugs = taskManagementSystemRepository.getAllBugs();
     }
 
     @Override
     public String execute(List<String> parameters) {
         ValidationHelpers.validateArgumentsCount(parameters, EXPECTED_NUMBER_OF_ARGUMENTS);
         BugStatusEnum statusEnum= ParsingHelpers.tryParseEnum(parameters.get(0), BugStatusEnum.class);
-        return filterBug(statusEnum).toString();
+        return ListingHelpers.getAsString(filterBug(statusEnum));
     }
     private List<Bug> filterBug(BugStatusEnum statusEnum){
-        return bugs
+        return taskManagementSystemRepository.getAllBugs()
                 .stream()
                 .filter(bug -> bug.getStatus().equals(statusEnum))
                 .collect(Collectors.toList());

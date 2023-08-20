@@ -9,7 +9,7 @@ import java.util.List;
 
 public class FilterAllTasks implements Command {
     public static final int EXPECTED_NUMBER_OF_ARGUMENTS = 1;
-    TaskManagementSystemRepository taskManagementSystemRepository;
+    private TaskManagementSystemRepository taskManagementSystemRepository;
     private List<Task> tasks;
 
     public FilterAllTasks(TaskManagementSystemRepository taskManagementSystemRepository) {
@@ -27,6 +27,8 @@ public class FilterAllTasks implements Command {
     private String filterByTitle(String keyword){
         return tasks
                 .stream()
-                .filter(task -> task.getTitle().contains(keyword)).toList().toString();
+                .filter(task -> task.getTitle().contains(keyword))
+                .toList()
+                .toString();
     }
 }
