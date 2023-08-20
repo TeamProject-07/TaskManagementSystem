@@ -1,4 +1,4 @@
 package com.management.oop.test.commands.listing;
 
-public class ListAllBugsTest {
+public class SortStoryTest {
 }

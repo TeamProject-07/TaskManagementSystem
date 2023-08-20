@@ -2,6 +2,9 @@ package com.management.oop.test.utils;
 
 import com.management.oop.project.models.enums.StoryStatusEnum;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class TaskBaseConstants {
     public static final String EXPECTED_KEYWORD = "Test Title";
 
@@ -21,5 +24,5 @@ public class TaskBaseConstants {
     public static final String VALID_DESCRIPTION = TestUtilities.getString(DESCRIPTION_MIN_LENGTH + 1);
     public static final String INVALID_TITLE = TestUtilities.getString(TITLE_MIN_LENGTH - 1);
     public static final String INVALID_DESCRIPTION = TestUtilities.getString(DESCRIPTION_MIN_LENGTH - 1);
-
+    public static final List<String> STEPS = new ArrayList<>();
 }

@@ -39,7 +39,4 @@ public class FilterAllTasksTest {
     @Test
     public void should_ThrowException_WhenKeywordDoesNotExistInTitle() {
     }
-
-
-
     }

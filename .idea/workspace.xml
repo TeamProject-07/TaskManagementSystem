@@ -5,11 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f4d32bab-62d7-485a-a9dd-6cb272e43dff" name="Changes" comment="Update Models">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_13_2023_5_36_PM_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_13_2023_5_48_PM_[Changes]/shelved.patch" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/commands/enums/CommandType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/commands/enums/CommandType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/commands/listing/FilterFeedbackByStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/commands/listing/FilterFeedbackByStatus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/commands/listing/SortStory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/commands/listing/SortStory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/core/CommandFactoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/core/CommandFactoryImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/com/management/oop/test/commands/listing/FilterAllTasksTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/com/management/oop/test/commands/listing/FilterAllTasksTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/com/management/oop/test/commands/listing/ListAllBugsTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/com/management/oop/test/commands/listing/ListAllFeedbacksTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/com/management/oop/test/commands/listing/ListAllStoriesTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/com/management/oop/test/commands/listing/SortAllTasksByTitleTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/com/management/oop/test/commands/listing/SortAllTasksByTitleTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/com/management/oop/test/commands/listing/SortBugTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/com/management/oop/test/commands/listing/SortBugTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/com/management/oop/test/commands/listing/SortFeedbackTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/com/management/oop/test/commands/listing/SortFeedbackTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/com/management/oop/test/utils/TaskBaseConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/com/management/oop/test/utils/TaskBaseConstants.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -50,26 +55,11 @@
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
   }
 }</component>
-  <component name="RunManager" selected="JUnit.FilterFeedbackByStatusTest">
+  <component name="RunManager" selected="JUnit.SortAllTasksByTitleTest.should_SortTasks_WhenArguments_AreValid">
     <configuration name="All in TaskManagementSystem" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="TaskManagementSystem" />
       <option name="PACKAGE_NAME" value="" />
       <option name="TEST_OBJECT" value="package" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="FilterFeedbackByStatus" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="TaskManagementSystem" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.management.oop.test.commands.listing.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.management.oop.test.commands.listing" />
-      <option name="MAIN_CLASS_NAME" value="com.management.oop.test.commands.listing.FilterFeedbackByStatus" />
-      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -89,7 +79,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="FilterFeedbackByStatus.should_ReturnFeedback_WhenParameters_AreValid" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="SortAllTasksByTitleTest.should_SortTasks_WhenArguments_AreValid" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="TaskManagementSystem" />
       <extension name="coverage">
         <pattern>
@@ -98,14 +88,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.management.oop.test.commands.listing" />
-      <option name="MAIN_CLASS_NAME" value="com.management.oop.test.commands.listing.FilterFeedbackByStatus" />
-      <option name="METHOD_NAME" value="should_ReturnFeedback_WhenParameters_AreValid" />
+      <option name="MAIN_CLASS_NAME" value="com.management.oop.test.commands.listing.SortAllTasksByTitleTest" />
+      <option name="METHOD_NAME" value="should_SortTasks_WhenArguments_AreValid" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="FilterStoryByStatusTest.should_ReturnStory_WhenParameters_AreValid" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="SortBugTest.should_ThrowException_When_ArgumentCountInvalid" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="TaskManagementSystem" />
       <extension name="coverage">
         <pattern>
@@ -114,27 +104,43 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.management.oop.test.commands.listing" />
-      <option name="MAIN_CLASS_NAME" value="com.management.oop.test.commands.listing.FilterStoryByStatusTest" />
-      <option name="METHOD_NAME" value="should_ReturnStory_WhenParameters_AreValid" />
+      <option name="MAIN_CLASS_NAME" value="com.management.oop.test.commands.listing.SortBugTest" />
+      <option name="METHOD_NAME" value="should_ThrowException_When_ArgumentCountInvalid" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SortFeedbackTest.should_ThrowException_When_ArgumentCountInvalid" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="TaskManagementSystem" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.management.oop.test.commands.listing.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.management.oop.test.commands.listing" />
+      <option name="MAIN_CLASS_NAME" value="com.management.oop.test.commands.listing.SortFeedbackTest" />
+      <option name="METHOD_NAME" value="should_ThrowException_When_ArgumentCountInvalid" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
-      <item itemvalue="JUnit.FilterFeedbackByStatus" />
-      <item itemvalue="JUnit.FilterFeedbackByStatus.should_ReturnFeedback_WhenParameters_AreValid" />
+      <item itemvalue="JUnit.SortAllTasksByTitleTest.should_SortTasks_WhenArguments_AreValid" />
+      <item itemvalue="JUnit.SortBugTest.should_ThrowException_When_ArgumentCountInvalid" />
+      <item itemvalue="JUnit.SortFeedbackTest.should_ThrowException_When_ArgumentCountInvalid" />
       <item itemvalue="JUnit.FilterFeedbackByStatusTest" />
-      <item itemvalue="JUnit.FilterStoryByStatusTest.should_ReturnStory_WhenParameters_AreValid" />
       <item itemvalue="JUnit.All in TaskManagementSystem" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.FilterFeedbackByStatusTest" />
-        <item itemvalue="JUnit.FilterFeedbackByStatus" />
-        <item itemvalue="JUnit.FilterFeedbackByStatus.should_ReturnFeedback_WhenParameters_AreValid" />
+        <item itemvalue="JUnit.SortAllTasksByTitleTest.should_SortTasks_WhenArguments_AreValid" />
+        <item itemvalue="JUnit.SortBugTest.should_ThrowException_When_ArgumentCountInvalid" />
+        <item itemvalue="JUnit.SortFeedbackTest.should_ThrowException_When_ArgumentCountInvalid" />
         <item itemvalue="JUnit.All in TaskManagementSystem" />
-        <item itemvalue="JUnit.FilterStoryByStatusTest.should_ReturnStory_WhenParameters_AreValid" />
+        <item itemvalue="JUnit.FilterFeedbackByStatusTest" />
       </list>
     </recent_temporary>
   </component>
@@ -331,43 +337,43 @@
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/TaskManagementSystem$CommentImplTests.ic" NAME="CommentImplTests Coverage Results" MODIFIED="1691928351541" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>com.management.oop.test.models.*</FILTER>
+    <SUITE FILE_PATH="coverage/TaskManagementSystem$com_management_oop_test_commands_listing_in_TaskManagementSystem.ic" NAME="com.management.oop.test.commands.listing in TaskManagementSystem Coverage Results" MODIFIED="1692454580313" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.management.oop.test.commands.listing.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/TaskManagementSystem$ShowPersonActivityCommandTest.ic" NAME="ShowPersonActivityCommandTest Coverage Results" MODIFIED="1692120087035" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>com.management.oop.test.commands.show.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/TaskManagementSystem$AddCommentToATaskTest_should_AddComment_When_ParametersAreValid.ic" NAME="AddCommentToATaskTest.should_AddComment_When_ParametersAreValid Coverage Results" MODIFIED="1691941970319" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>com.management.oop.test.commands.add.*</FILTER>
-    </SUITE>
+    <SUITE FILE_PATH="coverage/TaskManagementSystem$All_in_TaskManagementSystem.ic" NAME="All in TaskManagementSystem Coverage Results" MODIFIED="1692553223102" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/TaskManagementSystem$CreateNewFeedbackTest.ic" NAME="CreateNewFeedbackTest Coverage Results" MODIFIED="1692097045107" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.management.oop.test.commands.create.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/Desktops$All_in_TaskManagementSystem.ic" NAME="All in TaskManagementSystem Coverage Results" MODIFIED="1692444181683" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/TaskManagementSystem$com_management_oop_test_in_TaskManagementSystem.ic" NAME="com.management.oop.test in TaskManagementSystem Coverage Results" MODIFIED="1692454591453" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>com.management.oop.test.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/TaskManagementSystem$AddCommentToATaskTest.ic" NAME="AddCommentToATaskTest Coverage Results" MODIFIED="1692002514733" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>com.management.oop.test.commands.add.*</FILTER>
-    </SUITE>
     <SUITE FILE_PATH="coverage/TaskManagementSystem$com_management_oop_test_models_in_TaskManagementSystem.ic" NAME="com.management.oop.test.models in TaskManagementSystem Coverage Results" MODIFIED="1691938453974" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>com.management.oop.test.models.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/TaskManagementSystem$FeedbackImplTests.ic" NAME="FeedbackImplTests Coverage Results" MODIFIED="1691922663304" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.management.oop.test.models.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/TaskManagementSystem$BoardImplTests.ic" NAME="BoardImplTests Coverage Results" MODIFIED="1691927001363" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.management.oop.test.models.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/TaskManagementSystem$All_in_TaskManagementSystem.ic" NAME="All in TaskManagementSystem Coverage Results" MODIFIED="1692181868800" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/TaskManagementSystem$com_management_oop_test_commands_listing_in_TaskManagementSystem.ic" NAME="com.management.oop.test.commands.listing in TaskManagementSystem Coverage Results" MODIFIED="1692454580313" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>com.management.oop.test.commands.listing.*</FILTER>
+    <SUITE FILE_PATH="coverage/TaskManagementSystem$ShowPersonActivityCommandTest.ic" NAME="ShowPersonActivityCommandTest Coverage Results" MODIFIED="1692120087035" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.management.oop.test.commands.show.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/TaskManagementSystem$ChangeStoryCommandTest.ic" NAME="ChangeStoryCommandTest Coverage Results" MODIFIED="1692013539580" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>com.management.oop.test.commands.change.*</FILTER>
+    <SUITE FILE_PATH="coverage/Desktops$All_in_TaskManagementSystem.ic" NAME="All in TaskManagementSystem Coverage Results" MODIFIED="1692444181683" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/TaskManagementSystem$CommentImplTests.ic" NAME="CommentImplTests Coverage Results" MODIFIED="1691928351541" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.management.oop.test.models.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/TaskManagementSystem$AddCommentToATaskTest_should_AddComment_When_ParametersAreValid.ic" NAME="AddCommentToATaskTest.should_AddComment_When_ParametersAreValid Coverage Results" MODIFIED="1691941970319" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.management.oop.test.commands.add.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/TaskManagementSystem$AddCommentToATaskTest.ic" NAME="AddCommentToATaskTest Coverage Results" MODIFIED="1692002514733" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.management.oop.test.commands.add.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/TaskManagementSystem$UnassignTaskToPersonCommandTest.ic" NAME="UnassignTaskToPersonCommandTest Coverage Results" MODIFIED="1691943919569" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.management.oop.test.commands.assign.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/TaskManagementSystem$FeedbackImplTests.ic" NAME="FeedbackImplTests Coverage Results" MODIFIED="1691922663304" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.management.oop.test.models.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/TaskManagementSystem$com_management_oop_test_in_TaskManagementSystem.ic" NAME="com.management.oop.test in TaskManagementSystem Coverage Results" MODIFIED="1692454591453" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.management.oop.test.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/TaskManagementSystem$ChangeStoryCommandTest.ic" NAME="ChangeStoryCommandTest Coverage Results" MODIFIED="1692013539580" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.management.oop.test.commands.change.*</FILTER>
     </SUITE>
   </component>
 </project>
