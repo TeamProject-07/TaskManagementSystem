@@ -4,29 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f4d32bab-62d7-485a-a9dd-6cb272e43dff" name="Changes" comment="Updated project">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_08_23__14_28__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_08_23__14_28__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_12_08_2023_20_34__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_12_08_2023_20_34__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_12_08_23__18_00__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_12_08_23__18_00__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_14_08_2023_13_44__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_14_08_2023_13_44__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_14_08_23__14_34__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_14_08_23__14_34__Changes_.xml" afterDir="false" />
+    <list default="true" id="f4d32bab-62d7-485a-a9dd-6cb272e43dff" name="Changes" comment="Commit CreateTeamCommand">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_12_08_2023_20_34_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_12_08_2023_20_34__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_12_08_23,_18_00_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_12_08_23__18_00__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_16_08_23__14_06__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_16_08_23__14_06__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_16_08_23__14_53__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_16_08_23__14_53__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_10_2023_4_56_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_10_2023_4_56_PM__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_12_2023_8_37_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_12_2023_8_37_PM__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_13_2023_5_36_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_13_2023_5_36_PM__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_13_2023_5_48_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_13_2023_5_48_PM__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_14_2023_2_32_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_14_2023_2_32_PM__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_12_2023_8_37_PM_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_12_2023_8_37_PM__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_15_2023_11_18_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_15_2023_11_18_PM__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_15_2023_1_50_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_15_2023_1_50_PM__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_15_2023_1_50_PM__Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_15_2023_1_50_PM__Changes_1.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_16_2023_1_37_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_16_2023_1_37_PM__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_17_2023_12_47_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_17_2023_12_47_PM__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_8_2023_12_19_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_8_2023_12_19_PM__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_9_2023_1_24_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_9_2023_1_24_PM__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/commands/listing/SortFeedback.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/commands/listing/SortFeedback.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/com/management/oop/test/commands/listing/FilterStoryByStatusTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/com/management/oop/test/commands/listing/FilterStoryByStatusTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/commands/add/AddPersonToTeamCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/commands/add/AddPersonToTeamCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/core/TaskManagementSystemRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/core/TaskManagementSystemRepositoryImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/core/contracts/TaskManagementSystemRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/core/contracts/TaskManagementSystemRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/models/TeamImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/models/TeamImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,21 +56,13 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/katev/Downloads/LambdasStreamAPIactivity&quot;,
     &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/mitko/Desktop/TaskManagementSystem/src/Main.java&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
   }
 }</component>
-  <component name="RunManager" selected="JUnit.SortFeedbackTest.should_ThrowException_When_ArgumentCountInvalid">
-    <configuration name="Startup" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Startup" />
-      <module name="TaskManagementSystem" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="JUnit.All in TaskManagementSystem">
     <configuration name="All in TaskManagementSystem" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="TaskManagementSystem" />
       <option name="PACKAGE_NAME" value="" />
@@ -83,66 +71,83 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="FilterBugByStatusTest.should_ReturnBug_WhenParameters_AreValid" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ShowPersonActivityCommandTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="TaskManagementSystem" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.management.oop.test.commands.listing.*" />
+          <option name="PATTERN" value="com.management.oop.test.commands.show.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.management.oop.test.commands.listing" />
-      <option name="MAIN_CLASS_NAME" value="com.management.oop.test.commands.listing.FilterBugByStatusTest" />
-      <option name="METHOD_NAME" value="should_ReturnBug_WhenParameters_AreValid" />
+      <option name="PACKAGE_NAME" value="com.management.oop.test.commands.show" />
+      <option name="MAIN_CLASS_NAME" value="com.management.oop.test.commands.show.ShowPersonActivityCommandTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ShowPersonActivityCommandTest.should_OutputMessageWhen_PersonDoesHas_Activity" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="TaskManagementSystem" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.management.oop.test.commands.show.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.management.oop.test.commands.show" />
+      <option name="MAIN_CLASS_NAME" value="com.management.oop.test.commands.show.ShowPersonActivityCommandTest" />
+      <option name="METHOD_NAME" value="should_OutputMessageWhen_PersonDoesHas_Activity" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SortFeedbackTest.should_ThrowException_When_ArgumentCountInvalid" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ShowPersonActivityCommandTest.should_ThrowException_WhenPerson_DoesNotExist" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="TaskManagementSystem" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.management.oop.test.commands.listing.*" />
+          <option name="PATTERN" value="com.management.oop.test.commands.show.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.management.oop.test.commands.listing" />
-      <option name="MAIN_CLASS_NAME" value="com.management.oop.test.commands.listing.SortFeedbackTest" />
+      <option name="PACKAGE_NAME" value="com.management.oop.test.commands.show" />
+      <option name="MAIN_CLASS_NAME" value="com.management.oop.test.commands.show.ShowPersonActivityCommandTest" />
+      <option name="METHOD_NAME" value="should_ThrowException_WhenPerson_DoesNotExist" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ShowPersonActivityCommandTest.should_ThrowException_When_ArgumentCountInvalid" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="TaskManagementSystem" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.management.oop.test.commands.show.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.management.oop.test.commands.show" />
+      <option name="MAIN_CLASS_NAME" value="com.management.oop.test.commands.show.ShowPersonActivityCommandTest" />
       <option name="METHOD_NAME" value="should_ThrowException_When_ArgumentCountInvalid" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="com.management.oop.test in TaskManagementSystem" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="TaskManagementSystem" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.management.oop.test.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.management.oop.test" />
-      <option name="TEST_OBJECT" value="package" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <list>
-      <item itemvalue="Application.Startup" />
-      <item itemvalue="JUnit.FilterBugByStatusTest.should_ReturnBug_WhenParameters_AreValid" />
-      <item itemvalue="JUnit.SortFeedbackTest.should_ThrowException_When_ArgumentCountInvalid" />
-      <item itemvalue="JUnit.com.management.oop.test in TaskManagementSystem" />
+      <item itemvalue="JUnit.ShowPersonActivityCommandTest" />
+      <item itemvalue="JUnit.ShowPersonActivityCommandTest.should_OutputMessageWhen_PersonDoesHas_Activity" />
+      <item itemvalue="JUnit.ShowPersonActivityCommandTest.should_ThrowException_WhenPerson_DoesNotExist" />
+      <item itemvalue="JUnit.ShowPersonActivityCommandTest.should_ThrowException_When_ArgumentCountInvalid" />
       <item itemvalue="JUnit.All in TaskManagementSystem" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.SortFeedbackTest.should_ThrowException_When_ArgumentCountInvalid" />
         <item itemvalue="JUnit.All in TaskManagementSystem" />
-        <item itemvalue="Application.Startup" />
-        <item itemvalue="JUnit.FilterBugByStatusTest.should_ReturnBug_WhenParameters_AreValid" />
-        <item itemvalue="JUnit.com.management.oop.test in TaskManagementSystem" />
+        <item itemvalue="JUnit.ShowPersonActivityCommandTest" />
+        <item itemvalue="JUnit.ShowPersonActivityCommandTest.should_OutputMessageWhen_PersonDoesHas_Activity" />
+        <item itemvalue="JUnit.ShowPersonActivityCommandTest.should_ThrowException_WhenPerson_DoesNotExist" />
+        <item itemvalue="JUnit.ShowPersonActivityCommandTest.should_ThrowException_When_ArgumentCountInvalid" />
       </list>
     </recent_temporary>
   </component>
@@ -253,52 +258,14 @@
       <option name="project" value="LOCAL" />
       <updated>1691856598474</updated>
     </task>
-    <task id="LOCAL-00015" summary="Test commit">
-      <created>1691938081961</created>
+    <task id="LOCAL-00015" summary="Commit CreateTeamCommand">
+      <created>1692113339248</created>
       <option name="number" value="00015" />
       <option name="presentableId" value="LOCAL-00015" />
       <option name="project" value="LOCAL" />
-      <updated>1691938081961</updated>
+      <updated>1692113339248</updated>
     </task>
-    <task id="LOCAL-00016" summary="Added AddPersonToTeamCommandTest and EventLogImplTests">
-      <created>1691957445115</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1691957445115</updated>
-    </task>
-    <task id="LOCAL-00017" summary="Updated ChangeFeedbackCommandTest">
-      <created>1692169575475</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1692169575475</updated>
-    </task>
-    <task id="LOCAL-00018" summary="Updated CreateNewBugTest">
-      <option name="closed" value="true" />
-      <created>1692433432625</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1692433432625</updated>
-    </task>
-    <task id="LOCAL-00019" summary="Updated CreateNewBugTest">
-      <option name="closed" value="true" />
-      <created>1692434643761</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1692434643761</updated>
-    </task>
-    <task id="LOCAL-00020" summary="Updated project">
-      <option name="closed" value="true" />
-      <created>1692440748599</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1692440748599</updated>
-    </task>
-    <option name="localTasksCounter" value="21" />
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -327,45 +294,41 @@
     <MESSAGE value="Change ShowAllPeopleCommand" />
     <MESSAGE value="Added Test package and TaskBaseImplTest" />
     <MESSAGE value="Story Tests" />
-    <MESSAGE value="Test commit" />
-    <MESSAGE value="Added AddPersonToTeamCommandTest and EventLogImplTests" />
-    <MESSAGE value="Updated ChangeFeedbackCommandTest" />
-    <MESSAGE value="Updated CreateNewBugTest" />
-    <MESSAGE value="Updated project" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated project" />
+    <MESSAGE value="Commit UnassignTaskToPersonCommandTest and &#10;CreateNewFeedbackTest" />
+    <MESSAGE value="Commit CreateTeamCommand" />
+    <option name="LAST_COMMIT_MESSAGE" value="Commit CreateTeamCommand" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/TaskManagementSystem$com_management_oop_test_commands_listing_in_TaskManagementSystem.ic" NAME="com.management.oop.test.commands.listing in TaskManagementSystem Coverage Results" MODIFIED="1692454580313" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>com.management.oop.test.commands.listing.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/TaskManagementSystem$AddCommentToATaskTest_should_AddComment_When_ParametersAreValid.ic" NAME="AddCommentToATaskTest.should_AddComment_When_ParametersAreValid Coverage Results" MODIFIED="1691941970319" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>com.management.oop.test.commands.add.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/TaskManagementSystem$AddCommentToATaskTest.ic" NAME="AddCommentToATaskTest Coverage Results" MODIFIED="1692002514733" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>com.management.oop.test.commands.add.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/TaskManagementSystem$All_in_TaskManagementSystem.ic" NAME="All in TaskManagementSystem Coverage Results" MODIFIED="1692456716060" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/TaskManagementSystem$com_management_oop_test_in_TaskManagementSystem.ic" NAME="com.management.oop.test in TaskManagementSystem Coverage Results" MODIFIED="1692454591453" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>com.management.oop.test.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/TaskManagementSystem$UnassignTaskToPersonCommandTest.ic" NAME="UnassignTaskToPersonCommandTest Coverage Results" MODIFIED="1691943919569" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>com.management.oop.test.commands.assign.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/TaskManagementSystem$com_management_oop_test_models_in_TaskManagementSystem.ic" NAME="com.management.oop.test.models in TaskManagementSystem Coverage Results" MODIFIED="1691938453974" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>com.management.oop.test.models.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/Desktops$All_in_TaskManagementSystem.ic" NAME="All in TaskManagementSystem Coverage Results" MODIFIED="1692444181683" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/TaskManagementSystem$FeedbackImplTests.ic" NAME="FeedbackImplTests Coverage Results" MODIFIED="1691922663304" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>com.management.oop.test.models.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/TaskManagementSystem$ChangeStoryCommandTest.ic" NAME="ChangeStoryCommandTest Coverage Results" MODIFIED="1692013539580" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>com.management.oop.test.commands.change.*</FILTER>
-    </SUITE>
     <SUITE FILE_PATH="coverage/TaskManagementSystem$CommentImplTests.ic" NAME="CommentImplTests Coverage Results" MODIFIED="1691928351541" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.management.oop.test.models.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/TaskManagementSystem$BoardImplTests.ic" NAME="BoardImplTests Coverage Results" MODIFIED="1691927001363" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.management.oop.test.models.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/TaskManagementSystem$AddCommentToATaskTest.ic" NAME="AddCommentToATaskTest Coverage Results" MODIFIED="1692002514733" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.management.oop.test.commands.add.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/TaskManagementSystem$FeedbackImplTests.ic" NAME="FeedbackImplTests Coverage Results" MODIFIED="1691922663304" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.management.oop.test.models.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/TaskManagementSystem$com_management_oop_test_models_in_TaskManagementSystem.ic" NAME="com.management.oop.test.models in TaskManagementSystem Coverage Results" MODIFIED="1691938453974" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.management.oop.test.models.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/TaskManagementSystem$UnassignTaskToPersonCommandTest.ic" NAME="UnassignTaskToPersonCommandTest Coverage Results" MODIFIED="1691943919569" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.management.oop.test.commands.assign.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/TaskManagementSystem$All_in_TaskManagementSystem.ic" NAME="All in TaskManagementSystem Coverage Results" MODIFIED="1692120106033" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/TaskManagementSystem$CreateNewFeedbackTest.ic" NAME="CreateNewFeedbackTest Coverage Results" MODIFIED="1692097045107" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.management.oop.test.commands.create.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/TaskManagementSystem$AddCommentToATaskTest_should_AddComment_When_ParametersAreValid.ic" NAME="AddCommentToATaskTest.should_AddComment_When_ParametersAreValid Coverage Results" MODIFIED="1691941970319" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.management.oop.test.commands.add.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/TaskManagementSystem$ChangeStoryCommandTest.ic" NAME="ChangeStoryCommandTest Coverage Results" MODIFIED="1692013619869" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.management.oop.test.commands.change.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/TaskManagementSystem$ShowPersonActivityCommandTest.ic" NAME="ShowPersonActivityCommandTest Coverage Results" MODIFIED="1692120087035" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.management.oop.test.commands.show.*</FILTER>
     </SUITE>
   </component>
 </project>

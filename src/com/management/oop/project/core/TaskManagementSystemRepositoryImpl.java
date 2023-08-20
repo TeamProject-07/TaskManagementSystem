@@ -267,7 +267,7 @@ public class TaskManagementSystemRepositoryImpl implements TaskManagementSystemR
 
     @Override
     public void addPersonToTeam(Person person, Team team) {
-        team.getPeople().add(person);
+        team.addPerson(person);
     }
 
 
@@ -294,11 +294,6 @@ public class TaskManagementSystemRepositoryImpl implements TaskManagementSystemR
         findBoardByName(boardName).addFeedback(feedback);
         return feedback;
     }
-
-    @Override
-    public void addComment(String message, Person author) {
-    }
-
 
     @Override
    public List<Task> getAllTasks() {

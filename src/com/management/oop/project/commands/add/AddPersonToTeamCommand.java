@@ -34,7 +34,7 @@ public class AddPersonToTeamCommand implements Command {
             Team team = taskManagementSystemRepository.findTeamByName(teamName);
 
             if (!taskManagementSystemRepository.personHasTeam(personName)) {
-                taskManagementSystemRepository.findTeamByName(teamName).addPerson(person);
+                taskManagementSystemRepository.addPersonToTeam(person, team);
                 return String.format(PERSON_ADDED, person.getName());
 
             }

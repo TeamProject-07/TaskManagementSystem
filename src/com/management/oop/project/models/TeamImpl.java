@@ -34,6 +34,7 @@ public class TeamImpl implements Team {
     public void addBoard(Board board){
         boards.add(board);
     }
+
     @Override
     public List<EventLog> getHistory() {
         return new ArrayList<>(histories);
