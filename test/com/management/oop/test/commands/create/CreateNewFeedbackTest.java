@@ -11,7 +11,6 @@ import com.management.oop.project.models.contracts.Feedback;
 import com.management.oop.project.models.contracts.Team;
 import com.management.oop.project.models.enums.FeedbackStatusEnum;
 import com.management.oop.project.models.tasks.FeedbackImpl;
-import com.management.oop.test.models.BoardImplTests;
 import com.management.oop.test.utils.TaskBaseConstants;
 import com.management.oop.test.utils.TestUtilities;
 import org.junit.jupiter.api.Assertions;

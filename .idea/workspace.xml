@@ -4,17 +4,45 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f4d32bab-62d7-485a-a9dd-6cb272e43dff" name="Changes" comment="Update Models">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_13_2023_5_36_PM_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_13_2023_5_48_PM_[Changes]/shelved.patch" beforeDir="false" />
+    <list default="true" id="f4d32bab-62d7-485a-a9dd-6cb272e43dff" name="Changes" comment="Update test">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/commands/create/CreateTeamCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/commands/create/CreateTeamCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/commands/listing/ListTasksWithAssignee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/commands/listing/ListTasksWithAssignee.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/commands/listing/SortBug.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/commands/listing/SortBug.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/commands/listing/SortStory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/commands/listing/SortStory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/commands/show/ShowAllPeopleCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/commands/show/ShowAllPeopleCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/commands/show/ShowAllTeamBoardsCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/commands/show/ShowAllTeamBoardsCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/commands/show/ShowAllTeamsCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/commands/show/ShowAllTeamsCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/commands/show/ShowAllTeamsMembersCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/commands/show/ShowAllTeamsMembersCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/commands/show/ShowTeamsActivityCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/commands/show/ShowTeamsActivityCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/models/CommentImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/models/CommentImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/models/contracts/Feedback.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/models/contracts/Feedback.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/models/contracts/Task.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/models/contracts/Task.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/models/tasks/FeedbackImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/models/tasks/FeedbackImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/models/tasks/TaskBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/models/tasks/TaskBase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/utils/ParsingHelpers.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/utils/ParsingHelpers.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/com/management/oop/test/commands/add/AddCommentToATaskTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/com/management/oop/test/commands/add/AddCommentToATaskTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/com/management/oop/test/commands/assign/UnassignTaskToPersonCommandTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/com/management/oop/test/commands/assign/UnassignTaskToPersonCommandTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/com/management/oop/test/commands/change/ChangeFeedbackCommandTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/com/management/oop/test/commands/change/ChangeFeedbackCommandTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/com/management/oop/test/commands/change/ChangeStoryCommandTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/com/management/oop/test/commands/change/ChangeStoryCommandTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/com/management/oop/test/commands/create/CreateBoardCommandTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/com/management/oop/test/commands/create/CreateBoardCommandTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/com/management/oop/test/commands/create/CreateNewFeedbackTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/com/management/oop/test/commands/create/CreateNewFeedbackTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/com/management/oop/test/commands/create/CreateNewStoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/com/management/oop/test/commands/create/CreateNewStoryTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/com/management/oop/test/commands/create/CreatePersonCommandTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/com/management/oop/test/commands/create/CreatePersonCommandTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/com/management/oop/test/commands/create/CreateTeamCommandTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/com/management/oop/test/commands/create/CreateTeamCommandTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/com/management/oop/test/commands/listing/FilterAllTasksTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/com/management/oop/test/commands/listing/FilterAllTasksTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/com/management/oop/test/commands/listing/ListAllBugsTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/com/management/oop/test/commands/listing/ListAllFeedbacksTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/com/management/oop/test/commands/listing/ListAllStoriesTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/com/management/oop/test/commands/listing/FilterBugByStatusTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/com/management/oop/test/commands/listing/FilterBugByStatusTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/com/management/oop/test/commands/listing/SortAllTasksByTitleTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/com/management/oop/test/commands/listing/SortAllTasksByTitleTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/com/management/oop/test/commands/listing/SortBugTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/com/management/oop/test/commands/listing/SortBugTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/com/management/oop/test/commands/listing/SortFeedbackTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/com/management/oop/test/commands/listing/SortFeedbackTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/com/management/oop/test/commands/show/ShowAllPeopleCommandTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/com/management/oop/test/commands/show/ShowAllPeopleCommandTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/com/management/oop/test/commands/show/ShowAllTeamsCommandTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/com/management/oop/test/commands/show/ShowAllTeamsCommandTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/com/management/oop/test/commands/show/ShowPersonActivityCommandTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/com/management/oop/test/commands/show/ShowPersonActivityCommandTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/com/management/oop/test/models/BugImplTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/com/management/oop/test/models/BugImplTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/com/management/oop/test/models/CommentImplTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/com/management/oop/test/models/CommentImplTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/com/management/oop/test/models/EventLogImplTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/com/management/oop/test/models/EventLogImplTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/com/management/oop/test/models/FeedbackImplTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/com/management/oop/test/models/FeedbackImplTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/com/management/oop/test/models/PersonImplTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/com/management/oop/test/models/PersonImplTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/com/management/oop/test/utils/TaskBaseConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/com/management/oop/test/utils/TaskBaseConstants.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -279,7 +307,14 @@
       <option name="project" value="LOCAL" />
       <updated>1692548002760</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Update test">
+      <created>1692554372201</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1692554372201</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -313,14 +348,15 @@
     <MESSAGE value="Update project methods" />
     <MESSAGE value="FilterBugByStatus tests" />
     <MESSAGE value="Update Models" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update Models" />
+    <MESSAGE value="Update test" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update test" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/test/com/management/oop/test/commands/listing/FilterBugByStatusTest.java</url>
-          <line>59</line>
+          <line>54</line>
           <option name="timeStamp" value="5" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -330,7 +366,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/test/com/management/oop/test/commands/listing/FilterBugByStatusTest.java</url>
-          <line>57</line>
+          <line>52</line>
           <option name="timeStamp" value="9" />
         </line-breakpoint>
       </breakpoints>

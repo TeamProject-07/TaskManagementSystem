@@ -2,11 +2,8 @@ package com.management.oop.project.commands.create;
 
 import com.management.oop.project.commands.contracts.Command;
 import com.management.oop.project.core.contracts.TaskManagementSystemRepository;
-import com.management.oop.project.models.contracts.Person;
-import com.management.oop.project.models.contracts.Team;
 import com.management.oop.project.utils.ValidationHelpers;
 
-import java.util.Arrays;
 import java.util.List;
 
 public class CreateTeamCommand implements Command {

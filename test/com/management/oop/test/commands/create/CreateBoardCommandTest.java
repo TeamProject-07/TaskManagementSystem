@@ -3,8 +3,6 @@ package com.management.oop.test.commands.create;
 import com.management.oop.project.commands.create.CreateBoardCommand;
 import com.management.oop.project.core.TaskManagementSystemRepositoryImpl;
 import com.management.oop.project.core.contracts.TaskManagementSystemRepository;
-import com.management.oop.project.models.contracts.Board;
-import com.management.oop.test.models.BoardImplTests;
 import com.management.oop.test.utils.TaskBaseConstants;
 import com.management.oop.test.utils.TestUtilities;
 import org.junit.jupiter.api.Assertions;

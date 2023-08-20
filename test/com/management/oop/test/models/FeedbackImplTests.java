@@ -2,14 +2,10 @@ package com.management.oop.test.models;
 
 import com.management.oop.project.models.contracts.Feedback;
 import com.management.oop.project.models.enums.FeedbackStatusEnum;
-import com.management.oop.project.models.enums.PriorityEnum;
 import com.management.oop.project.models.tasks.FeedbackImpl;
 import com.management.oop.test.utils.TaskBaseConstants;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 

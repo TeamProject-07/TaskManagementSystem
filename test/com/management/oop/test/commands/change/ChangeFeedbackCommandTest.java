@@ -1,19 +1,9 @@
 package com.management.oop.test.commands.change;
 
 import com.management.oop.project.commands.change.ChangeFeedbackCommand;
-import com.management.oop.project.commands.contracts.Command;
-import com.management.oop.project.commands.create.CreatePersonCommand;
 import com.management.oop.project.core.TaskManagementSystemRepositoryImpl;
 import com.management.oop.project.core.contracts.TaskManagementSystemRepository;
-import com.management.oop.project.models.contracts.Feedback;
 import com.management.oop.project.models.enums.FeedbackStatusEnum;
-import com.management.oop.project.models.enums.PriorityEnum;
-import com.management.oop.project.models.enums.StorySizeEnum;
-import com.management.oop.project.models.enums.StoryStatusEnum;
-import com.management.oop.project.models.tasks.FeedbackImpl;
-import com.management.oop.project.utils.ParsingHelpers;
-import com.management.oop.test.models.FeedbackImplTests;
-import com.management.oop.test.utils.TaskBaseConstants;
 import com.management.oop.test.utils.TestUtilities;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;

@@ -1,8 +1,6 @@
 package com.management.oop.project.models;
 
 import com.management.oop.project.models.contracts.Comment;
-import com.management.oop.project.models.contracts.Commentable;
-import com.management.oop.project.models.contracts.Person;
 
 public class CommentImpl implements Comment {
 

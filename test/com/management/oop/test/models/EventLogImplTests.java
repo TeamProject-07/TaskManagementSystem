@@ -2,11 +2,8 @@ package com.management.oop.test.models;
 
 import com.management.oop.project.models.EventLogImpl;
 import com.management.oop.project.models.contracts.EventLog;
-import com.management.oop.test.utils.TaskBaseConstants;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-
-import java.time.LocalDateTime;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 

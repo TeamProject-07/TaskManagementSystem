@@ -1,18 +1,14 @@
 package com.management.oop.test.commands.add;
 
 import com.management.oop.project.commands.add.AddCommentToATask;
-import com.management.oop.project.commands.assign.UnassignTaskToPersonCommand;
 import com.management.oop.project.commands.contracts.Command;
 import com.management.oop.project.core.TaskManagementSystemRepositoryImpl;
 import com.management.oop.project.core.contracts.TaskManagementSystemRepository;
-import com.management.oop.project.models.BoardImpl;
-import com.management.oop.project.models.CommentImpl;
 import com.management.oop.project.models.PersonImpl;
 import com.management.oop.project.models.TeamImpl;
 import com.management.oop.project.models.contracts.*;
 import com.management.oop.project.models.enums.BugSeverityEnum;
 import com.management.oop.project.models.enums.PriorityEnum;
-import com.management.oop.test.commands.assign.UnassignTaskToPersonCommandTest;
 import com.management.oop.test.models.BoardImplTests;
 import com.management.oop.test.models.BugImplTests;
 import com.management.oop.test.utils.TaskBaseConstants;

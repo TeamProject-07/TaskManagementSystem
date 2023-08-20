@@ -1,6 +1,5 @@
 package com.management.oop.test.models;
 
-import com.management.oop.project.models.EventLogImpl;
 import com.management.oop.project.models.PersonImpl;
 import com.management.oop.project.models.tasks.StoryImpl;
 import org.junit.jupiter.api.Assertions;
