@@ -57,6 +57,6 @@ public class FilterBugByStatusTest {
         //Act
         String result = filterBugByStatus.execute(parameters);
         //Assert
-        Assertions.assertTrue(true);
+        Assertions.assertEquals(ListingHelpers.getAsString(taskManagementSystemRepository.getAllBugs()), result);
     }
 }

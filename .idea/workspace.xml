@@ -4,10 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f4d32bab-62d7-485a-a9dd-6cb272e43dff" name="Changes" comment="FilterBugByStatus tests">
+    <list default="true" id="f4d32bab-62d7-485a-a9dd-6cb272e43dff" name="Changes" comment="Update Models">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/commands/listing/FilterStoryByStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/commands/listing/FilterStoryByStatus.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/core/TaskManagementSystemRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/core/TaskManagementSystemRepositoryImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/core/contracts/TaskManagementSystemRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/core/contracts/TaskManagementSystemRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/models/PersonImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/models/PersonImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/com/management/oop/test/commands/add/AddCommentToATaskTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/com/management/oop/test/commands/add/AddCommentToATaskTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/com/management/oop/test/commands/listing/FilterBugByStatusTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/com/management/oop/test/commands/listing/FilterBugByStatusTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/com/management/oop/test/commands/listing/FilterStoryByStatusTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/com/management/oop/test/commands/listing/FilterStoryByStatusTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,7 +50,29 @@
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
   }
 }</component>
-  <component name="RunManager" selected="JUnit.FilterBugByStatusTest.should_ReturnBug_WhenParameters_AreValid">
+  <component name="RunManager" selected="JUnit.All in TaskManagementSystem">
+    <configuration name="Startup" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Startup" />
+      <module name="TaskManagementSystem" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AddCommentToATaskTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="TaskManagementSystem" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.management.oop.test.commands.add.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.management.oop.test.commands.add" />
+      <option name="MAIN_CLASS_NAME" value="com.management.oop.test.commands.add.AddCommentToATaskTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="All in TaskManagementSystem" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="TaskManagementSystem" />
       <option name="PACKAGE_NAME" value="" />
@@ -72,67 +97,36 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ShowPersonActivityCommandTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="FilterStoryByStatusTest.should_ReturnStory_WhenParameters_AreValid" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="TaskManagementSystem" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.management.oop.test.commands.show.*" />
+          <option name="PATTERN" value="com.management.oop.test.commands.listing.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.management.oop.test.commands.show" />
-      <option name="MAIN_CLASS_NAME" value="com.management.oop.test.commands.show.ShowPersonActivityCommandTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ShowPersonActivityCommandTest.should_OutputMessageWhen_PersonDoesHas_Activity" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="TaskManagementSystem" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.management.oop.test.commands.show.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.management.oop.test.commands.show" />
-      <option name="MAIN_CLASS_NAME" value="com.management.oop.test.commands.show.ShowPersonActivityCommandTest" />
-      <option name="METHOD_NAME" value="should_OutputMessageWhen_PersonDoesHas_Activity" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ShowPersonActivityCommandTest.should_ThrowException_WhenPerson_DoesNotExist" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="TaskManagementSystem" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.management.oop.test.commands.show.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.management.oop.test.commands.show" />
-      <option name="MAIN_CLASS_NAME" value="com.management.oop.test.commands.show.ShowPersonActivityCommandTest" />
-      <option name="METHOD_NAME" value="should_ThrowException_WhenPerson_DoesNotExist" />
+      <option name="PACKAGE_NAME" value="com.management.oop.test.commands.listing" />
+      <option name="MAIN_CLASS_NAME" value="com.management.oop.test.commands.listing.FilterStoryByStatusTest" />
+      <option name="METHOD_NAME" value="should_ReturnStory_WhenParameters_AreValid" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
+      <item itemvalue="Application.Startup" />
+      <item itemvalue="JUnit.AddCommentToATaskTest" />
       <item itemvalue="JUnit.FilterBugByStatusTest.should_ReturnBug_WhenParameters_AreValid" />
-      <item itemvalue="JUnit.ShowPersonActivityCommandTest" />
-      <item itemvalue="JUnit.ShowPersonActivityCommandTest.should_OutputMessageWhen_PersonDoesHas_Activity" />
-      <item itemvalue="JUnit.ShowPersonActivityCommandTest.should_ThrowException_WhenPerson_DoesNotExist" />
+      <item itemvalue="JUnit.FilterStoryByStatusTest.should_ReturnStory_WhenParameters_AreValid" />
       <item itemvalue="JUnit.All in TaskManagementSystem" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.FilterBugByStatusTest.should_ReturnBug_WhenParameters_AreValid" />
         <item itemvalue="JUnit.All in TaskManagementSystem" />
-        <item itemvalue="JUnit.ShowPersonActivityCommandTest" />
-        <item itemvalue="JUnit.ShowPersonActivityCommandTest.should_OutputMessageWhen_PersonDoesHas_Activity" />
-        <item itemvalue="JUnit.ShowPersonActivityCommandTest.should_ThrowException_WhenPerson_DoesNotExist" />
+        <item itemvalue="JUnit.FilterStoryByStatusTest.should_ReturnStory_WhenParameters_AreValid" />
+        <item itemvalue="JUnit.FilterBugByStatusTest.should_ReturnBug_WhenParameters_AreValid" />
+        <item itemvalue="JUnit.AddCommentToATaskTest" />
+        <item itemvalue="Application.Startup" />
       </list>
     </recent_temporary>
   </component>
@@ -264,7 +258,14 @@
       <option name="project" value="LOCAL" />
       <updated>1692546665076</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Update Models">
+      <created>1692548002760</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1692548002760</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -297,7 +298,8 @@
     <MESSAGE value="Commit CreateTeamCommand" />
     <MESSAGE value="Update project methods" />
     <MESSAGE value="FilterBugByStatus tests" />
-    <option name="LAST_COMMIT_MESSAGE" value="FilterBugByStatus tests" />
+    <MESSAGE value="Update Models" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update Models" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -311,6 +313,11 @@
           <url>file://$PROJECT_DIR$/src/com/management/oop/project/commands/listing/FilterBugByStatus.java</url>
           <line>26</line>
           <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/test/com/management/oop/test/commands/listing/FilterBugByStatusTest.java</url>
+          <line>57</line>
+          <option name="timeStamp" value="9" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -334,7 +341,7 @@
     <SUITE FILE_PATH="coverage/TaskManagementSystem$UnassignTaskToPersonCommandTest.ic" NAME="UnassignTaskToPersonCommandTest Coverage Results" MODIFIED="1691943919569" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.management.oop.test.commands.assign.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/TaskManagementSystem$All_in_TaskManagementSystem.ic" NAME="All in TaskManagementSystem Coverage Results" MODIFIED="1692120106033" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/TaskManagementSystem$All_in_TaskManagementSystem.ic" NAME="All in TaskManagementSystem Coverage Results" MODIFIED="1692550226416" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/TaskManagementSystem$CreateNewFeedbackTest.ic" NAME="CreateNewFeedbackTest Coverage Results" MODIFIED="1692097045107" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.management.oop.test.commands.create.*</FILTER>
     </SUITE>

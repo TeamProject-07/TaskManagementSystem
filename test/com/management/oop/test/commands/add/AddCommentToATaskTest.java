@@ -32,7 +32,6 @@ public class AddCommentToATaskTest {
     private Board board;
     private Person person;
     private Bug bug;
-    private Comment comment;
     @BeforeEach
     public void before(){
         taskManagementSystemRepository=new TaskManagementSystemRepositoryImpl();
