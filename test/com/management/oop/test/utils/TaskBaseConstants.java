@@ -21,6 +21,5 @@ public class TaskBaseConstants {
     public static final String VALID_DESCRIPTION = TestUtilities.getString(DESCRIPTION_MIN_LENGTH + 1);
     public static final String INVALID_TITLE = TestUtilities.getString(TITLE_MIN_LENGTH - 1);
     public static final String INVALID_DESCRIPTION = TestUtilities.getString(DESCRIPTION_MIN_LENGTH - 1);
-    public static final StoryStatusEnum VALIDSTORYSTATUSENUM = StoryStatusEnum.IN_PROGRESS;
 
 }

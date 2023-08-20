@@ -4,6 +4,7 @@ import com.management.oop.project.commands.contracts.Command;
 import com.management.oop.project.core.contracts.TaskManagementSystemRepository;
 import com.management.oop.project.models.contracts.Feedback;
 import com.management.oop.project.models.enums.FeedbackStatusEnum;
+import com.management.oop.project.utils.ListingHelpers;
 import com.management.oop.project.utils.ParsingHelpers;
 import com.management.oop.project.utils.ValidationHelpers;
 
@@ -11,13 +12,13 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class FilterFeedbackByStatus implements Command {
+
     public static final int EXPECTED_NUMBER_OF_ARGUMENTS = 1;
-    TaskManagementSystemRepository taskManagementSystemRepository;
-    private List<Feedback> feedbacks;
+   private  TaskManagementSystemRepository taskManagementSystemRepository;
+
 
     public FilterFeedbackByStatus(TaskManagementSystemRepository taskManagementSystemRepository) {
         this.taskManagementSystemRepository = taskManagementSystemRepository;
-        this.feedbacks = taskManagementSystemRepository.getAllFeedback();
     }
 
     @Override
@@ -25,11 +26,11 @@ public class FilterFeedbackByStatus implements Command {
         ValidationHelpers.validateArgumentsCount(parameters, EXPECTED_NUMBER_OF_ARGUMENTS);
 
         FeedbackStatusEnum statusEnum= ParsingHelpers.tryParseEnum(parameters.get(0), FeedbackStatusEnum.class);
-        return filterFeedback(statusEnum).toString();
+        return ListingHelpers.getAsString(filterFeedback(statusEnum));
     }
 
     private List<Feedback> filterFeedback(FeedbackStatusEnum statusEnum){
-        return feedbacks
+        return taskManagementSystemRepository.getAllFeedback()
                 .stream()
                 .filter(feedback -> feedback.getStatus().equals(statusEnum))
                 .collect(Collectors.toList());

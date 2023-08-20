@@ -10,6 +10,7 @@ import com.management.oop.project.commands.change.ChangeStoryCommand;
 import com.management.oop.project.commands.contracts.Command;
 import com.management.oop.project.commands.create.*;
 import com.management.oop.project.commands.enums.CommandType;
+import com.management.oop.project.commands.listing.SortAllTasksByTitle;
 import com.management.oop.project.commands.show.*;
 import com.management.oop.project.core.contracts.CommandFactory;
 import com.management.oop.project.core.contracts.TaskManagementSystemRepository;
@@ -63,6 +64,9 @@ public class CommandFactoryImpl implements CommandFactory {
                 return new UnassignTaskToPersonCommand(taskManagementSystemRepository);
             case ADDCOMMENTTOATASK:
                 return new AddCommentToATask(taskManagementSystemRepository);
+            case SORTALLTASKSBYTITLE:
+                return new SortAllTasksByTitle(taskManagementSystemRepository);
+
             default:
                 throw new IllegalArgumentException(String.format(INVALID_COMMAND, commandName));
         }
