@@ -40,4 +40,11 @@ public class PersonImpl implements Person {
         return String.format("""
                 Person: %s""", getName());
     }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Person assignee = (PersonImpl) o;
+        return name.equals(assignee.getName());
+    }
 }

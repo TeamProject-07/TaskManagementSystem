@@ -24,6 +24,8 @@ public interface TaskManagementSystemRepository {
     List<Board> getAllBoards();
 
     List<Assignable> getAllAssignableTasks();
+    List<Assignable> getTasksWithAssignee();
+
 
     Team findTeamByName(String teamName);
 

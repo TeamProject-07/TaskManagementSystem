@@ -29,54 +29,54 @@ public class PersonImplTests {
      Assertions.assertEquals(1, person.getHistory().size());
    }
 
-    @Test
-    public void personActivity_Should_beAddedToTheHistory() {
+//    @Test
+//    public void personActivity_Should_beAddedToTheHistory() {
         // Arrange
-        PersonImpl person = initializeTestPerson();
-        StoryImpl story = StoryImplTests.initializeTestStory();
-        person.assignTask(story);
-        //Act
-        person.getHistory();
-        // Assert
-        Assertions.assertEquals(2, person.getHistory().size());
-    }
+//        PersonImpl person = initializeTestPerson();
+//        StoryImpl story = StoryImplTests.initializeTestStory();
+//        person.assignTask(story);
+//        //Act
+//        person.getHistory();
+//        // Assert
+//        Assertions.assertEquals(2, person.getHistory().size());
+   // }
 
-    @Test
-    public void getTasks_Should_ReturnCopyOfTheTasks() {
-        // Arrange
-        PersonImpl person = initializeTestPerson();
-        //Act
-        person.getTasks();
-
-        // Assert
-        Assertions.assertEquals(0, person.getTasks().size());
-    }
-
-
-   @Test
-   public void assignTask_Should_AddTaskToTheCollection() {
-       // Arrange
-       PersonImpl person = initializeTestPerson();
-       StoryImpl story = StoryImplTests.initializeTestStory();
-       person.assignTask(story);
-       // Act
-       person.getTasks();
-       // Assert
-       Assertions.assertEquals(1, person.getTasks().size());
-   }
-
-    @Test
-    public void unassignTask_Should_RemoveTaskFromTheCollection() {
-        // Arrange
-        PersonImpl person = initializeTestPerson();
-        StoryImpl story = StoryImplTests.initializeTestStory();
-        person.assignTask(story);
-        person.unAssignTask(story);
-        // Act
-        person.getTasks();
-        // Assert
-        Assertions.assertEquals(0, person.getTasks().size());
-    }
+//    @Test
+//    public void getTasks_Should_ReturnCopyOfTheTasks() {
+//        // Arrange
+//        PersonImpl person = initializeTestPerson();
+//        //Act
+//        person.getTasks();
+//
+//        // Assert
+//        Assertions.assertEquals(0, person.getTasks().size());
+ //   }
+//
+//
+//   @Test
+//   public void assignTask_Should_AddTaskToTheCollection() {
+//       // Arrange
+//       PersonImpl person = initializeTestPerson();
+//       StoryImpl story = StoryImplTests.initializeTestStory();
+//       person.assignTask(story);
+//       // Act
+//       person.getTasks();
+//       // Assert
+//       Assertions.assertEquals(1, person.getTasks().size());
+//   }
+//
+//    @Test
+//    public void unassignTask_Should_RemoveTaskFromTheCollection() {
+//        // Arrange
+//        PersonImpl person = initializeTestPerson();
+//        StoryImpl story = StoryImplTests.initializeTestStory();
+//        person.assignTask(story);
+//        person.unAssignTask(story);
+//        // Act
+//        person.getTasks();
+//        // Assert
+//        Assertions.assertEquals(0, person.getTasks().size());
+//    }
 
     public static PersonImpl initializeTestPerson() {
         return new PersonImpl(

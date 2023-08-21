@@ -418,6 +418,16 @@ public class TaskManagementSystemRepositoryImpl implements TaskManagementSystemR
     //       }
     //       return boards;
     //        }
+    public List<Assignable> getTasksWithAssignee(){
+        List<Assignable> assigneeTask = new ArrayList<>();
+        for (Assignable task: getAllAssignableTasks()) {
+            if (task.getAssignee() != null){
+                assigneeTask.add(task);
+            }
+        }
+        return assigneeTask;
+    }
+
 
 }
 
