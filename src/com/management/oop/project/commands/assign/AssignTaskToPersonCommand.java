@@ -2,6 +2,8 @@ package com.management.oop.project.commands.assign;
 
 import com.management.oop.project.commands.contracts.Command;
 import com.management.oop.project.core.contracts.TaskManagementSystemRepository;
+import com.management.oop.project.models.contracts.Assignable;
+import com.management.oop.project.models.contracts.Person;
 import com.management.oop.project.models.contracts.Task;
 import com.management.oop.project.utils.ParsingHelpers;
 import com.management.oop.project.utils.ValidationHelpers;
@@ -26,12 +28,14 @@ public class AssignTaskToPersonCommand implements Command {
     }
 
     private String assignTask(String personName, int id) {
-        if (taskManagementSystemRepository.taskExist(id)) {
-            Task task = taskManagementSystemRepository.findTaskById(id);
-            taskManagementSystemRepository.findPersonByName(personName).assignTask(task);
-            return String.format("Task with ID %d was assigned to person with name %s.", id, personName);
+        if (taskManagementSystemRepository.ifTaskIsAssignable(id) && taskManagementSystemRepository.taskExist(id)) {
+            Assignable task = taskManagementSystemRepository.findAssignableTaskById(id);
+            if (taskManagementSystemRepository.ifTaskIsNotAssigned(task)) {
+                Person person = taskManagementSystemRepository.findPersonByName(personName);
+                task.assignTask(person);
+                return String.format("Task with ID %d was assigned to person with name %s.", id, personName);
+            }
         }
-        throw new IllegalArgumentException(String.format("Task with ID %d doesn't exist.", id));
+        throw new IllegalArgumentException(String.format("Task with ID %d doesn't exist or should be bug or story.", id));
     }
-
 }
