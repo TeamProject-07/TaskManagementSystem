@@ -1,13 +1,10 @@
 package com.management.oop.test.commands.listing;
 
 import com.management.oop.project.commands.contracts.Command;
-import com.management.oop.project.commands.listing.FilterBugByStatus;
 import com.management.oop.project.commands.listing.SortFeedback;
 import com.management.oop.project.core.TaskManagementSystemRepositoryImpl;
 import com.management.oop.project.core.contracts.TaskManagementSystemRepository;
-import com.management.oop.project.models.contracts.Bug;
 import com.management.oop.project.models.enums.FeedbackStatusEnum;
-import com.management.oop.test.models.BugImplTests;
 import com.management.oop.test.utils.TestUtilities;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -29,7 +26,10 @@ public class SortFeedbackTest {
         sortFeedback = new SortFeedback(taskManagementSystemRepository);
         taskManagementSystemRepository.createTeam("teamName");
         taskManagementSystemRepository.createBoard("boardName", "teamName");
-        taskManagementSystemRepository.createFeedback("boardName", "validTitle", "validDescription", 20, FeedbackStatusEnum.DONE);
+        taskManagementSystemRepository.createFeedback("boardName",
+                "validTitle", "validDescription", 20, FeedbackStatusEnum.DONE);
+        taskManagementSystemRepository.createFeedback("boardName",
+                "aValidTitle", "validDescription", 20, FeedbackStatusEnum.DONE);
     }
     @Test
     public void should_ThrowException_When_ArgumentCountInvalid() {
@@ -38,5 +38,12 @@ public class SortFeedbackTest {
 
         // Act, Assert
         Assertions.assertThrows(IllegalArgumentException.class, () -> sortFeedback.execute(parameters));
+    }
+    @Test
+    public void should_ReturnFeedback_WhenParameters_AreValid() {
+        //Arrange, Act
+        String result = sortFeedback.execute(parameters);
+        //Assert
+
     }
 }
