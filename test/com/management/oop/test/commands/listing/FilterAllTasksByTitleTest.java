@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FilterAllTasksByTitleTest {
-    public static final int EXPECTED_NUMBER_OF_ARGUMENTS = 1;
+    public static final int EXPECTED_NUMBER_OF_ARGUMENTS =     1;
 
     private List<String> parameters;
     private TaskManagementSystemRepository repository;
