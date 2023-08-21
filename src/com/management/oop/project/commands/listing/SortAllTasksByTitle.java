@@ -23,11 +23,6 @@ public class SortAllTasksByTitle implements Command {
     @Override
     public String execute(List<String> parameters) {
         ValidationHelpers.validateArgumentsCount(parameters, EXPECTED_NUMBER_OF_ARGUMENTS);
-        return sortByTitle();
-    }
-
-    private String sortByTitle() {
-
         return tasks
                 .stream()
                 .sorted(Comparator.comparing(Task::getTitle))

@@ -23,10 +23,6 @@ public class SortStory implements Command {
     @Override
     public String execute(List<String> parameters) {
         ValidationHelpers.validateArgumentsCount(parameters, EXPECTED_NUMBER_OF_ARGUMENTS);
-        return sortStory();
-    }
-
-    private String sortStory(){
         return stories
                 .stream()
                 .sorted(Comparator.comparing(Story :: getTitle).thenComparing(Story::getPriorityEnum)
@@ -34,4 +30,5 @@ public class SortStory implements Command {
                 .map(story -> story.getTitle() + " " + story.getPriorityEnum() + " " + story.getStorySizeEnum())
                 .toList().toString();
     }
+
 }
