@@ -4,13 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f4d32bab-62d7-485a-a9dd-6cb272e43dff" name="Changes" comment="Update Models">
+    <list default="true" id="f4d32bab-62d7-485a-a9dd-6cb272e43dff" name="Changes" comment="Filter Feedback by Status">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/commands/enums/CommandType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/commands/enums/CommandType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/commands/listing/FilterFeedbackByStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/commands/listing/FilterFeedbackByStatus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/commands/listing/SortAllTasksByTitle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/commands/listing/SortAllTasksByTitle.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/commands/listing/SortStory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/commands/listing/SortStory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/core/CommandFactoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/core/CommandFactoryImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/com/management/oop/test/utils/TaskBaseConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/com/management/oop/test/utils/TaskBaseConstants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/com/management/oop/test/commands/listing/SortAllTasksByTitleTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/com/management/oop/test/commands/listing/SortAllTasksByTitleTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,16 +48,8 @@
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
   }
 }</component>
-  <component name="RunManager" selected="JUnit.FilterFeedbackByStatusTest">
-    <configuration name="All in TaskManagementSystem" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="TaskManagementSystem" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="TEST_OBJECT" value="package" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="FilterFeedbackByStatus" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.SortAllTasksByTitleTest">
+    <configuration name="SortAllTasksByTitleTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="TaskManagementSystem" />
       <extension name="coverage">
         <pattern>
@@ -68,13 +58,13 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.management.oop.test.commands.listing" />
-      <option name="MAIN_CLASS_NAME" value="com.management.oop.test.commands.listing.FilterFeedbackByStatus" />
+      <option name="MAIN_CLASS_NAME" value="com.management.oop.test.commands.listing.SortAllTasksByTitleTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="FilterFeedbackByStatusTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="SortAllTasksByTitleTest.should_ThrowException_When_ArgumentCountInvalid" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="TaskManagementSystem" />
       <extension name="coverage">
         <pattern>
@@ -83,29 +73,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.management.oop.test.commands.listing" />
-      <option name="MAIN_CLASS_NAME" value="com.management.oop.test.commands.listing.FilterFeedbackByStatusTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="FilterFeedbackByStatus.should_ReturnFeedback_WhenParameters_AreValid" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="TaskManagementSystem" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.management.oop.test.commands.listing.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.management.oop.test.commands.listing" />
-      <option name="MAIN_CLASS_NAME" value="com.management.oop.test.commands.listing.FilterFeedbackByStatus" />
-      <option name="METHOD_NAME" value="should_ReturnFeedback_WhenParameters_AreValid" />
+      <option name="MAIN_CLASS_NAME" value="com.management.oop.test.commands.listing.SortAllTasksByTitleTest" />
+      <option name="METHOD_NAME" value="should_ThrowException_When_ArgumentCountInvalid" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="FilterStoryByStatusTest.should_ReturnStory_WhenParameters_AreValid" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="SortFeedbackTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="TaskManagementSystem" />
       <extension name="coverage">
         <pattern>
@@ -114,27 +89,57 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.management.oop.test.commands.listing" />
-      <option name="MAIN_CLASS_NAME" value="com.management.oop.test.commands.listing.FilterStoryByStatusTest" />
-      <option name="METHOD_NAME" value="should_ReturnStory_WhenParameters_AreValid" />
+      <option name="MAIN_CLASS_NAME" value="com.management.oop.test.commands.listing.SortFeedbackTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SortStoryTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="TaskManagementSystem" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.management.oop.test.commands.listing.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.management.oop.test.commands.listing" />
+      <option name="MAIN_CLASS_NAME" value="com.management.oop.test.commands.listing.SortStoryTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SortStoryTest.should_ThrowException_When_ArgumentCountInvalid" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="TaskManagementSystem" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.management.oop.test.commands.listing.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.management.oop.test.commands.listing" />
+      <option name="MAIN_CLASS_NAME" value="com.management.oop.test.commands.listing.SortStoryTest" />
+      <option name="METHOD_NAME" value="should_ThrowException_When_ArgumentCountInvalid" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
-      <item itemvalue="JUnit.FilterFeedbackByStatus" />
-      <item itemvalue="JUnit.FilterFeedbackByStatus.should_ReturnFeedback_WhenParameters_AreValid" />
-      <item itemvalue="JUnit.FilterFeedbackByStatusTest" />
-      <item itemvalue="JUnit.FilterStoryByStatusTest.should_ReturnStory_WhenParameters_AreValid" />
-      <item itemvalue="JUnit.All in TaskManagementSystem" />
+      <item itemvalue="JUnit.SortAllTasksByTitleTest" />
+      <item itemvalue="JUnit.SortAllTasksByTitleTest.should_ThrowException_When_ArgumentCountInvalid" />
+      <item itemvalue="JUnit.SortFeedbackTest" />
+      <item itemvalue="JUnit.SortStoryTest" />
+      <item itemvalue="JUnit.SortStoryTest.should_ThrowException_When_ArgumentCountInvalid" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.FilterFeedbackByStatusTest" />
-        <item itemvalue="JUnit.FilterFeedbackByStatus" />
-        <item itemvalue="JUnit.FilterFeedbackByStatus.should_ReturnFeedback_WhenParameters_AreValid" />
-        <item itemvalue="JUnit.All in TaskManagementSystem" />
-        <item itemvalue="JUnit.FilterStoryByStatusTest.should_ReturnStory_WhenParameters_AreValid" />
+        <item itemvalue="JUnit.SortAllTasksByTitleTest" />
+        <item itemvalue="JUnit.SortStoryTest" />
+        <item itemvalue="JUnit.SortAllTasksByTitleTest.should_ThrowException_When_ArgumentCountInvalid" />
+        <item itemvalue="JUnit.SortFeedbackTest" />
+        <item itemvalue="JUnit.SortStoryTest.should_ThrowException_When_ArgumentCountInvalid" />
       </list>
     </recent_temporary>
   </component>
@@ -273,7 +278,21 @@
       <option name="project" value="LOCAL" />
       <updated>1692548002760</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Filter Feedback by Status">
+      <created>1692552764827</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1692552764827</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Filter Feedback by Status">
+      <created>1692552919203</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1692552919203</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -307,7 +326,8 @@
     <MESSAGE value="Update project methods" />
     <MESSAGE value="FilterBugByStatus tests" />
     <MESSAGE value="Update Models" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update Models" />
+    <MESSAGE value="Filter Feedback by Status" />
+    <option name="LAST_COMMIT_MESSAGE" value="Filter Feedback by Status" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -316,11 +336,6 @@
           <url>file://$PROJECT_DIR$/test/com/management/oop/test/commands/listing/FilterBugByStatusTest.java</url>
           <line>59</line>
           <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/com/management/oop/project/commands/listing/FilterBugByStatus.java</url>
-          <line>26</line>
-          <option name="timeStamp" value="8" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/test/com/management/oop/test/commands/listing/FilterBugByStatusTest.java</url>
