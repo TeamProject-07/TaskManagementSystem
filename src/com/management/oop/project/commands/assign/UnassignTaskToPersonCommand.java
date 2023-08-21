@@ -2,6 +2,8 @@ package com.management.oop.project.commands.assign;
 
 import com.management.oop.project.commands.contracts.Command;
 import com.management.oop.project.core.contracts.TaskManagementSystemRepository;
+import com.management.oop.project.models.contracts.Assignable;
+import com.management.oop.project.models.contracts.Person;
 import com.management.oop.project.models.contracts.Task;
 import com.management.oop.project.utils.ParsingHelpers;
 import com.management.oop.project.utils.ValidationHelpers;
@@ -27,10 +29,13 @@ public class UnassignTaskToPersonCommand implements Command {
     }
 
     private String unAssignTask(String personName, int id) {
-        if (taskManagementSystemRepository.taskExist(id)) {
-            Task task = taskManagementSystemRepository.findTaskById(id);
-            taskManagementSystemRepository.findPersonByName(personName).unAssignTask(task);
-            return String.format("Task with ID %d was unassigned to person with name %s.", id, personName);
+        if (taskManagementSystemRepository.taskExist(id) && taskManagementSystemRepository.ifTaskIsAssignable(id)) {
+            Assignable task = taskManagementSystemRepository.findAssignableTaskById(id);
+            if (!taskManagementSystemRepository.ifTaskIsNotAssigned(task)) {
+                Person person= taskManagementSystemRepository.findPersonByName(personName);
+                task.unAssignTask(person);
+                return String.format("Task with ID %d was unassigned from person with name %s.", id, personName);
+            }
         }
         throw new IllegalArgumentException(String.format("Task with ID %d doesn't exist.", id));
     }

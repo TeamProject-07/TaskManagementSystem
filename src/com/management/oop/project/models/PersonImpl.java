@@ -9,22 +9,16 @@ import java.util.List;
 
 public class PersonImpl implements Person {
     private String name;
-    private List<Task> tasks;
     private List<EventLog> histories;
 
     public PersonImpl(String name) {
         this.name = name;
-        this.tasks = new ArrayList<>();
         this.histories = new ArrayList<>();
         addHistory(new EventLogImpl("Person was created."));
     }
     protected void addHistory(EventLog eventLog){
         histories.add(eventLog);
     }
-    public List<Task> getTasks() {
-        return new ArrayList<>(tasks);
-    }
-
 
     @Override
     public String toString() {
@@ -41,18 +35,6 @@ public class PersonImpl implements Person {
         return new ArrayList<>(histories);
     }
 
-    @Override
-    public void assignTask(Task task) {
-        this.tasks.add(task);
-        addHistory(new EventLogImpl("Task was assigned to person."));
-    }
-
-
-    @Override
-    public void unAssignTask(Task task) {
-        this.tasks.remove(task);
-        addHistory(new EventLogImpl("Task was unassigned to person."));
-    }
     @Override
     public String getAsString() {
         return String.format("""

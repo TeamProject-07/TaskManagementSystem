@@ -1,13 +1,14 @@
 package com.management.oop.project.models.tasks;
 
 import com.management.oop.project.models.EventLogImpl;
+import com.management.oop.project.models.contracts.Assignable;
 import com.management.oop.project.models.contracts.Person;
 import com.management.oop.project.models.contracts.Story;
 import com.management.oop.project.models.enums.PriorityEnum;
 import com.management.oop.project.models.enums.StorySizeEnum;
 import com.management.oop.project.models.enums.StoryStatusEnum;
 
-public class StoryImpl extends TaskBase implements Story {
+public class StoryImpl extends TaskBase implements Story, Assignable {
     public static final String STATUS_WAS_CHANGED = "Status was changed";
     public static final String SIZE_WAS_CHANGED = "Size was changed";
     public static final String PRIORITY_WAS_CHANGED = "Priority was changed";
@@ -38,11 +39,17 @@ public class StoryImpl extends TaskBase implements Story {
         return storyStatusEnum;
     }
 
+    @Override
     public Person getAssignee() {
         return assignee;
     }
 
-    private void setAssignee(Person assignee) {
+    @Override
+    public void assignTask(Person assignee) {
+        this.assignee=assignee;
+    }
+    @Override
+    public void unAssignTask(Person assignee) {
         this.assignee = assignee;
     }
 

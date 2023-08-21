@@ -155,9 +155,9 @@ public class TaskManagementSystemRepositoryImpl implements TaskManagementSystemR
 //        throw new IllegalArgumentException(NO_FEEDBACK_WITH_THIS_ID);
         return getAllFeedback()
                 .stream()
-                .filter(feedback -> feedback.getId()==id)
+                .filter(feedback -> feedback.getId() == id)
                 .findFirst()
-                .orElseThrow(()->new IllegalArgumentException(NO_FEEDBACK_WITH_THIS_ID));
+                .orElseThrow(() -> new IllegalArgumentException(NO_FEEDBACK_WITH_THIS_ID));
     }
 
     @Override
@@ -172,11 +172,11 @@ public class TaskManagementSystemRepositoryImpl implements TaskManagementSystemR
 //            }
 //        }
 //        throw new IllegalArgumentException(NO_TASK_WITH_THIS_ID);
-        return  getAllTasks()
+        return getAllTasks()
                 .stream()
-                .filter(task -> task.getId()==id)
+                .filter(task -> task.getId() == id)
                 .findFirst()
-                .orElseThrow(()-> new IllegalArgumentException(NO_TASK_WITH_THIS_ID));
+                .orElseThrow(() -> new IllegalArgumentException(NO_TASK_WITH_THIS_ID));
     }
 
     @Override
@@ -193,7 +193,7 @@ public class TaskManagementSystemRepositoryImpl implements TaskManagementSystemR
                 .stream()
                 .filter(board -> board.getName().equalsIgnoreCase(boardName))
                 .findFirst()
-                .orElseThrow(()-> new IllegalArgumentException(NO_BOARD_WITH_THIS_NAME));
+                .orElseThrow(() -> new IllegalArgumentException(NO_BOARD_WITH_THIS_NAME));
     }
 
     @Override
@@ -218,7 +218,7 @@ public class TaskManagementSystemRepositoryImpl implements TaskManagementSystemR
                 .stream()
                 .filter(team -> team.getName().equalsIgnoreCase(teamName))
                 .findFirst()
-                .orElseThrow(()-> new IllegalArgumentException(TEAM_NOT_FOUND));
+                .orElseThrow(() -> new IllegalArgumentException(TEAM_NOT_FOUND));
     }
 
     @Override
@@ -250,7 +250,7 @@ public class TaskManagementSystemRepositoryImpl implements TaskManagementSystemR
 //        throw new IllegalArgumentException(NO_TASK_WITH_THIS_ID);
         return getAllTasks()
                 .stream()
-                .anyMatch(task -> task.getId()==id);
+                .anyMatch(task -> task.getId() == id);
     }
 
     @Override
@@ -304,20 +304,20 @@ public class TaskManagementSystemRepositoryImpl implements TaskManagementSystemR
     }
 
     @Override
-   public List<Task> getAllTasks() {
+    public List<Task> getAllTasks() {
         return teams.stream()
                 .flatMap(team -> team.getBoards().stream())
                 .flatMap(board -> board.getTasks().stream())
                 .collect(Collectors.toList());
     }
-   //    List<Task> tasks = new ArrayList<>();
-   //    for (Team team : teams) {
-   //        for (Board board : team.getBoards()) {
-   //            tasks.addAll(board.getTasks());
-   //        }
-   //    }
-   //    return tasks;
-   //    }
+    //    List<Task> tasks = new ArrayList<>();
+    //    for (Team team : teams) {
+    //        for (Board board : team.getBoards()) {
+    //            tasks.addAll(board.getTasks());
+    //        }
+    //    }
+    //    return tasks;
+    //    }
 
 
     @Override
@@ -327,14 +327,14 @@ public class TaskManagementSystemRepositoryImpl implements TaskManagementSystemR
                 .flatMap(board -> board.getBugs().stream())
                 .collect(Collectors.toList());
     }
-     //   List<Bug> bugs = new ArrayList<>();
-     //   for (Team team : teams) {
-     //       for (Board board : team.getBoards()) {
-     //           bugs.addAll(board.getBugs());
-     //       }
-     //   }
-     //   return bugs;
-     //   }
+    //   List<Bug> bugs = new ArrayList<>();
+    //   for (Team team : teams) {
+    //       for (Board board : team.getBoards()) {
+    //           bugs.addAll(board.getBugs());
+    //       }
+    //   }
+    //   return bugs;
+    //   }
 
     @Override
     public List<Feedback> getAllFeedback() {
@@ -344,14 +344,14 @@ public class TaskManagementSystemRepositoryImpl implements TaskManagementSystemR
                 .collect(Collectors.toList());
 
     }
- //      List<Feedback> feedbacks = new ArrayList<>();
- //      for (Team team : teams) {
- //          for (Board board: team.getBoards()) {
- //             feedbacks.addAll(board.getFeedbacks());
- //          }
- //      }
- //      return feedbacks;
- //      }
+    //      List<Feedback> feedbacks = new ArrayList<>();
+    //      for (Team team : teams) {
+    //          for (Board board: team.getBoards()) {
+    //             feedbacks.addAll(board.getFeedbacks());
+    //          }
+    //      }
+    //      return feedbacks;
+    //      }
 
     @Override
     public List<Story> getAllStories() {
@@ -360,14 +360,51 @@ public class TaskManagementSystemRepositoryImpl implements TaskManagementSystemR
                 .flatMap(board -> board.getStories().stream())
                 .collect(Collectors.toList());
     }
- //      List<Story> stories = new ArrayList<>();
- //      for (Team team : teams) {
- //          for (Board board: team.getBoards()) {
- //              stories.addAll(board.getStories());
- //          }
- //      }
- //      return stories;
- //      }
+
+    //      List<Story> stories = new ArrayList<>();
+    //      for (Team team : teams) {
+    //          for (Board board: team.getBoards()) {
+    //              stories.addAll(board.getStories());
+    //          }
+    //      }
+    //      return stories;
+    //      }
+    @Override
+    public List<Assignable> getAllAssignableTasks() {
+        List<Assignable> assignableTasks = new ArrayList<>();
+        assignableTasks.addAll(getAllBugs());
+        assignableTasks.addAll(getAllStories());
+        return assignableTasks;
+    }
+
+    @Override
+    public boolean ifTaskIsAssignable(int id) {
+        taskExist(id);
+        List<Assignable> tasks = getAllAssignableTasks();
+        for (Task task : tasks) {
+            if (task.getId() == id) {
+                return true;
+            }
+        }
+        throw new IllegalArgumentException("Task is not assignable.");
+    }
+    @Override
+    public boolean ifTaskIsNotAssigned(Assignable task){
+        if (task.getAssignee()!=null){
+            throw new IllegalArgumentException("Task is already assigned.");
+        }
+        return true;
+    }
+    @Override
+    public Assignable findAssignableTaskById(int id){
+        List<Assignable>tasks=getAllAssignableTasks();
+        for (Assignable task : tasks) {
+            if (task.getId()==id){
+                return task;
+            }
+        }
+        throw new IllegalArgumentException("There is no task with this id.");
+    }
 
     @Override
     public List<Board> getAllBoards() {
@@ -375,23 +412,13 @@ public class TaskManagementSystemRepositoryImpl implements TaskManagementSystemR
                 .flatMap(team -> team.getBoards().stream())
                 .collect(Collectors.toList());
     }
- //       List<Board>boards=new ArrayList<>();
- //       for (Team team : teams) {
- //           boards.addAll(team.getBoards());
- //       }
- //       return boards;
- //        }
-    public List<Object>getTasksWIthAssignee(){
-        List<Object>tasksWIthAssignee=new ArrayList<>();
-        tasksWIthAssignee.addAll(getAllBugs());
-        tasksWIthAssignee.addAll(getAllStories());
-        return tasksWIthAssignee;
-    }
+    //       List<Board>boards=new ArrayList<>();
+    //       for (Team team : teams) {
+    //           boards.addAll(team.getBoards());
+    //       }
+    //       return boards;
+    //        }
 
-    //    return Stream.of(getAllBugs(), getAllStories())
-    //        .flatMap(List::stream)
-    //             .collect(Collectors.toList());
-    // }
 }
 
 

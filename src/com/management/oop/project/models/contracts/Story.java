@@ -4,7 +4,7 @@ import com.management.oop.project.models.enums.PriorityEnum;
 import com.management.oop.project.models.enums.StorySizeEnum;
 import com.management.oop.project.models.enums.StoryStatusEnum;
 
-public interface Story extends Task{
+public interface Story extends Task, Assignable{
 
 
     void changePriorityEnum(PriorityEnum priorityEnum);

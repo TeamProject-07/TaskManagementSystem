@@ -23,7 +23,7 @@ public interface TaskManagementSystemRepository {
 
     List<Board> getAllBoards();
 
-    List<Object> getTasksWIthAssignee();
+    List<Assignable> getAllAssignableTasks();
 
     Team findTeamByName(String teamName);
 
@@ -39,6 +39,7 @@ public interface TaskManagementSystemRepository {
     Feedback findFeedbackById(int id);
 
     Task findTaskById(int id);
+    Assignable findAssignableTaskById(int id);
 
 
     boolean personHasTeam(String personName);
@@ -51,6 +52,8 @@ public interface TaskManagementSystemRepository {
     boolean taskExist(int id);
 
     boolean teamExist(String teamName);
+    boolean ifTaskIsAssignable(int id);
+    boolean ifTaskIsNotAssigned(Assignable task);
 
     Person createPerson(String name);
 
