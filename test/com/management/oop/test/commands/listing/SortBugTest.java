@@ -2,7 +2,6 @@ package com.management.oop.test.commands.listing;
 
 import com.management.oop.project.commands.contracts.Command;
 import com.management.oop.project.commands.listing.SortBug;
-import com.management.oop.project.commands.listing.SortFeedback;
 import com.management.oop.project.core.TaskManagementSystemRepositoryImpl;
 import com.management.oop.project.core.contracts.TaskManagementSystemRepository;
 import com.management.oop.project.models.enums.BugSeverityEnum;
@@ -17,7 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SortBugTest {
-    private int EXPECTED_NUMBER_OF_ARGUMENTS = 0;
+    public static final int EXPECTED_NUMBER_OF_ARGUMENTS = 0;
     private List<String> parameters;
     private TaskManagementSystemRepository taskManagementSystemRepository;
     private Command sortBug;
