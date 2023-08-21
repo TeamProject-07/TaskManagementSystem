@@ -13,6 +13,8 @@ import java.util.List;
 public class UnassignTaskToPersonCommand implements Command {
 
     public static final int EXPECTED_NUMBER_OF_ARGUMENTS = 2;
+    public static final String TASK_EXIST = "Task with ID %d was unassigned from person with name %s.";
+    public static final String TASK_DOES_NOT_EXIST = "Task with ID %d doesn't exist.";
 
     private final TaskManagementSystemRepository taskManagementSystemRepository;
 
@@ -34,10 +36,10 @@ public class UnassignTaskToPersonCommand implements Command {
             if (!taskManagementSystemRepository.ifTaskIsNotAssigned(task)) {
                 Person person= taskManagementSystemRepository.findPersonByName(personName);
                 task.unAssignTask(person);
-                return String.format("Task with ID %d was unassigned from person with name %s.", id, personName);
+                return String.format(TASK_EXIST, id, personName);
             }
         }
-        throw new IllegalArgumentException(String.format("Task with ID %d doesn't exist.", id));
+        throw new IllegalArgumentException(String.format(TASK_DOES_NOT_EXIST, id));
     }
 
 }

@@ -12,6 +12,8 @@ import java.util.List;
 
 public class AssignTaskToPersonCommand implements Command {
     public static final int EXPECTED_NUMBER_OF_ARGUMENTS = 2;
+    public static final String TASK_EXIST = "Task with ID %d was assigned to person with name %s.";
+    public static final String TASK_DOES_NOT_EXIST = "Task with ID %d doesn't exist or should be bug or story.";
 
     private final TaskManagementSystemRepository taskManagementSystemRepository;
 
@@ -33,9 +35,9 @@ public class AssignTaskToPersonCommand implements Command {
             if (taskManagementSystemRepository.ifTaskIsNotAssigned(task)) {
                 Person person = taskManagementSystemRepository.findPersonByName(personName);
                 task.assignTask(person);
-                return String.format("Task with ID %d was assigned to person with name %s.", id, personName);
+                return String.format(TASK_EXIST, id, personName);
             }
         }
-        throw new IllegalArgumentException(String.format("Task with ID %d doesn't exist or should be bug or story.", id));
+        throw new IllegalArgumentException(String.format(TASK_DOES_NOT_EXIST, id));
     }
 }
