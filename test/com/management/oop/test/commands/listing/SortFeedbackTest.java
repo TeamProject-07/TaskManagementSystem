@@ -26,7 +26,10 @@ public class SortFeedbackTest {
         sortFeedback = new SortFeedback(taskManagementSystemRepository);
         taskManagementSystemRepository.createTeam("teamName");
         taskManagementSystemRepository.createBoard("boardName", "teamName");
-        taskManagementSystemRepository.createFeedback("boardName", "validTitle", "validDescription", 20, FeedbackStatusEnum.DONE);
+        taskManagementSystemRepository.createFeedback("boardName", "validTitle",
+                "validDescription", 20, FeedbackStatusEnum.DONE);
+        taskManagementSystemRepository.createFeedback("boardName", "validTitle",
+                "validDescription", 20, FeedbackStatusEnum.DONE);
 
     }
     @Test

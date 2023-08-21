@@ -33,7 +33,7 @@ public class ShowBoardActivityCommand implements Command {
             throw new IllegalArgumentException("Don't have activity.");
         }
         for (int i = 0; i < histories.size(); i++) {
-            result.append(String.format("%s ", histories.get(i)));
+            result.append(String.format("%s ", histories.get(i))).append(System.lineSeparator());
         }
         return result.toString();
     }

@@ -2,6 +2,7 @@ package com.management.oop.project.commands.listing;
 
 import com.management.oop.project.commands.contracts.Command;
 import com.management.oop.project.core.contracts.TaskManagementSystemRepository;
+import com.management.oop.project.models.PersonImpl;
 import com.management.oop.project.models.contracts.Assignable;
 import com.management.oop.project.models.contracts.Person;
 import com.management.oop.project.models.enums.BugStatusEnum;
@@ -36,10 +37,9 @@ public class FilterStoryByStatusAndAssignee implements Command {
     private List<Assignable> filterStoryByAssigneeAndStatus(Person assignee, StoryStatusEnum statusEnum) {
         return taskManagementSystemRepository.getAllStories()
                 .stream()
-                .filter(story -> story.getAssignee().equals(assignee))
+                .filter(story -> story.getAssignee() != null)
+                .filter(story -> story.getAssignee().getName().equals(assignee.getName()))
                 .filter(story -> story.getStoryStatusEnum().equals(statusEnum))
                 .collect(Collectors.toList());
-
-
     }
 }

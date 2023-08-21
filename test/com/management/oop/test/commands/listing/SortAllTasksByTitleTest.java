@@ -43,10 +43,10 @@ public class SortAllTasksByTitleTest {
 
     @Test
     public void should_ThrowException_When_ArgumentCountInvalid() {
-//Arrange
+    //Arrange
         parameters = TestUtilities.getList(EXPECTED_NUMBER_OF_ARGUMENTS + 1);
 
-//Act,Assert
+    //Act,Assert
         Assertions.assertThrows(IllegalArgumentException.class, () -> sortAllTasksByTitle.execute(parameters));
     }
 

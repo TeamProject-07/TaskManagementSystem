@@ -22,10 +22,6 @@ public class SortFeedback implements Command {
     @Override
     public String execute(List<String> parameters) {
         ValidationHelpers.validateArgumentsCount(parameters, EXPECTED_NUMBER_OF_ARGUMENTS);
-        return sortFeedback();
-    }
-
-    private String sortFeedback(){
         return feedbacks
                 .stream()
                 .sorted(Comparator.comparing(Feedback :: getTitle).thenComparing(Feedback::getRating))

@@ -14,7 +14,7 @@ public class UnassignTaskToPersonCommand implements Command {
 
     public static final int EXPECTED_NUMBER_OF_ARGUMENTS = 2;
     public static final String TASK_EXIST = "Task with ID %d was unassigned from person with name %s.";
-    public static final String TASK_DOES_NOT_EXIST = "Task with ID %d doesn't exist.";
+    public static final String TASK_DOES_NOT_EXIST = "There is no assigned task to person with name: %s.";
 
     private final TaskManagementSystemRepository taskManagementSystemRepository;
 
@@ -33,13 +33,12 @@ public class UnassignTaskToPersonCommand implements Command {
     private String unAssignTask(String personName, int id) {
         if (taskManagementSystemRepository.taskExist(id) && taskManagementSystemRepository.ifTaskIsAssignable(id)) {
             Assignable task = taskManagementSystemRepository.findAssignableTaskById(id);
-            if (!taskManagementSystemRepository.ifTaskIsNotAssigned(task)) {
-                Person person= taskManagementSystemRepository.findPersonByName(personName);
+            if (task.getAssignee() != null) {
+                Person person = taskManagementSystemRepository.findPersonByName(personName);
                 task.unAssignTask(person);
                 return String.format(TASK_EXIST, id, personName);
             }
         }
-        throw new IllegalArgumentException(String.format(TASK_DOES_NOT_EXIST, id));
+        throw new IllegalArgumentException(String.format(TASK_DOES_NOT_EXIST, personName));
     }
-
 }
