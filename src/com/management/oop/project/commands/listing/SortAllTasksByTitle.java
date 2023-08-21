@@ -10,7 +10,7 @@ import java.util.List;
 
 public class SortAllTasksByTitle implements Command {
 
-    public static final int EXPECTED_NUMBER_OF_ARGUMENTS = 0;
+    public static final int EXPECTED_NUMBER_OF_ARGUMENTS =    0;
 
     TaskManagementSystemRepository taskManagementSystemRepository;
     private List<Task> tasks;

@@ -18,7 +18,7 @@ import java.util.List;
 
 public class SortStoryTest {
 
-    public static final int EXPECTED_NUMBER_OF_ARGUMENTS = 0;
+    public static final int EXPECTED_NUMBER_OF_ARGUMENTS =   0;
     private List<String> parameters;
     private TaskManagementSystemRepository taskManagementSystemRepository;
     private Command sortStory;

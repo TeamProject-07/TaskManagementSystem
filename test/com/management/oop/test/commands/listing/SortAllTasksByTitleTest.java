@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SortAllTasksByTitleTest {
-    public static final int EXPECTED_NUMBER_OF_ARGUMENTS = 0;
+    public static final int EXPECTED_NUMBER_OF_ARGUMENTS =   0;
     private TaskManagementSystemRepository taskManagementSystemRepository;
 
     private Command sortAllTasksByTitle;
