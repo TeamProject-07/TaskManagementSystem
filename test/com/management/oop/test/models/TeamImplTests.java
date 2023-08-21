@@ -5,7 +5,7 @@ import com.management.oop.project.models.TeamImpl;
 import com.management.oop.project.models.contracts.Board;
 import com.management.oop.project.models.contracts.Person;
 import com.management.oop.project.models.contracts.Team;
-import com.management.oop.test.utils.TestUtilities;
+import com.management.oop.test.utils.TaskBaseConstants;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -14,12 +14,6 @@ import static com.management.oop.test.models.PersonImplTests.initializeTestPerso
 import static org.junit.jupiter.api.Assertions.*;
 
 public class TeamImplTests {
-    public static final int NAME_MIN_LENGTH = 5;
-    public static final int NAME_MAX_LENGTH = 15;
-    public static final String INVALID_TEAM_NAME = TestUtilities.getString(NAME_MAX_LENGTH + 1);
-
-    public static final String VALID_TEAM_NAME = TestUtilities.getString(NAME_MIN_LENGTH + 1);
-
     @Test
     public void teamImpl_Should_ImplementTeamInterface() {
         //Arrange, act
@@ -31,13 +25,13 @@ public class TeamImplTests {
     @Test
     public void constructor_Should_ThrowException_When_TitleNameLengthOutOfBounds() {
         // Arrange, Act, Assert
-        assertThrows(IllegalArgumentException.class, () -> new TeamImpl(INVALID_TEAM_NAME));
+        assertThrows(IllegalArgumentException.class, () -> new TeamImpl("aaa"));
     }
 
     @Test
     public void construct_Should_CreateTeam_When_NameIsValid() {
         // Arrange, Act, Assert
-        assertDoesNotThrow(() -> new TeamImpl(VALID_TEAM_NAME));
+        assertDoesNotThrow(() -> new TeamImpl(TaskBaseConstants.VALID_TEAM_NAME));
     }
 
     @Test
@@ -50,7 +44,7 @@ public class TeamImplTests {
     }
 
     @Test
-    public void construct_Should_InitializeNewListOfBoard_When_TeamIsCreated() {
+    public void constructor_Should_InitializeNewListOfBoard_When_TeamIsCreated() {
         // Arrange, Act
         Team team = initializeTestTeam();
 
@@ -111,13 +105,7 @@ public class TeamImplTests {
         assertNotNull(team.getBoards());
     }
 
-    //for commands
-    public static Team addInitializedTeamToRepository
-    (TaskManagementSystemRepository repository) {
-        return repository.createTeam(VALID_TEAM_NAME);
-    }
-
     public static TeamImpl initializeTestTeam() {
-        return new TeamImpl(VALID_TEAM_NAME);
+        return new TeamImpl(TaskBaseConstants.VALID_TEAM_NAME);
     }
 }

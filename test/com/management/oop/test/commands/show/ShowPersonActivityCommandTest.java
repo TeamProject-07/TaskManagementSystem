@@ -1,12 +1,10 @@
 package com.management.oop.test.commands.show;
 
 import com.management.oop.project.commands.contracts.Command;
-import com.management.oop.project.commands.show.ShowAllTeamsCommand;
 import com.management.oop.project.commands.show.ShowPersonActivityCommand;
 import com.management.oop.project.core.TaskManagementSystemRepositoryImpl;
 import com.management.oop.project.core.contracts.TaskManagementSystemRepository;
 import com.management.oop.project.models.PersonImpl;
-import com.management.oop.project.models.TeamImpl;
 import com.management.oop.project.models.contracts.Person;
 import com.management.oop.test.utils.TestUtilities;
 import org.junit.jupiter.api.Assertions;

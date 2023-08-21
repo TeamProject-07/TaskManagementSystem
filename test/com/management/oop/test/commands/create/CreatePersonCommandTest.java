@@ -4,7 +4,6 @@ import com.management.oop.project.commands.contracts.Command;
 import com.management.oop.project.commands.create.CreatePersonCommand;
 import com.management.oop.project.core.TaskManagementSystemRepositoryImpl;
 import com.management.oop.project.core.contracts.TaskManagementSystemRepository;
-import com.management.oop.project.models.PersonImpl;
 import com.management.oop.test.models.PersonImplTests;
 import com.management.oop.test.utils.TestUtilities;
 import org.junit.jupiter.api.Assertions;

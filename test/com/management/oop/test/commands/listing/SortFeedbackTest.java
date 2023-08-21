@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SortFeedbackTest {
-    public static final int EXPECTED_NUMBER_OF_ARGUMENTS = 1;
+    public static final int EXPECTED_NUMBER_OF_ARGUMENTS = 0;
     private List<String> parameters;
     private TaskManagementSystemRepository taskManagementSystemRepository;
     private Command sortFeedback;
@@ -26,10 +26,8 @@ public class SortFeedbackTest {
         sortFeedback = new SortFeedback(taskManagementSystemRepository);
         taskManagementSystemRepository.createTeam("teamName");
         taskManagementSystemRepository.createBoard("boardName", "teamName");
-        taskManagementSystemRepository.createFeedback("boardName",
-                "validTitle", "validDescription", 20, FeedbackStatusEnum.DONE);
-        taskManagementSystemRepository.createFeedback("boardName",
-                "aValidTitle", "validDescription", 20, FeedbackStatusEnum.DONE);
+        taskManagementSystemRepository.createFeedback("boardName", "validTitle", "validDescription", 20, FeedbackStatusEnum.DONE);
+
     }
     @Test
     public void should_ThrowException_When_ArgumentCountInvalid() {
@@ -38,12 +36,5 @@ public class SortFeedbackTest {
 
         // Act, Assert
         Assertions.assertThrows(IllegalArgumentException.class, () -> sortFeedback.execute(parameters));
-    }
-    @Test
-    public void should_ReturnFeedback_WhenParameters_AreValid() {
-        //Arrange, Act
-        String result = sortFeedback.execute(parameters);
-        //Assert
-
     }
 }
