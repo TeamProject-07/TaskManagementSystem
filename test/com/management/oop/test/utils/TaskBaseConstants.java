@@ -25,7 +25,5 @@ public class TaskBaseConstants {
     public static final String INVALID_TEAM_NAME = TestUtilities.getString(TEAM_NAME_MAX_LENGTH - 1);
     public static final String VALID_DESCRIPTION = TestUtilities.getString(DESCRIPTION_MIN_LENGTH + 1);
     public static final String INVALID_DESCRIPTION = TestUtilities.getString(DESCRIPTION_MIN_LENGTH - 1);
-
-
     public static final List<String> STEPS = new ArrayList<>();
 }

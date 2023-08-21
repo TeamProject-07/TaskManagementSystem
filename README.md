@@ -1,7 +1,7 @@
 
 # TaskManagementSystem
 
-The Task Management System is a web application that allows users to manage their tasks. The application allows users to create new tasks, edit existing tasks, and delete tasks. Users can also assign tasks to other users, add comments to tasks, and view the status of tasks. The application also allows users to filter tasks by status, priority, and assignee. The Task Management System is a valuable tool for teams that need to track and manage their work. The application is easy to use and can help teams to be more productive.
+The Task Management System is a console application that allows users to manage their tasks. The application allows users to create new tasks, edit existing tasks, and delete tasks. Users can also assign tasks to other users, add comments to tasks, and view the status of tasks. The application also allows users to filter tasks by status, priority, and assignee. The Task Management System is a valuable tool for teams that need to track and manage their work. The application is easy to use and can help teams to be more productive.
 
 ## HowItWorks
 The application operates based on the following core concepts and functionalities:
@@ -43,7 +43,7 @@ We are a dynamic team of three passionate individuals who embarked on the journe
 \
 👨🏼‍💻Dimitar Tsanev: A creative thinker and avid coder, Mitko has been contributing to the core functionality and intricate coding aspects of the application. \
 \
-We are all students in the Java Alpha 53 class, and this project marks our first collaborative effort in building a software application from the ground up. Throughout this project, we've not only deepened our technical knowledge but also developed strong teamwork skills. This project brought us together, and we're excited to showcase our collaborative efforts.\
+We are all students in the Java Alpha 53 program, and this project marks our first collaborative effort in building a software application from the ground up. Throughout this project, we've not only deepened our technical knowledge but also developed strong teamwork skills. This project brought us together, and we're excited to showcase our collaborative efforts.\
 \
 We met for the first time during this project, and our diverse backgrounds and shared passion for programming have fostered a dynamic and innovative team spirit. As we navigate through the challenges and triumphs of our first project, we look forward to showcasing our collective dedication and hard work in the Task Management Console Application.
 
