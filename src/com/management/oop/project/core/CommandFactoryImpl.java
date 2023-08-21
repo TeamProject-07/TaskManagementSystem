@@ -10,7 +10,7 @@ import com.management.oop.project.commands.change.ChangeStoryCommand;
 import com.management.oop.project.commands.contracts.Command;
 import com.management.oop.project.commands.create.*;
 import com.management.oop.project.commands.enums.CommandType;
-import com.management.oop.project.commands.listing.SortAllTasksByTitle;
+import com.management.oop.project.commands.listing.*;
 import com.management.oop.project.commands.show.*;
 import com.management.oop.project.core.contracts.CommandFactory;
 import com.management.oop.project.core.contracts.TaskManagementSystemRepository;
@@ -66,6 +66,32 @@ public class CommandFactoryImpl implements CommandFactory {
                 return new AddCommentToATask(taskManagementSystemRepository);
             case SORTALLTASKSBYTITLE:
                 return new SortAllTasksByTitle(taskManagementSystemRepository);
+            case SORTTASKSWITHASSIGNEEBYTITLE:
+                return new SortTasksWithAssigneeByTitle(taskManagementSystemRepository);
+            case SORTSTORY:
+                return new SortStory(taskManagementSystemRepository);
+            case SORTFEEDBACK:
+                return new SortFeedback(taskManagementSystemRepository);
+            case SORTBUG:
+                return new SortBug(taskManagementSystemRepository);
+            case FILTERSTORYBYSTATUSANDASSIGNEE:
+                return new FilterStoryByStatusAndAssignee(taskManagementSystemRepository);
+            case FILTERSTORYBYSTATUS:
+                return new FilterStoryByStatus(taskManagementSystemRepository);
+            case FILTERSTORYBYASSIGNEE:
+                return new FilterStoryByAssignee(taskManagementSystemRepository);
+            case FILTERFEEDBACKBYSTATUS:
+                return new FilterFeedbackByStatus(taskManagementSystemRepository);
+            case FILTERBUGBYSTATUSANDASSIGNEE:
+                return new FilterBugByStatusAndAssignee(taskManagementSystemRepository);
+            case FILTERBUGBYSTATUS:
+                return new FilterBugByStatus(taskManagementSystemRepository);
+            case FILTERBUGBYASSIGNEE:
+                return new FilterBugByAssignee(taskManagementSystemRepository);
+            case FILTERASSIGNABLETASKBYASSIGNEE:
+                return new FilterAssignableTaskByAssignee(taskManagementSystemRepository);
+            case FILTERALLTASKSBYTITLE:
+                return new FilterAllTasksByTitle(taskManagementSystemRepository);
 
             default:
                 throw new IllegalArgumentException(String.format(INVALID_COMMAND, commandName));

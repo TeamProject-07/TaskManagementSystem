@@ -21,11 +21,6 @@ public class PersonImpl implements Person {
     }
 
     @Override
-    public String toString() {
-        return super.toString();
-    }
-
-    @Override
     public String getName() {
         return this.name;
     }
