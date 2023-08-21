@@ -1,13 +1,12 @@
 package com.management.oop.test.models;
 
-import com.management.oop.project.models.EventLogImpl;
 import com.management.oop.project.models.PersonImpl;
 import com.management.oop.project.models.tasks.StoryImpl;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class PersonImplTests {
-    public static final int USERNAME_LEN_MIN = 2;
+    public static final String INVALID_USERNAME ="aaa";
     public static final String VALID_USERNAME = "PersonName";
 
     @Test

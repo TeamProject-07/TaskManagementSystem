@@ -1,13 +1,10 @@
 package com.management.oop.test.commands.listing;
 
 import com.management.oop.project.commands.contracts.Command;
-import com.management.oop.project.commands.listing.FilterBugByStatus;
 import com.management.oop.project.commands.listing.SortFeedback;
 import com.management.oop.project.core.TaskManagementSystemRepositoryImpl;
 import com.management.oop.project.core.contracts.TaskManagementSystemRepository;
-import com.management.oop.project.models.contracts.Bug;
 import com.management.oop.project.models.enums.FeedbackStatusEnum;
-import com.management.oop.test.models.BugImplTests;
 import com.management.oop.test.utils.TestUtilities;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -17,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SortFeedbackTest {
-    public static final int EXPECTED_NUMBER_OF_ARGUMENTS = 1;
+    public static final int EXPECTED_NUMBER_OF_ARGUMENTS = 0;
     private List<String> parameters;
     private TaskManagementSystemRepository taskManagementSystemRepository;
     private Command sortFeedback;
@@ -30,6 +27,7 @@ public class SortFeedbackTest {
         taskManagementSystemRepository.createTeam("teamName");
         taskManagementSystemRepository.createBoard("boardName", "teamName");
         taskManagementSystemRepository.createFeedback("boardName", "validTitle", "validDescription", 20, FeedbackStatusEnum.DONE);
+
     }
     @Test
     public void should_ThrowException_When_ArgumentCountInvalid() {

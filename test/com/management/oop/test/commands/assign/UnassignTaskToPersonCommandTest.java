@@ -1,11 +1,9 @@
 package com.management.oop.test.commands.assign;
 
-import com.management.oop.project.commands.add.AddCommentToATask;
 import com.management.oop.project.commands.assign.UnassignTaskToPersonCommand;
 import com.management.oop.project.commands.contracts.Command;
 import com.management.oop.project.core.TaskManagementSystemRepositoryImpl;
 import com.management.oop.project.core.contracts.TaskManagementSystemRepository;
-import com.management.oop.project.models.BoardImpl;
 import com.management.oop.project.models.PersonImpl;
 import com.management.oop.project.models.TeamImpl;
 import com.management.oop.project.models.contracts.Board;

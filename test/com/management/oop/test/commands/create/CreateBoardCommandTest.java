@@ -3,8 +3,6 @@ package com.management.oop.test.commands.create;
 import com.management.oop.project.commands.create.CreateBoardCommand;
 import com.management.oop.project.core.TaskManagementSystemRepositoryImpl;
 import com.management.oop.project.core.contracts.TaskManagementSystemRepository;
-import com.management.oop.project.models.contracts.Board;
-import com.management.oop.test.models.BoardImplTests;
 import com.management.oop.test.utils.TaskBaseConstants;
 import com.management.oop.test.utils.TestUtilities;
 import org.junit.jupiter.api.Assertions;
@@ -30,7 +28,8 @@ public class CreateBoardCommandTest {
     public void execute_Should_ThrowException_When_MissingParameters() {
         parameters = TestUtilities.getList(0);
 
-        Assertions.assertThrows(IllegalArgumentException.class, () -> createBoardCommand.execute(parameters));
+        Assertions.assertThrows(IllegalArgumentException.class,
+                () -> createBoardCommand.execute(parameters));
     }
     @Test
     public void execute_Should_ThrowException_When_InvalidBoardName() {
@@ -51,7 +50,8 @@ public class CreateBoardCommandTest {
         parameters.add(TaskBaseConstants.VALID_TEAM_NAME);
 
 
-        Assertions.assertThrows(IllegalArgumentException.class, () -> createBoardCommand.execute(parameters));
+        Assertions.assertThrows(IllegalArgumentException.class,
+                () -> createBoardCommand.execute(parameters));
 
     }
 

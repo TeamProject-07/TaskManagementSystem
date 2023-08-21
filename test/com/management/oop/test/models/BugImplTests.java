@@ -1,6 +1,5 @@
 package com.management.oop.test.models;
 
-import com.management.oop.project.models.CommentImpl;
 import com.management.oop.project.models.contracts.Bug;
 import com.management.oop.project.models.enums.BugSeverityEnum;
 import com.management.oop.project.models.enums.BugStatusEnum;
@@ -9,7 +8,6 @@ import com.management.oop.project.models.tasks.BugImpl;
 import com.management.oop.test.utils.TaskBaseConstants;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.w3c.dom.Comment;
 
 import java.util.ArrayList;
 import java.util.List;
