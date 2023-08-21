@@ -7,12 +7,12 @@ import com.management.oop.project.utils.ValidationHelpers;
 
 import java.util.List;
 
-public class FilterAllTasks implements Command {
+public class FilterAllTasksByTitle implements Command {
     public static final int EXPECTED_NUMBER_OF_ARGUMENTS = 1;
     private TaskManagementSystemRepository taskManagementSystemRepository;
     private List<Task> tasks;
 
-    public FilterAllTasks(TaskManagementSystemRepository taskManagementSystemRepository) {
+    public FilterAllTasksByTitle(TaskManagementSystemRepository taskManagementSystemRepository) {
         this.taskManagementSystemRepository = taskManagementSystemRepository;
         this.tasks = taskManagementSystemRepository.getAllTasks();
     }

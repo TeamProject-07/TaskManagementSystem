@@ -2,7 +2,6 @@ package com.management.oop.project.commands.listing;
 
 import com.management.oop.project.commands.contracts.Command;
 import com.management.oop.project.core.contracts.TaskManagementSystemRepository;
-import com.management.oop.project.models.PersonImpl;
 import com.management.oop.project.models.contracts.Assignable;
 import com.management.oop.project.models.contracts.Person;
 import com.management.oop.project.utils.ListingHelpers;
@@ -11,12 +10,11 @@ import com.management.oop.project.utils.ValidationHelpers;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class FilterAssignableTask implements Command {
+public class FilterStoryByAssignee implements Command {
     public static final int EXPECTED_NUMBER_OF_ARGUMENTS = 1;
-
     private final TaskManagementSystemRepository taskManagementSystemRepository;
 
-    public FilterAssignableTask(TaskManagementSystemRepository taskManagementSystemRepository) {
+    public FilterStoryByAssignee(TaskManagementSystemRepository taskManagementSystemRepository) {
         this.taskManagementSystemRepository = taskManagementSystemRepository;
     }
 
@@ -25,13 +23,12 @@ public class FilterAssignableTask implements Command {
         ValidationHelpers.validateArgumentsCount(parameters, EXPECTED_NUMBER_OF_ARGUMENTS);
         String personName = parameters.get(0);
         Person person = taskManagementSystemRepository.findPersonByName(personName);
-        return ListingHelpers.getAsString(filterAssignableTask(person));
+        return ListingHelpers.getAsString(filterStoryByAssignee(person));
     }
-
-    private List<Assignable> filterAssignableTask(Person assignee){
-        return taskManagementSystemRepository.getTasksWithAssignee()
+    private List<Assignable> filterStoryByAssignee(Person assignee){
+        return taskManagementSystemRepository.getAllStories()
                 .stream()
-                .filter(task -> task.getAssignee().equals(assignee))
+                .filter(story -> story.getAssignee().equals(assignee))
                 .collect(Collectors.toList());
     }
 }

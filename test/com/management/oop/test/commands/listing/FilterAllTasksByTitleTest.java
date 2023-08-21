@@ -1,5 +1,5 @@
 package com.management.oop.test.commands.listing;
-import com.management.oop.project.commands.listing.FilterAllTasks;
+import com.management.oop.project.commands.listing.FilterAllTasksByTitle;
 import com.management.oop.project.core.TaskManagementSystemRepositoryImpl;
 import com.management.oop.project.core.contracts.TaskManagementSystemRepository;
 import com.management.oop.test.utils.TestUtilities;
@@ -9,18 +9,18 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FilterAllTasksTest {
+public class FilterAllTasksByTitleTest {
     public static final int EXPECTED_NUMBER_OF_ARGUMENTS = 1;
 
     private List<String> parameters;
     private TaskManagementSystemRepository repository;
-    private FilterAllTasks filterAllTasks;
+    private FilterAllTasksByTitle filterAllTasks;
 
     @BeforeEach
     public void before() {
         parameters = new ArrayList<>();
         repository = new TaskManagementSystemRepositoryImpl();
-        filterAllTasks = new FilterAllTasks(repository);
+        filterAllTasks = new FilterAllTasksByTitle(repository);
     }
 
     @Test
