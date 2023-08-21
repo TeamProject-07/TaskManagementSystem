@@ -1,6 +1,7 @@
 package com.management.oop.test.commands.listing;
 
 import com.management.oop.project.commands.contracts.Command;
+import com.management.oop.project.commands.listing.SortBug;
 import com.management.oop.project.commands.listing.SortFeedback;
 import com.management.oop.project.core.TaskManagementSystemRepositoryImpl;
 import com.management.oop.project.core.contracts.TaskManagementSystemRepository;
@@ -25,7 +26,7 @@ public class SortBugTest {
     public void before(){
         parameters = new ArrayList<>();
         taskManagementSystemRepository = new TaskManagementSystemRepositoryImpl();
-        sortBug = new SortFeedback(taskManagementSystemRepository);
+        sortBug = new SortBug(taskManagementSystemRepository);
         taskManagementSystemRepository.createTeam(TaskBaseConstants.VALID_TEAM_NAME);
         taskManagementSystemRepository.createBoard(TaskBaseConstants.VALID_BOARD_NAME,
                 TaskBaseConstants.VALID_TEAM_NAME);

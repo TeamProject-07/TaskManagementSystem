@@ -4,9 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f4d32bab-62d7-485a-a9dd-6cb272e43dff" name="Changes" comment="Update tests">
+    <list default="true" id="f4d32bab-62d7-485a-a9dd-6cb272e43dff" name="Changes" comment="Added README">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_13_2023_5_36_PM__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_13_2023_5_48_PM__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/commands/listing/ListTasksWithAssignee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/commands/listing/ListTasksWithAssignee.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/com/management/oop/test/commands/listing/ListTasksWithAssigneeTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/com/management/oop/test/commands/listing/ListTasksWithAssigneeTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/com/management/oop/test/commands/listing/SortFeedbackTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/com/management/oop/test/commands/listing/SortFeedbackTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -50,7 +53,7 @@
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
   }
 }</component>
-  <component name="RunManager" selected="JUnit.All in TaskManagementSystem">
+  <component name="RunManager" selected="JUnit.SortBugTest">
     <configuration name="All in TaskManagementSystem" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="TaskManagementSystem" />
       <option name="PACKAGE_NAME" value="" />
@@ -74,6 +77,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="SortBugTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="TaskManagementSystem" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.management.oop.test.commands.listing.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.management.oop.test.commands.listing" />
+      <option name="MAIN_CLASS_NAME" value="com.management.oop.test.commands.listing.SortBugTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="TaskManagementSystemRepositoryImplTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="TaskManagementSystem" />
       <extension name="coverage">
@@ -85,22 +103,6 @@
       <option name="PACKAGE_NAME" value="com.management.oop.test.core" />
       <option name="MAIN_CLASS_NAME" value="com.management.oop.test.core.TaskManagementSystemRepositoryImplTest" />
       <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TaskManagementSystemRepositoryImplTest.findBugById_Should_ReturnId_When_Exists" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="TaskManagementSystem" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.management.oop.test.core.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.management.oop.test.core" />
-      <option name="MAIN_CLASS_NAME" value="com.management.oop.test.core.TaskManagementSystemRepositoryImplTest" />
-      <option name="METHOD_NAME" value="findBugById_Should_ReturnId_When_Exists" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -122,19 +124,19 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="JUnit.SortBugTest" />
       <item itemvalue="JUnit.BoardImplTests" />
       <item itemvalue="JUnit.TaskManagementSystemRepositoryImplTest" />
-      <item itemvalue="JUnit.TaskManagementSystemRepositoryImplTest.findBugById_Should_ReturnId_When_Exists" />
       <item itemvalue="JUnit.TaskManagementSystemRepositoryImplTest.findFeedbackById_Should_ReturnId_When_Exists" />
       <item itemvalue="JUnit.All in TaskManagementSystem" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.SortBugTest" />
         <item itemvalue="JUnit.All in TaskManagementSystem" />
         <item itemvalue="JUnit.TaskManagementSystemRepositoryImplTest" />
         <item itemvalue="JUnit.BoardImplTests" />
         <item itemvalue="JUnit.TaskManagementSystemRepositoryImplTest.findFeedbackById_Should_ReturnId_When_Exists" />
-        <item itemvalue="JUnit.TaskManagementSystemRepositoryImplTest.findBugById_Should_ReturnId_When_Exists" />
       </list>
     </recent_temporary>
   </component>
@@ -294,7 +296,14 @@
       <option name="project" value="LOCAL" />
       <updated>1692559307584</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Added README">
+      <created>1692560907000</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1692560907000</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -331,7 +340,8 @@
     <MESSAGE value="Update test" />
     <MESSAGE value="Update import package" />
     <MESSAGE value="Update tests" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update tests" />
+    <MESSAGE value="Added README" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added README" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -14,4 +14,5 @@ public class ListTasksWithAssignee {
         this.taskManagementSystemRepository = taskManagementSystemRepository;
         this.tasks = taskManagementSystemRepository.getAllTasks();
     }
+
 }
