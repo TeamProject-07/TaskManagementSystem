@@ -13,14 +13,14 @@ public class FilterAllTasksByTitleTest {
     public static final int EXPECTED_NUMBER_OF_ARGUMENTS =  1;
 
     private List<String> parameters;
-    private TaskManagementSystemRepository repository;
+    private TaskManagementSystemRepository taskManagementSystemRepository;
     private FilterAllTasksByTitle filterAllTasks;
 
     @BeforeEach
     public void before() {
         parameters = new ArrayList<>();
-        repository = new TaskManagementSystemRepositoryImpl();
-        filterAllTasks = new FilterAllTasksByTitle(repository);
+        taskManagementSystemRepository = new TaskManagementSystemRepositoryImpl();
+        filterAllTasks = new FilterAllTasksByTitle(taskManagementSystemRepository);
     }
 
     @Test
@@ -31,9 +31,5 @@ public class FilterAllTasksByTitleTest {
         // Act, Assert
         Assertions.assertThrows(IllegalArgumentException.class,
                 () -> filterAllTasks.execute(parameters));
-    }
-
-    @Test
-    public void should_ThrowException_WhenKeywordDoesNotExistInTitle() {
     }
 }
