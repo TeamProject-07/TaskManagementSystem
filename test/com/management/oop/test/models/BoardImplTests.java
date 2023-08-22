@@ -1,10 +1,7 @@
 package com.management.oop.test.models;
 
 import com.management.oop.project.models.BoardImpl;
-import com.management.oop.project.models.contracts.Board;
-import com.management.oop.project.models.contracts.Bug;
-import com.management.oop.project.models.contracts.Feedback;
-import com.management.oop.project.models.contracts.Story;
+import com.management.oop.project.models.contracts.*;
 import com.management.oop.project.models.enums.*;
 import com.management.oop.project.models.tasks.BugImpl;
 import com.management.oop.project.models.tasks.FeedbackImpl;
@@ -111,6 +108,15 @@ public class BoardImplTests {
         // Assert
         Assertions.assertEquals(0, board.getTasks().size());
     }
+    @Test
+    public void getAsString_Should_printBoard() {
+        // Arrange
+        Board board=initializeTestBoard();
+
+        // Act, Assert
+        Assertions.assertEquals("Board name: xxxxxx", board.getAsString());
+    }
+
     public static BoardImpl initializeTestBoard() {
         return new BoardImpl(TaskBaseConstants.VALID_BOARD_NAME);
     }
