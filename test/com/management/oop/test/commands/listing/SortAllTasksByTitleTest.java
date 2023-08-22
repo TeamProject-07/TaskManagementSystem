@@ -6,10 +6,8 @@ import com.management.oop.project.core.TaskManagementSystemRepositoryImpl;
 import com.management.oop.project.core.contracts.TaskManagementSystemRepository;
 import com.management.oop.project.models.contracts.Board;
 import com.management.oop.project.models.contracts.Bug;
-import com.management.oop.project.models.contracts.Task;
 import com.management.oop.project.models.enums.BugSeverityEnum;
 import com.management.oop.project.models.enums.PriorityEnum;
-import com.management.oop.project.utils.ListingHelpers;
 import com.management.oop.test.utils.TaskBaseConstants;
 import com.management.oop.test.utils.TestUtilities;
 import org.junit.jupiter.api.Assertions;
@@ -36,22 +34,23 @@ public class SortAllTasksByTitleTest {
         taskManagementSystemRepository = new TaskManagementSystemRepositoryImpl();
         sortAllTasksByTitle = new SortAllTasksByTitle(taskManagementSystemRepository);
         taskManagementSystemRepository.createTeam(TaskBaseConstants.VALID_TEAM_NAME);
-        this.board=taskManagementSystemRepository.createBoard(
+        this.board = taskManagementSystemRepository.createBoard(
                 TaskBaseConstants.VALID_BOARD_NAME,
                 TaskBaseConstants.VALID_TEAM_NAME);
-        this.bug=taskManagementSystemRepository.createBug(board.getName(),
-                "validTitle1",
+        this.bug = taskManagementSystemRepository.createBug(board.getName(),
+                TaskBaseConstants.VALID_TITLE_1,
                 TaskBaseConstants.VALID_DESCRIPTION,
                 TaskBaseConstants.STEPS,
                 PriorityEnum.HIGH,
                 BugSeverityEnum.CRITICAL);
-        this.bug1=taskManagementSystemRepository.createBug(board.getName(),
-                "validTitle",
+        this.bug1 = taskManagementSystemRepository.createBug(board.getName(),
+                TaskBaseConstants.VALID_TITLE,
                 TaskBaseConstants.VALID_DESCRIPTION,
                 TaskBaseConstants.STEPS,
                 PriorityEnum.HIGH,
                 BugSeverityEnum.CRITICAL);
     }
+
     @Test
     public void should_ThrowException_When_ArgumentCountInvalid() {
         //Arrange
@@ -61,16 +60,17 @@ public class SortAllTasksByTitleTest {
         Assertions.assertThrows(IllegalArgumentException.class,
                 () -> sortAllTasksByTitle.execute(parameters));
     }
+
     @Test
-    public void should_SortTasks_When_ExecuteCommand(){
+    public void should_SortTasks_When_ExecuteCommand() {
         //Arrange
-        List<String>params=new ArrayList<>();
+        List<String> params = new ArrayList<>();
         // Act
-        List<String>tasks=new ArrayList<>();
+        List<String> tasks = new ArrayList<>();
         tasks.add(bug1.getTitle());
         tasks.add(bug.getTitle());
-        String expectedResult= tasks.toString();
-        String result=sortAllTasksByTitle.execute(params);
+        String expectedResult = tasks.toString();
+        String result = sortAllTasksByTitle.execute(params);
         //Assert
         Assertions.assertEquals(expectedResult, result);
     }

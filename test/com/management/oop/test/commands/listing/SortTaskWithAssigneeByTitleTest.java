@@ -37,7 +37,7 @@ public class SortTaskWithAssigneeByTitleTest {
         sortTaskWithAssignee = new SortTasksWithAssigneeByTitle(taskManagementSystemRepository);
         taskManagementSystemRepository.createTeam(TaskBaseConstants.VALID_TEAM_NAME);
 
-        this.board=taskManagementSystemRepository.createBoard(
+        this.board = taskManagementSystemRepository.createBoard(
                 TaskBaseConstants.VALID_BOARD_NAME,
                 TaskBaseConstants.VALID_TEAM_NAME);
         this.bug = taskManagementSystemRepository.createBug(
@@ -67,7 +67,7 @@ public class SortTaskWithAssigneeByTitleTest {
     }
 
     @Test
-    public void shouldSortTask_When_ExecuteCommand(){
+    public void shouldSortTask_When_ExecuteCommand() {
         // Arrange
         List<String> parameters = new ArrayList<>();
 
