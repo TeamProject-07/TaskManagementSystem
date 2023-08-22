@@ -42,3 +42,4 @@ public class SortStoryTest {
         Assertions.assertThrows(IllegalArgumentException.class, () -> sortStory.execute(parameters));
     }
 }
+
