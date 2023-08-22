@@ -10,9 +10,9 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 public class EventLogImplTests {
     @Test
     public void eventLogImpl_Should_ImplementEventLogInterface() {
-        //Arrange, act
+        // Arrange, act
         EventLogImpl eventLog = initializeTestEventLog();
-        //Assert
+        // Assert
         Assertions.assertTrue(eventLog instanceof EventLog);
     }
     @Test

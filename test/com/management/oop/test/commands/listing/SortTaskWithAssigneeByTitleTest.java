@@ -6,7 +6,6 @@ import com.management.oop.project.core.TaskManagementSystemRepositoryImpl;
 import com.management.oop.project.core.contracts.TaskManagementSystemRepository;
 import com.management.oop.test.utils.TestUtilities;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -19,14 +18,15 @@ public class SortTaskWithAssigneeByTitleTest {
     private TaskManagementSystemRepository taskManagementSystemRepository;
     private Command sortTaskWithAssignee;
 
-  @BeforeEach
-  public void before(){
-      taskManagementSystemRepository = new TaskManagementSystemRepositoryImpl();
-      parameters = new ArrayList<>();
-      sortTaskWithAssignee = new SortTasksWithAssigneeByTitle(taskManagementSystemRepository);
-  }
+    @BeforeEach
+    public void before() {
+        taskManagementSystemRepository = new TaskManagementSystemRepositoryImpl();
+        parameters = new ArrayList<>();
+        sortTaskWithAssignee = new SortTasksWithAssigneeByTitle(taskManagementSystemRepository);
+    }
+
     @Test
-    public void should_ThrowException_When_ArgumentCountInvalid(){
+    public void should_ThrowException_When_ArgumentCountInvalid() {
         // Arrange
         parameters = TestUtilities.getList(EXPECTED_NUMBER_OF_ARGUMENTS + 1);
 

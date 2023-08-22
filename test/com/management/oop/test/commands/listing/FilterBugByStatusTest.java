@@ -8,6 +8,7 @@ import com.management.oop.project.models.contracts.Bug;
 import com.management.oop.project.models.enums.BugSeverityEnum;
 import com.management.oop.project.models.enums.PriorityEnum;
 import com.management.oop.project.utils.ListingHelpers;
+import com.management.oop.test.utils.TaskBaseConstants;
 import com.management.oop.test.utils.TestUtilities;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -30,10 +31,16 @@ public class FilterBugByStatusTest {
         steps = new ArrayList<>();
         taskManagementSystemRepository = new TaskManagementSystemRepositoryImpl();
         filterBugByStatus = new FilterBugByStatus(taskManagementSystemRepository);
-        taskManagementSystemRepository.createTeam("teamName");
-        taskManagementSystemRepository.createBoard("boardName", "teamName");
-        bug = taskManagementSystemRepository.createBug("boardName", "validTitle", "validDescription",
-                steps, PriorityEnum.HIGH, BugSeverityEnum.MAJOR);
+        taskManagementSystemRepository.createTeam(TaskBaseConstants.VALID_TEAM_NAME);
+        taskManagementSystemRepository.createBoard(TaskBaseConstants.VALID_BOARD_NAME,
+                TaskBaseConstants.VALID_TEAM_NAME);
+        bug = taskManagementSystemRepository.createBug(
+                TaskBaseConstants.VALID_BOARD_NAME,
+                TaskBaseConstants.VALID_TITLE,
+                TaskBaseConstants.VALID_DESCRIPTION,
+                TaskBaseConstants.STEPS,
+                PriorityEnum.HIGH,
+                BugSeverityEnum.MAJOR);
     }
 
     @Test
@@ -42,7 +49,8 @@ public class FilterBugByStatusTest {
         parameters = TestUtilities.getList(EXPECTED_NUMBER_OF_ARGUMENTS - 1);
 
         // Act, Assert
-        Assertions.assertThrows(IllegalArgumentException.class, () -> filterBugByStatus.execute(parameters));
+        Assertions.assertThrows(IllegalArgumentException.class,
+                () -> filterBugByStatus.execute(parameters));
     }
 
     @Test

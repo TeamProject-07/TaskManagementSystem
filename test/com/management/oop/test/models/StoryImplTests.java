@@ -13,9 +13,8 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class StoryImplTests {
-    public static final String VALID_BOARD_NAME = "Product";
 
-    public static final int VALID_ID = 1;
+    //public static final int VALID_ID = 1;
 
     @Test
     public void StoryImpl_Should_ImplementStoryInterface() {
@@ -31,7 +30,7 @@ public class StoryImplTests {
         // Arrange, Act, Assert
         Assertions.assertThrows(IllegalArgumentException.class, () ->
                 new StoryImpl(
-                        VALID_ID,
+                        TaskBaseConstants.VALID_ID,
                         TaskBaseConstants.INVALID_TITLE,
                         TaskBaseConstants.VALID_DESCRIPTION,
                         PriorityEnum.HIGH,
@@ -44,7 +43,7 @@ public class StoryImplTests {
         // Arrange, Act, Assert
         Assertions.assertThrows(IllegalArgumentException.class, () ->
                 new StoryImpl(
-                        VALID_ID,
+                        TaskBaseConstants.VALID_ID,
                         TaskBaseConstants.VALID_TITLE,
                         TaskBaseConstants.INVALID_DESCRIPTION,
                         PriorityEnum.HIGH,
@@ -56,7 +55,7 @@ public class StoryImplTests {
     public void constructor_Should_CreateNewFeedback_When_ParametersAreCorrect() {
         // Arrange
         Story story = new StoryImpl(
-                VALID_ID,
+                TaskBaseConstants.VALID_ID,
                 TaskBaseConstants.VALID_TITLE,
                 TaskBaseConstants.VALID_DESCRIPTION,
                 PriorityEnum.HIGH,
@@ -65,12 +64,12 @@ public class StoryImplTests {
 
         // Act, Assert
         assertAll(
-                () -> assertEquals(VALID_ID, story.getId()),
+                () -> assertEquals(TaskBaseConstants.VALID_ID, story.getId()),
                 () -> assertEquals(TaskBaseConstants.VALID_TITLE, story.getTitle()),
                 () -> assertEquals(TaskBaseConstants.VALID_DESCRIPTION, story.getDescription()),
                 () -> assertEquals(PriorityEnum.HIGH, story.getPriorityEnum()),
                 () -> assertSame(StorySizeEnum.LARGE, story.getStorySizeEnum()),
-                () -> assertSame(StoryStatusEnum.IN_PROGRESS,story.getStoryStatusEnum()));
+                () -> assertSame(StoryStatusEnum.IN_PROGRESS, story.getStoryStatusEnum()));
     }
 
     @Test
@@ -100,7 +99,7 @@ public class StoryImplTests {
 
     public static StoryImpl initializeTestStory() {
         return new StoryImpl(
-                VALID_ID,
+                TaskBaseConstants.VALID_ID,
                 TaskBaseConstants.VALID_TITLE,
                 TaskBaseConstants.VALID_DESCRIPTION,
                 PriorityEnum.HIGH,

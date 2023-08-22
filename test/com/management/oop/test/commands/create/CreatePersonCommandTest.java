@@ -5,6 +5,7 @@ import com.management.oop.project.commands.create.CreatePersonCommand;
 import com.management.oop.project.core.TaskManagementSystemRepositoryImpl;
 import com.management.oop.project.core.contracts.TaskManagementSystemRepository;
 import com.management.oop.test.models.PersonImplTests;
+import com.management.oop.test.utils.TaskBaseConstants;
 import com.management.oop.test.utils.TestUtilities;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -39,7 +40,7 @@ public class CreatePersonCommandTest {
   public void execute_Should_AddNewAirplane_When_PassedValidInput() {
       // Arrange
       List<String> params = List.of(
-              String.valueOf(PersonImplTests.VALID_USERNAME));
+              String.valueOf(TaskBaseConstants.VALID_PERSON_NAME));
               command.execute(params);
 
      // Assert

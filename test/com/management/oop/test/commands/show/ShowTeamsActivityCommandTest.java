@@ -48,8 +48,9 @@ public class ShowTeamsActivityCommandTest {
         // Arrange
         parameters = TestUtilities.getList(0);
 
-        // Act and Assert
-        Assertions.assertThrows(IllegalArgumentException.class, () -> showTeamsActivityCommand.execute(parameters));
+        // Act, Assert
+        Assertions.assertThrows(IllegalArgumentException.class,
+                () -> showTeamsActivityCommand.execute(parameters));
     }
 
     @Test
@@ -57,23 +58,27 @@ public class ShowTeamsActivityCommandTest {
         // Arrange
         parameters.add("aaa");
 
-        // Act and Assert
-        Assertions.assertThrows(IllegalArgumentException.class, () -> showTeamsActivityCommand.execute(parameters));
+        // Act, Assert
+        Assertions.assertThrows(IllegalArgumentException.class,
+                () -> showTeamsActivityCommand.execute(parameters));
     }
 
     @Test
     public void should_ThrowException_When_TeamHasNoHistory() {
         // Arrange, Act, Assert
-        Assertions.assertThrows(IllegalArgumentException.class, () -> showTeamsActivityCommand.execute(List.of()));
+        Assertions.assertThrows(IllegalArgumentException.class,
+                () -> showTeamsActivityCommand.execute(List.of()));
     }
 
     @Test
     public void should_ThrowException_When_ArgumentCountDifferentThanExpected() {
         // Arrange
-        List<String> params = TestUtilities.getList(ShowTeamsActivityCommand.EXPECTED_NUMBER_OF_ARGUMENTS - 1);
+        List<String> params = TestUtilities.getList(
+                ShowTeamsActivityCommand.EXPECTED_NUMBER_OF_ARGUMENTS - 1);
 
         // Act, Assert
-        Assertions.assertThrows(IllegalArgumentException.class, () -> showTeamsActivityCommand.execute(params));
+        Assertions.assertThrows(IllegalArgumentException.class,
+                () -> showTeamsActivityCommand.execute(params));
     }
 
     @Test

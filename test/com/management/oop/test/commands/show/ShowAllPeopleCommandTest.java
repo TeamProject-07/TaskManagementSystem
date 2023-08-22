@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ShowAllPeopleCommandTest {
+    public static final String NO_REGISTERED_PEOPLE = "There are no registered people.";
     private List<String> parameters;
     private TaskManagementSystemRepositoryImpl taskManagementSystemRepository;
     private ShowAllPeopleCommand showAllPeopleCommand;
@@ -41,6 +42,6 @@ public class ShowAllPeopleCommandTest {
         String result = showAllPeopleCommand.execute(parameters);
 
         // Assert
-        Assertions.assertTrue(result.contains("There are no registered people."));
+        Assertions.assertTrue(result.contains(NO_REGISTERED_PEOPLE));
     }
 }

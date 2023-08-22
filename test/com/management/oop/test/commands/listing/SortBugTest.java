@@ -22,27 +22,31 @@ public class SortBugTest {
     private Command sortBug;
 
     @BeforeEach
-    public void before(){
+    public void before() {
         parameters = new ArrayList<>();
         taskManagementSystemRepository = new TaskManagementSystemRepositoryImpl();
         sortBug = new SortBug(taskManagementSystemRepository);
         taskManagementSystemRepository.createTeam(TaskBaseConstants.VALID_TEAM_NAME);
-        taskManagementSystemRepository.createBoard(TaskBaseConstants.VALID_BOARD_NAME,
+        taskManagementSystemRepository.createBoard(
+                TaskBaseConstants.VALID_BOARD_NAME,
                 TaskBaseConstants.VALID_TEAM_NAME);
-        taskManagementSystemRepository.createBug(TaskBaseConstants.VALID_BOARD_NAME,
+        taskManagementSystemRepository.createBug(
+                TaskBaseConstants.VALID_BOARD_NAME,
                 TaskBaseConstants.VALID_TITLE,
                 TaskBaseConstants.VALID_DESCRIPTION,
                 TaskBaseConstants.STEPS,
                 PriorityEnum.HIGH,
                 BugSeverityEnum.CRITICAL);
     }
+
     @Test
-    public void should_ThrowException_When_ArgumentCountInvalid(){
+    public void should_ThrowException_When_ArgumentCountInvalid() {
         // Arrange
         parameters = TestUtilities.getList(EXPECTED_NUMBER_OF_ARGUMENTS + 1);
 
         // Act, Assert
-        Assertions.assertThrows(IllegalArgumentException.class, () -> sortBug.execute(parameters));
+        Assertions.assertThrows(IllegalArgumentException.class,
+                () -> sortBug.execute(parameters));
     }
 
 }

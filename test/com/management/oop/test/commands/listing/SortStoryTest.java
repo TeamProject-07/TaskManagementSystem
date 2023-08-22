@@ -18,28 +18,37 @@ import java.util.List;
 
 public class SortStoryTest {
 
-    public static final int EXPECTED_NUMBER_OF_ARGUMENTS =   0;
+    public static final int EXPECTED_NUMBER_OF_ARGUMENTS = 0;
     private List<String> parameters;
     private TaskManagementSystemRepository taskManagementSystemRepository;
     private Command sortStory;
 
     @BeforeEach
-    public void before(){
+    public void before() {
         parameters = new ArrayList<>();
         taskManagementSystemRepository = new TaskManagementSystemRepositoryImpl();
         sortStory = new SortStory(taskManagementSystemRepository);
         taskManagementSystemRepository.createTeam(TaskBaseConstants.VALID_TEAM_NAME);
-        taskManagementSystemRepository.createBoard(TaskBaseConstants.VALID_BOARD_NAME, TaskBaseConstants.VALID_TEAM_NAME);
-        taskManagementSystemRepository.createStory(TaskBaseConstants.VALID_BOARD_NAME, TaskBaseConstants.VALID_TITLE,
-                TaskBaseConstants.VALID_DESCRIPTION , PriorityEnum.MEDIUM, StorySizeEnum.LARGE, StoryStatusEnum.IN_PROGRESS);
+        taskManagementSystemRepository.createBoard(
+                TaskBaseConstants.VALID_BOARD_NAME,
+                TaskBaseConstants.VALID_TEAM_NAME);
+        taskManagementSystemRepository.createStory(
+                TaskBaseConstants.VALID_BOARD_NAME,
+                TaskBaseConstants.VALID_TITLE,
+                TaskBaseConstants.VALID_DESCRIPTION,
+                PriorityEnum.MEDIUM,
+                StorySizeEnum.LARGE,
+                StoryStatusEnum.IN_PROGRESS);
     }
+
     @Test
     public void should_ThrowException_When_ArgumentCountInvalid() {
         // Arrange
         parameters = TestUtilities.getList(EXPECTED_NUMBER_OF_ARGUMENTS + 1);
 
         // Act, Assert
-        Assertions.assertThrows(IllegalArgumentException.class, () -> sortStory.execute(parameters));
+        Assertions.assertThrows(IllegalArgumentException.class,
+                () -> sortStory.execute(parameters));
     }
 }
 

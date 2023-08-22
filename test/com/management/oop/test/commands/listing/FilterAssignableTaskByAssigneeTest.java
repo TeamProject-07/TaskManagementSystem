@@ -8,6 +8,7 @@ import com.management.oop.project.models.contracts.Person;
 import com.management.oop.project.models.enums.BugSeverityEnum;
 import com.management.oop.project.models.enums.PriorityEnum;
 import com.management.oop.project.utils.ListingHelpers;
+import com.management.oop.test.utils.TaskBaseConstants;
 import com.management.oop.test.utils.TestUtilities;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -16,11 +17,9 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-import static java.util.Arrays.asList;
-
 public class FilterAssignableTaskByAssigneeTest {
 
-    public static final int EXPECTED_NUMBER_OF_ARGUMENTS =     1;
+    public static final int EXPECTED_NUMBER_OF_ARGUMENTS = 1;
 
     private FilterAssignableTaskByAssignee filterAssignableTaskByAssignee;
 
@@ -38,11 +37,17 @@ public class FilterAssignableTaskByAssigneeTest {
         parameters = new ArrayList<>();
         taskManagementSystemRepository = new TaskManagementSystemRepositoryImpl();
         filterAssignableTaskByAssignee = new FilterAssignableTaskByAssignee(taskManagementSystemRepository);
-        person = taskManagementSystemRepository.createPerson("validName");
-        taskManagementSystemRepository.createTeam("teamName");
-        taskManagementSystemRepository.createBoard("boardName", "teamName");
-        bug = taskManagementSystemRepository.createBug("boardName","validBugTitle", "validDescription",
-                asList("step1", "step2"), PriorityEnum.HIGH, BugSeverityEnum.MAJOR );
+        person = taskManagementSystemRepository.createPerson(TaskBaseConstants.VALID_PERSON_NAME);
+        taskManagementSystemRepository.createTeam(TaskBaseConstants.VALID_TEAM_NAME);
+        taskManagementSystemRepository.createBoard(TaskBaseConstants.VALID_BOARD_NAME,
+                TaskBaseConstants.VALID_TEAM_NAME);
+        bug = taskManagementSystemRepository.createBug(
+                TaskBaseConstants.VALID_BOARD_NAME,
+                TaskBaseConstants.VALID_TITLE,
+                TaskBaseConstants.VALID_DESCRIPTION,
+                TaskBaseConstants.STEPS,
+                PriorityEnum.HIGH,
+                BugSeverityEnum.MAJOR);
         bug.assignTask(person);
 
     }
@@ -54,17 +59,19 @@ public class FilterAssignableTaskByAssigneeTest {
         parameters = TestUtilities.getList(EXPECTED_NUMBER_OF_ARGUMENTS - 1);
 
         // Act, Assert
-        Assertions.assertThrows(IllegalArgumentException.class, () -> filterAssignableTaskByAssignee.execute(parameters));
+        Assertions.assertThrows(IllegalArgumentException.class,
+                () -> filterAssignableTaskByAssignee.execute(parameters));
     }
 
     @Test
     public void should_ReturnBug_WhenParameters_AreValid() {
         //Arrange
-        parameters.add("validName");
+        parameters.add(TaskBaseConstants.VALID_PERSON_NAME);
         //Act
         String result = filterAssignableTaskByAssignee.execute(parameters);
         //Assert
-        Assertions.assertEquals(ListingHelpers.getAsString(taskManagementSystemRepository.getAllAssignableTasks()), result);
+        Assertions.assertEquals(ListingHelpers.getAsString(taskManagementSystemRepository.getAllAssignableTasks()),
+                result);
     }
 
 

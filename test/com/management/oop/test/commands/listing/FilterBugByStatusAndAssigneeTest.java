@@ -30,8 +30,11 @@ public class FilterBugByStatusAndAssigneeTest {
         taskManagementSystemRepository = new TaskManagementSystemRepositoryImpl();
         filterBugByStatusAndAssignee = new FilterBugByStatusAndAssignee(taskManagementSystemRepository);
         taskManagementSystemRepository.createTeam(TaskBaseConstants.VALID_TEAM_NAME);
-        taskManagementSystemRepository.createBoard(TaskBaseConstants.VALID_BOARD_NAME, TaskBaseConstants.VALID_TEAM_NAME);
-        bug = taskManagementSystemRepository.createBug(TaskBaseConstants.VALID_BOARD_NAME,
+        taskManagementSystemRepository.createBoard(
+                TaskBaseConstants.VALID_BOARD_NAME,
+                TaskBaseConstants.VALID_TEAM_NAME);
+        bug = taskManagementSystemRepository.createBug(
+                TaskBaseConstants.VALID_BOARD_NAME,
                 TaskBaseConstants.VALID_TITLE,
                 TaskBaseConstants.VALID_DESCRIPTION,
                 TaskBaseConstants.STEPS,
@@ -46,6 +49,7 @@ public class FilterBugByStatusAndAssigneeTest {
         parameters = TestUtilities.getList(EXPECTED_NUMBER_OF_ARGUMENTS - 1);
 
         // Act, Assert
-        Assertions.assertThrows(IllegalArgumentException.class, () -> filterBugByStatusAndAssignee.execute(parameters));
+        Assertions.assertThrows(IllegalArgumentException.class,
+                () -> filterBugByStatusAndAssignee.execute(parameters));
     }
 }

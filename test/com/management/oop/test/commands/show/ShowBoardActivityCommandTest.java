@@ -2,6 +2,7 @@ package com.management.oop.test.commands.show;
 import com.management.oop.project.commands.show.ShowBoardActivityCommand;
 import com.management.oop.project.core.TaskManagementSystemRepositoryImpl;
 import com.management.oop.project.core.contracts.TaskManagementSystemRepository;
+import com.management.oop.test.utils.TaskBaseConstants;
 import com.management.oop.test.utils.TestUtilities;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -42,9 +43,9 @@ public class ShowBoardActivityCommandTest {
    @Test
   public void should_ShowBoardActivity_When_ArgumentsAreValid() {
        // Arrange
-       repository.createTeam("teamName");
-       repository.createBoard("validName","teamName");
-       params.add("validName");
+       repository.createTeam(TaskBaseConstants.VALID_TEAM_NAME);
+       repository.createBoard(TaskBaseConstants.VALID_BOARD_NAME,TaskBaseConstants.VALID_TEAM_NAME);
+       params.add(TaskBaseConstants.VALID_BOARD_NAME);
 
        // Act, Assert
       Assertions.assertDoesNotThrow(() -> showBoardActivityCommand.execute(params));

@@ -42,14 +42,14 @@ public class AddPersonToTeamCommandTest {
     @Test
     public void execute_Should_AddNewPersonToTeam_When_ValidParameters() {
         // Arrange
-        repository.createPerson(PersonImplTests.VALID_USERNAME);
+        repository.createPerson(TaskBaseConstants.VALID_PERSON_NAME);
         repository.createTeam(TaskBaseConstants.VALID_TEAM_NAME);
 
         // Act
-        parameters.add(PersonImplTests.VALID_USERNAME);
+        parameters.add(TaskBaseConstants.VALID_PERSON_NAME);
         parameters.add(TaskBaseConstants.VALID_TEAM_NAME);
         addPersonToTeam.execute(parameters);
-        Person person = repository.findPersonByName(PersonImplTests.VALID_USERNAME);
+        Person person = repository.findPersonByName(TaskBaseConstants.VALID_PERSON_NAME);
         Team team = repository.findTeamByName(TaskBaseConstants.VALID_TEAM_NAME);
 
         // Assert
@@ -69,11 +69,11 @@ public class AddPersonToTeamCommandTest {
     @Test
     public void execute_Should_ThrowException_When_TeamNotExist() {
         // Arrange
-        repository.createPerson(PersonImplTests.VALID_USERNAME);
+        repository.createPerson(TaskBaseConstants.VALID_PERSON_NAME);
         repository.createTeam(TaskBaseConstants.VALID_TEAM_NAME);
 
         // Act
-        parameters.add(PersonImplTests.VALID_USERNAME);
+        parameters.add(TaskBaseConstants.VALID_PERSON_NAME);
         parameters.add(TaskBaseConstants.INVALID_TEAM_NAME);
 
         // Assert
@@ -83,11 +83,11 @@ public class AddPersonToTeamCommandTest {
     @Test
     public void execute_Should_ThrowException_When_PersonNotExist() {
         // Arrange
-        repository.createPerson(PersonImplTests.VALID_USERNAME);
+        repository.createPerson(TaskBaseConstants.VALID_PERSON_NAME);
         repository.createTeam(TaskBaseConstants.VALID_TEAM_NAME);
 
         // Act
-        parameters.add(PersonImplTests.INVALID_USERNAME);
+        parameters.add(TaskBaseConstants.INVALID_PERSON_NAME);
         parameters.add(TaskBaseConstants.VALID_TEAM_NAME);
 
         // Assert

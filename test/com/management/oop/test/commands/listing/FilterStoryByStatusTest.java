@@ -24,29 +24,33 @@ public class FilterStoryByStatusTest {
     private FilterStoryByStatus filterStoryByStatus;
 
     @BeforeEach
-    public void before(){
+    public void before() {
         parameters = new ArrayList<>();
         taskManagementSystemRepository = new TaskManagementSystemRepositoryImpl();
         filterStoryByStatus = new FilterStoryByStatus(taskManagementSystemRepository);
         taskManagementSystemRepository.createTeam(TaskBaseConstants.VALID_TEAM_NAME);
-        taskManagementSystemRepository.createBoard(TaskBaseConstants.VALID_BOARD_NAME,
+        taskManagementSystemRepository.createBoard(
+                TaskBaseConstants.VALID_BOARD_NAME,
                 TaskBaseConstants.VALID_TEAM_NAME);
-        taskManagementSystemRepository.createStory(TaskBaseConstants.VALID_BOARD_NAME,
+        taskManagementSystemRepository.createStory(
+                TaskBaseConstants.VALID_BOARD_NAME,
                 TaskBaseConstants.VALID_TITLE,
                 TaskBaseConstants.VALID_DESCRIPTION,
                 PriorityEnum.MEDIUM,
                 StorySizeEnum.LARGE,
-                StoryStatusEnum.IN_PROGRESS
-                );
+                StoryStatusEnum.IN_PROGRESS);
     }
+
     @Test
     public void should_ThrowException_When_ArgumentCountInvalid() {
         // Arrange
         parameters = TestUtilities.getList(EXPECTED_NUMBER_OF_ARGUMENTS - 1);
 
         // Act, Assert
-        Assertions.assertThrows(IllegalArgumentException.class, () -> filterStoryByStatus.execute(parameters));
+        Assertions.assertThrows(IllegalArgumentException.class,
+                () -> filterStoryByStatus.execute(parameters));
     }
+
     @Test
     public void should_ReturnStory_WhenParameters_AreValid() {
         //Arrange
@@ -54,6 +58,7 @@ public class FilterStoryByStatusTest {
         //Act
         String result = filterStoryByStatus.execute(parameters);
         //Assert
-        Assertions.assertEquals(ListingHelpers.getAsString(taskManagementSystemRepository.getAllStories()), result);
+        Assertions.assertEquals(ListingHelpers.getAsString(taskManagementSystemRepository.getAllStories()),
+                result);
     }
 }

@@ -4,9 +4,6 @@ import com.management.oop.project.commands.contracts.Command;
 import com.management.oop.project.commands.listing.SortAllTasksByTitle;
 import com.management.oop.project.core.TaskManagementSystemRepositoryImpl;
 import com.management.oop.project.core.contracts.TaskManagementSystemRepository;
-import com.management.oop.project.models.contracts.Board;
-import com.management.oop.project.models.contracts.Task;
-import com.management.oop.project.models.contracts.Team;
 import com.management.oop.test.utils.TestUtilities;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -22,16 +19,8 @@ public class SortAllTasksByTitleTest {
 
     private Command sortAllTasksByTitle;
 
-    private Task task;
-
-    private List<Task> tasks;
 
     private List<String> parameters;
-
-    private Board board;
-
-    private Team team;
-
 
     @BeforeEach
     public void before() {
@@ -43,11 +32,12 @@ public class SortAllTasksByTitleTest {
 
     @Test
     public void should_ThrowException_When_ArgumentCountInvalid() {
-    //Arrange
+        //Arrange
         parameters = TestUtilities.getList(EXPECTED_NUMBER_OF_ARGUMENTS + 1);
 
-    //Act,Assert
-        Assertions.assertThrows(IllegalArgumentException.class, () -> sortAllTasksByTitle.execute(parameters));
+        //Act,Assert
+        Assertions.assertThrows(IllegalArgumentException.class,
+                () -> sortAllTasksByTitle.execute(parameters));
     }
 
 }

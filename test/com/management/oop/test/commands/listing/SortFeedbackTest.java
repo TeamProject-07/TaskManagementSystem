@@ -5,6 +5,7 @@ import com.management.oop.project.commands.listing.SortFeedback;
 import com.management.oop.project.core.TaskManagementSystemRepositoryImpl;
 import com.management.oop.project.core.contracts.TaskManagementSystemRepository;
 import com.management.oop.project.models.enums.FeedbackStatusEnum;
+import com.management.oop.test.utils.TaskBaseConstants;
 import com.management.oop.test.utils.TestUtilities;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -20,24 +21,36 @@ public class SortFeedbackTest {
     private Command sortFeedback;
 
     @BeforeEach
-    public void before(){
+    public void before() {
         parameters = new ArrayList<>();
         taskManagementSystemRepository = new TaskManagementSystemRepositoryImpl();
         sortFeedback = new SortFeedback(taskManagementSystemRepository);
-        taskManagementSystemRepository.createTeam("teamName");
-        taskManagementSystemRepository.createBoard("boardName", "teamName");
-        taskManagementSystemRepository.createFeedback("boardName", "validTitle",
-                "validDescription", 20, FeedbackStatusEnum.DONE);
-        taskManagementSystemRepository.createFeedback("boardName", "validTitle",
-                "validDescription", 20, FeedbackStatusEnum.DONE);
+        taskManagementSystemRepository.createTeam(TaskBaseConstants.VALID_TEAM_NAME);
+        taskManagementSystemRepository.createBoard(
+                TaskBaseConstants.VALID_BOARD_NAME,
+                TaskBaseConstants.VALID_TEAM_NAME);
+        taskManagementSystemRepository.createFeedback(
+                TaskBaseConstants.VALID_BOARD_NAME,
+                TaskBaseConstants.VALID_TITLE,
+                TaskBaseConstants.VALID_DESCRIPTION,
+                TaskBaseConstants.VALID_RATING,
+                FeedbackStatusEnum.DONE);
+        taskManagementSystemRepository.createFeedback(
+                TaskBaseConstants.VALID_BOARD_NAME,
+                TaskBaseConstants.VALID_TITLE,
+                TaskBaseConstants.VALID_DESCRIPTION,
+                TaskBaseConstants.VALID_RATING,
+                FeedbackStatusEnum.DONE);
 
     }
+
     @Test
     public void should_ThrowException_When_ArgumentCountInvalid() {
         // Arrange
         parameters = TestUtilities.getList(EXPECTED_NUMBER_OF_ARGUMENTS + 1);
 
         // Act, Assert
-        Assertions.assertThrows(IllegalArgumentException.class, () -> sortFeedback.execute(parameters));
+        Assertions.assertThrows(IllegalArgumentException.class,
+                () -> sortFeedback.execute(parameters));
     }
 }

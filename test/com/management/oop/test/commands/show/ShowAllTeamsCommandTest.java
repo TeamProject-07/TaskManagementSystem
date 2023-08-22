@@ -6,6 +6,7 @@ import com.management.oop.project.core.TaskManagementSystemRepositoryImpl;
 import com.management.oop.project.core.contracts.TaskManagementSystemRepository;
 import com.management.oop.project.models.TeamImpl;
 import com.management.oop.project.models.contracts.Team;
+import com.management.oop.test.utils.TaskBaseConstants;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -22,14 +23,15 @@ public class ShowAllTeamsCommandTest {
     public void before() {
         taskManagementSystemRepository = new TaskManagementSystemRepositoryImpl();
         showAllTeamsCommand = new ShowAllTeamsCommand(taskManagementSystemRepository);
-        this.team=new TeamImpl("teamName");
+        this.team = new TeamImpl(TaskBaseConstants.VALID_TEAM_NAME);
     }
+
     @Test
     public void should_NotThrowException_WhenUseCommand() {
         //Arrange
         List<String> params = List.of();
         //Act, Assert
-        Assertions.assertDoesNotThrow(()->showAllTeamsCommand.execute(params));
+        Assertions.assertDoesNotThrow(() -> showAllTeamsCommand.execute(params));
     }
 
 }

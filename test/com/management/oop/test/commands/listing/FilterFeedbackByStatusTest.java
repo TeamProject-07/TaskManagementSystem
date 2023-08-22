@@ -32,9 +32,15 @@ public class FilterFeedbackByStatusTest {
         taskManagementSystemRepository = new TaskManagementSystemRepositoryImpl();
         filterFeedbackByStatus = new FilterFeedbackByStatus(taskManagementSystemRepository);
         taskManagementSystemRepository.createTeam(TaskBaseConstants.VALID_TEAM_NAME);
-        taskManagementSystemRepository.createBoard(TaskBaseConstants.VALID_BOARD_NAME, TaskBaseConstants.VALID_TEAM_NAME);
-        feedback= new FeedbackImpl(1, TaskBaseConstants.VALID_TITLE, TaskBaseConstants.VALID_DESCRIPTION ,
-                TaskBaseConstants.VALID_RATING, FeedbackStatusEnum.NEW);
+        taskManagementSystemRepository.createBoard(
+                TaskBaseConstants.VALID_BOARD_NAME,
+                TaskBaseConstants.VALID_TEAM_NAME);
+        feedback = new FeedbackImpl(
+                TaskBaseConstants.VALID_ID,
+                TaskBaseConstants.VALID_TITLE,
+                TaskBaseConstants.VALID_DESCRIPTION,
+                TaskBaseConstants.VALID_RATING,
+                FeedbackStatusEnum.NEW);
     }
 
     @Test
@@ -43,16 +49,18 @@ public class FilterFeedbackByStatusTest {
         parameters = TestUtilities.getList(EXPECTED_NUMBER_OF_ARGUMENTS - 1);
 
         // Act, Assert
-        Assertions.assertThrows(IllegalArgumentException.class, () -> filterFeedbackByStatus.execute(parameters));
+        Assertions.assertThrows(IllegalArgumentException.class,
+                () -> filterFeedbackByStatus.execute(parameters));
     }
 
     @Test
     public void should_ReturnFeedback_WhenParameters_AreValid() {
-        //Arrange
+        // Arrange
         parameters.add(FeedbackStatusEnum.NEW.toString());
-        //Act
+        // Act
         String result = filterFeedbackByStatus.execute(parameters);
-        //Assert
-        Assertions.assertEquals(ListingHelpers.getAsString(taskManagementSystemRepository.getAllFeedback()), result);
+        // Assert
+        Assertions.assertEquals(ListingHelpers.getAsString(taskManagementSystemRepository.getAllFeedback()),
+                result);
     }
 }

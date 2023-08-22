@@ -40,8 +40,9 @@ public class ShowAllTeamsMembersCommandTest {
 
     @Test
     public void execute_Should_ThrowException_When_TeamNotExist() {
+        // Arrange
         parameters.add("aaa");
-
+        // Act, Assert
         Assertions.assertThrows(IllegalArgumentException.class,
                 () -> showAllTeamsMember.execute(parameters));
     }
@@ -74,17 +75,22 @@ public class ShowAllTeamsMembersCommandTest {
 
     @Test
     public void should_ThrowException_WhenTeamIsEmpty() {
+        // Arrange
         Team team = taskManagementSystemRepository.createTeam("EmptyTeam");
+        // Act
         String result = showAllTeamsMember.execute(List.of("EmptyTeam"));
+        // Assert
         Assertions.assertEquals("Team with name EmptyTeam is empty.", result);
     }
 
     @Test
     public void should_ThrowException_WhenTeamIsNonEmpty() {
-        Team team = taskManagementSystemRepository.createTeam("TeamWithMembers");
+        // Arrange
+        Team team = taskManagementSystemRepository.createTeam(TaskBaseConstants.VALID_TEAM_NAME);
         taskManagementSystemRepository.findTeamByName(team.getName());
+        // Act
         List<String> parameters = List.of(team.getName());
-
+        // Assert
         Assertions.assertDoesNotThrow(() -> showAllTeamsMember.execute(List.of(team.getName())));
     }
 

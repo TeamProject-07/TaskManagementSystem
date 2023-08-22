@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FilterStoryByAssigneeTest {
-    public static final int EXPECTED_NUMBER_OF_ARGUMENTS =     1;
+    public static final int EXPECTED_NUMBER_OF_ARGUMENTS = 1;
     private List<String> parameters;
 
     private Person person;
@@ -29,17 +29,19 @@ public class FilterStoryByAssigneeTest {
     private FilterStoryByAssignee filterStoryByAssignee;
 
     @BeforeEach
-    public void beforeEach(){
+    public void beforeEach() {
         parameters = new ArrayList<>();
         taskManagementSystemRepository = new TaskManagementSystemRepositoryImpl();
         filterStoryByAssignee = new FilterStoryByAssignee(taskManagementSystemRepository);
 
-        person = taskManagementSystemRepository.createPerson("validName");
+        person = taskManagementSystemRepository.createPerson(TaskBaseConstants.VALID_PERSON_NAME);
 
         taskManagementSystemRepository.createTeam(TaskBaseConstants.VALID_TEAM_NAME);
-        taskManagementSystemRepository.createBoard(TaskBaseConstants.VALID_BOARD_NAME,
+        taskManagementSystemRepository.createBoard(
+                TaskBaseConstants.VALID_BOARD_NAME,
                 TaskBaseConstants.VALID_TEAM_NAME);
-        story = taskManagementSystemRepository.createStory(TaskBaseConstants.VALID_BOARD_NAME,
+        story = taskManagementSystemRepository.createStory(
+                TaskBaseConstants.VALID_BOARD_NAME,
                 TaskBaseConstants.VALID_TITLE,
                 TaskBaseConstants.VALID_DESCRIPTION,
                 PriorityEnum.MEDIUM,
@@ -48,19 +50,23 @@ public class FilterStoryByAssigneeTest {
         story.assignTask(person);
 
     }
+
     @Test
     public void should_ThrowException_When_ArgumentCountInvalid() {
         // Arrange
         parameters = TestUtilities.getList(EXPECTED_NUMBER_OF_ARGUMENTS - 1);
 
         // Act, Assert
-        Assertions.assertThrows(IllegalArgumentException.class, () -> filterStoryByAssignee.execute(parameters));
+        Assertions.assertThrows(IllegalArgumentException.class,
+                () -> filterStoryByAssignee.execute(parameters));
     }
-  @Test
-  public void should_ReturnStory_WhenParameters_AreValid() {
-      parameters.add("validName");
-      String result = filterStoryByAssignee.execute(parameters);
-      //Assert
-      Assertions.assertEquals(ListingHelpers.getAsString(taskManagementSystemRepository.getAllStories()), result);
-  }
+
+    @Test
+    public void should_ReturnStory_WhenParameters_AreValid() {
+        parameters.add(TaskBaseConstants.VALID_PERSON_NAME);
+        String result = filterStoryByAssignee.execute(parameters);
+        //Assert
+        Assertions.assertEquals(ListingHelpers.getAsString(taskManagementSystemRepository.getAllStories()),
+                result);
+    }
 }
