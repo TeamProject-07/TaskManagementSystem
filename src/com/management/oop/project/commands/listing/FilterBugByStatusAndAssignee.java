@@ -42,5 +42,4 @@ public class FilterBugByStatusAndAssignee implements Command {
                 .filter(bug -> bug.getStatus().equals(statusEnum))
                 .toList());
     }
-
 }
