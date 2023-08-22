@@ -103,6 +103,7 @@ public abstract class TaskBase implements Task {
     @Override
     public String getAsString() {
         return String.format("""
+                ===========================
                 Id: %s
                 Title: %s
                 Description: %s""",
