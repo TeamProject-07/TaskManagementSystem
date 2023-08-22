@@ -36,17 +36,13 @@ public class UnassignTaskToPersonCommandTest {
         taskManagementSystemRepository=new TaskManagementSystemRepositoryImpl();
         unassignCommand= new UnassignTaskToPersonCommand(taskManagementSystemRepository);
 
-        this.person = initializePersonObject();
-        taskManagementSystemRepository.createPerson(person.getName());
-        this.team=new TeamImpl("teamName");
-        this.bug= BugImplTests.initializeTestBug();
-        List<String>steps=new ArrayList<>();
-        this.board=BoardImplTests.initializeTestBoard();
-        taskManagementSystemRepository.createTeam(team.getName());
-        taskManagementSystemRepository.createBoard(board.getName(), team.getName());
-        taskManagementSystemRepository.createBug(board.getName(), bug.getTitle(),
+        this.person=taskManagementSystemRepository.createPerson(TaskBaseConstants.VALID_PERSON_NAME);
+        this.team=taskManagementSystemRepository.createTeam(TaskBaseConstants.VALID_TEAM_NAME);
+        this.board=taskManagementSystemRepository.createBoard(TaskBaseConstants.VALID_BOARD_NAME, team.getName());
+        this.bug=taskManagementSystemRepository.createBug(board.getName(),
+                TaskBaseConstants.VALID_TITLE,
                 TaskBaseConstants.VALID_DESCRIPTION,
-                steps,
+                TaskBaseConstants.STEPS,
                 PriorityEnum.HIGH,
                 BugSeverityEnum.CRITICAL);
     }
@@ -58,31 +54,17 @@ public class UnassignTaskToPersonCommandTest {
         // Act, Assert
         Assertions.assertThrows(IllegalArgumentException.class, () -> unassignCommand.execute(params));
     }
-    @Test
-    public void should_ThrowException_When_TaskId_IsInvalid() {
-        // Arrange
-        List<String> params = List.of(
 
-                "message",
-                "person",
-                "INVALID_INDEX");
-
-        // Act, Assert
-        Assertions.assertThrows(IllegalArgumentException.class, () -> unassignCommand.execute(params));
-    }
     @Test
-    public void should_ThrownException_WhenTask_DoesNotExist(){
+    public void should_UnAssignTask_FromPerson_WhenArguments_AreValid(){
         //Arrange
         List<String> params = List.of(
-                "message",
-                "person",
+                person.getName(),
                 "1");
-        //Act, Assert
-        Assertions.assertThrows(IllegalArgumentException.class, ()->unassignCommand.execute(params));
-    }
-
-
-    public Person initializePersonObject() {
-        return new PersonImpl("person");
+        //Act
+        bug.assignTask(person);
+        String result=unassignCommand.execute(params);
+        //Assert
+        Assertions.assertEquals("Task with ID 1 was unassigned from person with name personName.", result);
     }
 }

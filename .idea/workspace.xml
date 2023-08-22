@@ -5,58 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f4d32bab-62d7-485a-a9dd-6cb272e43dff" name="Changes" comment="Update project">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_08_23__14_28__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_08_23__14_28__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_16_08_23__14_06__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_16_08_23__14_06__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_16_08_23__14_53__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_16_08_23__14_53__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_10_2023_4_56_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_10_2023_4_56_PM__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_15_2023_11_18_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_15_2023_11_18_PM__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_15_2023_1_50_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_15_2023_1_50_PM__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_16_2023_1_37_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_16_2023_1_37_PM__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_17_2023_12_47_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_17_2023_12_47_PM__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_8_2023_12_19_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_8_2023_12_19_PM__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_9_2023_1_24_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_9_2023_1_24_PM__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Startup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Startup.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/commands/add/AddCommentToATask.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/commands/add/AddCommentToATask.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/commands/change/ChangeBugCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/commands/change/ChangeBugCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/commands/change/ChangeFeedbackCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/commands/change/ChangeFeedbackCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/commands/change/ChangeStoryCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/commands/change/ChangeStoryCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/commands/create/CreateNewBug.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/commands/create/CreateNewBug.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/commands/create/CreateNewStory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/commands/create/CreateNewStory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/commands/listing/FilterAllTasksByTitle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/commands/listing/FilterAllTasksByTitle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/commands/listing/FilterBugByStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/commands/listing/FilterBugByStatus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/commands/listing/FilterFeedbackByStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/commands/listing/FilterFeedbackByStatus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/commands/listing/FilterStoryByStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/commands/listing/FilterStoryByStatus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/commands/listing/SortAllTasksByTitle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/commands/listing/SortAllTasksByTitle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/commands/listing/SortBug.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/commands/listing/SortBug.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/commands/listing/SortFeedback.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/commands/listing/SortFeedback.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/commands/listing/SortStory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/commands/listing/SortStory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/commands/listing/SortTasksWithAssigneeByTitle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/commands/listing/SortTasksWithAssigneeByTitle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/commands/show/ShowBoardActivityCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/commands/show/ShowBoardActivityCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/commands/show/ShowTeamsActivityCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/commands/show/ShowTeamsActivityCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/core/TaskManagementSystemEngineImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/core/TaskManagementSystemEngineImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/core/TaskManagementSystemRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/core/TaskManagementSystemRepositoryImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/models/BoardImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/models/BoardImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/models/CommentImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/models/CommentImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/models/EventLogImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/models/EventLogImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/models/tasks/BugImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/models/tasks/BugImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/models/tasks/FeedbackImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/models/tasks/FeedbackImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/models/tasks/StoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/models/tasks/StoryImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/models/tasks/TaskBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/models/tasks/TaskBase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/management/oop/project/utils/ParsingHelpers.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/management/oop/project/utils/ParsingHelpers.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/com/management/oop/test/commands/create/CreateNewFeedbackTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/com/management/oop/test/commands/create/CreateNewFeedbackTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/com/management/oop/test/commands/create/CreateNewStoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/com/management/oop/test/commands/create/CreateNewStoryTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/com/management/oop/test/commands/create/CreateTeamCommandTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/com/management/oop/test/commands/create/CreateTeamCommandTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/com/management/oop/test/commands/assign/UnassignTaskToPersonCommandTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/com/management/oop/test/commands/assign/UnassignTaskToPersonCommandTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/com/management/oop/test/commands/listing/FilterBugByStatusAndAssigneeTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/com/management/oop/test/commands/listing/FilterBugByStatusAndAssigneeTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/com/management/oop/test/commands/listing/FilterBugByStatusTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/com/management/oop/test/commands/listing/FilterBugByStatusTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/com/management/oop/test/commands/listing/FilterFeedbackByStatusTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/com/management/oop/test/commands/listing/FilterFeedbackByStatusTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/com/management/oop/test/commands/listing/FilterStoryByStatusAndAssigneeTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/com/management/oop/test/commands/listing/FilterStoryByStatusAndAssigneeTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/com/management/oop/test/commands/show/ShowAllPeopleCommandTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/com/management/oop/test/commands/show/ShowAllPeopleCommandTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/com/management/oop/test/commands/show/ShowAllTeamsCommandTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/com/management/oop/test/commands/show/ShowAllTeamsCommandTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/com/management/oop/test/commands/show/ShowPersonActivityCommandTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/com/management/oop/test/commands/show/ShowPersonActivityCommandTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/com/management/oop/test/commands/show/ShowTeamsActivityCommandTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/com/management/oop/test/commands/show/ShowTeamsActivityCommandTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/com/management/oop/test/models/BugImplTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/com/management/oop/test/models/BugImplTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/com/management/oop/test/models/StoryImplTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/com/management/oop/test/models/StoryImplTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/com/management/oop/test/commands/listing/SortAllTasksByTitleTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/com/management/oop/test/commands/listing/SortAllTasksByTitleTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/com/management/oop/test/utils/TaskBaseConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/com/management/oop/test/utils/TaskBaseConstants.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -105,7 +58,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="FilterStoryByStatusAndAssigneeTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="FilterBugByStatusAndAssigneeTest.should_ReturnBug_WhenArguments_AreValid" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="TaskManagementSystem" />
       <extension name="coverage">
         <pattern>
@@ -114,71 +67,73 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.management.oop.test.commands.listing" />
-      <option name="MAIN_CLASS_NAME" value="com.management.oop.test.commands.listing.FilterStoryByStatusAndAssigneeTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="MAIN_CLASS_NAME" value="com.management.oop.test.commands.listing.FilterBugByStatusAndAssigneeTest" />
+      <option name="METHOD_NAME" value="should_ReturnBug_WhenArguments_AreValid" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ShowAllPeopleCommandTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="SortAllTasksByTitleTest.should_SortTasks_When_ExecuteCommand" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="TaskManagementSystem" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.management.oop.test.commands.show.*" />
+          <option name="PATTERN" value="com.management.oop.test.commands.listing.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.management.oop.test.commands.show" />
-      <option name="MAIN_CLASS_NAME" value="com.management.oop.test.commands.show.ShowAllPeopleCommandTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="PACKAGE_NAME" value="com.management.oop.test.commands.listing" />
+      <option name="MAIN_CLASS_NAME" value="com.management.oop.test.commands.listing.SortAllTasksByTitleTest" />
+      <option name="METHOD_NAME" value="should_SortTasks_When_ExecuteCommand" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ShowPersonActivityCommandTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="UnassignTaskToPersonCommandTest.should_UnAssignTask_FromPerson_WhenArguments_AreValid" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="TaskManagementSystem" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.management.oop.test.commands.show.*" />
+          <option name="PATTERN" value="com.management.oop.test.commands.assign.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.management.oop.test.commands.show" />
-      <option name="MAIN_CLASS_NAME" value="com.management.oop.test.commands.show.ShowPersonActivityCommandTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="PACKAGE_NAME" value="com.management.oop.test.commands.assign" />
+      <option name="MAIN_CLASS_NAME" value="com.management.oop.test.commands.assign.UnassignTaskToPersonCommandTest" />
+      <option name="METHOD_NAME" value="should_UnAssignTask_FromPerson_WhenArguments_AreValid" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ShowTeamsActivityCommandTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="com.management.oop.test in TaskManagementSystem" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="TaskManagementSystem" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.management.oop.test.commands.show.*" />
+          <option name="PATTERN" value="com.management.oop.test.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.management.oop.test.commands.show" />
-      <option name="MAIN_CLASS_NAME" value="com.management.oop.test.commands.show.ShowTeamsActivityCommandTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="PACKAGE_NAME" value="com.management.oop.test" />
+      <option name="TEST_OBJECT" value="package" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
-      <item itemvalue="JUnit.FilterStoryByStatusAndAssigneeTest" />
-      <item itemvalue="JUnit.ShowAllPeopleCommandTest" />
-      <item itemvalue="JUnit.ShowPersonActivityCommandTest" />
-      <item itemvalue="JUnit.ShowTeamsActivityCommandTest" />
+      <item itemvalue="JUnit.FilterBugByStatusAndAssigneeTest.should_ReturnBug_WhenArguments_AreValid" />
+      <item itemvalue="JUnit.SortAllTasksByTitleTest.should_SortTasks_When_ExecuteCommand" />
+      <item itemvalue="JUnit.UnassignTaskToPersonCommandTest.should_UnAssignTask_FromPerson_WhenArguments_AreValid" />
+      <item itemvalue="JUnit.com.management.oop.test in TaskManagementSystem" />
       <item itemvalue="JUnit.All in TaskManagementSystem" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.All in TaskManagementSystem" />
-        <item itemvalue="JUnit.ShowTeamsActivityCommandTest" />
-        <item itemvalue="JUnit.ShowPersonActivityCommandTest" />
-        <item itemvalue="JUnit.ShowAllPeopleCommandTest" />
-        <item itemvalue="JUnit.FilterStoryByStatusAndAssigneeTest" />
+        <item itemvalue="JUnit.SortAllTasksByTitleTest.should_SortTasks_When_ExecuteCommand" />
+        <item itemvalue="JUnit.FilterBugByStatusAndAssigneeTest.should_ReturnBug_WhenArguments_AreValid" />
+        <item itemvalue="JUnit.com.management.oop.test in TaskManagementSystem" />
+        <item itemvalue="JUnit.UnassignTaskToPersonCommandTest.should_UnAssignTask_FromPerson_WhenArguments_AreValid" />
       </list>
     </recent_temporary>
   </component>
@@ -359,7 +314,14 @@
       <option name="project" value="LOCAL" />
       <updated>1692699700893</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Update project">
+      <created>1692719279906</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1692719279906</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -429,7 +391,7 @@
     <SUITE FILE_PATH="coverage/TaskManagementSystem$com_management_oop_test_commands_listing_in_TaskManagementSystem.ic" NAME="com.management.oop.test.commands.listing in TaskManagementSystem Coverage Results" MODIFIED="1692634458321" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.management.oop.test.commands.listing.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/TaskManagementSystem$All_in_TaskManagementSystem.ic" NAME="All in TaskManagementSystem Coverage Results" MODIFIED="1692718998759" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/TaskManagementSystem$All_in_TaskManagementSystem.ic" NAME="All in TaskManagementSystem Coverage Results" MODIFIED="1692721291040" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/TaskManagementSystem$CreateNewFeedbackTest.ic" NAME="CreateNewFeedbackTest Coverage Results" MODIFIED="1692097045107" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.management.oop.test.commands.create.*</FILTER>
     </SUITE>
@@ -454,7 +416,7 @@
     <SUITE FILE_PATH="coverage/TaskManagementSystem$UnassignTaskToPersonCommandTest.ic" NAME="UnassignTaskToPersonCommandTest Coverage Results" MODIFIED="1691943919569" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.management.oop.test.commands.assign.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/TaskManagementSystem$com_management_oop_test_in_TaskManagementSystem.ic" NAME="com.management.oop.test in TaskManagementSystem Coverage Results" MODIFIED="1692454591453" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/TaskManagementSystem$com_management_oop_test_in_TaskManagementSystem.ic" NAME="com.management.oop.test in TaskManagementSystem Coverage Results" MODIFIED="1692720238275" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.management.oop.test.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/TaskManagementSystem$AssignTaskToPersonCommandTest.ic" NAME="AssignTaskToPersonCommandTest Coverage Results" MODIFIED="1692612399108" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">

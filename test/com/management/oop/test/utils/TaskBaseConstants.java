@@ -12,7 +12,7 @@ public class TaskBaseConstants {
     public static final int VALID_RATING = 20;
     public static final int VALID_ID = 1;
     public static final int INVALID_RATING = 101;
-    public static final String VALID_PERSON_NAME = "person name";
+    public static final String VALID_PERSON_NAME = "personName";
     public static final String INVALID_PERSON_NAME = "invalid name";
 
     public static final String VALID_TITLE = TestUtilities.getString(TITLE_MIN_LENGTH + 1);
