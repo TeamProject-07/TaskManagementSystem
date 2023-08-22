@@ -3,7 +3,6 @@ package com.management.oop.project.commands.listing;
 import com.management.oop.project.commands.contracts.Command;
 import com.management.oop.project.core.contracts.TaskManagementSystemRepository;
 import com.management.oop.project.models.contracts.Task;
-import com.management.oop.project.utils.ListingHelpers;
 import com.management.oop.project.utils.ValidationHelpers;
 
 import java.util.List;
@@ -26,9 +25,10 @@ public class FilterAllTasksByTitle implements Command {
     }
 
     private String filterByTitle(String keyword){
-        return ListingHelpers.getAsString(tasks
+        return tasks
                 .stream()
                 .filter(task -> task.getTitle().contains(keyword))
-                .toList());
+                .toList()
+                .toString();
     }
 }

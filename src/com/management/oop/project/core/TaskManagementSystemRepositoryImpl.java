@@ -390,7 +390,7 @@ public class TaskManagementSystemRepositoryImpl implements TaskManagementSystemR
     }
     @Override
     public boolean ifTaskIsNotAssigned(Assignable task){
-        if (task.getAssignee()!=null){
+        if (task.getAssignee()==null){
             throw new IllegalArgumentException("Task is already assigned.");
         }
         return true;
