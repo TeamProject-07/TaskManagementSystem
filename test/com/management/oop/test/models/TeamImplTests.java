@@ -107,7 +107,7 @@ public class TeamImplTests {
     }
 
     @Test
-    public void getAsString_Should_printPerson() {
+    public void getAsString_Should_printTeam() {
         // Arrange, Act
         Team team = initializeTestTeam();
 
