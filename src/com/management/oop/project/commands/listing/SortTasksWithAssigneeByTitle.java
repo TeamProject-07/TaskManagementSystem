@@ -19,7 +19,7 @@ public class SortTasksWithAssigneeByTitle implements Command {
     @Override
     public String execute(List<String> parameters) {
         ValidationHelpers.validateArgumentsCount(parameters, EXPECTED_NUMBER_OF_ARGUMENTS);
-        return taskManagementSystemRepository.getTasksWithAssignee()
+        return taskManagementSystemRepository.getAllAssignableTasks()
                 .stream()
                 .sorted(Comparator.comparing(Task::getTitle))
                 .map(Task::getTitle)
