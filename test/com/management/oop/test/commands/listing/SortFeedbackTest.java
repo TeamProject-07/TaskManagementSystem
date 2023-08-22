@@ -4,6 +4,7 @@ import com.management.oop.project.commands.contracts.Command;
 import com.management.oop.project.commands.listing.SortFeedback;
 import com.management.oop.project.core.TaskManagementSystemRepositoryImpl;
 import com.management.oop.project.core.contracts.TaskManagementSystemRepository;
+import com.management.oop.project.models.contracts.Feedback;
 import com.management.oop.project.models.enums.FeedbackStatusEnum;
 import com.management.oop.test.utils.TaskBaseConstants;
 import com.management.oop.test.utils.TestUtilities;
@@ -19,6 +20,8 @@ public class SortFeedbackTest {
     private List<String> parameters;
     private TaskManagementSystemRepository taskManagementSystemRepository;
     private Command sortFeedback;
+    private Feedback feedback;
+    private Feedback feedback1;
 
     @BeforeEach
     public void before() {
@@ -29,17 +32,17 @@ public class SortFeedbackTest {
         taskManagementSystemRepository.createBoard(
                 TaskBaseConstants.VALID_BOARD_NAME,
                 TaskBaseConstants.VALID_TEAM_NAME);
-        taskManagementSystemRepository.createFeedback(
+        this.feedback=taskManagementSystemRepository.createFeedback(
                 TaskBaseConstants.VALID_BOARD_NAME,
                 TaskBaseConstants.VALID_TITLE,
                 TaskBaseConstants.VALID_DESCRIPTION,
-                TaskBaseConstants.VALID_RATING,
+                15,
                 FeedbackStatusEnum.DONE);
-        taskManagementSystemRepository.createFeedback(
+        this.feedback1=taskManagementSystemRepository.createFeedback(
                 TaskBaseConstants.VALID_BOARD_NAME,
                 TaskBaseConstants.VALID_TITLE,
                 TaskBaseConstants.VALID_DESCRIPTION,
-                TaskBaseConstants.VALID_RATING,
+                20,
                 FeedbackStatusEnum.DONE);
 
     }
@@ -52,5 +55,18 @@ public class SortFeedbackTest {
         // Act, Assert
         Assertions.assertThrows(IllegalArgumentException.class,
                 () -> sortFeedback.execute(parameters));
+    }
+    @Test
+    public void should_SortFeedbacks_WhenExecuteCommand(){
+        //Arrange
+        List<String>params=new ArrayList<>();
+        List<String>resultList=new ArrayList<>();
+        resultList.add(feedback.getTitle() + " " + feedback.getRating());
+        resultList.add(feedback1.getTitle() + " " + feedback1.getRating());
+        String expectedResult= resultList.toString();
+        //Act
+        String result= sortFeedback.execute(params);
+        //Assert
+        Assertions.assertEquals(expectedResult, result);
     }
 }

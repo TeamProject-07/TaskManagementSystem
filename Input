@@ -1,0 +1,58 @@
+CreateNewPerson; Mitko
+CreateNewPerson; Dora
+CreateNewPerson; Katya
+CreateNewTeam; team1
+CreateNewTeam; team2
+CreateNewTeam; team3
+AddPersonToTeam; Mitko; team1
+AddPersonToTeam; Dora; team1
+AddPersonToTeam; Katya; team1
+CreateNewBoards; board1; team1
+CreateNewBoards; board2; team1
+CreateNewBoards; board3; team1
+createNewBugInBoard; board1; Bugs Valid Name; Bugs Valid Description; step1; HIGH; CRITICAL
+createNewStoryInBoard; board1; StoryNameName; description; HIGH; LARGE; NOT_DONE
+createNewFeedbackInBoard; board1; FeedbackName; description; 10; NEW
+createNewBugInBoard; board1; BugsValidName1; BugsValidDescription; step1, step2, step3; MEDIUM; MINOR
+createNewStoryInBoard; board1; StoryNameName1; description; HIGH; MEDIUM; NOT_DONE
+createNewFeedbackInBoard; board1; FeedbackName1; description; 10; NEW
+ShowAllPeople
+ShowPersonActivity; Mitko
+ShowAllTeams
+ShowTeamsActivity; team1
+ShowAllTeamBoards; team1
+ShowBoardActivity; board1
+ChangeBug; 1; priority; MEDIUM
+ChangeBug; 1; severity; MAJOR
+ChangeBug; 1; status; Fixed
+ChangeBug; 2; status; Active
+ChangeFeedback; 3; status; SCHEDULED
+ChangeFeedback; 3; rating; 20
+ChangeFeedback; 3; severity; SCHEDULED
+ChangeStory; 2; priority; LOW
+ChangeStory; 2; size; SMALL
+ChangeStory; 2; status; DONE
+AssignTaskToPerson; Dora; 1
+AssignTaskToPerson; Dora; 1
+UnassignTaskToPerson; Dora; 1
+AddCommentToATask; message; Katya; 1
+SortAllTasksByTitle
+SortStory
+SortFeedback
+SortBug
+AssignTaskToPerson; Dora; 1
+AssignTaskToPerson; Mitko; 2
+AssignTaskToPerson; Katya; 5
+FilterStoryByStatusAndAssignee; Mitko; DONE
+FilterStoryByStatus; Done
+FilterStoryByStatus; Not_Done
+FilterStoryByAssignee; Mitko
+FilterFeedbackByStatus; New
+FilterBugByStatusAndAssignee; Dora; Fixed
+FilterBugByStatus; Fixed
+FilterBugByAssignee; Dora
+FilterAssignableTaskByAssignee; Mitko
+FilterAssignableTaskByAssignee; Dora
+FilterAssignableTaskByAssignee; Katya
+FilterAllTasksByTitle; BugsValidName
+SortTasksWithAssigneeByTitle

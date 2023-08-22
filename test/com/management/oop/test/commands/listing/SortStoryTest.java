@@ -49,7 +49,7 @@ public class SortStoryTest {
                 StoryStatusEnum.IN_PROGRESS);
         this.story1 = taskManagementSystemRepository.createStory(
                 TaskBaseConstants.VALID_BOARD_NAME,
-                TaskBaseConstants.VALID_TITLE_1,
+                TaskBaseConstants.VALID_TITLE,
                 TaskBaseConstants.VALID_DESCRIPTION,
                 PriorityEnum.HIGH,
                 StorySizeEnum.SMALL,
@@ -72,19 +72,13 @@ public class SortStoryTest {
         List<String> params = new ArrayList<>();
         // Act
         List<String> stories = new ArrayList<>();
-        stories.add(story1.getTitle());
-        stories.add(story1.getPriorityEnum().toString());
-        stories.add(story1.getStorySizeEnum().toString());
-        stories.add(story.getTitle());
-        stories.add(story.getPriorityEnum().toString());
-        stories.add(story.getStorySizeEnum().toString());
+        stories.add(story1.getTitle() + " " + story1.getPriorityEnum() + " " + story1.getStorySizeEnum());
+        stories.add(story1.getTitle() + " " + story.getPriorityEnum() + " " + story.getStorySizeEnum());
+        String result = sortStory.execute(params);
 
         //Assert
         Assertions.assertEquals(stories.toString(),
-                sortStory.execute(params));
+                result);
     }
-
-
-
 }
 

@@ -23,7 +23,7 @@ public class SortStory implements Command {
     @Override
     public String execute(List<String> parameters) {
         ValidationHelpers.validateArgumentsCount(parameters, EXPECTED_NUMBER_OF_ARGUMENTS);
-        return stories
+        return taskManagementSystemRepository.getAllStories()
                 .stream()
                 .sorted(Comparator.comparing(Story::getTitle).thenComparing(Story::getPriorityEnum)
                         .thenComparing(Story::getStorySizeEnum))

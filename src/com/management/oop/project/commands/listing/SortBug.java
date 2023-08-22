@@ -12,17 +12,15 @@ public class SortBug implements Command {
     public static final int EXPECTED_NUMBER_OF_ARGUMENTS = 0;
 
     private final TaskManagementSystemRepository taskManagementSystemRepository;
-    private final List<Bug> bugs;
 
     public SortBug(TaskManagementSystemRepository taskManagementSystemRepository) {
         this.taskManagementSystemRepository = taskManagementSystemRepository;
-        this.bugs = taskManagementSystemRepository.getAllBugs();
     }
 
     @Override
     public String execute(List<String> parameters) {
         ValidationHelpers.validateArgumentsCount(parameters, EXPECTED_NUMBER_OF_ARGUMENTS);
-        return bugs
+        return taskManagementSystemRepository.getAllBugs()
                 .stream()
                 .sorted(Comparator.comparing(Bug::getTitle).thenComparing(Bug::getBugPriorityEnum)
                         .thenComparing(Bug::getBugSeverityEnum))

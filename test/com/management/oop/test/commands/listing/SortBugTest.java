@@ -4,8 +4,11 @@ import com.management.oop.project.commands.contracts.Command;
 import com.management.oop.project.commands.listing.SortBug;
 import com.management.oop.project.core.TaskManagementSystemRepositoryImpl;
 import com.management.oop.project.core.contracts.TaskManagementSystemRepository;
+import com.management.oop.project.models.contracts.Board;
+import com.management.oop.project.models.contracts.Bug;
 import com.management.oop.project.models.enums.BugSeverityEnum;
 import com.management.oop.project.models.enums.PriorityEnum;
+import com.management.oop.project.utils.ListingHelpers;
 import com.management.oop.test.utils.TaskBaseConstants;
 import com.management.oop.test.utils.TestUtilities;
 import org.junit.jupiter.api.Assertions;
@@ -20,6 +23,9 @@ public class SortBugTest {
     private List<String> parameters;
     private TaskManagementSystemRepository taskManagementSystemRepository;
     private Command sortBug;
+    private Board board;
+    private Bug bug;
+    private Bug bug1;
 
     @BeforeEach
     public void before() {
@@ -27,12 +33,17 @@ public class SortBugTest {
         taskManagementSystemRepository = new TaskManagementSystemRepositoryImpl();
         sortBug = new SortBug(taskManagementSystemRepository);
         taskManagementSystemRepository.createTeam(TaskBaseConstants.VALID_TEAM_NAME);
-        taskManagementSystemRepository.createBoard(
+        this.board=taskManagementSystemRepository.createBoard(
                 TaskBaseConstants.VALID_BOARD_NAME,
                 TaskBaseConstants.VALID_TEAM_NAME);
-        taskManagementSystemRepository.createBug(
-                TaskBaseConstants.VALID_BOARD_NAME,
-                TaskBaseConstants.VALID_TITLE,
+        this.bug=taskManagementSystemRepository.createBug(board.getName(),
+                "validTitle1",
+                TaskBaseConstants.VALID_DESCRIPTION,
+                TaskBaseConstants.STEPS,
+                PriorityEnum.LOW,
+                BugSeverityEnum.MAJOR);
+        this.bug1=taskManagementSystemRepository.createBug(board.getName(),
+                "validTitle",
                 TaskBaseConstants.VALID_DESCRIPTION,
                 TaskBaseConstants.STEPS,
                 PriorityEnum.HIGH,
@@ -48,5 +59,17 @@ public class SortBugTest {
         Assertions.assertThrows(IllegalArgumentException.class,
                 () -> sortBug.execute(parameters));
     }
-
+    @Test
+    public void should_SortBugs_WhenExecuteCommand(){
+        //Arrange
+        List<String>params=new ArrayList<>();
+        List<String>resultList=new ArrayList<>();
+        resultList.add(bug1.getTitle() + " "+ bug1.getBugPriorityEnum() + " " +bug1.getBugSeverityEnum());
+        resultList.add(bug.getTitle() + " "+ bug.getBugPriorityEnum() + " " +bug.getBugSeverityEnum());
+        String expectedResult= resultList.toString();
+        //Act
+        String result= sortBug.execute(params);
+        //Assert
+        Assertions.assertEquals(expectedResult, result);
+    }
 }
