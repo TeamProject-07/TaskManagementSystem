@@ -1,6 +1,7 @@
 package com.management.oop.test.models;
 
 import com.management.oop.project.core.contracts.TaskManagementSystemRepository;
+import com.management.oop.project.models.PersonImpl;
 import com.management.oop.project.models.TeamImpl;
 import com.management.oop.project.models.contracts.Board;
 import com.management.oop.project.models.contracts.Person;
@@ -103,6 +104,15 @@ public class TeamImplTests {
 
         // Assert
         assertNotNull(team.getBoards());
+    }
+
+    @Test
+    public void getAsString_Should_printPerson() {
+        // Arrange, Act
+        Team team = initializeTestTeam();
+
+        // Assert
+        Assertions.assertEquals("Team name: xxxxxx", team.getAsString());
     }
 
     public static TeamImpl initializeTestTeam() {

@@ -11,7 +11,6 @@ public class PersonImplTests {
     public void constructor_Should_CreateNewPerson_When_ParametersAreCorrect() {
         // Arrange, Act
         PersonImpl person = initializeTestPerson();
-
         // Assert
         Assertions.assertEquals(TaskBaseConstants.VALID_PERSON_NAME, person.getName());
     }
@@ -22,11 +21,17 @@ public class PersonImplTests {
         PersonImpl person = initializeTestPerson();
         // Act
         person.getHistory();
-
         // Assert
         Assertions.assertEquals(1, person.getHistory().size());
     }
 
+    @Test
+    public void getAsString_Should_printPerson() {
+        // Arrange
+        PersonImpl person = initializeTestPerson();
+        // Act, Assert
+        Assertions.assertEquals("Person: person name", person.getAsString());
+    }
 
     public static PersonImpl initializeTestPerson() {
         return new PersonImpl(
