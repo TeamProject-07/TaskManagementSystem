@@ -18,7 +18,6 @@ import java.util.List;
 
 public class FilterBugByStatusAndAssigneeTest {
     public static final int EXPECTED_NUMBER_OF_ARGUMENTS = 2;
-    public static final String VALID_USERNAME = "PersonName";
     private List<String> parameters;
 
     private TaskManagementSystemRepository taskManagementSystemRepository;

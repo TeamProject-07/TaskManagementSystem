@@ -30,7 +30,7 @@ public class FilterBugByAssignee implements Command {
     private List<Assignable> filterBugByAssignee(Person assignee){
         return taskManagementSystemRepository.getAllBugs()
                 .stream()
-                .filter(story -> story.getAssignee() != null)
+                .filter(bug -> bug.getAssignee() != null)
                 .filter(bug -> bug.getAssignee().equals(assignee))
                 .collect(Collectors.toList());
     }

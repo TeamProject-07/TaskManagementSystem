@@ -28,18 +28,19 @@ public class FilterBugByStatusAndAssignee implements Command {
         BugStatusEnum statusEnum = ParsingHelpers.tryParseEnum(parameters.get(1), BugStatusEnum.class);
         String personName = parameters.get(0);
         Person person = taskManagementSystemRepository.findPersonByName(personName);
-        //TODO
-//        return ListingHelpers.getAsString(filterBugByAssigneeAndStatus(person, statusEnum));
-        return taskManagementSystemRepository.getAllBugs()
-                .stream()
-                .filter(bug -> bug.getAssignee().equals(personName))
-                .filter(bug -> bug.getStatus().equals(statusEnum))
-                .toString();
+
+        return filterBugByAssigneeAndStatus(person, statusEnum);
     }
 
 
-/*
-    private List<Assignable> filterBugByAssigneeAndStatus(Person assignee, BugStatusEnum statusEnum) {
-     }
-*/
+
+    private String filterBugByAssigneeAndStatus(Person assignee, BugStatusEnum statusEnum) {
+        return ListingHelpers.getAsString(taskManagementSystemRepository.getAllBugs()
+                .stream()
+                .filter(bug -> bug.getAssignee() != null)
+                .filter(bug -> bug.getAssignee().getName().equals(assignee.getName()))
+                .filter(bug -> bug.getStatus().equals(statusEnum))
+                .toList());
+    }
+
 }
