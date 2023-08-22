@@ -30,7 +30,7 @@ public class PersonImplTests {
         // Arrange
         PersonImpl person = initializeTestPerson();
         // Act, Assert
-        Assertions.assertEquals("Person: person name", person.getAsString());
+        Assertions.assertEquals("Person: personName", person.getAsString());
     }
 
     public static PersonImpl initializeTestPerson() {

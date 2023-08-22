@@ -4,6 +4,8 @@ import com.management.oop.project.commands.contracts.Command;
 import com.management.oop.project.commands.listing.SortStory;
 import com.management.oop.project.core.TaskManagementSystemRepositoryImpl;
 import com.management.oop.project.core.contracts.TaskManagementSystemRepository;
+import com.management.oop.project.models.contracts.Board;
+import com.management.oop.project.models.contracts.Story;
 import com.management.oop.project.models.enums.PriorityEnum;
 import com.management.oop.project.models.enums.StorySizeEnum;
 import com.management.oop.project.models.enums.StoryStatusEnum;
@@ -23,22 +25,35 @@ public class SortStoryTest {
     private TaskManagementSystemRepository taskManagementSystemRepository;
     private Command sortStory;
 
+    private Story story;
+
+    private Story story1;
+
+    private Board board;
+
     @BeforeEach
     public void before() {
         parameters = new ArrayList<>();
         taskManagementSystemRepository = new TaskManagementSystemRepositoryImpl();
         sortStory = new SortStory(taskManagementSystemRepository);
         taskManagementSystemRepository.createTeam(TaskBaseConstants.VALID_TEAM_NAME);
-        taskManagementSystemRepository.createBoard(
+        this.board = taskManagementSystemRepository.createBoard(
                 TaskBaseConstants.VALID_BOARD_NAME,
                 TaskBaseConstants.VALID_TEAM_NAME);
-        taskManagementSystemRepository.createStory(
+        this.story = taskManagementSystemRepository.createStory(
                 TaskBaseConstants.VALID_BOARD_NAME,
                 TaskBaseConstants.VALID_TITLE,
                 TaskBaseConstants.VALID_DESCRIPTION,
                 PriorityEnum.MEDIUM,
                 StorySizeEnum.LARGE,
                 StoryStatusEnum.IN_PROGRESS);
+        this.story1 = taskManagementSystemRepository.createStory(
+                TaskBaseConstants.VALID_BOARD_NAME,
+                TaskBaseConstants.VALID_TITLE_1,
+                TaskBaseConstants.VALID_DESCRIPTION,
+                PriorityEnum.HIGH,
+                StorySizeEnum.SMALL,
+                StoryStatusEnum.NOT_DONE);
     }
 
     @Test
@@ -50,5 +65,26 @@ public class SortStoryTest {
         Assertions.assertThrows(IllegalArgumentException.class,
                 () -> sortStory.execute(parameters));
     }
+
+    @Test
+    public void should_SortTasks_When_ExecuteCommand() {
+        //Arrange
+        List<String> params = new ArrayList<>();
+        // Act
+        List<String> stories = new ArrayList<>();
+        stories.add(story1.getTitle());
+        stories.add(story1.getPriorityEnum().toString());
+        stories.add(story1.getStorySizeEnum().toString());
+        stories.add(story.getTitle());
+        stories.add(story.getPriorityEnum().toString());
+        stories.add(story.getStorySizeEnum().toString());
+
+        //Assert
+        Assertions.assertEquals(stories.toString(),
+                sortStory.execute(params));
+    }
+
+
+
 }
 
