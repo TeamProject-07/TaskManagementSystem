@@ -2,7 +2,6 @@ package com.management.oop.project.commands.listing;
 
 import com.management.oop.project.commands.contracts.Command;
 import com.management.oop.project.core.contracts.TaskManagementSystemRepository;
-import com.management.oop.project.models.contracts.Task;
 import com.management.oop.project.utils.ListingHelpers;
 import com.management.oop.project.utils.ValidationHelpers;
 
@@ -19,11 +18,11 @@ public class FilterAllTasksByTitle implements Command {
     @Override
     public String execute(List<String> parameters) {
         ValidationHelpers.validateArgumentsCount(parameters, EXPECTED_NUMBER_OF_ARGUMENTS);
-        String keyword=parameters.get(0);
+        String keyword = parameters.get(0);
         return filterByTitle(keyword);
     }
 
-    private String filterByTitle(String keyword){
+    private String filterByTitle(String keyword) {
         return ListingHelpers.getAsString(taskManagementSystemRepository.getAllTasks()
                 .stream()
                 .filter(task -> task.getTitle().contains(keyword))

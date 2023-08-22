@@ -2,10 +2,8 @@ package com.management.oop.project.commands.listing;
 
 import com.management.oop.project.commands.contracts.Command;
 import com.management.oop.project.core.contracts.TaskManagementSystemRepository;
-import com.management.oop.project.models.PersonImpl;
 import com.management.oop.project.models.contracts.Assignable;
 import com.management.oop.project.models.contracts.Person;
-import com.management.oop.project.models.enums.BugStatusEnum;
 import com.management.oop.project.models.enums.StoryStatusEnum;
 import com.management.oop.project.utils.ListingHelpers;
 import com.management.oop.project.utils.ParsingHelpers;

@@ -13,25 +13,31 @@ public class TeamImpl implements Team {
     public static final int NAME_MIN_LENGTH = 5;
     public static final int NAME_MAX_LENGTH = 15;
     public static final String NAME_LENGTH_ERROR = "Name should be between 5 and 15 symbols.";
+    public static final String TEAM_WAS_CREATED = "Team with name %s was created.";
+    public static final String PERSON_WAS_ADDED = "Person with name %s was added.";
     private String name;
     private final List<Person> people;
     private final List<Board> boards;
-    private final List<EventLog>histories;
+    private final List<EventLog> histories;
 
     public TeamImpl(String name) {
         setName(name);
         this.people = new ArrayList<>();
         this.boards = new ArrayList<>();
-        this.histories=new ArrayList<>();
-        this.histories.add(new EventLogImpl(String.format("Team with name %s was created.", getName())));
+        this.histories = new ArrayList<>();
+        this.histories.add(new EventLogImpl(String.format(TEAM_WAS_CREATED, getName())));
     }
 
     private void setName(String name) {
-        ValidationHelpers.validateStringLength(name, NAME_MIN_LENGTH, NAME_MAX_LENGTH, NAME_LENGTH_ERROR);
+        ValidationHelpers.validateStringLength(name,
+                NAME_MIN_LENGTH,
+                NAME_MAX_LENGTH,
+                NAME_LENGTH_ERROR);
         this.name = name;
     }
+
     @Override
-    public void addBoard(Board board){
+    public void addBoard(Board board) {
         boards.add(board);
     }
 
@@ -50,11 +56,13 @@ public class TeamImpl implements Team {
 
     public void addPerson(Person person) {
         people.add(person);
-        addHistory(new EventLogImpl(String.format("Person with name %s was added.", person.getName())));
+        addHistory(new EventLogImpl(String.format(PERSON_WAS_ADDED, person.getName())));
     }
+
     protected void addHistory(EventLog eventLog) {
         histories.add(eventLog);
     }
+
     @Override
     public String getName() {
         return name;

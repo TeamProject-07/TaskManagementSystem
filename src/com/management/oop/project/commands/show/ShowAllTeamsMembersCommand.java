@@ -20,6 +20,9 @@ public class ShowAllTeamsMembersCommand implements Command {
     public String execute(List<String> parameters) {
         ValidationHelpers.validateArgumentsCount(parameters, EXPECTED_NUMBER_OF_ARGUMENTS);
         String teamName = parameters.get(0);
+        if (taskManagementSystemRepository.findTeamByName(teamName).getPeople().size() == 0) {
+            return String.format(TEAM_EMPTY, teamName);
+        }
         return ListingHelpers.membersToString(taskManagementSystemRepository.findTeamByName(teamName).getPeople());
     }
 }

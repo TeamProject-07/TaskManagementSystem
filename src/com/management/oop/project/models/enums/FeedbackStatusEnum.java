@@ -8,7 +8,7 @@ public enum FeedbackStatusEnum {
 
     @Override
     public String toString() {
-        switch (this){
+        switch (this) {
             case NEW:
                 return "New";
             case UNSCHEDULED:

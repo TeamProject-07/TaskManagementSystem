@@ -8,16 +8,17 @@ public class CommentImpl implements Comment {
 
     private String author;
 
-    public CommentImpl (String message, String author){
+    public CommentImpl(String message, String author) {
         setMessage(message);
         setAuthor(author);
     }
+
     @Override
     public String getMessage() {
         return message;
     }
 
-    private void setMessage(String message){
+    private void setMessage(String message) {
         this.message = message;
     }
 
@@ -26,11 +27,12 @@ public class CommentImpl implements Comment {
         return author;
     }
 
-    private void setAuthor(String author){
+    private void setAuthor(String author) {
         this.author = author;
     }
 
-    public String toString(){
-        return String.format("Note: %s\n"+"By: %s\n",message, author);
+    public String toString() {
+        return String.format("Note: %s\n" + "By: %s\n",
+                message, author);
     }
 }

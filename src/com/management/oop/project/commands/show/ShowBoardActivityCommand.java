@@ -10,6 +10,8 @@ import java.util.List;
 
 public class ShowBoardActivityCommand implements Command {
     public static final int EXPECTED_NUMBER_OF_ARGUMENTS = 1;
+    public static final String SHOW_BOARD_ACTIVITY = "Show %s activity:";
+    public static final String DO_NOT_HAVE_ACTIVITY = "Don't have activity.";
     private final TaskManagementSystemRepository taskManagementSystemRepository;
 
     public ShowBoardActivityCommand(TaskManagementSystemRepository taskManagementSystemRepository) {
@@ -28,9 +30,9 @@ public class ShowBoardActivityCommand implements Command {
         Board board = taskManagementSystemRepository.findBoardByName(boardName);
         List<EventLog> histories = board.getHistory();
         StringBuilder result = new StringBuilder();
-        result.append(String.format("Show %s activity:", boardName)).append(System.lineSeparator());
+        result.append(String.format(SHOW_BOARD_ACTIVITY, boardName)).append(System.lineSeparator());
         if (histories.size() == 0) {
-            throw new IllegalArgumentException("Don't have activity.");
+            throw new IllegalArgumentException(DO_NOT_HAVE_ACTIVITY);
         }
         for (int i = 0; i < histories.size(); i++) {
             result.append(String.format("%s ", histories.get(i))).append(System.lineSeparator());

@@ -25,7 +25,8 @@ public class FilterStoryByAssignee implements Command {
         Person person = taskManagementSystemRepository.findPersonByName(personName);
         return ListingHelpers.getAsString(filterStoryByAssignee(person));
     }
-    private List<Assignable> filterStoryByAssignee(Person assignee){
+
+    private List<Assignable> filterStoryByAssignee(Person assignee) {
         return taskManagementSystemRepository.getAllStories()
                 .stream()
                 .filter(story -> story.getAssignee().equals(assignee))

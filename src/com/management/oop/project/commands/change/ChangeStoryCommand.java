@@ -2,15 +2,20 @@ package com.management.oop.project.commands.change;
 
 import com.management.oop.project.commands.contracts.Command;
 import com.management.oop.project.core.contracts.TaskManagementSystemRepository;
-import com.management.oop.project.models.enums.*;
+import com.management.oop.project.models.enums.PriorityEnum;
+import com.management.oop.project.models.enums.StorySizeEnum;
+import com.management.oop.project.models.enums.StoryStatusEnum;
 import com.management.oop.project.utils.ParsingHelpers;
 import com.management.oop.project.utils.ValidationHelpers;
 
 import java.util.List;
 
 public class ChangeStoryCommand implements Command {
-    //Priority, Size, Status
     public static final int EXPECTED_NUMBER_OF_ARGUMENTS = 3;
+    public static final String INVALID_TYPE = "Invalid field type %s.";
+    public static final String PRIORITY_CHANGED = "Priority was changed to %s.";
+    public static final String SIZE_CHANGED = "Size was changed to %s.";
+    public static final String STATUS_CHANGED = "Status was changed to %s.";
     private TaskManagementSystemRepository taskManagementSystemRepository;
 
     public ChangeStoryCommand(TaskManagementSystemRepository taskManagementSystemRepository) {
@@ -22,7 +27,7 @@ public class ChangeStoryCommand implements Command {
         ValidationHelpers.validateArgumentsCount(parameters, EXPECTED_NUMBER_OF_ARGUMENTS);
         int id = ParsingHelpers.tryParseInteger(parameters.get(0), "id");
         String fieldType = parameters.get(1);
-        String newValue=parameters.get(2);
+        String newValue = parameters.get(2);
         switch (fieldType) {
             case "priority":
                 return changePriority(id, newValue);
@@ -31,7 +36,7 @@ public class ChangeStoryCommand implements Command {
             case "status":
                 return changeStatus(id, newValue);
             default:
-                return String.format("Invalid field type %s.", fieldType);
+                return String.format(INVALID_TYPE, fieldType);
         }
     }
 
@@ -39,16 +44,18 @@ public class ChangeStoryCommand implements Command {
     private String changePriority(int id, String newTypeOfPriority) {
         PriorityEnum priorityEnum = ParsingHelpers.tryParseEnum(newTypeOfPriority, PriorityEnum.class);
         taskManagementSystemRepository.findStoryById(id).changePriorityEnum(priorityEnum);
-        return String.format("Priority was changed to %s.", newTypeOfPriority);
+        return String.format(PRIORITY_CHANGED, newTypeOfPriority);
     }
+
     private String changeSize(int id, String newTypeOfSize) {
         StorySizeEnum storySizeEnum = ParsingHelpers.tryParseEnum(newTypeOfSize, StorySizeEnum.class);
         taskManagementSystemRepository.findStoryById(id).changeSize(storySizeEnum);
-        return String.format("Size was changed to %s.", newTypeOfSize);
+        return String.format(SIZE_CHANGED, newTypeOfSize);
     }
+
     private String changeStatus(int id, String newTypeOfStatus) {
-        StoryStatusEnum storyStatusEnum= ParsingHelpers.tryParseEnum(newTypeOfStatus, StoryStatusEnum.class);
+        StoryStatusEnum storyStatusEnum = ParsingHelpers.tryParseEnum(newTypeOfStatus, StoryStatusEnum.class);
         taskManagementSystemRepository.findStoryById(id).changeStoryStatusEnum(storyStatusEnum);
-        return String.format("Status was changed to %s.", newTypeOfStatus);
+        return String.format(STATUS_CHANGED, newTypeOfStatus);
     }
 }

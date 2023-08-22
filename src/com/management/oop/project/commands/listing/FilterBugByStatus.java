@@ -22,10 +22,11 @@ public class FilterBugByStatus implements Command {
     @Override
     public String execute(List<String> parameters) {
         ValidationHelpers.validateArgumentsCount(parameters, EXPECTED_NUMBER_OF_ARGUMENTS);
-        BugStatusEnum statusEnum= ParsingHelpers.tryParseEnum(parameters.get(0), BugStatusEnum.class);
+        BugStatusEnum statusEnum = ParsingHelpers.tryParseEnum(parameters.get(0), BugStatusEnum.class);
         return ListingHelpers.getAsString(filterBug(statusEnum));
     }
-    private List<Bug> filterBug(BugStatusEnum statusEnum){
+
+    private List<Bug> filterBug(BugStatusEnum statusEnum) {
         return taskManagementSystemRepository.getAllBugs()
                 .stream()
                 .filter(bug -> bug.getStatus().equals(statusEnum))

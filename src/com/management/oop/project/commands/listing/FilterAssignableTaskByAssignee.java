@@ -27,7 +27,7 @@ public class FilterAssignableTaskByAssignee implements Command {
         return ListingHelpers.getAsString(filterAssignableTask(person));
     }
 
-    private List<Assignable> filterAssignableTask(Person assignee){
+    private List<Assignable> filterAssignableTask(Person assignee) {
         return taskManagementSystemRepository.getTasksWithAssignee()
                 .stream()
                 .filter(task -> task.getAssignee() != null)

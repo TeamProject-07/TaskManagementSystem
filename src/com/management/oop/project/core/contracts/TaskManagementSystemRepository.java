@@ -24,6 +24,7 @@ public interface TaskManagementSystemRepository {
     List<Board> getAllBoards();
 
     List<Assignable> getAllAssignableTasks();
+
     List<Assignable> getTasksWithAssignee();
 
 
@@ -41,6 +42,7 @@ public interface TaskManagementSystemRepository {
     Feedback findFeedbackById(int id);
 
     Task findTaskById(int id);
+
     Assignable findAssignableTaskById(int id);
 
 
@@ -54,7 +56,9 @@ public interface TaskManagementSystemRepository {
     boolean taskExist(int id);
 
     boolean teamExist(String teamName);
+
     boolean ifTaskIsAssignable(int id);
+
     boolean ifTaskIsNotAssigned(Assignable task);
 
     Person createPerson(String name);
@@ -73,11 +77,6 @@ public interface TaskManagementSystemRepository {
     Feedback createFeedback(String boardName, String title, String description, int rating,
                             FeedbackStatusEnum feedbackStatusEnum);
 
-
-//    Bug changePriorityEnum(PriorityEnum priorityEnum);
-//    Bug changeSeverityEnum(BugSeverityEnum bugSeverityEnum);
-//    Bug advanceStatus();
-//    Bug revertStatus();
 }
 
 

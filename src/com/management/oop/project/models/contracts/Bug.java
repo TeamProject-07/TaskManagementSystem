@@ -4,8 +4,7 @@ import com.management.oop.project.models.enums.BugSeverityEnum;
 import com.management.oop.project.models.enums.BugStatusEnum;
 import com.management.oop.project.models.enums.PriorityEnum;
 
-public interface Bug extends Task, Assignable{
-
+public interface Bug extends Task, Assignable {
     void changeStatus(BugStatusEnum status);
 
     void changePriorityEnum(PriorityEnum priorityEnum);
@@ -15,6 +14,7 @@ public interface Bug extends Task, Assignable{
     BugStatusEnum getStatus();
 
     PriorityEnum getBugPriorityEnum();
+
     BugSeverityEnum getBugSeverityEnum();
 
 }

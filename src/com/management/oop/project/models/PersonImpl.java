@@ -2,21 +2,22 @@ package com.management.oop.project.models;
 
 import com.management.oop.project.models.contracts.EventLog;
 import com.management.oop.project.models.contracts.Person;
-import com.management.oop.project.models.contracts.Task;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class PersonImpl implements Person {
+    public static final String PERSON_WAS_CREATED = "Person was created.";
     private String name;
     private List<EventLog> histories;
 
     public PersonImpl(String name) {
         this.name = name;
         this.histories = new ArrayList<>();
-        addHistory(new EventLogImpl("Person was created."));
+        addHistory(new EventLogImpl(PERSON_WAS_CREATED));
     }
-    protected void addHistory(EventLog eventLog){
+
+    protected void addHistory(EventLog eventLog) {
         histories.add(eventLog);
     }
 
@@ -34,12 +35,5 @@ public class PersonImpl implements Person {
     public String getAsString() {
         return String.format("""
                 Person: %s""", getName());
-    }
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Person assignee = (PersonImpl) o;
-        return name.equals(assignee.getName());
     }
 }

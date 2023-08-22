@@ -16,6 +16,7 @@ public class ListingHelpers {
 
         return String.join(System.lineSeparator(), result).trim();
     }
+
     public static String boardsToString(List<Board> boards) {
         List<String> result = new ArrayList<>();
         for (Board board : boards) {
@@ -24,8 +25,9 @@ public class ListingHelpers {
 
         return String.join(System.lineSeparator(), result).trim();
     }
+
     public static <T extends Printable> String getAsString(List<T> elements) {
-        List<String> result= new ArrayList<>();
+        List<String> result = new ArrayList<>();
         for (T element : elements) {
             result.add(element.getAsString());
         }

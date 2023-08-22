@@ -4,7 +4,6 @@ import com.management.oop.project.commands.contracts.Command;
 import com.management.oop.project.core.contracts.TaskManagementSystemRepository;
 import com.management.oop.project.models.contracts.Assignable;
 import com.management.oop.project.models.contracts.Person;
-import com.management.oop.project.models.contracts.Task;
 import com.management.oop.project.utils.ParsingHelpers;
 import com.management.oop.project.utils.ValidationHelpers;
 

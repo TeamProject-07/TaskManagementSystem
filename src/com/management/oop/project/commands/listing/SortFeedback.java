@@ -7,7 +7,6 @@ import com.management.oop.project.utils.ValidationHelpers;
 
 import java.util.Comparator;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class SortFeedback implements Command {
     public static final int EXPECTED_NUMBER_OF_ARGUMENTS = 0;
@@ -24,7 +23,7 @@ public class SortFeedback implements Command {
         ValidationHelpers.validateArgumentsCount(parameters, EXPECTED_NUMBER_OF_ARGUMENTS);
         return feedbacks
                 .stream()
-                .sorted(Comparator.comparing(Feedback :: getTitle).thenComparing(Feedback::getRating))
+                .sorted(Comparator.comparing(Feedback::getTitle).thenComparing(Feedback::getRating))
                 .map(feedback -> feedback.getTitle() + " " + feedback.getRating())
                 .toList().toString();
     }

@@ -13,6 +13,7 @@ import java.util.List;
 public class
 CreateNewBug implements Command {
     public static final int EXPECTED_NUMBER_OF_PARAMETERS = 6;
+    public static final String BUG_CREATED = "Bug with ID %d was created.";
     private TaskManagementSystemRepository taskManagementSystemRepository;
 
     public CreateNewBug(TaskManagementSystemRepository taskManagementSystemRepository) {
@@ -22,18 +23,19 @@ CreateNewBug implements Command {
     @Override
     public String execute(List<String> parameters) {
         ValidationHelpers.validateArgumentsCount(parameters, EXPECTED_NUMBER_OF_PARAMETERS);
-        String boardName=parameters.get(0);
-        String title=parameters.get(1);
-        String description= parameters.get(2);
-        List<String> steps= List.of(parameters.get(3));
-        PriorityEnum priorityEnum= ParsingHelpers.tryParseEnum(parameters.get(4), PriorityEnum.class);
-        BugSeverityEnum severityEnum= ParsingHelpers.tryParseEnum(parameters.get(5), BugSeverityEnum.class);
+        String boardName = parameters.get(0);
+        String title = parameters.get(1);
+        String description = parameters.get(2);
+        List<String> steps = List.of(parameters.get(3));
+        PriorityEnum priorityEnum = ParsingHelpers.tryParseEnum(parameters.get(4), PriorityEnum.class);
+        BugSeverityEnum severityEnum = ParsingHelpers.tryParseEnum(parameters.get(5), BugSeverityEnum.class);
         return createBug(boardName, title, description, steps, priorityEnum, severityEnum);
     }
+
     private String createBug(String boardName, String title, String description, List<String> steps, PriorityEnum priorityEnum,
-                             BugSeverityEnum bugSeverityEnum){
-        Bug createdBug=taskManagementSystemRepository.createBug(boardName, title, description, steps, priorityEnum, bugSeverityEnum);
-        return String.format("Bug with ID %d was created.", createdBug.getId());
+                             BugSeverityEnum bugSeverityEnum) {
+        Bug createdBug = taskManagementSystemRepository.createBug(boardName, title, description, steps, priorityEnum, bugSeverityEnum);
+        return String.format(BUG_CREATED, createdBug.getId());
     }
 }
 

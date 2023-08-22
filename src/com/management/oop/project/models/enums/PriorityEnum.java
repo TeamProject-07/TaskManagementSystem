@@ -7,7 +7,7 @@ public enum PriorityEnum {
 
     @Override
     public String toString() {
-        switch (this){
+        switch (this) {
             case HIGH:
                 return "High";
             case MEDIUM:

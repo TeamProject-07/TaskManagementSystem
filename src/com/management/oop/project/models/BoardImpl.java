@@ -9,6 +9,11 @@ import java.util.List;
 public class BoardImpl implements Board {
     public static final int BOARD_NAME_MIN_LENGTH = 5;
     public static final int BOARD_NAME_MAX_LENGTH = 10;
+    public static final String BOARD_WAS_CREATED = "Board with name %s was created";
+    public static final String BUG_WAS_CREATED = "Bug was created";
+    public static final String STORY_WAS_CREATED = "Story was created";
+    public static final String FEEDBACK_WAS_CREATED = "Feedback was created";
+    public static final String ERROR_NAME_MESSAGE = "Name should be between 5 and 10 symbols.";
     private String name;
     private final List<Bug> bugs;
     private final List<Story> stories;
@@ -21,25 +26,25 @@ public class BoardImpl implements Board {
         this.stories = new ArrayList<>();
         this.feedbacks = new ArrayList<>();
         this.histories = new ArrayList<>();
-        histories.add(new EventLogImpl(String.format("Board with name %s was created", getName())));
+        histories.add(new EventLogImpl(String.format(BOARD_WAS_CREATED, getName())));
     }
 
     @Override
     public void addBug(Bug bug) {
         this.bugs.add(bug);
-        histories.add(new EventLogImpl("Bug was created"));
+        histories.add(new EventLogImpl(BUG_WAS_CREATED));
     }
 
     @Override
     public void addStory(Story story) {
         this.stories.add(story);
-        histories.add(new EventLogImpl("Story was created"));
+        histories.add(new EventLogImpl(STORY_WAS_CREATED));
     }
 
     @Override
     public void addFeedback(Feedback feedback) {
         this.feedbacks.add(feedback);
-        histories.add(new EventLogImpl("Feedback was created"));
+        histories.add(new EventLogImpl(FEEDBACK_WAS_CREATED));
     }
 
     @Override
@@ -74,7 +79,7 @@ public class BoardImpl implements Board {
 
     private void setName(String name) {
         ValidationHelpers.validateStringLength(name, BOARD_NAME_MIN_LENGTH, BOARD_NAME_MAX_LENGTH,
-                "Name should be between 5 and 10 symbols.");
+                ERROR_NAME_MESSAGE);
         this.name = name;
     }
 

@@ -19,12 +19,13 @@ public class CreateBoardCommand implements Command {
     @Override
     public String execute(List<String> parameters) {
         ValidationHelpers.validateArgumentsCount(parameters, EXPECTED_NUMBER_OF_ARGUMENTS);
-        String boardName= parameters.get(0);
-        String teamName= parameters.get(1);
+        String boardName = parameters.get(0);
+        String teamName = parameters.get(1);
         return createBoard(boardName, teamName);
     }
-    private  String createBoard(String boardName, String teamName) {
-        if (taskManagementSystemRepository.boardExist(boardName)){
+
+    private String createBoard(String boardName, String teamName) {
+        if (taskManagementSystemRepository.boardExist(boardName)) {
             throw new IllegalArgumentException(String.format(BOARD_EXISTS_ERROR, boardName));
         }
 

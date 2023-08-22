@@ -10,7 +10,7 @@ import java.util.List;
 
 public class SortStory implements Command {
 
-    public static final int EXPECTED_NUMBER_OF_ARGUMENTS =    0;
+    public static final int EXPECTED_NUMBER_OF_ARGUMENTS = 0;
     TaskManagementSystemRepository taskManagementSystemRepository;
     private List<Story> stories;
 
@@ -25,7 +25,7 @@ public class SortStory implements Command {
         ValidationHelpers.validateArgumentsCount(parameters, EXPECTED_NUMBER_OF_ARGUMENTS);
         return stories
                 .stream()
-                .sorted(Comparator.comparing(Story :: getTitle).thenComparing(Story::getPriorityEnum)
+                .sorted(Comparator.comparing(Story::getTitle).thenComparing(Story::getPriorityEnum)
                         .thenComparing(Story::getStorySizeEnum))
                 .map(story -> story.getTitle() + " " + story.getPriorityEnum() + " " + story.getStorySizeEnum())
                 .toList().toString();

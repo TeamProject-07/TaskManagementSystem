@@ -7,7 +7,7 @@ public enum BugSeverityEnum {
 
     @Override
     public String toString() {
-        switch (this){
+        switch (this) {
             case CRITICAL:
                 return "Critical";
             case MAJOR:

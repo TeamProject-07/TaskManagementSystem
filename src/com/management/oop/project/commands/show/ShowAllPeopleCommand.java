@@ -8,6 +8,7 @@ import com.management.oop.project.utils.ListingHelpers;
 import java.util.List;
 
 public class ShowAllPeopleCommand implements Command {
+    public static final String NO_REGISTERED_PEOPLE = "There are no registered people.";
     private final List<Person> people;
 
     public ShowAllPeopleCommand(TaskManagementSystemRepository taskManagementSystemRepository) {
@@ -17,7 +18,7 @@ public class ShowAllPeopleCommand implements Command {
     @Override
     public String execute(List<String> parameters) {
         if (people.isEmpty()) {
-            return "There are no registered people.";
+            return NO_REGISTERED_PEOPLE;
         }
         return ListingHelpers.getAsString(people);
     }

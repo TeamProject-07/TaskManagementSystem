@@ -29,6 +29,7 @@ public class ParsingHelpers {
 
         return Boolean.parseBoolean(valueToParse);
     }
+
     public static <E extends Enum<E>> E tryParseEnum(String valueToParse, Class<E> type) {
         try {
             return Enum.valueOf(type, valueToParse.replace(" ", "_").toUpperCase());
@@ -36,7 +37,4 @@ public class ParsingHelpers {
             throw new IllegalArgumentException(String.format(NO_SUCH_ENUM, valueToParse, type.getSimpleName()));
         }
     }
-    //TODO In commandFactory-enum and ChangePriorityOfBug enum
-
-
 }

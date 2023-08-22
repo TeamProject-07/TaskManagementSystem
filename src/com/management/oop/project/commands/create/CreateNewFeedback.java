@@ -10,6 +10,7 @@ import com.management.oop.project.utils.ValidationHelpers;
 import java.util.List;
 
 public class CreateNewFeedback implements Command {
+    public static final String FEEDBACK_CREATED = "Feedback with ID %d was created.";
     private String boardName;
     private String title;
 
@@ -31,8 +32,13 @@ public class CreateNewFeedback implements Command {
     public String execute(List<String> parameters) {
         ValidationHelpers.validateArgumentsCount(parameters, EXPECTED_NUMBER_OF_PARAMETERS);
         parseParameters(parameters);
-        Feedback createdFeedback = taskManagementSystemRepository.createFeedback(boardName, title, description, rating, feedbackStatusEnum);
-        return String.format("Feedback with ID %d was created.", createdFeedback.getId());
+        Feedback createdFeedback = taskManagementSystemRepository.createFeedback(
+                boardName,
+                title,
+                description,
+                rating,
+                feedbackStatusEnum);
+        return String.format(FEEDBACK_CREATED, createdFeedback.getId());
     }
 
     private void parseParameters(List<String> parameters) {

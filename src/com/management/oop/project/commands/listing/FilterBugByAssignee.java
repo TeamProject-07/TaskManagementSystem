@@ -27,7 +27,7 @@ public class FilterBugByAssignee implements Command {
         return ListingHelpers.getAsString(filterBugByAssignee(person));
     }
 
-    private List<Assignable> filterBugByAssignee(Person assignee){
+    private List<Assignable> filterBugByAssignee(Person assignee) {
         return taskManagementSystemRepository.getAllBugs()
                 .stream()
                 .filter(bug -> bug.getAssignee() != null)
