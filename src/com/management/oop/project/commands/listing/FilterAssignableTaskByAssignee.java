@@ -30,6 +30,7 @@ public class FilterAssignableTaskByAssignee implements Command {
     private List<Assignable> filterAssignableTask(Person assignee){
         return taskManagementSystemRepository.getTasksWithAssignee()
                 .stream()
+                .filter(story -> story.getAssignee() != null)
                 .filter(task -> task.getAssignee().equals(assignee))
                 .collect(Collectors.toList());
     }

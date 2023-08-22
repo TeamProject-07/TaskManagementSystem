@@ -54,14 +54,14 @@ public class FilterBugByAssigneeTest {
         // Act, Assert
         Assertions.assertThrows(IllegalArgumentException.class, () -> filterBugByAssignee.execute(parameters));
     }
-//    @Test
-//    public void should_ReturnTask_WhenArgumentsAreValid(){
-//        //Arrange
-//        List<String> parameters=new ArrayList<>();
-//        parameters.add("personName");
-//        //Act
-//        String result=filterBugByAssignee.execute(parameters);
-//        //Assert
-//        Assertions.assertTrue(result.contains("validTitle2"));
-//    }
+    @Test
+    public void should_ReturnTask_WhenArgumentsAreValid(){
+        //Arrange
+        List<String> parameters=new ArrayList<>();
+        parameters.add("personName");
+        //Act
+        String result=filterBugByAssignee.execute(parameters);
+        //Assert
+        Assertions.assertTrue(result.contains("validTitle2"));
+    }
 }
