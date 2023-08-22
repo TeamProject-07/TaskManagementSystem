@@ -30,7 +30,6 @@ public class ShowTeamsActivityCommandTest {
     @Test
     public void execute_Should_ReturnOutput_When_ValidParameters() {
         // Arrange
-        Team team = new TeamImpl(TaskBaseConstants.VALID_TEAM_NAME);
         taskManagementSystemRepository.createTeam(TaskBaseConstants.VALID_TEAM_NAME);
 
         // Act

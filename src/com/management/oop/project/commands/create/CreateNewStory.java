@@ -21,7 +21,7 @@ public class CreateNewStory implements Command {
     private StoryStatusEnum status;
 
     public static final int EXPECTED_NUMBER_OF_ARGUMENTS = 6;
-    private TaskManagementSystemRepository taskManagementSystemRepository;
+    private final TaskManagementSystemRepository taskManagementSystemRepository;
 
     public CreateNewStory(TaskManagementSystemRepository taskManagementSystemRepository) {
         this.taskManagementSystemRepository = taskManagementSystemRepository;

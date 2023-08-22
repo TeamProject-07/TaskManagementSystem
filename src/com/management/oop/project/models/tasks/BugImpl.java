@@ -1,7 +1,6 @@
 package com.management.oop.project.models.tasks;
 
 import com.management.oop.project.models.EventLogImpl;
-import com.management.oop.project.models.PersonImpl;
 import com.management.oop.project.models.contracts.Assignable;
 import com.management.oop.project.models.contracts.Bug;
 import com.management.oop.project.models.contracts.Person;
@@ -12,11 +11,10 @@ import com.management.oop.project.models.enums.PriorityEnum;
 import java.util.List;
 
 public class BugImpl extends TaskBase implements Bug, Assignable {
-    public static final String BUG_CREATED = "Bug with ID:%d was created.";
     public static final String STATUS_WAS_CHANGED = "Status was changed.";
     public static final String PRIORITY_WAS_CHANGED = "Priority was changed.";
     public static final String SEVERITY_WAS_CHANGED = "Severity was changed.";
-    private List<String> steps;
+    private final List<String> steps;
     private PriorityEnum priorityEnum;
     private BugSeverityEnum bugSeverityEnum;
     private  BugStatusEnum status;
@@ -31,7 +29,6 @@ public class BugImpl extends TaskBase implements Bug, Assignable {
         this.priorityEnum = priorityEnum;
         this.bugSeverityEnum = bugSeverityEnum;
         this.status = BugStatusEnum.ACTIVE;
-        addHistory(new EventLogImpl(String.format(BUG_CREATED, getId())));
     }
 
     @Override

@@ -12,7 +12,6 @@ public class StoryImpl extends TaskBase implements Story, Assignable {
     public static final String STATUS_WAS_CHANGED = "Status was changed";
     public static final String SIZE_WAS_CHANGED = "Size was changed";
     public static final String PRIORITY_WAS_CHANGED = "Priority was changed";
-    public static final String STORY_CREATED = "Story with ID:%d was created";
     private PriorityEnum priorityEnum;
     private StorySizeEnum storySizeEnum;
     private StoryStatusEnum storyStatusEnum;
@@ -24,7 +23,6 @@ public class StoryImpl extends TaskBase implements Story, Assignable {
         this.priorityEnum = priorityEnum;
         this.storySizeEnum = storySizeEnum;
         this.storyStatusEnum = storyStatusEnum;
-        addHistory(new EventLogImpl(String.format(STORY_CREATED, getId())));
     }
 
     public PriorityEnum getPriorityEnum() {

@@ -9,7 +9,7 @@ import java.util.List;
 
 public class FilterAllTasksByTitle implements Command {
     public static final int EXPECTED_NUMBER_OF_ARGUMENTS = 1;
-    private TaskManagementSystemRepository taskManagementSystemRepository;
+    private final TaskManagementSystemRepository taskManagementSystemRepository;
 
     public FilterAllTasksByTitle(TaskManagementSystemRepository taskManagementSystemRepository) {
         this.taskManagementSystemRepository = taskManagementSystemRepository;

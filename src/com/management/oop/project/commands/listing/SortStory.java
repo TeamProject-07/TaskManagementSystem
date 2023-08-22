@@ -11,8 +11,8 @@ import java.util.List;
 public class SortStory implements Command {
 
     public static final int EXPECTED_NUMBER_OF_ARGUMENTS = 0;
-    TaskManagementSystemRepository taskManagementSystemRepository;
-    private List<Story> stories;
+    private final TaskManagementSystemRepository taskManagementSystemRepository;
+    private final List<Story> stories;
 
 
     public SortStory(TaskManagementSystemRepository taskManagementSystemRepository) {

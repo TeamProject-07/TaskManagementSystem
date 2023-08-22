@@ -14,7 +14,7 @@ public class
 CreateNewBug implements Command {
     public static final int EXPECTED_NUMBER_OF_PARAMETERS = 6;
     public static final String BUG_CREATED = "Bug with ID %d was created.";
-    private TaskManagementSystemRepository taskManagementSystemRepository;
+    private final TaskManagementSystemRepository taskManagementSystemRepository;
 
     public CreateNewBug(TaskManagementSystemRepository taskManagementSystemRepository) {
         this.taskManagementSystemRepository = taskManagementSystemRepository;

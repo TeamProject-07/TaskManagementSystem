@@ -24,7 +24,6 @@ public class FilterFeedbackByStatusTest {
     private TaskManagementSystemRepository taskManagementSystemRepository;
     private Command filterFeedbackByStatus;
 
-    private Feedback feedback;
 
     @BeforeEach
     public void before() {
@@ -35,12 +34,6 @@ public class FilterFeedbackByStatusTest {
         taskManagementSystemRepository.createBoard(
                 TaskBaseConstants.VALID_BOARD_NAME,
                 TaskBaseConstants.VALID_TEAM_NAME);
-        feedback = new FeedbackImpl(
-                TaskBaseConstants.VALID_ID,
-                TaskBaseConstants.VALID_TITLE,
-                TaskBaseConstants.VALID_DESCRIPTION,
-                TaskBaseConstants.VALID_RATING,
-                FeedbackStatusEnum.NEW);
     }
 
     @Test

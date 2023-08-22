@@ -10,8 +10,8 @@ import java.util.List;
 
 public class SortFeedback implements Command {
     public static final int EXPECTED_NUMBER_OF_ARGUMENTS = 0;
-    TaskManagementSystemRepository taskManagementSystemRepository;
-    private List<Feedback> feedbacks;
+    private final TaskManagementSystemRepository taskManagementSystemRepository;
+    private final List<Feedback> feedbacks;
 
     public SortFeedback(TaskManagementSystemRepository taskManagementSystemRepository) {
         this.taskManagementSystemRepository = taskManagementSystemRepository;

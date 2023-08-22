@@ -32,7 +32,10 @@ public class CommentImpl implements Comment {
     }
 
     public String toString() {
-        return String.format("Note: %s\n" + "By: %s\n",
+        return String.format("""
+                        Note: %s
+                        By: %s
+                        """,
                 message, author);
     }
 }

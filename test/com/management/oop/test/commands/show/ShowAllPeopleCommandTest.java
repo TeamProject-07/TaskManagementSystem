@@ -23,10 +23,7 @@ public class ShowAllPeopleCommandTest {
 
     @Test
     public void execute_Should_ReturnRegisteredPeople_When_PeopleExist(){
-    // Arrange
-    List<String> parameters = new ArrayList<>();
-
-    // Act
+    // Arrange, Act
     String result = showAllPeopleCommand.execute(parameters);
 
     // Assert
@@ -35,10 +32,7 @@ public class ShowAllPeopleCommandTest {
 }
     @Test
     public void execute_Should_ReturnNoRegisteredPeople_When_PeopleDoNotExist() {
-        // Arrange
-        List<String> parameters = new ArrayList<>();
-
-        // Act
+        // Arrange, Act
         String result = showAllPeopleCommand.execute(parameters);
 
         // Assert

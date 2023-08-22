@@ -88,18 +88,6 @@ public abstract class TaskBase implements Task {
         return new ArrayList<>(comments);
     }
 
-    private void setComments(List<Comment> comments) {
-        this.comments = comments;
-    }
-
-    public List<EventLog> getHistories() {
-        return new ArrayList<>(histories);
-    }
-
-    private void setHistories(List<EventLog> histories) {
-        this.histories = histories;
-    }
-
     @Override
     public String getAsString() {
         return String.format("""

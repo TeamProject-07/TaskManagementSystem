@@ -16,7 +16,7 @@ public class ChangeBugCommand implements Command {
     public static final String SEVERITY_CHANGED = "Severity was changed to %s.";
     public static final String STATUS_CHANGED = "Status was changed to %s.";
     public static final String INVALID_TYPE = "Invalid field type %s.";
-    private TaskManagementSystemRepository taskManagementSystemRepository;
+    private final TaskManagementSystemRepository taskManagementSystemRepository;
 
     public ChangeBugCommand(TaskManagementSystemRepository taskManagementSystemRepository) {
         this.taskManagementSystemRepository = taskManagementSystemRepository;

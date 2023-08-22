@@ -14,7 +14,7 @@ public class AddCommentToATask implements Command {
     public static final int EXPECTED_NUMBER_OF_ARGUMENTS = 3;
     public static final String COMMENT_ADDED = "Comment added to task with ID %d";
     public static final String THERE_IS_DOES_NOT_TASK = "There is no task with this id %d";
-    private TaskManagementSystemRepository taskManagementSystemRepository;
+    private final TaskManagementSystemRepository taskManagementSystemRepository;
 
     public AddCommentToATask(TaskManagementSystemRepository taskManagementSystemRepository) {
         this.taskManagementSystemRepository = taskManagementSystemRepository;

@@ -12,18 +12,16 @@ public class SortAllTasksByTitle implements Command {
 
     public static final int EXPECTED_NUMBER_OF_ARGUMENTS = 0;
 
-    private TaskManagementSystemRepository taskManagementSystemRepository;
-    private List<Task> tasks;
+    private final TaskManagementSystemRepository taskManagementSystemRepository;
 
     public SortAllTasksByTitle(TaskManagementSystemRepository taskManagementSystemRepository) {
         this.taskManagementSystemRepository = taskManagementSystemRepository;
-        this.tasks = taskManagementSystemRepository.getAllTasks();
     }
 
     @Override
     public String execute(List<String> parameters) {
         ValidationHelpers.validateArgumentsCount(parameters, EXPECTED_NUMBER_OF_ARGUMENTS);
-        return tasks
+        return taskManagementSystemRepository.getAllTasks()
                 .stream()
                 .sorted(Comparator.comparing(Task::getTitle))
                 .map(Task::getTitle)

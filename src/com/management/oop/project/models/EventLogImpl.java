@@ -8,8 +8,8 @@ import java.time.format.DateTimeFormatter;
 public class EventLogImpl implements EventLog {
     public static final String DESCRIPTION_CANNOT_BE_EMPTY = "Description cannot be empty";
     private final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MMMM-yyyy HH:mm:ss");
-    private String description;
-    private LocalDateTime timestamp;
+    private final String description;
+    private final LocalDateTime timestamp;
 
     public EventLogImpl(String description) {
         if (description.isEmpty()) {
@@ -17,10 +17,6 @@ public class EventLogImpl implements EventLog {
         }
         this.description = description;
         this.timestamp = LocalDateTime.now();
-    }
-
-    public String getDescription() {
-        return description;
     }
 
     @Override

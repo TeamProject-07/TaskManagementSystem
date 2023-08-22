@@ -11,13 +11,12 @@ import java.util.List;
 public class SortBug implements Command {
     public static final int EXPECTED_NUMBER_OF_ARGUMENTS = 0;
 
-    TaskManagementSystemRepository taskManagementSystemRepository;
-    private List<Bug> bugs;
+    private final TaskManagementSystemRepository taskManagementSystemRepository;
+    private final List<Bug> bugs;
 
     public SortBug(TaskManagementSystemRepository taskManagementSystemRepository) {
         this.taskManagementSystemRepository = taskManagementSystemRepository;
         this.bugs = taskManagementSystemRepository.getAllBugs();
-
     }
 
     @Override

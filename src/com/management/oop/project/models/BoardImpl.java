@@ -10,9 +10,9 @@ public class BoardImpl implements Board {
     public static final int BOARD_NAME_MIN_LENGTH = 5;
     public static final int BOARD_NAME_MAX_LENGTH = 10;
     public static final String BOARD_WAS_CREATED = "Board with name %s was created";
-    public static final String BUG_WAS_CREATED = "Bug was created";
-    public static final String STORY_WAS_CREATED = "Story was created";
-    public static final String FEEDBACK_WAS_CREATED = "Feedback was created";
+    public static final String BUG_WAS_CREATED = "Bug with ID:%d was created";
+    public static final String STORY_WAS_CREATED = "Story with ID:%d was created";
+    public static final String FEEDBACK_WAS_CREATED = "Feedback with ID:%d was created";
     public static final String ERROR_NAME_MESSAGE = "Name should be between 5 and 10 symbols.";
     private String name;
     private final List<Bug> bugs;
@@ -32,19 +32,19 @@ public class BoardImpl implements Board {
     @Override
     public void addBug(Bug bug) {
         this.bugs.add(bug);
-        histories.add(new EventLogImpl(BUG_WAS_CREATED));
+        histories.add(new EventLogImpl(String.format(BUG_WAS_CREATED, bug.getId())));
     }
 
     @Override
     public void addStory(Story story) {
         this.stories.add(story);
-        histories.add(new EventLogImpl(STORY_WAS_CREATED));
+        histories.add(new EventLogImpl(String.format(STORY_WAS_CREATED, story.getId())));
     }
 
     @Override
     public void addFeedback(Feedback feedback) {
         this.feedbacks.add(feedback);
-        histories.add(new EventLogImpl(FEEDBACK_WAS_CREATED));
+        histories.add(new EventLogImpl(String.format(FEEDBACK_WAS_CREATED, feedback.getId())));
     }
 
     @Override

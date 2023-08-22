@@ -17,12 +17,10 @@ public class CreateTeamCommandTest {
     public static final int EXPECTED_NUMBER_OF_ARGUMENTS = 1;
     private TaskManagementSystemRepository taskManagementSystemRepository;
     private Command createTeamCommand;
-    private Team team;
     @BeforeEach
     public void before() {
         taskManagementSystemRepository = new TaskManagementSystemRepositoryImpl();
         createTeamCommand = new CreateTeamCommand(taskManagementSystemRepository);
-        this.team=new TeamImpl("teamName");
     }
     @Test
     public void should_ThrowException_When_ArgumentCountInvalid() {

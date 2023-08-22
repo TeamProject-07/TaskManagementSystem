@@ -10,7 +10,7 @@ import java.util.List;
 
 public class SortTasksWithAssigneeByTitle implements Command {
     public static final int EXPECTED_NUMBER_OF_ARGUMENTS = 0;
-    private TaskManagementSystemRepository taskManagementSystemRepository;
+    private final TaskManagementSystemRepository taskManagementSystemRepository;
 
     public SortTasksWithAssigneeByTitle(TaskManagementSystemRepository taskManagementSystemRepository) {
         this.taskManagementSystemRepository = taskManagementSystemRepository;

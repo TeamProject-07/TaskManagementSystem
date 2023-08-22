@@ -4,9 +4,6 @@ import com.management.oop.project.commands.contracts.Command;
 import com.management.oop.project.commands.listing.FilterBugByStatus;
 import com.management.oop.project.core.TaskManagementSystemRepositoryImpl;
 import com.management.oop.project.core.contracts.TaskManagementSystemRepository;
-import com.management.oop.project.models.contracts.Bug;
-import com.management.oop.project.models.enums.BugSeverityEnum;
-import com.management.oop.project.models.enums.PriorityEnum;
 import com.management.oop.project.utils.ListingHelpers;
 import com.management.oop.test.utils.TaskBaseConstants;
 import com.management.oop.test.utils.TestUtilities;
@@ -20,27 +17,17 @@ import java.util.List;
 public class FilterBugByStatusTest {
     public static final int EXPECTED_NUMBER_OF_ARGUMENTS = 1;
     private List<String> parameters;
-    private List<String> steps;
     private TaskManagementSystemRepository taskManagementSystemRepository;
     private Command filterBugByStatus;
-    private Bug bug;
 
     @BeforeEach
     public void before() {
         parameters = new ArrayList<>();
-        steps = new ArrayList<>();
         taskManagementSystemRepository = new TaskManagementSystemRepositoryImpl();
         filterBugByStatus = new FilterBugByStatus(taskManagementSystemRepository);
         taskManagementSystemRepository.createTeam(TaskBaseConstants.VALID_TEAM_NAME);
         taskManagementSystemRepository.createBoard(TaskBaseConstants.VALID_BOARD_NAME,
                 TaskBaseConstants.VALID_TEAM_NAME);
-        bug = taskManagementSystemRepository.createBug(
-                TaskBaseConstants.VALID_BOARD_NAME,
-                TaskBaseConstants.VALID_TITLE,
-                TaskBaseConstants.VALID_DESCRIPTION,
-                TaskBaseConstants.STEPS,
-                PriorityEnum.HIGH,
-                BugSeverityEnum.MAJOR);
     }
 
     @Test

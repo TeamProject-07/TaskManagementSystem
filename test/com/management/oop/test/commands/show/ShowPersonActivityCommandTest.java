@@ -4,8 +4,6 @@ import com.management.oop.project.commands.contracts.Command;
 import com.management.oop.project.commands.show.ShowPersonActivityCommand;
 import com.management.oop.project.core.TaskManagementSystemRepositoryImpl;
 import com.management.oop.project.core.contracts.TaskManagementSystemRepository;
-import com.management.oop.project.models.PersonImpl;
-import com.management.oop.project.models.contracts.Person;
 import com.management.oop.test.utils.TaskBaseConstants;
 import com.management.oop.test.utils.TestUtilities;
 import org.junit.jupiter.api.Assertions;
@@ -18,13 +16,11 @@ public class ShowPersonActivityCommandTest {
     public static final int EXPECTED_NUMBER_OF_ARGUMENTS = 1;
     private TaskManagementSystemRepository taskManagementSystemRepository;
     private Command showPersonActivity;
-    private Person person;
 
     @BeforeEach
     public void before() {
         taskManagementSystemRepository = new TaskManagementSystemRepositoryImpl();
         showPersonActivity = new ShowPersonActivityCommand(taskManagementSystemRepository);
-        this.person = new PersonImpl(TaskBaseConstants.VALID_PERSON_NAME);
         taskManagementSystemRepository.createPerson(TaskBaseConstants.VALID_PERSON_NAME);
     }
 

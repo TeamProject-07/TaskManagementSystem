@@ -13,18 +13,6 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class StoryImplTests {
-
-    //public static final int VALID_ID = 1;
-
-    @Test
-    public void StoryImpl_Should_ImplementStoryInterface() {
-        // Arrange, Act
-        StoryImpl story = initializeTestStory();
-        // Assert
-        Assertions.assertTrue(true);
-    }
-
-
     @Test
     public void constructor_Should_ThrowException_When_TitleNameLengthOutOfBounds() {
         // Arrange, Act, Assert

@@ -25,11 +25,10 @@ public class FilterStoryByStatusAndAssigneeTest {
     private List<String> parameters;
     private TaskManagementSystemRepository taskManagementSystemRepository;
     private FilterStoryByStatusAndAssignee filterStoryByStatusAndAssignee;
-    private Task task1;
-    private Task task2;
+
 
     @BeforeEach
-    public void before(){
+    public void before() {
         parameters = new ArrayList<>();
         taskManagementSystemRepository = new TaskManagementSystemRepositoryImpl();
         filterStoryByStatusAndAssignee = new FilterStoryByStatusAndAssignee(taskManagementSystemRepository);
@@ -37,7 +36,7 @@ public class FilterStoryByStatusAndAssigneeTest {
         taskManagementSystemRepository.createBoard(
                 TaskBaseConstants.VALID_BOARD_NAME,
                 TaskBaseConstants.VALID_TEAM_NAME);
-        this.task1= taskManagementSystemRepository.createStory(
+        taskManagementSystemRepository.createStory(
                 TaskBaseConstants.VALID_BOARD_NAME,
                 TaskBaseConstants.VALID_TITLE_1,
                 TaskBaseConstants.VALID_DESCRIPTION,
@@ -45,7 +44,7 @@ public class FilterStoryByStatusAndAssigneeTest {
                 StorySizeEnum.LARGE,
                 StoryStatusEnum.IN_PROGRESS
         );
-        this.task2=taskManagementSystemRepository.createStory(
+        taskManagementSystemRepository.createStory(
                 TaskBaseConstants.VALID_BOARD_NAME,
                 TaskBaseConstants.VALID_TITLE,
                 TaskBaseConstants.VALID_DESCRIPTION,
@@ -53,11 +52,12 @@ public class FilterStoryByStatusAndAssigneeTest {
                 StorySizeEnum.LARGE,
                 StoryStatusEnum.DONE
         );
-        Assignable task=taskManagementSystemRepository.findAssignableTaskById(2);
-        Person person= taskManagementSystemRepository.createPerson(TaskBaseConstants.VALID_PERSON_NAME);
+        Assignable task = taskManagementSystemRepository.findAssignableTaskById(2);
+        Person person = taskManagementSystemRepository.createPerson(TaskBaseConstants.VALID_PERSON_NAME);
         task.assignTask(person);
         System.out.println();
     }
+
     @Test
     public void should_ThrowException_When_ArgumentCountInvalid() {
         // Arrange
@@ -67,14 +67,15 @@ public class FilterStoryByStatusAndAssigneeTest {
         Assertions.assertThrows(IllegalArgumentException.class,
                 () -> filterStoryByStatusAndAssignee.execute(parameters));
     }
+
     @Test
-    public void should_ReturnTask_WhenArgumentsAreValid(){
+    public void should_ReturnTask_WhenArgumentsAreValid() {
         //Arrange
-        List<String> parameters=new ArrayList<>();
+        List<String> parameters = new ArrayList<>();
         parameters.add(TaskBaseConstants.VALID_PERSON_NAME);
         parameters.add("DONE");
         //Act
-        String result=filterStoryByStatusAndAssignee.execute(parameters);
+        String result = filterStoryByStatusAndAssignee.execute(parameters);
         //Assert
         Assertions.assertTrue(result.contains(TaskBaseConstants.VALID_TITLE));
     }

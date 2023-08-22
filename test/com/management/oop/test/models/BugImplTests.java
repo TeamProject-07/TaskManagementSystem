@@ -23,9 +23,7 @@ public class BugImplTests {
 
     @Test
     public void constructor_Should_Throw_Exception_WhenTitleInvalid() {
-        //Arrange
-        List<String> steps = new ArrayList<>();
-        //Act, Assert
+        //Arrange, Act, Assert
         Assertions.assertThrows(IllegalArgumentException.class, () ->
                 new BugImpl(
                         TaskBaseConstants.VALID_ID,
@@ -39,9 +37,7 @@ public class BugImplTests {
 
     @Test
     public void constructor_Should_Throw_Exception_WhenDescriptionInvalid() {
-        //Arrange
-        List<String> steps = new ArrayList<>();
-        //Act, Assert
+        //Arrange, Act, Assert
         Assertions.assertThrows(IllegalArgumentException.class, () ->
                 new BugImpl(
                         TaskBaseConstants.VALID_ID,

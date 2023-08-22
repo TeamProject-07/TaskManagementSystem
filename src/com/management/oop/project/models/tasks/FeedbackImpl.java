@@ -13,7 +13,6 @@ public class FeedbackImpl extends TaskBase implements Feedback {
 
     public static final String RATING_ERROR_MESSAGE = "Rating needs to be between 0 and 100";
     public static final String STATUS_WAS_CHANGED = "Status was changed";
-    public static final String RATING_WAS_CHANGED = "Rating was changed.";
     public static final String FEEDBACK_CREATED = "Feedback with ID:%d was created.";
 
     private int rating;
@@ -46,7 +45,6 @@ public class FeedbackImpl extends TaskBase implements Feedback {
                 MIN_RATING, MAX_RATING,
                 RATING_ERROR_MESSAGE);
         this.rating = rating;
-        addHistory(new EventLogImpl(RATING_WAS_CHANGED));
     }
 
     public FeedbackStatusEnum getStatus() {

@@ -34,8 +34,8 @@ public class ShowTeamsActivityCommand implements Command {
         if (histories.size() == 0) {
             throw new IllegalArgumentException(DO_NOT_ACTIVITY);
         }
-        for (int i = 0; i < histories.size(); i++) {
-            result.append(String.format("%s ", histories.get(i))).append(System.lineSeparator());
+        for (EventLog history : histories) {
+            result.append(String.format("%s ", history)).append(System.lineSeparator());
         }
         return result.toString();
     }

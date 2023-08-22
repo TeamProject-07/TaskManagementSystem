@@ -13,7 +13,7 @@ public class ChangeFeedbackCommand implements Command {
     public static final String INVALID_TYPE = "Invalid field type %s.";
     public static final String STATUS_CHANGED = "Status was changed to %s";
     public static final String RATING_CHANGED = "Rating was changed to %d";
-    private TaskManagementSystemRepository taskManagementSystemRepository;
+    private final TaskManagementSystemRepository taskManagementSystemRepository;
 
     public ChangeFeedbackCommand(TaskManagementSystemRepository taskManagementSystemRepository) {
         this.taskManagementSystemRepository = taskManagementSystemRepository;

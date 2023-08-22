@@ -14,7 +14,7 @@ import java.util.stream.Collectors;
 public class FilterStoryByStatus implements Command {
 
     public static final int EXPECTED_NUMBER_OF_ARGUMENTS = 1;
-    TaskManagementSystemRepository taskManagementSystemRepository;
+    private final TaskManagementSystemRepository taskManagementSystemRepository;
 
     public FilterStoryByStatus(TaskManagementSystemRepository taskManagementSystemRepository) {
         this.taskManagementSystemRepository = taskManagementSystemRepository;

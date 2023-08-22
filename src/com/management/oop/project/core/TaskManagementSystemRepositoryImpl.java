@@ -288,8 +288,6 @@ public class TaskManagementSystemRepositoryImpl implements TaskManagementSystemR
         }
         return assigneeTask;
     }
-
-
 }
 
 

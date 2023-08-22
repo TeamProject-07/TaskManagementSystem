@@ -13,7 +13,7 @@ import java.util.stream.Collectors;
 
 public class FilterBugByStatus implements Command {
     public static final int EXPECTED_NUMBER_OF_ARGUMENTS = 1;
-    private TaskManagementSystemRepository taskManagementSystemRepository;
+    private final TaskManagementSystemRepository taskManagementSystemRepository;
 
     public FilterBugByStatus(TaskManagementSystemRepository taskManagementSystemRepository) {
         this.taskManagementSystemRepository = taskManagementSystemRepository;

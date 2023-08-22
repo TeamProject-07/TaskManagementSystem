@@ -16,7 +16,7 @@ public class ChangeStoryCommand implements Command {
     public static final String PRIORITY_CHANGED = "Priority was changed to %s.";
     public static final String SIZE_CHANGED = "Size was changed to %s.";
     public static final String STATUS_CHANGED = "Status was changed to %s.";
-    private TaskManagementSystemRepository taskManagementSystemRepository;
+    private final TaskManagementSystemRepository taskManagementSystemRepository;
 
     public ChangeStoryCommand(TaskManagementSystemRepository taskManagementSystemRepository) {
         this.taskManagementSystemRepository = taskManagementSystemRepository;
