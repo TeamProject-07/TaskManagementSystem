@@ -52,7 +52,6 @@ public class SortAllTasksByTitleTest {
                 PriorityEnum.HIGH,
                 BugSeverityEnum.CRITICAL);
     }
-
     @Test
     public void should_ThrowException_When_ArgumentCountInvalid() {
         //Arrange
