@@ -76,8 +76,7 @@ public class ShowAllTeamsMembersCommandTest {
     public void should_ThrowException_WhenTeamIsEmpty() {
         Team team = taskManagementSystemRepository.createTeam("EmptyTeam");
         String result = showAllTeamsMember.execute(List.of("EmptyTeam"));
-        Assertions.assertEquals("", result);
-
+        Assertions.assertEquals("Team with name EmptyTeam is empty.", result);
     }
 
     @Test
